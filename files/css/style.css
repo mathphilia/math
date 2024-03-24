@@ -18,12 +18,6 @@ body {
     }
 }
 
-@media screen and (max-width: 600px) {
-    body {
-        font-size: 0.75rem;
-    }
-}
-
 header {
     background-color: #ADA;
     background-image: url("../images/background.png");
