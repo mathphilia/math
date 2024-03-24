@@ -1,0 +1,275 @@
+@charset "utf-8";
+
+body {
+    background-color: #FFE;
+    display: grid; 
+    flex-direction: column;
+    font-family: serif;
+    gap: 0px;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: auto 1fr auto;
+    margin: 0;
+    min-height:100vh;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        grid-template-columns: 100% 0%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 0.75rem;
+    }
+}
+
+header {
+    background-color: #ADA;
+    background-image: url("../images/background.png");
+    background-position: center;
+    background-size: 5%;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+    grid-column: 1 / 3;
+    grid-row: 1;
+    padding: .5em 1em 0em;
+}
+
+aside {
+    background-color: #CCC;
+    grid-column: 2;
+    grid-row: 2;
+    margin-bottom: auto;
+    max-height: 90vh;
+    max-width: min(64em, 96%);
+    overflow-y: auto;
+    padding: 0.5em;
+    position: sticky;
+    top: 0;
+}
+
+@media screen and (max-width: 800px) {
+    aside {
+        display: none;
+    }
+}
+
+aside ::marker {
+    content: "・";
+}
+
+aside span {
+    font-size: 1.5em;
+}
+
+aside ul {
+    margin: 0;
+    padding-left: 1.5em;
+}
+
+main {
+    background-color: white;
+    border-right: 1px solid gray;
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0 1em;
+    max-width: min(64em, 96%);
+}
+
+footer {
+    background-color: black;
+    grid-column: 1 / 3;
+    grid-row: 3;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h2::after {
+    content: "";
+    border-top: .1em solid teal;
+    display: block;
+    width: 96%;
+}
+
+h3 {
+    border-left: 0.5em solid black;
+    background-color: #CCC;
+    font-size: 1.5em;
+    margin: 0.5em 0em;
+    padding-left: 0.5em;
+}
+
+h4 {
+    margin-bottom: 0;
+    width: fit-content;
+}
+
+h4::after {
+    content: "";
+    border-top: .1em solid black;
+    display: block;
+}
+
+div.adjacent {
+    display: flex;
+    flex-direction: row;
+    padding: 1em 0;
+}
+
+@media screen and (max-width: 800px) {
+    div.adjacent {
+        flex-direction: column;
+    }
+}
+
+div.adjacent img, ul#article-list img {
+    margin: 0em 1rem;
+    height: 4em;
+}
+
+div.adjacent a, ul#article-list a {
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 1em;
+    color: black;
+    display: flex;
+    flex: 1;
+    font-weight: bold;
+    height: 4rem;
+    margin: 2px;
+    padding: .5rem;
+    text-decoration: none;
+}
+
+a.prev {
+    background-image: url("../images/prev.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+a.prev::before {
+    color: blue;
+    content: "⮜";
+    font-size: 2em;
+}
+
+a.next {
+    background-image: url("../images/next.png");
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    flex-direction: row-reverse;
+}
+
+a.next::before {
+    color: blue;
+    content: "⮞";
+    font-size: 2em;
+}
+
+ul#article-list {
+    padding: 0;
+}
+
+ul#article-list a {
+    max-width: max(36em,80%);
+}
+
+img.copy {
+    display: inline;
+    margin-left: 0.3em;
+    visibility: hidden;
+    height: .7em;
+}
+
+img.copy:hover {
+    cursor: pointer;
+}
+
+h2:hover img.copy, h3:hover img.copy {
+    visibility: visible;
+}
+
+a, a:visited {
+    color: #06C;
+    text-decoration: none;
+}
+
+a:active {
+    color: red;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.text {
+    color: black;
+}
+
+a.text:hover {
+    text-decoration: none;
+}
+
+div.figure {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+    align-items: center;
+}
+
+div.figure img {
+    max-width: min(500px,96%);
+}
+
+div.figure span::before {
+    content: "▲ ";
+}
+
+p {
+    text-indent: 1em;
+    margin: 0;
+}
+
+strong {
+    color: red;
+}
+
+ol#ref-list {
+    counter-reset: index;
+    list-style-type: none;
+    padding-left: 1em;
+}
+
+ol#ref-list li::before {
+    counter-increment: index;
+    content: "[" counter(index) "]";
+    padding-right: 0.5em;
+}
+
+code {
+    background-color: #DEF;
+    border-radius: 0.2em;
+    font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;
+    padding: 0.1em;
+}
+
+mjx-container {
+    overflow: auto hidden;
+    scrollbar-width: none;
+    -ms-overflow-style
+}
+
+mjx-container::-webkit-scrollbar {
+    display: none;
+}

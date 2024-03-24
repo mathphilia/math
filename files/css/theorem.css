@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+div.box {
+    margin: 1em 0em;
+}
+
+div.box .content {
+    padding: 1em;
+}
+
+div.box .title {
+    font-weight: bold;
+    padding: 0.3em;
+}
+
+div.box .title::before {
+    padding-right: 1em;
+}
+
+div.definition .title a, div.problem .title a, div.theorem .title a, div.remark .title a {
+    color: #7BF;
+}
+
+div.definition {
+    background-color: #DDF;
+    border-left: 0.3em solid blue;
+    counter-increment: definition;
+}
+
+div.definition .title::before {
+    content: "定義" counter(definition);
+}
+
+div.definition.chapter .title::before {
+    content: "定義" counter(chapter) "." counter(definition);
+}
+
+div.definition .title {
+    background-color: blue;
+    color: white;
+}
+
+div.example {
+    background-color: #FFD;
+    padding-left: 0.3em;
+}
+
+div.example .title::before {
+    content: "例";
+    text-decoration: underline;
+}
+
+div.example .title {
+    color: black;
+}
+
+div.example .content {
+    padding: 0.5em;
+}
+
+div.lemma {
+    background-color: #DFF;
+    border-left: 0.3em solid cyan;
+    counter-increment: lemma;
+}
+
+div.lemma .title::before {
+    content: "補題" counter(lemma);
+}
+
+div.lemma.chapter .title::before {
+    content: "補題" counter(chapter) "." counter(lemma);
+}
+
+div.lemma .title {
+    background-color: cyan;
+    color: black;
+}
+
+div.problem {
+    background-color: #FEF;
+    border-left: 0.3em solid purple;
+    counter-increment: problem;
+}
+
+div.problem .title::before {
+    content: "問題" counter(problem);
+}
+
+div.problem.chapter .title::before {
+    content: "問題" counter(chapter) "." counter(problem);
+}
+
+div.problem .title {
+    background-color: purple;
+    color: white;
+}
+
+div.proof {
+    background-color: rgb(230,230,230);
+    border-left: 0.3em solid gray;
+}
+
+div.proof .title::before {
+    content: "証明";
+    text-decoration: underline;
+}
+
+div.proof .title {
+    border-bottom: 0.1em dotted gray;
+    color: black;
+}
+
+div.proof .content {
+    padding: 0.5em;
+    position: relative;
+}
+
+div.proof .content::after {
+    bottom: 0.5em;
+    content: "∎";
+    display: block;
+    position: absolute;
+    right: 1em;
+}
+
+div.proposition {
+    background-color: #FED;
+    border-left: 0.3em solid orange;
+    counter-increment: proposition;
+}
+
+div.proposition .title::before {
+    content: "命題" counter(proposition);
+}
+
+div.proposition.chapter .title::before {
+    content: "命題" counter(chapter) "." counter(proposition);
+}
+
+div.proposition .title {
+    background-color: orange;
+    color: black;
+}
+
+div.theorem {
+    background-color: #DFD;
+    border-left: 0.3em solid green;
+    counter-increment: theorem;
+}
+
+div.theorem .title::before {
+    content: "定理" counter(theorem);
+}
+
+div.theorem.chapter .title::before {
+    content: "定理" counter(chapter) "." counter(theorem);
+}
+
+div.theorem .title {
+    background-color: green;
+    color: white;
+}
+
+div.remark {
+    background-color: #FDD;
+    border-left: 0.3em solid red;
+}
+
+div.remark .title::before {
+    content: "注意";
+}
+
+div.remark .title {
+    background-color: red;
+    color: white;
+}
