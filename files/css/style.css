@@ -159,7 +159,7 @@ a.prev {
 
 a.prev::before {
     color: blue;
-    content: "⮜";
+    content: "☜";
     font-size: 2em;
 }
 
@@ -173,7 +173,7 @@ a.next {
 
 a.next::before {
     color: blue;
-    content: "⮞";
+    content: "☞";
     font-size: 2em;
 }
 
