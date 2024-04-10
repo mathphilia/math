@@ -79,7 +79,7 @@ onload = function()  {
         }
         let parent = elem.parentElement
         elem.onclick = function() {
-            navigator.clipboard.writeText(window.location.pathname + (index ? '#' : '') + parent.id);
+            navigator.clipboard.writeText(location.origin + location.pathname + (index ? '#' : '') + parent.id);
             elem.src = '/math/files/images/copied.png';
             setTimeout(() => {
                 elem.src = '/math/files/images/copy.png';
