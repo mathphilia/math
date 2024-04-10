@@ -17,12 +17,8 @@
     <script src="../thumbnail/thumbnail.json.js"></script>
     <script src="/math/files/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/latex.min.js"></script>
-    <script>hljs.highlightAll();</script>
     <link rel="stylesheet" href="/math/files/css/style.css" />
     <link rel="stylesheet" href="/math/files/css/theorem.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
     <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
 </head>
 <body>
@@ -144,7 +140,7 @@ $$\{x_n\}\sim\{y_n\}\defiff\dlim_{n\to\infty}(x_n-y_n)=0$$
     <div class="title"></div>
     <div class="content">
     <p>$\{f_n\}+I\in\bar{R[x]}$をとると、$\{f_n\}$がCauchy列であることから任意の非負整数$k$に対して$N_k\in\mathbb N$が存在し、
-    $${}^\forall m,n\in\mathbb N\;N_k\lt m,n\Longrightarrow|f_m-f_n|\lt x^k$$
+    $${}^\forall m,n\in\mathbb N;\;N_k\lt m,n\Longrightarrow|f_m-f_n|\lt x^k$$
     が成り立つ。したがって$\{f_n\}$の第$N_k$項より後は$k$次の係数が一定値となる。よって$a_k$を$f_{N_k+1}$の$k$次の係数とすればこれは$N_k$の取り方に依らず、しかも代表元$\{f_n\}$の取り方にも依らず定まる。この$a_k$を用いて
     $$\varphi:\bar{R[x]}\to R[[x]],\{f_n\}+I\mapsto a_0+a_1x+a_2x^2+\dots$$
     を考えると、これはwell-definedな同型写像である。</p>

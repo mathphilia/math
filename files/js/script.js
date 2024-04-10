@@ -13,6 +13,7 @@ onload = function()  {
         }
         elem.href = '../' + prevPageName;
         let thumbnail = new Image();
+        thumbnail.alt = prevPageTitle;
         thumbnail.src = `../thumbnail/${prevPageName}.png`;
         elem.appendChild(thumbnail);
         let titleSpan = document.createElement('span');
@@ -21,17 +22,18 @@ onload = function()  {
     });
 
     Array(...document.getElementsByClassName('next')).forEach(elem => {
-        let prevPageName = pages.pageName[pageIndex + 1];
-        let prevPageTitle = pages.pageTitle[pageIndex + 1];
-        if(prevPageName === undefined){
+        let nextPageName = pages.pageName[pageIndex + 1];
+        let nextPageTitle = pages.pageTitle[pageIndex + 1];
+        if(nextPageName === undefined){
             return;
         }
-        elem.href = '../' + prevPageName;
+        elem.href = '../' + nextPageName;
         let thumbnail = new Image();
-        thumbnail.src = `../thumbnail/${prevPageName}.png`;
+        thumbnail.alt = nextPageTitle;
+        thumbnail.src = `../thumbnail/${nextPageName}.png`;
         elem.appendChild(thumbnail);
         let titleSpan = document.createElement('span');
-        titleSpan.innerText = prevPageTitle;
+        titleSpan.innerText = nextPageTitle;
         elem.appendChild(titleSpan);
     });
 
@@ -41,6 +43,7 @@ onload = function()  {
             let articleA = document.createElement('a');
             articleA.href = pages.pageName[i];
             let thumbnail = new Image();
+            thumbnail.alt = pages.pageTitle[i];
             thumbnail.src = `thumbnail/${pages.pageName[i]}.png`;
             articleA.appendChild(thumbnail);
             let titleSpan = document.createElement('span');

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>円周率の無理性の証明</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="円周率が無理数であることを証明します。おまけとして円周率の2乗も。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/misc/thumbnail/without-log.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="円周率の無理性の証明" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/misc/without-log" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">その他</a> / 円周率の無理性の証明</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>円周率の無理性の証明</h2>
+<h3 id="introduction">はじめに</h3>
+<p>この記事の内容は<a href="https://ja.wikipedia.org/wiki/円周率の無理性の証明">同タイトルのWikipedia記事</a>を読めば大体書いてありますので、備忘録としての性質が強いです。</p>
+<h3 id="proof">証明</h3>
+<p>この証明は定積分
+$$I_n=\int_0^1x^n(1-x)^n\sin\pi xdx$$
+を考えることから始まります。とりあえずこの積分の式さえ覚えておけばその後どうすればいいかは難なく思い出せるので、突然「円周率が無理数であることを証明せよ」と言われても安心です。</p>
+<p>多項式と$\sin$の積を積分する場合の王道手段である部分積分を使います。$f(x)=x^n(1-x)^n$とおくと、
+\begin{align*}
+I_n&=\left[f(x)\cdot-\frac1\pi\cos\pi x\right]_0^1+\frac1\pi\int_0^1f'(x)\cos\pi xdx\\
+&=\frac1\pi\Bigl(f(1)-f(0)\Bigr)+\frac1\pi\left[f'(x)\cdot\frac1\pi\sin\pi x\right]_0^1-\frac1{\pi^2}\int_0^1f''(x)\sin\pi xdx\\
+&=\frac1\pi\Bigl(f(1)-f(0)\Bigr)-\frac1{\pi^2}\int_0^1f''(x)\sin\pi xdx
+\end{align*}
+となり、右辺に$I_n$と似たような形の積分が現れました。したがって以下同様に処理を行えば、
+\begin{align*}
+I_n&=\frac1\pi\Bigl(f(1)-f(0)\Bigr)-\frac1{\pi^2}\int_0^1f''(x)\sin\pi xdx\\
+&=\frac1\pi\Bigl(f(1)-f(0)\Bigr)-\frac1{\pi^3}\Bigl(f''(1)-f''(0)\Bigr)+\frac1{\pi^4}\int_0^1f''''(x)\sin\pi xdx\\
+&=\frac1\pi\Bigl(f^{(0)}(1)-f^{(0)}(0)\Bigr)-\frac1{\pi^3}\Bigl(f^{(2)}(1)-f^{(2)}(0)\Bigr)+\frac1{\pi^5}\Bigl(f^{(4)}(1)-f^{(4)}(0)\Bigr)-\frac1{\pi^6}\int_0^1f^{(6)}(x)\sin\pi xdx\\
+&=\dots=\sum_{k=0}^m\frac{(-1)^k}{\pi^{2k+1}}\Bigl(f^{(2k)}(1)-f^{(2k)}(0)\Bigr)+\frac{(-1)^{m+1}}{\pi^{2(k+1)}}\int_0^1f^{(2(k+1))}(x)\sin\pi xdx
+\end{align*}
+が得られます。ここで、$f(x)$は$2n$次多項式でしたから$2n$回より多く微分すると$0$になります。よって
+$$I_n=\sum_{k=0}^n\frac{(-1)^k}{\pi^{2k+1}}\Bigl(f^{(2k)}(1)-f^{(2k)}(0)\Bigr)$$
+です。</p>
+<p>さて、$\pi$が有理数であると仮定し、$\pi=\dfrac pq$を満たすように正整数$p,q$をとります。このとき$\dfrac{p^{2n+1}}{n!}I_n$が$n$に依らず整数であることを証明しましょう。
+$$\frac{p^{2n+1}}{n!}I_n=\sum_{k=0}^n(-1)^k\cdot p^{2(n-k)}q^{2k+1}\left(\frac{f^{(2k)}(1)}{n!}-\frac{f^{(2k)}(0)}{n!}\right)$$
+ですから、$f^{(2k)}(0)$および$f^{(2k)}(1)$が$n!$の倍数であることを示せば十分です。$x^{2k}$を$2k$回微分すると$2k!$になりますから、$f^{(2k)}(0)$は$f(x)$の$2k$次の係数の$2k!$倍になります。$2k\lt n$のときは$f(x)$の$2k$次の係数が$0$であることから、$n\leqq2k$のときは$2k!$が$n!$の倍数であることから、いずれの場合でも$f^{(2k)}(0)$は$n!$の倍数になります。また、$f(x)=f(1-x)$であることから両辺を$2k$回微分すると$f^{(2k)}(x)=f^{(2k)}(1-x)$で、これに$x=0$を代入すれば$f^{(2k)}(1)$が$n!$の倍数であると分かります。</p>
+<p>ところで、$0\lt x\lt1$において$x^n,$ $(1-x)^n,$ $\sin\pi x$はいずれも$0$より大きく$1$より小さいので、それらの積を$0$から$1$まで積分した値である$I_n$も$0$より大きく$1$より小さいといえます。よって、
+$$0\lt\frac{p^{2n+1}}{n!}I_n\lt\frac{p^{2n+1}}{n!}$$
+です。ここで、右辺は$n\to\infty$で$0$に収束するので<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>、$n$が十分大きくなると$0\lt\dfrac{p^{2n+1}}{n!}I_n\lt1$となります。しかしこれは$\dfrac{p^{2n+1}}{n!}I_n$が整数であることに反します。</p>
+<p>以上より、円周率が無理数であることが示されました。</p>
+<h3 id="appendix">おまけ</h3>
+<p>おまけとして円周率の$2$乗が無理数であることを示しますが、中身は上の証明とほぼ同じです。途中までは全く同じで、
+$$I_n=\int_0^1x^n(1-x)^n\sin\pi xdx=\sum_{k=0}^n\frac{(-1)^k}{\pi^{2k+1}}\Bigl(f^{(2k)}(1)-f^{(2k)}(0)\Bigr)$$
+です。先程は$\pi$が無理数であると仮定して$\pi=\dfrac pq$を満たすように正整数$p,q$をとり、$\dfrac{p^{2n+1}}{n!}I_n$が$n$に依らず整数であることを証明しました。今回は$\pi^2$が無理数であると仮定して$\pi^2=\dfrac pq$を満たすように正整数$p,q$をとり、$\dfrac{p^n\pi}{n!}I_n$が$n$に依らず整数であることを証明します。
+$$\frac{p^n\pi}{n!}I_n=\sum_{k=0}^n(-1)^k\cdot p^{n-k}q^k\left(\frac{f^{(2k)}(1)}{n!}-\frac{f^{(2k)}(0)}{n!}\right)$$
+ですから$f^{(2k)}(0)$および$f^{(2k)}(1)$が$n!$の倍数であることを示せば十分ですが、このことは既に示しました。</p>
+<p>ところで、前述したとおり$0\lt I_n\lt1$ですから
+$$0\lt\frac{p^n\pi}{n!}I_n\lt\frac{p^n\pi}{n!}$$
+が成り立ちます。ここで、右辺は$n\to\infty$で$0$に収束するので$n$が十分大きくなると$0\lt\dfrac{p^n\pi}{n!}I_n\lt1$となります。しかしこれは$\dfrac{p^n\pi}{n!}I_n$が整数であることに反します。</p>
+<p>以上より、円周率の$2$乗が無理数であることが示されました。</p>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">$\dlim_{n\to\infty}\frac{p^{2n+1}}{n!}=0$を証明します。$N$を$2p^2$以上の整数とすると、
+\begin{align*}
+\frac{p^{2n+1}}{n!}&=\frac{p^{(2N+1)}}{N!}\cdot p^{2(n-N)}\cdot\frac{N!}{n!}\\
+&=\frac{p^{(2N+1)}}{N!}\cdot\frac{p^2}n\cdot\frac{p^2}{n-1}\cdot\dots\cdot\frac{p^2}{N+1}\\
+&\lt\frac{p^{(2N+1)}}{N!}\cdot\frac12\cdot\frac12\cdot\dots\cdot\frac12=\frac{p^{(2N+1)}}{N!}\cdot\frac1{2^{n-N}}
+\end{align*}
+であることから従います。<a href="#footnoteref1">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>
