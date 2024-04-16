@@ -115,7 +115,7 @@ $$a_d=b_d,\,a_{d-1}=b_{d-1},\,a_{d-2}=b_{d-2},\,\dots,\,a_{k+1}=b_{k+1},\,a_k\lt
 <div id="limit" class="box definition">
     <div class="title">点列の極限</div>
     <div class="content">$X$を$R$値距離函数$d$を備えた一般化距離空間とし、点列$\{x_n\}\subset X$を考える。$R_+\coloneqq\{r\in R\mid0\lt r\}$とし、$x\in X$について
-    $${}^\forall\varepsilon\in R_+,{}^\exists N\in\mathbb N\st({}^\forall n\in\mathbb N;\;N\lt n\Longrightarrow d(x_n,x)\lt\varepsilon)$$
+    $${}^\forall\varepsilon\in R_+,{}^\exists N\in\mathbb N\st({}^\forall n\in\mathbb N;\;N\lt n\implies d(x_n,x)\lt\varepsilon)$$
     が成り立つときこの点列が<strong>$x$に収束する</strong>といい、$\dlim_{n\to\infty}x_n=x$や$x_n\to x$ (as $n\to\infty$)などと書くことにする。</div>
 </div>
 <p>通常の距離空間での定義と同様です。例として$f_n=x^n$で定まる$R$上の点列の極限を考えます。任意に$\varepsilon\in R[x]_+$をとって、$\varepsilon$の最低次の項の次数を$N$とします。このとき$\varepsilon\gt x^{N+1}\gt x^{N+2}\gt\dots$ですから、任意の$N\lt n\in\mathbb N$について$|f_n-0|=f_n\lt\varepsilon$が成り立ちます。以上より$\dlim_{n\to\infty}x^n=0$が得られました。</p>
@@ -130,7 +130,7 @@ $$a_d=b_d,\,a_{d-1}=b_{d-1},\,a_{d-2}=b_{d-2},\,\dots,\,a_{k+1}=b_{k+1},\,a_k\lt
 </div>
 <p>$(R)$が上記の演算によって環になることや$I$が$(R)$のイデアルとなることの証明は省略します。$(R)/I$は、直感的には$(R)$の元を収束値の違いのみで区別したものものです(収束列でないCauchy列があり得るので正確な表現とは言えませんが)。集合としては
 $$\{x_n\}\sim\{y_n\}\defiff\dlim_{n\to\infty}(x_n-y_n)=0$$
-で定まる同値関係$\sim$で$(R)$を割ったものと一致します。また、定数列$(f)$が属する剰余類$(f)+I\in\bar R$を$f\in R$を同一視することで、自然に$R\subset\bar R$と見做せます。</p>
+で定まる同値関係$\sim$で$(R)$を割ったものと一致します。また、定数列$\{f\}$が属する剰余類$\{f\}+I\in\bar R$を$f\in R$を同一視することで、自然に$R\subset\bar R$と見做せます。</p>
 <p>いよいよ本稿のメインテーマである多項式環の完備化です。</p>
 <div id="polynomial-completion" class="box proposition">
     <div class="title">多項式環の完備化</div>
@@ -140,13 +140,13 @@ $$\{x_n\}\sim\{y_n\}\defiff\dlim_{n\to\infty}(x_n-y_n)=0$$
     <div class="title"></div>
     <div class="content">
     <p>$\{f_n\}+I\in\bar{R[x]}$をとると、$\{f_n\}$がCauchy列であることから任意の非負整数$k$に対して$N_k\in\mathbb N$が存在し、
-    $${}^\forall m,n\in\mathbb N;\;N_k\lt m,n\Longrightarrow|f_m-f_n|\lt x^k$$
+    $${}^\forall m,n\in\mathbb N;\;N_k\lt m,n\implies|f_m-f_n|\lt x^k$$
     が成り立つ。したがって$\{f_n\}$の第$N_k$項より後は$k$次の係数が一定値となる。よって$a_k$を$f_{N_k+1}$の$k$次の係数とすればこれは$N_k$の取り方に依らず、しかも代表元$\{f_n\}$の取り方にも依らず定まる。この$a_k$を用いて
     $$\varphi:\bar{R[x]}\to R[[x]],\{f_n\}+I\mapsto a_0+a_1x+a_2x^2+\dots$$
     を考えると、これはwell-definedな同型写像である。</p>
     </div>
 </div>
-<p>やっていることは射影極限に似ていますが、こちらの方が自然な感じがします。また、任意の$f\in(X)$に対し、$(1-f)\dlim_{n\to\infty}(1+f+f^2+\dots+f^n)=1$であるという意味で
+<p>やっていることは射影極限に似ていますが、こちらの方が自然な感じがします。また、任意の$f\in(x)$に対し、$(1-f)\dlim_{n\to\infty}(1+f+f^2+\dots+f^n)=1$であるという意味で
 $$\sum_{n=0}^\infty f^n=\frac1{1-f}$$
 が成り立ちます。これと同様のことは形式的冪級数環でも成り立ちます(同型なので当たり前)が、極限が定義されていないので「$f^n$には$n$次未満の項がないから無限和のうち$x^n$を含む項は高々有限個で各係数を決定するのに必要なのは実質的に有限和のみであるのでこの表記は正当」などと御託を並べることになります。今回の構成では環に極限が定義されているため、無限和を直接扱うことができるという強みがあります。</p>
 <h3 id="problem">しかし…</h3>

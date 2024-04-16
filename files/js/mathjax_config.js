@@ -17,6 +17,8 @@ MathJax = {
             dinf: ['\\displaystyle\\inf'],
             dint: ['\\displaystyle\\int'],
             dlim: ['\\displaystyle\\lim'],
+            dmax: ['\\displaystyle\\max'],
+            dmin: ['\\displaystyle\\min'],
             dprod: ['\\displaystyle\\prod'],
             dsum: ['\\displaystyle\\sum'],
             dsup: ['\\displaystyle\\sup'],
