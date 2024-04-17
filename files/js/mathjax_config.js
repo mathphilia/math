@@ -13,7 +13,7 @@ MathJax = {
             bm: ['\\boldsymbol'],
             defiff: ['\\stackrel{\\text{def}}\\iff'],
             dcap: ['\\displaystyle\\bigcap'],
-            dcup: ['\\displaystyle\\bigcap'],
+            dcup: ['\\displaystyle\\bigcup'],
             dinf: ['\\displaystyle\\inf'],
             dint: ['\\displaystyle\\int'],
             dlim: ['\\displaystyle\\lim'],
