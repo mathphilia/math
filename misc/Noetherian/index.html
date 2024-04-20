@@ -118,7 +118,7 @@
     <div class="title"></div>
     <div class="content">
     <p>$\{a_1,a_2,\dots,a_k\}$を$M$の生成系とすると、
-    $$f:R^k\to M,(r_1,r_2,\dots,r_k)\mapsto\sum_k r_ka_k$$
+    $$f:R^k\to M,(r_1,r_2,\dots,r_k)\mapsto\sum_{i=1}^kr_ia_i$$
     は全射準同型である。$R^k\cong R^{k-1}\oplus R$ ($1\lt k$)なので数学的帰納法より$R^k$はNoetherであり、したがって$M\cong R^k/\Ker f$もNoetherである。</p>
     </div>
 </div>
@@ -133,7 +133,7 @@
     $$N_1\subsetneqq N_2\subsetneqq N_3\subsetneqq\dots$$
     がとれると仮定する。各$N_i$に対して$M$の部分加群
     $$N_i'\coloneqq\{sx\in M\mid s\in S,x\in N_i\}$$
-    を対応させると、$N_i'\subsetneqq N_{i+1}'$が成り立つ。実際$N_i'\subset N_{i+1}'$は明らかで、$s\in S,$ $x\in N_{i+1}\setminus N_i$に対して$s^{-1}\cdot sx\notin N_i$より$sx\notin N_i$である。したがってこのとき$M$の部分加群の無限列
+    を対応させると、$N_i'\subsetneqq N_{i+1}'$が成り立つ。実際$N_i'\subset N_{i+1}'$は明らかで、$s\in S,$ $x\in N_{i+1}\setminus N_i$が$sx\in N_i'$を満たすなら$sx=ty$なる$t\in S,$ $y\in N_i$が存在することになるがこのとき$x=s^{-1}t y\in N_i$となり矛盾。以上より、$M$の部分加群の無限列
     $$N_1'\subsetneqq N_2'\subsetneqq N_3'\subsetneqq\dots$$
     がとれる。</p>
     </div>
@@ -173,7 +173,7 @@
     </ol>
     一般的に各$f_i$の選び方には複数の選択肢があるが、どれを選んでもよい(最小というよりは極小の方が近いかもしれない)。$f_i$の最高次の係数を$a_i$とおくと、$R$はNoether環なので$R$のイデアルの列
     $$(a_1)\subset(a_1,a_2)\subset(a_1,a_2,a_3)\subset\dots$$
-    は有限回で停止する。即ち$(a_1,a_2,\dots,a_n)=(a_1,a_2,\dots,a_n,a_{n+1})$なる$n$が存在することになる。このとき$r_k\in R$を用いて$a_{n+1}=\dsum_{k=1}^nr_ka_k$と書ける。
+    は有限回で停止する。即ち$a_{n+1}\in(a_1,a_2,\dots,a_n)$なる$n$が存在することになる。このとき$r_k\in R$を用いて$a_{n+1}=\dsum_{k=1}^nr_ka_k$と書ける。
     $$f\coloneqq\sum_{k=1}^nr_kX^{\deg f_{n+1}-\deg f_k}f_k$$
     で$f$を定めると、$f\in(f_1,f_2,\dots,f_n)$である。また、$f$の$\deg f_{n+1}$次の係数は$a_{n+1},$ 即ち$f_{n+1}$の$\deg f_{n+1}$次の係数に等しい。よって$f-f_{n+1}\in I\setminus(f_1,f_2,\dots,f_n)$であって$\deg(f-f_{n+1})<\deg f_{n+1}$だが、これは次数の最小性に反する。</p>
     </div>
