@@ -43,8 +43,8 @@
         <li>三角不等式; 任意の$x,y,z\in X$について$d(x,z)\leqq d(x,y)+d(y,z)$</li>
     </ol></div>
 </div>
-<p>この距離函数の定義を見たとき、なぜ終域が$\mathbb R$に限定されているのだろうと疑問を持ちました。当時はまあそんなものかとスルーしていたのですが、ふと思い出して一般化してみようと思いました。</p>
-<p>思い付きを書き綴ったので、話が散らかって読みづらい点があるかもしれません。ご容赦ください。</p>
+<paragraph>この距離函数の定義を見たとき、なぜ終域が$\mathbb R$に限定されているのだろうと疑問を持ちました。当時はまあそんなものかとスルーしていたのですが、ふと思い出して一般化してみようと思いました。</paragraph>
+<paragraph>思い付きを書き綴ったので、話が散らかって読みづらい点があるかもしれません。ご容赦ください。</paragraph>
 <h3 id="generalize">距離函数の一般化</h3>
 <div id="general-distance" class="box definition">
     <div class="title">距離函数の一般化</div>
@@ -55,7 +55,7 @@
         <li>三角不等式; 任意の$x,y,z\in X$について$d(x,z)\leqq d(x,y)+d(y,z)$</li>
     </ol></div>
 </div>
-<p>定義1とほぼ同じで、違いは終域が$\mathbb R$から$R$になったことのみです。全順序群や順序体でも同様に定義できますが、今回扱うトピックが主に環についてのものなので終域は環としました。以下、$R$と書いたら順序環を表すものとします。一般化距離函数の例を見てみましょう。</p>
+<paragraph>定義1とほぼ同じで、違いは終域が$\mathbb R$から$R$になったことのみです。全順序群や順序体でも同様に定義できますが、今回扱うトピックが主に環についてのものなので終域は環としました。以下、$R$と書いたら順序環を表すものとします。一般化距離函数の例を見てみましょう。</paragraph>
 <div id="Z-valued" class="box example">
     <div class="title">$\mathbb Z$値距離函数</div>
     <div class="content">$\mathbb N^n$にマンハッタン距離を入れるとこれは$\mathbb Z$値距離函数とみなせます。$\mathbb R$値距離函数(つまり普通の距離函数)ともみなせますのであまり面白くない例ですが。</div>
@@ -65,7 +65,7 @@
     <div class="content">写像$d:R\times R\to R,(x,y)\mapsto|x-y|$を考えるとこれは$R$上の$R$値距離函数になります。実際正定値性と対称律は明らかで、三角不等式は$a,b\in R$について$-(|a|+|b|)\leqq a+b\leqq|a|+|b|$が成り立つことから$a=x-y,$ $b=y-z$を代入することで示されます。<br>
     以下ではこれを$R$の<strong>自然な距離</strong>と呼ぶことにします。</div>
 </div>
-<p>距離が定まると位相が定まります。といっても距離位相は通常の距離に対して定義されるものですので、一応定義しておきます。</p>
+<paragraph>距離が定まると位相が定まります。といっても距離位相は通常の距離に対して定義されるものですので、一応定義しておきます。</paragraph>
 <div id="general-distance" class="box definition">
     <div class="title">一般化距離による位相</div>
     <div class="content">集合$X$上に$R$値距離函数$d$が定められているとする。$X$の部分集合$U$が開であることを、
@@ -73,7 +73,7 @@
     と定める。$X$の開部分集合全体を$\mathcal O$とすると$(X,\mathcal O)$は位相空間の公理を満たすので、これを$d$による<strong>距離位相</strong>と呼ぶ。</div>
 </div>
 <h3 id="polynomial-ring">多項式環</h3>
-<p>正直なところ、面白い順序環("数"っぽいもの以外を元にもつ環)を多項式環以外に思いつきませんでした。</p>
+<paragraph>正直なところ、面白い順序環("数"っぽいもの以外を元にもつ環)を多項式環以外に思いつきませんでした。</paragraph>
 <div id="lexicographic-order" class="box definition">
     <div class="title">多項式の辞書式順序</div>
     <div class="content">$f,g\in R[x]$について
@@ -85,7 +85,7 @@
     $$a_0=b_0,\,a_1=b_1,\,a_2=b_2,\,\dots,\,a_{k-1}=b_{k-1},\,a_k\lt b_k$$
     を満たす非負整数$k$が存在することをいう。この順序$\lt$を$R[x]$の<strong>辞書式順序</strong>という。</div>
 </div>
-<p>例えば、$\mathbb Z[x]$の元として$1+3x\lt2+x\lt2+x+x^2,$ $-1\lt12x^{34}\lt1$です。証明は省略しますが、これは全順序であって$R[x]$はこの順序について順序環を成します。この順序環に自然な距離を入れると、この距離位相に関して$R[x]$は位相環になります。本筋からは外れますがきれいだと思ったので略証を書きます。</p>
+<paragraph>例えば、$\mathbb Z[x]$の元として$1+3x\lt2+x\lt2+x+x^2,$ $-1\lt12x^{34}\lt1$です。証明は省略しますが、これは全順序であって$R[x]$はこの順序について順序環を成します。この順序環に自然な距離を入れると、この距離位相に関して$R[x]$は位相環になります。本筋からは外れますがきれいだと思ったので略証を書きます。</paragraph>
 <div id="polynomial-topology" class="box proposition">
     <div class="title">多項式環の位相</div>
     <div class="content">辞書式順序を備えた順序環$R[x]$に自然な距離を入れると、距離位相について$R[x]$は位相環となる。</div>
@@ -93,15 +93,15 @@
 <div id="proof1" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <p>$f,g,\varepsilon\in R[x]$ (ただし$0\lt\varepsilon$)を任意にとる。また、$a,r\in R[x]$に対して$B(a,r)\coloneqq\{\alpha\in R[x]\mid d(\alpha,a)\lt r\}$と定める。
+    <paragraph>$f,g,\varepsilon\in R[x]$ (ただし$0\lt\varepsilon$)を任意にとる。また、$a,r\in R[x]$に対して$B(a,r)\coloneqq\{\alpha\in R[x]\mid d(\alpha,a)\lt r\}$と定める。
     \begin{align*}
     B(f,x\varepsilon)+B(g,x\varepsilon)&\subset B(f+g,2x\varepsilon)\subset B(f+g,\varepsilon)\\
     B(f,x\varepsilon)B(g,x\varepsilon)&\subset B(fg,x\varepsilon(|f|+|g|)+x^2\varepsilon^2)\subset B(fg,\varepsilon)
     \end{align*}
-    より示された。</p></div>
+    より示された。</paragraph></div>
 </div>
-<p>なお、順序環の自然な距離による位相が必ずしも位相環を作るとは限りません。実際、$R[x]$に以下で定める順序$\lt_\text{inv}$ (辞書式順序の逆)を入れると反例になります:</p>
-<p>$f,g\in R[x]$について
+<paragraph>なお、順序環の自然な距離による位相が必ずしも位相環を作るとは限りません。実際、$R[x]$に以下で定める順序$\lt_\text{inv}$ (辞書式順序の逆)を入れると反例になります:</paragraph>
+<paragraph>$f,g\in R[x]$について
 \begin{align*}
 f&=a_0+a_1x+a_2x^2+\dots+a_mx^m\\
 g&=b_0+b_1x+b_2x^2+\dots+b_nx^n
@@ -109,17 +109,17 @@ g&=b_0+b_1x+b_2x^2+\dots+b_nx^n
 で$a_0,a_1,a_2,\dots,a_m,b_0,b_1,b_2,\dots,b_n\in R$を定め、$d=\max(\deg f,\deg g)$とする。このとき$f\lt_\text{inv}g$とは、
 $$a_d=b_d,\,a_{d-1}=b_{d-1},\,a_{d-2}=b_{d-2},\,\dots,\,a_{k+1}=b_{k+1},\,a_k\lt b_k$$
 を満たす$d$以下の非負整数$k$が存在することをいう。
-</p>
+</paragraph>
 <h3 id="completion">点列の極限と多項式環の完備化</h3>
-<p>距離空間を見ると極限を考えたくなります。一般化距離空間における点列の極限を定義します。</p>
+<paragraph>距離空間を見ると極限を考えたくなります。一般化距離空間における点列の極限を定義します。</paragraph>
 <div id="limit" class="box definition">
     <div class="title">点列の極限</div>
     <div class="content">$X$を$R$値距離函数$d$を備えた一般化距離空間とし、点列$\{x_n\}\subset X$を考える。$R_+\coloneqq\{r\in R\mid0\lt r\}$とし、$x\in X$について
     $${}^\forall\varepsilon\in R_+,{}^\exists N\in\mathbb N\st({}^\forall n\in\mathbb N;\;N\lt n\implies d(x_n,x)\lt\varepsilon)$$
     が成り立つときこの点列が<strong>$x$に収束する</strong>といい、$\dlim_{n\to\infty}x_n=x$や$x_n\to x$ (as $n\to\infty$)などと書くことにする。</div>
 </div>
-<p>通常の距離空間での定義と同様です。例として$f_n=x^n$で定まる$R$上の点列の極限を考えます。任意に$\varepsilon\in R[x]_+$をとって、$\varepsilon$の最低次の項の次数を$N$とします。このとき$\varepsilon\gt x^{N+1}\gt x^{N+2}\gt\dots$ですから、任意の$N\lt n\in\mathbb N$について$|f_n-0|=f_n\lt\varepsilon$が成り立ちます。以上より$\dlim_{n\to\infty}x^n=0$が得られました。</p>
-<p>次に順序環を完備化します。</p>
+<paragraph>通常の距離空間での定義と同様です。例として$f_n=x^n$で定まる$R$上の点列の極限を考えます。任意に$\varepsilon\in R[x]_+$をとって、$\varepsilon$の最低次の項の次数を$N$とします。このとき$\varepsilon\gt x^{N+1}\gt x^{N+2}\gt\dots$ですから、任意の$N\lt n\in\mathbb N$について$|f_n-0|=f_n\lt\varepsilon$が成り立ちます。以上より$\dlim_{n\to\infty}x^n=0$が得られました。</paragraph>
+<paragraph>次に順序環を完備化します。</paragraph>
 <div id="ring-completion" class="box definition">
     <div class="title">順序環の完備化</div>
     <div class="content">$R$に自然な距離が入っているとする。$R$上のCauchy列(定義は省略)全体の集合$(R)$に
@@ -128,10 +128,10 @@ $$a_d=b_d,\,a_{d-1}=b_{d-1},\,a_{d-2}=b_{d-2},\,\dots,\,a_{k+1}=b_{k+1},\,a_k\lt
     $$I=\{\{x_n\}\in(R)\mid \dlim_{n\to\infty}x_n=0\}$$
     による剰余環$(R)/I$を$R$の<strong>完備化</strong>と呼び、$\bar R$と書くことにする。</div>
 </div>
-<p>$(R)$が上記の演算によって環になることや$I$が$(R)$のイデアルとなることの証明は省略します。$(R)/I$は、直感的には$(R)$の元を収束値の違いのみで区別したものものです(収束列でないCauchy列があり得るので正確な表現とは言えませんが)。集合としては
+<paragraph>$(R)$が上記の演算によって環になることや$I$が$(R)$のイデアルとなることの証明は省略します。$(R)/I$は、直感的には$(R)$の元を収束値の違いのみで区別したものものです(収束列でないCauchy列があり得るので正確な表現とは言えませんが)。集合としては
 $$\{x_n\}\sim\{y_n\}\defiff\dlim_{n\to\infty}(x_n-y_n)=0$$
-で定まる同値関係$\sim$で$(R)$を割ったものと一致します。また、定数列$\{f\}$が属する剰余類$\{f\}+I\in\bar R$を$f\in R$を同一視することで、自然に$R\subset\bar R$と見做せます。</p>
-<p>いよいよ本稿のメインテーマである多項式環の完備化です。</p>
+で定まる同値関係$\sim$で$(R)$を割ったものと一致します。また、定数列$\{f\}$が属する剰余類$\{f\}+I\in\bar R$を$f\in R$を同一視することで、自然に$R\subset\bar R$と見做せます。</paragraph>
+<paragraph>いよいよ本稿のメインテーマである多項式環の完備化です。</paragraph>
 <div id="polynomial-completion" class="box proposition">
     <div class="title">多項式環の完備化</div>
     <div class="content">多項式環の完備化$\bar{R[x]}$は形式的冪級数環$R[[x]]$に同型である。</div>
@@ -139,18 +139,18 @@ $$\{x_n\}\sim\{y_n\}\defiff\dlim_{n\to\infty}(x_n-y_n)=0$$
 <div id="proof2" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <p>$\{f_n\}+I\in\bar{R[x]}$をとると、$\{f_n\}$がCauchy列であることから任意の非負整数$k$に対して$N_k\in\mathbb N$が存在し、
+    <paragraph>$\{f_n\}+I\in\bar{R[x]}$をとると、$\{f_n\}$がCauchy列であることから任意の非負整数$k$に対して$N_k\in\mathbb N$が存在し、
     $${}^\forall m,n\in\mathbb N;\;N_k\lt m,n\implies|f_m-f_n|\lt x^k$$
     が成り立つ。したがって$\{f_n\}$の第$N_k$項より後は$k$次の係数が一定値となる。よって$a_k$を$f_{N_k+1}$の$k$次の係数とすればこれは$N_k$の取り方に依らず、しかも代表元$\{f_n\}$の取り方にも依らず定まる。この$a_k$を用いて
     $$\varphi:\bar{R[x]}\to R[[x]],\{f_n\}+I\mapsto a_0+a_1x+a_2x^2+\dots$$
-    を考えると、これはwell-definedな同型写像である。</p>
+    を考えると、これはwell-definedな同型写像である。</paragraph>
     </div>
 </div>
-<p>やっていることは射影極限に似ていますが、こちらの方が自然な感じがします。また、任意の$f\in(x)$に対し、$(1-f)\dlim_{n\to\infty}(1+f+f^2+\dots+f^n)=1$であるという意味で
+<paragraph>やっていることは射影極限に似ていますが、こちらの方が自然な感じがします。また、任意の$f\in(x)$に対し、$(1-f)\dlim_{n\to\infty}(1+f+f^2+\dots+f^n)=1$であるという意味で
 $$\sum_{n=0}^\infty f^n=\frac1{1-f}$$
-が成り立ちます。これと同様のことは形式的冪級数環でも成り立ちます(同型なので当たり前)が、極限が定義されていないので「$f^n$には$n$次未満の項がないから無限和のうち$x^n$を含む項は高々有限個で各係数を決定するのに必要なのは実質的に有限和のみであるのでこの表記は正当」などと御託を並べることになります。今回の構成では環に極限が定義されているため、無限和を直接扱うことができるという強みがあります。</p>
+が成り立ちます。これと同様のことは形式的冪級数環でも成り立ちます(同型なので当たり前)が、極限が定義されていないので「$f^n$には$n$次未満の項がないから無限和のうち$x^n$を含む項は高々有限個で各係数を決定するのに必要なのは実質的に有限和のみであるのでこの表記は正当」などと御託を並べることになります。今回の構成では環に極限が定義されているため、無限和を直接扱うことができるという強みがあります。</paragraph>
 <h3 id="problem">しかし…</h3>
-<p>色々と調べていたら、順序位相なるものの存在を知りました。</p>
+<paragraph>色々と調べていたら、順序位相なるものの存在を知りました。</paragraph>
 <div id="order-topology" class="box definition">
     <div class="title">順序位相</div>
     <div class="content">$X$を全順序集合とし、$a\in X$に対して
@@ -160,7 +160,7 @@ $$\sum_{n=0}^\infty f^n=\frac1{1-f}$$
     \end{align*}
     とおく。$\{X_{\lt a}\mid a\in X\}\cup\{X_{\gt a}\mid a\in X\}$を準開基とする位相を$X$の<strong>順序位相</strong>という。</div>
 </div>
-<p>そして、この記事で定義した順序環の自然な距離位相は順序位相に一致します。順序位相自体は代数構造と無関係に定義できるので、一般化距離は順序位相の下位互換という感じです。また、<a href="https://ja.wikipedia.org/wiki/完備化_(環論)">完備化 (環論) - Wikipedia</a>にある方法で位相環を完備化できるようです。ということでこの記事は車輪の再発明となりました。</p>
+<paragraph>そして、この記事で定義した順序環の自然な距離位相は順序位相に一致します。順序位相自体は代数構造と無関係に定義できるので、一般化距離は順序位相の下位互換という感じです。また、<a href="https://ja.wikipedia.org/wiki/完備化_(環論)">完備化 (環論) - Wikipedia</a>にある方法で位相環を完備化できるようです。ということでこの記事は車輪の再発明となりました。</paragraph>
 <div class="adjacent">
     <a class="prev"></a>
     <a class="next"></a>

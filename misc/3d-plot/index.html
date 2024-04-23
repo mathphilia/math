@@ -38,11 +38,11 @@
 </div>
 <h2>tikz-3dplotを用いない立体描画</h2>
 <h3 id="outline">概要</h3>
-<p>Ti<em>k</em>Zで平面図形を描くのは比較的シンプルなコマンドで実現でき、日本語での解説も豊富にあります。本記事で使用するコマンドに関しては参考文献<a href="#TikZ-1">[1]</a>,<a href="#TikZ-2">[2]</a>,<a href="#TikZ-3">[3]</a>に載っています。これに対して立体図形は、tikz-3dplotなどの派生パッケージで描けるもののコマンドが複雑であり、日本語での解説も多くありません。ということで、平面図形用のコマンドだけで立体図形を描くことにしました。なお、以下では見栄えの都合上、座標を横ヴェクトルで表示します。</p>
+<paragraph>Ti<em>k</em>Zで平面図形を描くのは比較的シンプルなコマンドで実現でき、日本語での解説も豊富にあります。本記事で使用するコマンドに関しては参考文献<a href="#TikZ-1">[1]</a>,<a href="#TikZ-2">[2]</a>,<a href="#TikZ-3">[3]</a>に載っています。これに対して立体図形は、tikz-3dplotなどの派生パッケージで描けるもののコマンドが複雑であり、日本語での解説も多くありません。ということで、平面図形用のコマンドだけで立体図形を描くことにしました。なお、以下では見栄えの都合上、座標を横ヴェクトルで表示します。</paragraph>
 <h3 id="outline">目標</h3>
-<p>ここでは以下のような図の描画を目的とします。</p>
+<paragraph>ここでは以下のような図の描画を目的とします。</paragraph>
 <div class="figure"><img alt="描画例" src="examples.png"><span>描画例</span></div>
-<p>ソースコードはこちら:</p>
+<paragraph>ソースコードはこちら:</paragraph>
 <pre><code class="language-latex">\newcommand\project[3]{{(2*(#1)+(#2))/sqrt(5)},{(-(#1)+2*(#2)+5*(#3))/sqrt(30)}}
 \newcommand\polarproj[3]{\project{(#1)*cos(#2)*cos(#3)}{(#1)*sin(#2)*cos(#3)}{(#1)*sin(#3)}}
 % 九九九の表
@@ -75,17 +75,17 @@
 \draw[thick, domain=0:360-acos(1/sqrt(5))-atan(2), variable=\longitude, samples=100]plot(\polarproj{sqrt(-cos(2*\latitude))}\longitude\latitude);
 \end{tikzpicture}</code></pre>
 <h3 id="projection">射影</h3>
-<p>この図は、立体をある方向から見たときの様子になっています。もう少し数学的な言葉で言えば、ある平面への射影です。2点$\mathrm A,\mathrm B$が重なって見える方向から見ているとすれば、射影先の平面は直線$\mathrm{AB}$に直交する平面です。例として、点$\mathrm A$の座標を$(0,2,0)$, 点$\mathrm B$の座標を$(1,0,1)$とした場合を考えると、直線$\mathrm{AB}$の方向ヴェクトルは$(1,-2,1)$なので、原点を通って直線$\mathrm{AB}$に直交する平面は$\langle(1,-2,1)\rangle$の直交補空間になります。</p>
+<paragraph>この図は、立体をある方向から見たときの様子になっています。もう少し数学的な言葉で言えば、ある平面への射影です。2点$\mathrm A,\mathrm B$が重なって見える方向から見ているとすれば、射影先の平面は直線$\mathrm{AB}$に直交する平面です。例として、点$\mathrm A$の座標を$(0,2,0)$, 点$\mathrm B$の座標を$(1,0,1)$とした場合を考えると、直線$\mathrm{AB}$の方向ヴェクトルは$(1,-2,1)$なので、原点を通って直線$\mathrm{AB}$に直交する平面は$\langle(1,-2,1)\rangle$の直交補空間になります。</paragraph>
 \begin{align*}
 \langle(1,-2,1)\rangle^\bot&=\{\bm x\in\mathbb R^3\mid \bm x\cdot(1,-2,1)=0\}\\
 &=\{(x,y,z)\in\mathbb R^3\mid x-2y+z=0\}
 \end{align*}
-<p>点$(x,y,z)$をこの平面に射影して得られる点、即ち点$(x,y,z)$から$\langle(1,-2,1)\rangle^\bot$へ下ろした垂線の足の座標$(x',y',z')$を求めましょう。実数$t$を用いて
+<paragraph>点$(x,y,z)$をこの平面に射影して得られる点、即ち点$(x,y,z)$から$\langle(1,-2,1)\rangle^\bot$へ下ろした垂線の足の座標$(x',y',z')$を求めましょう。実数$t$を用いて
 $$(x',y',z')=(x,y,z)+t(1,-2,1)=(x+t,y-2t,z+t)$$
 と表すことができ、$x'-2y'+z'=0$から$t=-\dfrac{x-2y+z}6$が分かるので、
 $$(x',y',z')=\frac16(5x+2y-z,2x+2y+2z,-x+2y+5z)$$
-です。これで三次元空間上の点を平面に落とし込むことができました。</p>
-<p>次にこれを$\mathbb R^2$上の点に変換します。そのために$\langle(1,-2,1)\rangle^\bot$の正規直交基底を構成しましょう。まず適当に$(2,1,0),(0,1,2)\in\langle(1,-2,1)\rangle^\bot$をとってくるとこれは基底になっています。これにGram-Schmidtの正規直交化法を使うと
+です。これで三次元空間上の点を平面に落とし込むことができました。</paragraph>
+<paragraph>次にこれを$\mathbb R^2$上の点に変換します。そのために$\langle(1,-2,1)\rangle^\bot$の正規直交基底を構成しましょう。まず適当に$(2,1,0),(0,1,2)\in\langle(1,-2,1)\rangle^\bot$をとってくるとこれは基底になっています。これにGram-Schmidtの正規直交化法を使うと
 \begin{align*}
 \bm e_1&=\frac1{\|(2,1,0)\|}(2,1,0)=\frac1{\sqrt5}(2,1,0)\\
 \bm e_2'&=(0,1,2)-(\bm e_1\cdot(0,1,2))\bm e_1=\left(-\frac25,\frac45,2\right)\\
@@ -96,8 +96,8 @@ $$(x',y',z')=\frac16(5x+2y-z,2x+2y+2z,-x+2y+5z)$$
 \begin{pmatrix}X\\Y\end{pmatrix}&=\begin{pmatrix}0&\sqrt5&-2/\sqrt5\\0&0&\sqrt{30}/5\end{pmatrix}\begin{pmatrix}x'\\y'\\z'\end{pmatrix}\\
 &=\begin{pmatrix}0&\sqrt5&-2/\sqrt5\\0&0&\sqrt{30}/5\end{pmatrix}\cdot\frac16\begin{pmatrix}5&2&-1\\2&2&2\\-1&2&5\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}\\
 &=\begin{pmatrix}2/\sqrt5&1/\sqrt5&0\\-1/\sqrt{30}&2/\sqrt{30}&5/\sqrt{30}\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}
-\end{align*}</p>
-<p>この線型写像による像を描画します。自分で行列計算をして結果をソースコードに書き入れるとごちゃごちゃするので、
+\end{align*}</paragraph>
+<paragraph>この線型写像による像を描画します。自分で行列計算をして結果をソースコードに書き入れるとごちゃごちゃするので、
 <pre><code class="language-latex">% (\project{x}{y}{z}) -&gt; ({X},{Y})
 \newcommand\project[3]{{(2*(#1)+(#2))/sqrt(5)},{(-(#1)+2*(#2)+5*(#3))/sqrt(30)}}</code></pre>
 のようにコマンドを定義しておきます。例えば立方体の場合、$(0,0,0)$や$(1,0,1)$などを結べばよいので、
@@ -111,10 +111,10 @@ $$(x',y',z')=\frac16(5x+2y-z,2x+2y+2z,-x+2y+5z)$$
 \draw(\project110)--(\project111);
 \draw(\project010)--(\project011);
 \end{tikzpicture}</code></pre>
-とすればよいです。</p>
+とすればよいです。</paragraph>
 <div class="figure"><img alt="立方体" src="cube.png"><span>立方体</span></div>
-<p>余談ですが、何故かこの図だと奥行きが小さいように見える気がします。透視図法を使えば良いのかもしれませんが…。$(0,10,0)$と$(1,0,1)$が重なるような目線で射影するとさらに薄くなります。</p>
-<p>単位球面は
+<paragraph>余談ですが、何故かこの図だと奥行きが小さいように見える気がします。透視図法を使えば良いのかもしれませんが…。$(0,10,0)$と$(1,0,1)$が重なるような目線で射影するとさらに薄くなります。</paragraph>
+<paragraph>単位球面は
 $$(x,y,z)=(\cos\theta\cos\varphi,\sin\theta\cos\varphi,\sin\varphi)$$
 とパラメータ表示できるので、
 <pre><code class="language-latex">% 球面の描画
@@ -130,7 +130,7 @@ $$(x,y,z)=(\cos\theta\cos\varphi,\sin\theta\cos\varphi,\sin\varphi)$$
 \foreach \latitude in {-75, -60, ..., 75}
 \draw[very thin, domain=0:360, variable=\longitude, samples=100]plot(\project{cos(\longitude)*cos(\latitude)}{sin(\longitude)*cos(\latitude)}{sin(\latitude)});
 \end{tikzpicture}</code></pre>
-とできます。なお、簡便化のため球面座標でプロットするコマンドも作っておきます。</p>
+とできます。なお、簡便化のため球面座標でプロットするコマンドも作っておきます。</paragraph>
 <pre><code class="language-latex">% 球面の描画 (球面座標系)
 \newcommand\project[3]{{(2*(#1)+(#2))/sqrt(5)},{(-(#1)+2*(#2)+5*(#3))/sqrt(30)}}
 % (\polarproj{r}{θ}{φ}) -&gt; (\project{rcosθcosφ}{rsinθcosφ}{rsinφ})
@@ -148,10 +148,10 @@ $$(x,y,z)=(\cos\theta\cos\varphi,\sin\theta\cos\varphi,\sin\varphi)$$
 \end{tikzpicture}</code></pre>
 <div class="figure"><img alt="単位球" src="sphere.png"><span>単位球</span></div>
 <h3 id="contour">輪郭</h3>
-<p>
+<paragraph>
 $$(x,y,z)=(\cos\theta(3+\cos\varphi),\sin\theta(3+\cos\varphi),\sin\varphi)$$
 でパラメータ表示される二次元トーラスを前節の方法でプロットすると、以下のようになります。
-</p>
+</paragraph>
 <pre><code class="language-latex">% トーラスの描画1
 \newcommand\project[3]{{(2*(#1)+(#2))/sqrt(5)},{(-(#1)+2*(#2)+5*(#3))/sqrt(30)}}
 \begin{tikzpicture}
@@ -164,15 +164,15 @@ $$(x,y,z)=(\cos\theta(3+\cos\varphi),\sin\theta(3+\cos\varphi),\sin\varphi)$$
 \draw[domain=0:360, variable=\longitude, samples=100]plot(\project{cos(\longitude)*(3+cos(\latitude))}{sin(\longitude)*(3+cos(\latitude))}{sin(\latitude)});
 \end{tikzpicture}</code></pre>
 <div class="figure"><img alt="二次元トーラス (美しくない)" src="torus-1.png"><span>二次元トーラス (美しくない)</span></div>
-<p>これは美しくありません。本来見えないはずの裏側の線が見えていることが主原因だと考え、見える部分だけを表示するとこうなります(ついでに輪郭線を書き加えておきました)。</p>
+<paragraph>これは美しくありません。本来見えないはずの裏側の線が見えていることが主原因だと考え、見える部分だけを表示するとこうなります(ついでに輪郭線を書き加えておきました)。</paragraph>
 <div class="figure"><img alt="二次元トーラス (美しい)" src="torus-2.png"><span>二次元トーラス (美しい)</span></div>
-<p>この図の描画方法を考えましょう。$\theta$を固定して$\varphi$動かしたり$\varphi$を固定して$\theta$を動かしたりして線を描くわけですが、線が立体の手前側にあるか奥側にあるかの境目は、図における立体の輪郭線に相当します。よって、輪郭の位置を把握すれば表裏を判断できることになります。
+<paragraph>この図の描画方法を考えましょう。$\theta$を固定して$\varphi$動かしたり$\varphi$を固定して$\theta$を動かしたりして線を描くわけですが、線が立体の手前側にあるか奥側にあるかの境目は、図における立体の輪郭線に相当します。よって、輪郭の位置を把握すれば表裏を判断できることになります。
 $$f:\mathbb R^2\to\mathbb R^3,(\theta,\varphi)\mapsto(\cos\theta(3+\cos\varphi),\sin\theta(3+\cos\varphi),\sin\varphi)$$
 とおくと、点$f(\theta_0,\varphi_0)$におけるトーラスの接平面は
 $$\langle f_\theta(\theta_0,\varphi_0),f_\varphi(\theta_0,\varphi_0)\rangle$$
 に平行です(証明は省きますが、この部分空間の次元は常に$2$です)。$f(\theta_0,\varphi_0)$を平面に射影した像が輪郭に含まれるのは視線の方向を表す$(1,-2,1)$が接平面に属するとき、即ち
 $$\dim\langle f_\theta(\theta_0,\varphi_0),f_\varphi(\theta_0,\varphi_0),(1,-2,1)\rangle\lt3$$
-となる場合なので、3本のヴェクトルから作られる行列式が$0$になる条件を考えればよいことになります。</p>
+となる場合なので、3本のヴェクトルから作られる行列式が$0$になる条件を考えればよいことになります。</paragraph>
 \begin{align*}
 f_\theta(\theta,\varphi)&=(-\sin\theta(3+\cos\varphi),\cos\theta(3+\cos\varphi),0)\\
 f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\varphi)\\
@@ -181,7 +181,7 @@ f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\v
 &=\qquad-2\sin\theta(3+\cos\varphi)\cos\varphi+\cos^2\theta(3+\cos\varphi)\cos\varphi\\
 &=(3+\cos\varphi)(\sin\varphi-(2\sin\theta-\cos\theta)\cos\varphi)
 \end{align*}
-<p>$3+\cos\varphi$は常に正ですから、この行列式が$0$になるのは$\sin\varphi=(2\sin\theta-\cos\theta)\cos\varphi$のときです。これを$\theta$と$\varphi$についてそれぞれ解くと、
+<paragraph>$3+\cos\varphi$は常に正ですから、この行列式が$0$になるのは$\sin\varphi=(2\sin\theta-\cos\theta)\cos\varphi$のときです。これを$\theta$と$\varphi$についてそれぞれ解くと、
 \begin{align*}
 \tan\varphi&=2\sin\theta-\cos\theta=-\sqrt5\cos(\theta+\tan^{-1}2)\\
 \theta&=\cos^{-1}\left(-\frac1{\sqrt5}\tan\varphi\right)-\tan^{-1}2\\
@@ -192,8 +192,8 @@ f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\v
 \varphi_1&=\tan^{-1}(2\sin\theta-\cos\theta)\\
 \varphi_2&=\tan^{-1}(2\sin\theta-\cos\theta)+180^\circ
 \end{align*}
-となり、$\varphi_1\leqq\varphi\leqq\varphi_2$の範囲を描画することで手前側の曲線になります。</p>
-<p>次に$\varphi$を固定した場合についてですが、こちらは条件分岐が複雑です。そもそも$\sqrt5<|\tan\varphi|$の場合は$\tan\varphi=2\sin\theta-\cos\theta$の解が存在しません。その中でも図の上側の領域($0<\sin\varphi	$)では常にトーラスの手前側に曲線があり、図の下側の領域($\sin\varphi<0$)では常にトーラスの奥側に曲線があります。また、$|\tan\varphi|\leqq\sqrt5$の場合に$\cos^{-1}$の主値を$[0^\circ,180^\circ]$でとって(Ti<em>k</em>Zの<code>acos</code>はこの主値の取り方)
+となり、$\varphi_1\leqq\varphi\leqq\varphi_2$の範囲を描画することで手前側の曲線になります。</paragraph>
+<paragraph>次に$\varphi$を固定した場合についてですが、こちらは条件分岐が複雑です。そもそも$\sqrt5<|\tan\varphi|$の場合は$\tan\varphi=2\sin\theta-\cos\theta$の解が存在しません。その中でも図の上側の領域($0<\sin\varphi	$)では常にトーラスの手前側に曲線があり、図の下側の領域($\sin\varphi<0$)では常にトーラスの奥側に曲線があります。また、$|\tan\varphi|\leqq\sqrt5$の場合に$\cos^{-1}$の主値を$[0^\circ,180^\circ]$でとって(Ti<em>k</em>Zの<code>acos</code>はこの主値の取り方)
 \begin{align*}
 \theta_1&=-\cos^{-1}\left(-\frac1{\sqrt5}\tan\varphi\right)-\tan^{-1}2\\
 \theta_2&=\cos^{-1}\left(-\frac1{\sqrt5}\tan\varphi\right)-\tan^{-1}2\\
@@ -204,7 +204,7 @@ f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\v
     <li>$65.9^\circ\leqq\varphi\leqq114.1^\circ$の場合$0^\circ\leqq\theta\leqq360^\circ$</li>
     <li>$114.1^\circ<\varphi<245.9^\circ$の場合$\theta_2\leqq\theta\leqq\theta_1+360^\circ$</li>
 </ul>
-とすればよいことが分かります。ということで、先程の図は以下のようにして描けます。</p>
+とすればよいことが分かります。ということで、先程の図は以下のようにして描けます。</paragraph>
 <pre><code class="language-latex">% トーラスの描画2
 \newcommand\project[3]{{(2*(#1)+(#2))/sqrt(5)},{(-(#1)+2*(#2)+5*(#3))/sqrt(30)}}
 \begin{tikzpicture}
@@ -228,9 +228,9 @@ f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\v
 \draw[thick, domain=0:360, variable=\longitude, samples=100]plot(\project{cos(\longitude)*(3+cos(\latitude))}{sin(\longitude)*(3+cos(\latitude))}{sin(\latitude)});
 \end{tikzpicture}</code></pre>
 <h3 id="examples">実例</h3>
-<p>理論的な話は前節までで終わりです。ここからは実際に、平面図形用のコマンドだけで色々な空間図形を描画してみます。</p>
+<paragraph>理論的な話は前節までで終わりです。ここからは実際に、平面図形用のコマンドだけで色々な空間図形を描画してみます。</paragraph>
 <h4>立方体の切断</h4>
-<p>立方体を切断する図を描きます。上で描いた立方体は見えない辺も実線で描きましたが、今回は点線で描きます。</p>
+<paragraph>立方体を切断する図を描きます。上で描いた立方体は見えない辺も実線で描きましたが、今回は点線で描きます。</paragraph>
 <pre><code class="language-latex">% 立方体の切断
 \newcommand\project[3]{{(2*(#1)+(#2))/sqrt(5)},{(-(#1)+2*(#2)+5*(#3))/sqrt(30)}}
 \begin{tikzpicture}
@@ -250,9 +250,9 @@ f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\v
 \end{tikzpicture}</code></pre>
 <div class="figure"><img alt="立方体の切断" src="3cubes.png"><span>立方体の切断</span></div>
 <h4>二変数標準正規分布</h4>
-<p>二変数の標準正規分布の確率密度関数のグラフを描きます。目標はこちら(参考:<a href="#pdf">[4]</a>)。</p>
+<paragraph>二変数の標準正規分布の確率密度関数のグラフを描きます。目標はこちら(参考:<a href="#pdf">[4]</a>)。</paragraph>
 <div class="figure"><img alt="二変数標準正規分布" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Multivariate_Gaussian.png/450px-Multivariate_Gaussian.png"><span>二変数標準正規分布</span></div>
-<p>確率密度函数は$\dfrac1{2\pi}\exp\left(-\dfrac{x^2+y^2}2\right)$で与えられますが、$z$座標が小さくなりすぎないように$16\pi$倍して
+<paragraph>確率密度函数は$\dfrac1{2\pi}\exp\left(-\dfrac{x^2+y^2}2\right)$で与えられますが、$z$座標が小さくなりすぎないように$16\pi$倍して
 $$f:\mathbb R^2\to\mathbb R^3,(x,y)\mapsto\left(x,y,4\exp\left(-\dfrac{x^2+y^2}2\right)\right)$$
 を描画します。輪郭線を計算しましょう。接平面を生成するヴェクトルは
 \begin{align*}
@@ -261,7 +261,7 @@ f_y(x,y)&=\left(0,1,-4y\exp\left(-\dfrac{x^2+y^2}2\right)\right)
 \end{align*}
 ですから、$\langle f_x(x,y),f_y(x,y)\rangle$に$(1,-2,1)$が属する条件は
 $$1+4(2y-x)\exp\left(-\dfrac{x^2+y^2}2\right)=0$$
-です。この方程式はexplicitに解けません。うまいこと変数変換すれば描画できそうな気がしないでもないですが、思いつかなかったので読者への演習問題とします。とりあえずの完成形はこちら。描画量を多くした結果PCが悲鳴を上げました。</p>
+です。この方程式はexplicitに解けません。うまいこと変数変換すれば描画できそうな気がしないでもないですが、思いつかなかったので読者への演習問題とします。とりあえずの完成形はこちら。描画量を多くした結果PCが悲鳴を上げました。</paragraph>
 <pre><code class="language-latex">% 二変数標準正規分布
 \newcommand\project[3]{{(2*(#1)+(#2))/sqrt(5)},{(-(#1)+2*(#2)+5*(#3))/sqrt(30)}}
 \begin{tikzpicture}
@@ -277,11 +277,11 @@ $$1+4(2y-x)\exp\left(-\dfrac{x^2+y^2}2\right)=0$$
 \end{tikzpicture}</code></pre>
 <div class="figure"><img alt="二変数標準正規分布" src="normal-distribution.png"><span>二変数標準正規分布</span></div>
 <h4>電磁波</h4>
-<p>電磁波が伝わる様子を図示します。目標はこちら(参考:<a href="#wave">[5]</a>)。</p>
+<paragraph>電磁波が伝わる様子を図示します。目標はこちら(参考:<a href="#wave">[5]</a>)。</paragraph>
 <div class="figure"><img alt="電磁波" src="https://tikz.net/files/electromagnetic_wave-001.png"><span>電磁波</span></div>
-<p>なんとなく電磁波は右上に向かって進んでほしいので、ここだけ目線の向きを変えます。具体的には、点$(0,2,0)$と点$(-1,0,1)$が重なる方向から見ます。ただし、この座標は参考画像の座標軸でなく、右向きを$x$軸正の方向、奥向きを$y$軸正の方向、上向きを$z$軸正の方向とした座標で考えています。このとき座標変換は
+<paragraph>なんとなく電磁波は右上に向かって進んでほしいので、ここだけ目線の向きを変えます。具体的には、点$(0,2,0)$と点$(-1,0,1)$が重なる方向から見ます。ただし、この座標は参考画像の座標軸でなく、右向きを$x$軸正の方向、奥向きを$y$軸正の方向、上向きを$z$軸正の方向とした座標で考えています。このとき座標変換は
 $$\begin{pmatrix}X\\Y\end{pmatrix}=\begin{pmatrix}2/\sqrt5&-1/\sqrt5&0\\1/\sqrt{30}&2/\sqrt{30}&5/\sqrt{30}\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}$$
-です。また、電場の波は$z=a\sin bx$ ($y=0$), 磁場の波は$y=-a\sin bx$ ($z=0$)の形で表されます。</p>
+です。また、電場の波は$z=a\sin bx$ ($y=0$), 磁場の波は$y=-a\sin bx$ ($z=0$)の形で表されます。</paragraph>
 <pre><code class="language-latex">% 電磁波
 % ここの射影コマンドは他と異なる
 \newcommand\waveproject[3]{{(2*(#1)-(#2))/sqrt(5)},{((#1)+2*(#2)+5*(#3))/sqrt(30)}}
