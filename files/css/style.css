@@ -236,6 +236,15 @@ p {
     margin: 0;
 }
 
+paragraph {
+    display: block;
+    text-indent: 1em;
+}
+
+paragraph * {
+    text-indent: 0;
+}
+
 strong {
     color: red;
 }

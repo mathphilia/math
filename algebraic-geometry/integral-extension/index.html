@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>整拡大とZariskiの補題</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="環の整拡大の性質を述べ、Zariskiの補題を証明します。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/integral-extension.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="整拡大とZariskiの補題" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/integral-extension" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">代数幾何学</a> / 整拡大とZariskiの補題</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>整拡大とZariskiの補題</h2>
+<h3 id="definition">定義</h3>
+<div id="integral" class="box definition">
+    <div class="title"></div>
+    <div class="content">環$R$を環$R'$の部分環とする。$v\in R'$が$f(v)=0$なるモニック多項式$f\in R[X]$を持つとき、$v$は$R$上<strong>整である</strong>という。$R'$の任意の元が$R$上整であるとき、$R'$は$R$上整である、または$R$の<strong>整拡大</strong>であるという。</div>
+</div>
+<paragraph>「整である」という概念は、体における「代数的である」という概念の一般化です。体拡大$L/K$において、$v\in L$が$K$上代数的であるとは$f(v)=0$なる$f\in K[X]\setminus\{0\}$が存在することでした。ここで$f$がモニックであることは要請されていませんが、$f$の最高次の係数で$f$を割れば(体なのでこの操作は可能)モニックになりますから、$f$がモニックであることを要請しても条件は同値です。</paragraph>
+<paragraph>例として、$R=\mathbb Z,$ $R'=\mathbb R$に対し$\sqrt2\in R'$は$R$上整な元です。実際、$\sqrt2$は$X^2-2\in R[X]$の根です。一方$\dfrac12\in R'$は$R$上整ではありません。実際、$d$次のモニック多項式$f\in R[X]$に対して$f\left(\dfrac12\right)$を既約分数で書くと分母が$2^d$になります。</paragraph>
+<h3 id="property">性質</h3>
+<paragraph>命題を述べる前に、三つの有限生成性の違いを確認します。
+<ol>
+    <li>有限生成加群; 環$R$上の加群$M$が<strong>加群の意味で</strong>有限生成であるとは、有限集合$S\subset M$が存在し、$M$の任意の元が$S$の元の$R$係数線型結合で書けることをいう。</li>
+    <li>有限生成環; 環$R$を環$R'$の部分環とする。$R'$が$R$上<strong>環の意味で</strong>有限生成であるとは、有限集合$S\subset R'$が存在し、$R'=R[S]$と書けることをいう。</li>
+    <li>有限生成体; 体$K$を環$K'$の部分体とする。$K'$が$K$上<strong>体の意味で</strong>有限生成であるとは、有限集合$S\subset K'$が存在し、$K'=K[S]$と書けることをいう。</li>
+</ol>
+例えば、$R=\mathbb Q,$ $R'=\mathbb Q[X]$とすると$R'$は$R$上有限生成な環です($S=\{X\}$とすればよい)が、$R$上有限生成な加群ではありません。実際、(空でない)有限集合$S\subset R'$の元の次数の最大値を$d$とすれば、$X^{d+1}\in R'$は$S$の元の$R$係数線型結合で書けません。また、体$K$上の一変数有理函数体$K(X)$は$K$上有限生成な体ですが、次に述べるように有限生成環ではありません。</paragraph>
+<div id="rational" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$K$を体とする。有理函数体$K(X)$は環の意味で$K$上有限生成でない。</div>
+</div>
+<div id="proof-rational" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>有限集合$S\in K(X)$が存在して$K(X)=K[S]$と書けると仮定する。$S\neq\varnothing$なので、$S$の元の分母の積が定義される。これを$f$ ($\in K[X]$)とおくと、$f$を割り切らない多項式$g\in K[X]\setminus\{0\}$に対して$g^{-1}\in K(X)$は$S$で生成されないので矛盾する。</paragraph>
+    </div>
+</div>
+<div id="equivalence" class="box proposition">
+    <div class="title"></div>
+    <div class="content">環$R$を環$R'$の部分環とする。$v\in R'$について、以下は同値。
+    <ol>
+        <li>$v$は$R$上整である。</li>
+        <li>$R[v]$は加群の意味で$R$上有限生成である。</li>
+        <li>$R[v]$を含む$R'$の部分環$S$であって、加群の意味で$R$上有限生成であるものが存在する。</li>
+    </ol></div>
+</div>
+<div id="proof-equivalence" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>(1.$\implies$2.) $v$が$R$上整であると仮定し、$f(v)=0$なるモニックな$f\in R[X]$をとる。任意の$w\in R'$はある$g\in R[X]$を用いて$w=g(v)$と書ける。$g$を$f$で割った余りを$r$とおくと、$w=g(v)=r(v)$が成り立つ。$r$の次数は$f$の次数未満であるから、$w$は$1,$ $v,$ $v^2,\dots,$ $v^{\deg f-1}$の$R$線型結合で書ける。</paragraph>
+    <paragraph>(2.$\implies$3.) 2.を仮定すると、$S=R[v]$とすれば3.が成り立つ。</paragraph>
+    <paragraph>(3.$\implies$1.) 3.の成立を仮定し、そのような$S$をとる。$S$の有限生成系$\{w_1,w_2,\dots,w_n\}$をとると、$vw_i\in R[v]\subset S$なので
+    $$vw_i=a_{i,1}w_1+a_{i,2}w_2+\dots+a_{i,n}w_n$$
+    なる$a_{i,j}\in R$が存在する。$w=\begin{pmatrix}w_1&w_2&\dots&w_n\end{pmatrix}^\top,$ $A=(a_{i,j})$とおけば<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>$vw=Aw$即ち$(vE-A)w=0$と行列表示できる。両辺に$vE-A$の余因子行列を左から掛けると$\det(vE-A)w=0$となり、$w\neq0$より$\det(vE-A)=0$を得る。</paragraph>
+    </div>
+</div>
+<div id="extension" class="box theorem">
+    <div class="title"></div>
+    <div class="content">環$R$を環$R'$の部分環とする。$R'$の元のうち$R$上整な元の全体からなる集合は、$R$を含む$R'$の部分環になる。</div>
+</div>
+<div id="proof-extension" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$a$は$R$上整なので、$R[a]$は$R$上の有限生成加群である。その有限生成系を$\{u_1,u_2,\dots,u_m\}$とおく。また、$b$は$R[a]$ ($\supset R$)上整なので、$R[a,b]=R[a][b]$は$R[a]$上の有限生成加群である。その有限生成系を$\{v_1,v_2,\dots,v_n\}$とおく。$R[a,b]$の元は$v_1,v_2,\dots,v_n$の$R[a]$線型結合で書くことができ、$v_1,v_2,\dots,v_n$およびその係数は$u_1,u_2,\dots,u_m$の$R$線型結合で書くことができるので、$R[a,b]$は$\{u_1,u_2,\dots,u_m\}$により$R$上生成される。任意に$w\in R[a,b]$をとると$R\subset R[w]\subset R[a,b]$であることから、$w$は$R$上整である。特に$a+b,ab$が$R$上整であること、任意の$R$の元は$R$上整であることから定理が従う。</paragraph>
+    </div>
+</div>
+<paragraph>最後に、Zariskiの補題を示すための補題を示します。</paragraph>
+<div id="extension" class="box lemma">
+    <div class="title"></div>
+    <div class="content">$K$を体とする。「任意の$q\in K(X)$に対してある正整数$m$が存在し、$f^mq$は$K[X]$上整である」を満たすような$f\in K[X]\setminus\{0\}$は存在しない。</div>
+</div>
+<div id="proof-extension" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$g\in K[X]$を$f$で割り切れない多項式とする。正整数$n$およびモニックな$K[X]$係数多項式$p$に対し、$p\left(\dfrac{f^m}g\right)$を既約分数で表したとき分母は$g^{\deg p}$となるので$\dfrac{f^n}g$は$K[X]$上整でない。</paragraph>
+    </div>
+</div>
+<h3 id="Zariski">Zariskiの補題</h3>
+<paragraph>名前には「補題」とついていますが、本記事の目標となる命題なので定理の枠を使っています。
+<div id="Zariski-lemma" class="box theorem">
+    <div class="title">Zariskiの補題</div>
+    <div class="content">体$K$上有限生成な環$L$が体であるとき、$L/K$は有限次代数拡大である。</div>
+</div>
+<div id="proof-Zariski" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$L=K[v_1,v_2,\dots,v_n]$とおき、$n$に関する数学的帰納法で示す。また、有限次拡大ならば代数拡大であることに注意する。</paragraph>
+    <paragraph>$n=0$のときは明らか。$n=1$のとき、$v_1$が$K$上超越的であると仮定すると$L=K(v_1)\cong K(X)$だがこれは環の意味で$K$上有限生成でない。よって$v_1$は$K$上代数的で、単拡大なので拡大次数は有限。</paragraph>
+    <paragraph>$n-1$のときの成立を仮定する。
+    $$L\subset K(v_1)[v_2,\dots,v_n]\subset K(v_1,v_2,\dots,v_n)=L$$
+    より$L=K(v_1)[v_2,\dots,v_n]$である。仮定より$L/K(v_1)$は有限次拡大なので、$K(v_1)/K$が有限次拡大、即ち代数拡大であれば$[L:K]=[L:K(v_1)][K(v_1):K]\lt\infty$となって定理が従う。よって以下$v_1$が$K$上超越的であることを仮定する<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a></sup>。</paragraph>
+    <paragraph>$v_i$ ($i=2,3,4,\dots,n$)は$K(v_1)$上代数的なので、ある正整数$d_i$と$a_{i,j}\in K(v_1)$が存在して
+    $$v_i^{d_i}+a_{i,d_i-1}v_i^{d_i-1}+\dots+a_{i,1}v_i+a_{i,0}=0$$
+    と書ける。ここで、全$a_{i,j}$の分母の積を$A$とおけば
+    $$(Av_i)^{d_i}+Aa_{i,d_i-1}(Av_i)^{d_i-1}+\dots+A^{d_i-1}a_{i,1}(Av_i)+A^{d_i}a_{i,0}=0$$
+    となって$Av_i$が$K[v_1]$上整な元であると分かる。よって、$w\in L$に対して$w=f(v_2,\dots,v_n)$なる$f\in K[v_1][X_2,\dots,X_n]$をとると、定理1より$A^{\deg f}w$は$K[v_1]$上整な元となる。特に、$K(v_1)$の任意の元$w$に対してある正整数$m$が存在し$A^mw$が$K[v_1]$上整となるが、これは補題に反する。</paragraph>
+    </div>
+</div>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">$w$はヴェクトルなので太字にしたかったのですが、MathJaxが上手く働かなかったので泣く泣く太字を諦めました。<a href="/math/misc/3d-plot/">tikz-3dplotを用いない立体描画</a>の記事中で太字を使ったので<code>\boldsymbol</code>コマンド自体が悪いということはないはずで、原因不明です。<a href="#footnoteref1">↩</a></li>
+<li id="footnote2">最初に証明を読んだとき混乱したので一応補足します。数学的帰納法の仮定は「体$K$上$(n-1)$個の元で生成される環$L$が体なら$L/K$は有限次代数拡大である」です。そして今示そうとしているのは「$L=K[v_1][v_2,\dots,v_n]$が体なら$L/K$は有限次代数拡大である」であり、$K[v_1]$が体であるかについては仮定されていません。したがって、$n=1$の場合の証明中に出た「$K[v_1]$が体なら$v_1$は$K$上代数的」という事実は直接使えません。<a href="#footnoteref2">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>
