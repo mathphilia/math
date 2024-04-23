@@ -1,3 +1,3 @@
 var pages = JSON.parse(
-    '{"pageName":["misc","algebraic-geometry"],"pageTitle":["その他","代数幾何学"]}'
+    '{"pageName":["algebraic-geometry","misc"],"pageTitle":["代数幾何学","その他"]}'
 );
