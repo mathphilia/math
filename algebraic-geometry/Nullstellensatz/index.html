@@ -34,7 +34,7 @@
 </div>
 <h2>Hilbertの零点定理</h2>
 <h3 id="correspondence">アフィン空間と多項式環の対応</h3>
-<p><a href="../affine-space">アフィン空間の代数的集合</a>で、アフィン空間$\mathbb A^n$の代数的集合と多項式環$A$のイデアルの間には$\mathcal Z$や$\mathcal I$を通して深い関係があることを学びました。その中で、$S\subset A$に対して$S\subset\mathcal I(\mathcal Z(S))$が、$T\subset\mathbb A^n$に対して$T\subset\mathcal Z(\mathcal I(T))$がそれぞれ成り立つことや、代数的集合のイデアル$I$と代数的集合$Y$に対して$I=\mathcal I(\mathcal Z(I))$および$Y=\mathcal Z(\mathcal I(Y))$が成り立つことが分かりました。では、$\mathcal Z(\mathcal I(S))$や$\mathcal I(\mathcal Z(T))$を明示的に表す方法はないでしょうか。あるいは、$\mathcal Z$と$\mathcal I$が互いに逆写像となるように、代数的集合全体の集合の部分集合やイデアル全体の集合の部分集合をとることはできないでしょうか。まず、$\mathcal Z(\mathcal I(T))$については次のような関係式があります。</p>
+<paragraph><a href="../affine-space">アフィン空間の代数的集合</a>で、アフィン空間$\mathbb A^n$の代数的集合と多項式環$A$のイデアルの間には$\mathcal Z$や$\mathcal I$を通して深い関係があることを学びました。その中で、$S\subset A$に対して$S\subset\mathcal I(\mathcal Z(S))$が、$T\subset\mathbb A^n$に対して$T\subset\mathcal Z(\mathcal I(T))$がそれぞれ成り立つことや、代数的集合のイデアル$I$と代数的集合$Y$に対して$I=\mathcal I(\mathcal Z(I))$および$Y=\mathcal Z(\mathcal I(Y))$が成り立つことが分かりました。では、$\mathcal Z(\mathcal I(S))$や$\mathcal I(\mathcal Z(T))$を明示的に表す方法はないでしょうか。あるいは、$\mathcal Z$と$\mathcal I$が互いに逆写像となるように、代数的集合全体の集合の部分集合やイデアル全体の集合の部分集合をとることはできないでしょうか。まず、$\mathcal Z(\mathcal I(T))$については次のような関係式があります。</paragraph>
 <div id="closure" class="box proposition">
     <div class="title"></div>
     <div class="content">$T\subset\mathbb A^n$に対し、$\mathcal Z(\mathcal I(T))=\bar T$が成り立つ。ここに、$\bar T$は(Zariski位相における)$T$の閉包である。</div>
@@ -42,12 +42,12 @@
 <div id="proof-closure" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <p>$\mathcal Z(\mathcal I(T))$が$T$を含む最小の閉集合であることを示せばよい。$\mathcal Z(\mathcal I(T))$は代数的集合なので閉, $T\subset\mathcal Z(\mathcal I(T))$は既知であるから、最小性が問題となる。$C$を$T\subset C$なる閉集合とする。$C=\mathcal Z(S)$となるように$S\subset A$をとると、$T\subset\mathcal Z(S)$なので$\mathcal I(\mathcal Z(S))\subset\mathcal I(T)$である。よって、$S\subset\mathcal I(\mathcal Z(S))$と併せて$\mathcal Z(\mathcal I(T))\subset\mathcal Z(S)=C$を得る。</p>
+    <paragraph>$\mathcal Z(\mathcal I(T))$が$T$を含む最小の閉集合であることを示せばよい。$\mathcal Z(\mathcal I(T))$は代数的集合なので閉, $T\subset\mathcal Z(\mathcal I(T))$は既知であるから、最小性が問題となる。$C$を$T\subset C$なる閉集合とする。$C=\mathcal Z(S)$となるように$S\subset A$をとると、$T\subset\mathcal Z(S)$なので$\mathcal I(\mathcal Z(S))\subset\mathcal I(T)$である。よって、$S\subset\mathcal I(\mathcal Z(S))$と併せて$\mathcal Z(\mathcal I(T))\subset\mathcal Z(S)=C$を得る。</paragraph>
     </div>
 </div>
-<p>この命題は比較的容易に示せましたが、$\mathcal I(\mathcal Z(S))$を明示するためのHilbertの零点定理はこれに比べて証明が複雑です。</p>
+<paragraph>この命題は比較的容易に示せましたが、$\mathcal I(\mathcal Z(S))$を明示するためのHilbertの零点定理はこれに比べて証明が複雑です。</paragraph>
 <h3 id="Nullstellensatz">Hilbertの零点定理</h3>
-<p>Hilbertの零点定理を示すための(おそらく最も簡単な)方法は、弱零点定理と呼ばれる命題とRabinowitsch trickと呼ばれるテクニックを使うものです。実際のところ弱零点定理の証明には<a href="../integral-extension#Zariski-lemma">Zariskiの補題</a>を使うので、零点定理(弱零点定理に対応して強零点定理とも呼ばれる)の補題とは言えないくらい重いものになっています。とはいえそれはRabinowitsch trickによって零点定理の証明が簡単になっているからであり、本来は零点定理の証明は難しいものです。</p>
+<paragraph>Hilbertの零点定理を示すための(おそらく最も簡単な)方法は、弱零点定理と呼ばれる命題とRabinowitsch trickと呼ばれるテクニックを使うものです。実際のところ弱零点定理の証明には<a href="../integral-extension#Zariski-lemma">Zariskiの補題</a>を使うので、零点定理(弱零点定理に対応して強零点定理とも呼ばれる)の補題とは言えないくらい重いものになっています。とはいえそれはRabinowitsch trickによって零点定理の証明が簡単になっているからであり、本来は零点定理の証明は難しいものです。</paragraph>
 <div id="weak" class="box theorem">
     <div class="title">弱零点定理</div>
     <div class="content">$A$のイデアル$I$が$\mathcal Z(I)=\varnothing$を満たすとき、$I=A$である。</div>
@@ -55,9 +55,9 @@
 <div id="proof-weak" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <p>$I\neq A$をイデアルとし、$J$を$I\subset J$なる$A$の極大イデアルとする<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>。このとき$\mathcal Z(J)\subset\mathcal Z(I)$なので、$\mathcal Z(J)\neq\varnothing$であることを示せばよい。$K=A/J$とおくとこれは体であり、$k$を自然に$K$の部分体と見る。$X_i\in A$が属する$A/J$の同値類を$\bar X_i$とおくと、$K\cong k[\bar X_1,\dots,\bar X_n]$は$k$上有限生成環である。Zariskiの補題から$K/k$は代数拡大だが、$k$は代数閉体なので$K=k$でなければならない。したがって、$\bar X_i$に属する$a_i\in k$が存在することになる。以上より
+    <paragraph>$I\neq A$をイデアルとし、$J$を$I\subset J$なる$A$の極大イデアルとする<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>。このとき$\mathcal Z(J)\subset\mathcal Z(I)$なので、$\mathcal Z(J)\neq\varnothing$であることを示せばよい。$K=A/J$とおくとこれは体であり、$k$を自然に$K$の部分体と見る。$X_i\in A$が属する$A/J$の同値類を$\bar X_i$とおくと、$K\cong k[\bar X_1,\dots,\bar X_n]$は$k$上有限生成環である。Zariskiの補題から$K/k$は代数拡大だが、$k$は代数閉体なので$K=k$でなければならない。したがって、$\bar X_i$に属する$a_i\in k$が存在することになる。以上より
 $$(X_1-a_1,\dots,X_n-a_n)\subset J$$
-であるが左辺は極大イデアルであるので両辺は等しく、このとき$\mathcal Z(J)=\{(a_1,\dots,a_n)\}$である。</p>
+であるが左辺は極大イデアルであるので両辺は等しく、このとき$\mathcal Z(J)=\{(a_1,\dots,a_n)\}$である。</paragraph>
     </div>
 </div>
 <div id="strong" class="box theorem">
@@ -69,61 +69,55 @@ $$(X_1-a_1,\dots,X_n-a_n)\subset J$$
 <div id="proof-strong" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <p>$I$の有限生成系$\{f_1,\dots,f_r\}$をとる。任意の$g\in\mathcal I(\mathcal Z(I))$に対し、$g$のある冪が$f_1,\dots,f_r$の$A$線型結合で書けることを示せばよい。</p>
-    <p>$k[X_1,\dots,X_n,X_{n+1}]$のイデアル$J=(f_1,\dots,f_r,X_{n+1}g-1)$を考える(ここがRabinowitsch trick)。$P\in\mathbb A^{n+1}$が$f_1(P)=\dots=f_r(P)=0$を満たすとき$g(P)=0$なので、$(X_{n+1}g-1)(P)\neq0$である。よって$\mathcal Z(J)=\varnothing$ゆえ、弱零点定理より$1\in J$である。$1=\dsum_{i=1}^rf_i\cdot\alpha_i+(X_{n+1}g-1)\cdot\alpha$とおき、$X_{n+1}=\dfrac1Y$とおいて分母を払うと
+    <paragraph>$I$の有限生成系$\{f_1,\dots,f_r\}$をとる。任意の$g\in\mathcal I(\mathcal Z(I))$に対し、$g$のある冪が$f_1,\dots,f_r$の$A$線型結合で書けることを示せばよい。</paragraph>
+    <paragraph>自然に$A\subset A'\coloneqq k[X_1,\dots,X_n,X_{n+1}]$と見做し、$A'$のイデアル$J=(f_1,\dots,f_r,X_{n+1}g-1)$を考える(ここがRabinowitsch trick)。$P\in\mathbb A^{n+1}$が$f_1(P)=\dots=f_r(P)=0$を満たすとき$g(P)=0$なので、$(X_{n+1}g-1)(P)\neq0$である。よって$\mathcal Z(J)=\varnothing$ゆえ、弱零点定理より$1\in J$である。$1=\dsum_{i=1}^r\alpha_i\cdot f_i+\alpha\cdot(X_{n+1}g-1)$ ($\alpha_i,\alpha\in A'$)とおき、$X_{n+1}=\dfrac1Y$とおいて分母を払うと
     \begin{align*}
-    1&=\dsum_{i=1}^rf_i\cdot\alpha_i\left(X_1,\dots,X_n,\frac1Y\right)+\left(\frac gY-1\right)\cdot\alpha\left(X_1,\dots,X_n,\frac1Y\right)\\
-    Y^d&=\dsum_{i=1}^rf_i\cdot\beta_i(X_1,\dots,X_n,Y)+(g-Y)\cdot\beta(X_1,\dots,X_n,Y)
+    1&=\dsum_{i=1}^r\alpha_i\left(X_1,\dots,X_n,\frac1Y\right)\cdot f_i+\alpha\left(X_1,\dots,X_n,\frac1Y\right)\cdot\left(\frac gY-1\right)\\
+    Y^d&=\dsum_{i=1}^r\beta_i(X_1,\dots,X_n,Y)\cdot f_i+\beta(X_1,\dots,X_n,Y)\cdot(g-Y)
     \end{align*}
-    となる。ただし、これら操作は$k[X_1,\dots,X_n](Y)$で行われているものとし、$d$は適当な正整数、$\beta_i,\beta\in k[X_1,\dots,X_n,X_{n+1}]$は適当な多項式である。最後の式に$Y=g$を代入すると、$g^d$が$f_1,\dots,f_r$の$A$線型結合で表された式が得られる。</p>
+    となる。ただしこれら操作は$k[X_1,\dots,X_n](Y)$で行われているものとし、$d$は適当な正整数、$\beta_i,\beta\in A'$は適当な多項式である。最後の式に$Y=g$を代入すると、$g^d$が$f_1,\dots,f_r$の$A$線型結合で表された式が得られる。</paragraph>
     </div>
 </div>
-<p>よって、一般に$S\subset A$に対して$\mathcal I(\mathcal Z(S))=\sqrt{(S)}$です。また、$I$が根基イデアルである ($I=\sqrt I$である)とき$\mathcal I(\mathcal Z(I))=I$であると分かります。</p>
-<p>さて、以上の議論より、$\mathbb A^n$の代数的集合と$A$の根基イデアルの間には$\mathcal Z$と$\mathcal I$による一対一対応があると分かりました。極大イデアルや素イデアルは根基イデアルなので、それらがこの対応によってどのような代数的集合に対応するか考察することができます。弱零点定理の証明より極大イデアルは一点集合に対応すると分かりますが、素イデアルはどうなるでしょうか。</p>
+<paragraph>よって、一般に$S\subset A$に対して$\mathcal I(\mathcal Z(S))=\sqrt{(S)}$です。また、$I$が根基イデアルである ($I=\sqrt I$である)とき$\mathcal I(\mathcal Z(I))=I$であると分かります。</paragraph>
+<paragraph>さて、以上の議論より、$\mathbb A^n$の代数的集合と$A$の根基イデアルの間には$\mathcal Z$と$\mathcal I$による一対一対応があると分かりました。極大イデアルや素イデアルは根基イデアルなので、それらがこの対応によってどのような代数的集合に対応するか考察することができます。弱零点定理の証明より極大イデアルは一点集合に対応すると分かりますが、素イデアルはどうなるでしょうか。</paragraph>
 <h3 id="irreducible">既約集合</h3>
 <div id="irreducible-set" class="box definition">
     <div class="title">既約集合</div>
     <div class="content">位相空間$X$の非空部分集合$Y$が<strong>既約</strong>であるとは、$Y$の相対位相に関して閉な$Y_1,Y_2\subsetneqq Y$であって$Y=Y_1\cup Y_2$を満たすものが存在しないことをいう。</div>
 </div>
-<p>二つの代数的集合$V_1\coloneqq\mathcal Z(X^3+X^2-Y^2),$ $V_2\coloneqq\mathcal Z(X^3-X^2Y+XY-Y^2)$ ($\subset\mathbb A^2(\mathbb C)$)のうち、$V_1$は既約ですが$V_2$は既約ではありません。</p>
-<div class="figure"><img alt="零点集合" src="/math/thumbnail/algebraic-geometry.png"><span>イメージ図 ($\mathbb R^2$で描画していることに注意)</span></div>
-<p>$V_2$が既約でないことは、$X^3-X^2Y+XY-Y^2=(X^2+Y)(X-Y)$より
-$$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
-となることから分かります。これを基に考えると、既約集合とイデアルの対応関係が見えてきます。</p>
 <div id="irreducible-set" class="box definition">
     <div class="title">アフィン多様体</div>
-    <div class="content"></div>
+    <div class="content">アフィン空間の既約閉集合をアフィン代数多様体、あるいは単にアフィン多様体という。また、アフィン多様体上の開集合を準アフィン多様体という。</div>
 </div>
-<p>可微分多様体は() manifold, アフィン多様体は</p>
+<paragraph>位相多様体は(topological) manifold, アフィン多様体は(affine) varietyであり、これらは(少なくとも表層的には)別物です。</paragraph>
+<paragraph>二つの代数的集合$V_1\coloneqq\mathcal Z(X^3+X^2-Y^2),$ $V_2\coloneqq\mathcal Z(X^3-X^2Y+XY-Y^2)$ ($\subset\mathbb A^2(\mathbb C)$)のうち、$V_1$はアフィン多様体ですが$V_2$はアフィン多様体ではありません。</paragraph>
+<div class="figure"><img alt="零点集合" src="/math/thumbnail/algebraic-geometry.png"><span>イメージ図 ($\mathbb R^2$で描画していることに注意)</span></div>
+<paragraph>$V_2$が既約でないことは、$X^3-X^2Y+XY-Y^2=(X^2+Y)(X-Y)$より
+$$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
+となることから分かります。これを基に考えると、既約集合とイデアルの対応関係が見えてきます。</paragraph>
 <div id="prime" class="box theorem">
     <div class="title">既約代数的集合と素イデアルの対応</div>
-    <div class="content">$\mathbb A^n$の既約集合と$A$の素イデアルは、$\mathcal Z$と$\mathcal I$によって対応する。</div>
+    <div class="content">$\mathbb A^n$の既約代数的集合と$A$の素イデアルは、$\mathcal Z$と$\mathcal I$によって対応する。</div>
 </div>
 <div id="proof-prime" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <p>$Y\subset\mathbb A^n$を既約代数的集合とする。$f,g\in A$が$fg\in\mathcal I(Y)$を満たすとき、$Y\subset\mathcal Z(fg)=\mathcal Z(f)\cup\mathcal Z(g)$なので
+    <paragraph>$Y\subset\mathbb A^n$を既約代数的集合とする。$f,g\in A$が$fg\in\mathcal I(Y)$を満たすとき、$Y\subset\mathcal Z(fg)=\mathcal Z(f)\cup\mathcal Z(g)$なので
     $$Y=(Y\cap\mathcal Z(f))\cup(Y\cap\mathcal Z(g))$$
-    と分解できる。右辺の二つの集合はいずれも$Y$上閉であるから、$Y$の既約性によりいずれかは$Y$に一致する必要がある。$Y\cap\mathcal Z(f)=Y$としても一般性を失わず、このとき$Y\subset\mathcal Z(f)$なので$f\in\mathcal I(Y)$。よって$\mathcal I(Y)$は素イデアルである。</p>
-    <p>逆に素イデアル$P\subset A$に対し、$\mathcal Z(P)$が相対的に閉な$Y_1,Y_2\subset\mathcal Z(P)$の和で書けたとする。素イデアルは根基イデアルなので
+    と分解できる。右辺の二つの集合はいずれも$Y$上閉であるから、$Y$の既約性によりいずれかは$Y$に一致する必要がある。$Y\cap\mathcal Z(f)=Y$としても一般性を失わず、このとき$Y\subset\mathcal Z(f)$なので$f\in\mathcal I(Y)$。よって$\mathcal I(Y)$は素イデアルである。</paragraph>
+    <paragraph>逆に素イデアル$P\subset A$に対し、$\mathcal Z(P)$が相対的に閉な$Y_1,Y_2\subset\mathcal Z(P)$の和で書けたとする。素イデアルは根基イデアルなので
     $$P=\mathcal I(\mathcal Z(P))=\mathcal I(Y_1\cup Y_2)=\mathcal I(Y_1)\cap\mathcal(Y_2)$$
-    となる。したがって任意に$f\in\mathcal I(Y_1),$ $g\in\mathcal I(Y_2)$をとると$fg\in P$となるので、$P$が素イデアルであることから$f\in P$または$g\in P$が必要。このためには$\mathcal I(Y_1)\subset P$または$\mathcal I(Y_2)\subset P$でなければならず、前者を仮定しても一般性を失わない。$Y_1$は代数的集合なので$Y_1\subset\mathcal Z(P)\subset\mathcal Z(\mathcal I(Y_1))=Y_1$を得、よって$\mathcal Z(P)$の既約性が分かる。</p>
+    となる。したがって任意に$f\in\mathcal I(Y_1),$ $g\in\mathcal I(Y_2)$をとると$fg\in P$となるので、$P$が素イデアルであることから$f\in P$または$g\in P$が必要。このためには$\mathcal I(Y_1)\subset P$または$\mathcal I(Y_2)\subset P$でなければならず、前者を仮定しても一般性を失わない。$Y_1$は代数的集合なので$Y_1\subset\mathcal Z(P)\subset\mathcal Z(\mathcal I(Y_1))=Y_1$を得、よって$\mathcal Z(P)$の既約性が分かる。</paragraph>
     </div>
 </div>
-<p>この定理から$\mathcal Z(X^3+X^2-Y^2)$の既約性が分かります。実際、$f,g\in\mathbb C[X,Y]^\times$が$fg=X^3+X^2-Y^2$を満たすなら$f,g$が$Y$に関して$0$次では明らかに駄目で、かと言って$f=Y+f_0(X),$ $g=Y+g_0(X)$とおくと$f_0g_0=X^3+X^2$の分解を全て考えてもうまく行かないので$X^3+X^2-Y^2$は既約、即ち$(X^3+X^2-Y^2)$は素イデアルです。</p>
-<p>一般に、既約多項式$f\in k[X,Y]$に対して$\mathcal Z(f)$はアフィン多様体となります。この$\mathbb Z(f)$を<strong>アフィン曲線</strong>といいます。同様に、既約な$f\in k[X_1,X_2,X_3]$に対する$\mathcal Z(f)$を<strong>アフィン曲面</strong>, 既約な$f\in k[X_1,\dots,X_n]$ ($3\lt n$)に対する$\mathcal Z(f)$を<strong>アフィン超曲面</strong>といいます。</p>
-<h3 id="affine-coord">アフィン座標</h3>
-<div id="affine-coordinate" class="box definition">
-    <div class="title">アフィン座標</div>
-    <div class="content">代数的集合$Y\subset\mathbb A^n$に対し、$A(Y)\coloneqq A/\mathcal I(Y)$を$Y$の<strong>アフィン座標環</strong>という。</div>
-</div>
-<p>特に、$Y$が既約であるとき、またその時に限り$A(Y)$は整域になります。逆に、有限生成$k$代数である整域$R$はあるアフィン多様体の座標環と同型になります。実際、$R$が$k$上$\{r_1,\dots,r_n\}$により生成されるとすると、$X_i\mapsto r_i$により全射$\varphi:k[X_1,\dots,X_n]\to R$が定まります。$R\cong k[X_1,\dots,X_n]/\Ker\varphi$が整域であることから$\Ker\varphi$は素イデアルなので、$R$は$\mathbb A^n(k)$上のアフィン多様体$\mathcal Z(\Ker\varphi)$の座標環と同型になります。</p>
-<p>環のNoether性に対応する位相空間上の概念を導入します。呼称は安直にそのまま「Noether性」です。</p>
+<paragraph>この定理から$\mathcal Z(X^3+X^2-Y^2)$の既約性が分かります。実際、$f,g\in\mathbb C[X,Y]^\times$が$-fg=X^3+X^2-Y^2$を満たすなら$f,g$が$Y$に関して$0$次では明らかに駄目で、かと言って$f=Y+f_0(X),$ $g=Y+g_0(X)$とおくと$f_0g_0=X^3+X^2$の分解を全て考えてもうまく行かないので$X^3+X^2-Y^2$は既約、即ち$(X^3+X^2-Y^2)$は素イデアルです。</paragraph>
+<paragraph>一般に、既約多項式$f\in k[X,Y]$に対して$\mathcal Z(f)$はアフィン多様体となります。この$\mathcal Z(f)$を<strong>アフィン曲線</strong>といいます。同様に、既約な$f\in k[X_1,X_2,X_3]$に対する$\mathcal Z(f)$を<strong>アフィン曲面</strong>, 既約な$f\in k[X_1,\dots,X_n]$ ($3\lt n$)に対する$\mathcal Z(f)$を<strong>アフィン超曲面</strong>といいます。</paragraph>
+<paragraph>環のNoether性に対応する位相空間上の概念を導入します。呼称は安直にそのまま「Noether性」です。</paragraph>
 <div id="Noetherian" class="box definition">
     <div class="title">Noether的位相空間</div>
     <div class="content">位相空間$X$が<strong>Noether的</strong>であるとは、$X$の任意の閉集合列$Y_1\supset Y_2\supset Y_3\supset\dots$が有限回で停止すること、即ちある正整数$n$が存在して$Y_n=Y_{n+1}=Y_{n+2}=\dots$となることをいう。</div>
 </div>
-<p>この条件を、Noether環の定義にあった昇鎖条件に対して<strong>降鎖条件</strong>といいます。</p>
+<paragraph>この条件を、Noether環の定義にあった昇鎖条件に対して<strong>降鎖条件</strong>といいます。</paragraph>
 <div id="decomposition" class="box theorem">
     <div class="title"></div>
     <div class="content">Noether的位相空間$X$において、空でない閉集合$Y$は有限個の既約集合$Y_1,\dots,Y_r$の和として表せる。また、$i\neq j$に対し$Y_i\not\subset Y_j$であることを要請でき、このとき$Y_i$たちは順序を除いて一意的に定まる。この$Y_i$を$Y$の<strong>既約成分</strong>という。</div>
@@ -131,18 +125,17 @@ $$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
 <div id="proof-decomposition" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <p>まず、このような分解の存在性を示す。有限個の既約集合の和に分解できないような$X$の非空閉集合全体の集合を$S$とおき、これが空でないと仮定する。<a href="../Noetherian#proof1">Noether環の三定義の同値性の証明</a>と同様にして極小条件(Noether的位相空間$X$の部分集合からなる非空集合には極小元が存在する)が分かるので、$S$の極小元をとって$Y$とする。$Y$が既約集合であれば$Y$は一つの既約集合の和として表せてしまうので、$Y=Y'\cup Y''$なる閉集合$Y',Y''\subsetneqq Y$が存在する。$Y$の極小性から$Y',$ $Y''$は有限個の既約集合の和に分解できるので、$Y$も分解可能である。</p>
-    <p>$Y$を有限個の既約集合$Y_1,\dots,Y_r$の和として表したときに$Y_i\subset Y_j$なる$i\neq j$が存在したとしても、$Y_i$を捨てる操作を繰り返すことで$Y=Y_1\cup\dots\cup Y_r$を保ったままそのような$i,j$をなくすことができる。このとき$Y_i$の一意性を示す。$Y'_1,\dots,Y'_s$が同じ条件を満たす既約集合であるとすると、$Y'_1\subset Y_1\cup\dots\cup Y_r$ゆえ
+    <paragraph>まず、このような分解の存在性を示す。有限個の既約集合の和に分解できないような$X$の非空閉集合全体の集合を$S$とおき、これが空でないと仮定する。<a href="../Noetherian#proof1">Noether環の三定義の同値性の証明</a>と同様にして極小条件(Noether的位相空間$X$の部分集合からなる非空集合には極小元が存在する)が分かるので、$S$の極小元をとって$Y$とする。$Y$が既約集合であれば$Y$は一つの既約集合の和として表せてしまうので、$Y=Y'\cup Y''$なる閉集合$Y',Y''\subsetneqq Y$が存在する。$Y$の極小性から$Y',$ $Y''$は有限個の既約集合の和に分解できるので、$Y$も分解可能である。</paragraph>
+    <paragraph>$Y$を有限個の既約集合$Y_1,\dots,Y_r$の和として表したときに$Y_i\subset Y_j$なる$i\neq j$が存在したとしても、$Y_i$を捨てる操作を繰り返すことで$Y=Y_1\cup\dots\cup Y_r$を保ったままそのような$i,j$をなくすことができる。このとき$Y_i$の一意性を示す。$Y'_1,\dots,Y'_s$が同じ条件を満たす既約集合であるとすると、$Y'_1\subset Y_1\cup\dots\cup Y_r$ゆえ
     $$Y'_1=(Y'_1\cap Y_1)\cup\dots\cup(Y'_1\cap Y_r)$$
-    が成り立つ。しかし$Y'_1$は既約なので、いずれかの$i$は$Y'_1\subset Y_i$を満たしていなければならない。ここで一般性を失わず$i=1$とおける。同様の理屈から$Y_1\subset Y'_j$なる$j$が存在することになるが、このとき$Y'_1\subset Y'_j$となるので$j=1$でなければならない。以上より$Y_1=Y'_1$である。$Z=\bar{Y\setminus Y_1}$とおくと、これは$Y_2\cup\dots\cup Y_r$および$Y'_2\cup\dots\cup Y'_r$に等しい。実際$Y\setminus Y_1\subset Z\subset Y$より$Y_i\subset Y=Z\cup Y_1$で、$Y_i=(Y_i\cap Z)\cup(Y_i\cap Y_1)$という分解ができることと$Y_i\not\subset Y_1$から$Y_i\subset Z$。$Y'_i$も同様。ゆえに$Z$にも同様の操作を行うことができ、$r$に関する数学的帰納法から分解の一意性が従う。</p>
+    が成り立つ。しかし$Y'_1$は既約なので、いずれかの$i$は$Y'_1\subset Y_i$を満たしていなければならない。ここで一般性を失わず$i=1$とおける。同様の理屈から$Y_1\subset Y'_j$なる$j$が存在することになるが、このとき$Y'_1\subset Y'_j$となるので$j=1$でなければならない。以上より$Y_1=Y'_1$である。$Z=\bar{Y\setminus Y_1}$とおくと、これは$Y_2\cup\dots\cup Y_r$および$Y'_2\cup\dots\cup Y'_r$に等しい。実際$Y\setminus Y_1\subset Z\subset Y$より$Y_i\subset Y=Z\cup Y_1$で、$Y_i=(Y_i\cap Z)\cup(Y_i\cap Y_1)$という分解ができることと$Y_i\not\subset Y_1$から$Y_i\subset Z$。$Y'_i$も同様。ゆえに$Z$にも同様の操作を行うことができ、$r$に関する数学的帰納法から分解の一意性が従う。</paragraph>
     </div>
 </div>
-<p>$\mathbb A^n$はNoether的位相空間です。実際、$\mathbb A^n$の閉集合列$Y_1\supset Y_2\supset Y_3\supset\dots$を任意にとると$\mathcal Z(Y_1)\subset\mathcal Z(Y_2)\subset\mathcal Z(Y_3)\subset\dots$ですが、$A$はNoether環なのでこのイデアル列は有限回で停止します。$Y_i=\mathcal Z(\mathcal I(Y_i))$なのでこのとき閉集合列も有限回で停止すると分かります。したがって、上記の定理よりアフィン空間の代数的集合に対しても同様の性質が成り立つことになります。</p>
+<paragraph>$\mathbb A^n$はNoether的位相空間です。実際、$\mathbb A^n$の閉集合列$Y_1\supset Y_2\supset Y_3\supset\dots$を任意にとると$\mathcal Z(Y_1)\subset\mathcal Z(Y_2)\subset\mathcal Z(Y_3)\subset\dots$ですが、$A$はNoether環なのでこのイデアル列は有限回で停止します。$Y_i=\mathcal Z(\mathcal I(Y_i))$なのでこのとき閉集合列も有限回で停止すると分かります。したがって、上記の定理よりアフィン空間の代数的集合に対しても同様の性質が成り立つことになります。</paragraph>
 <div id="decomp-cor" class="box corollary">
     <div class="title"></div>
-    <div class="content">空でない代数的集合$Y\subset\mathbb A^n$は既約代数的集合$Y_1,\dots,Y_r$の和として表せる。また、$i\neq j$に対し$Y_i\not\subset Y_j$であることを要請でき、このとき$Y_i$たちは順序を除いて一意的に定まる。この$Y_i$を$Y$の既約成分という。</div>
+    <div class="content">空でない代数的集合$Y\subset\mathbb A^n$はアフィン多様体$Y_1,\dots,Y_r$の和として表せる。また、$i\neq j$に対し$Y_i\not\subset Y_j$であることを要請でき、このとき$Y_i$たちは順序を除いて一意的に定まる。この$Y_i$を$Y$の既約成分という。</div>
 </div>
-
 <h3 id="footnote">脚註</h3>
 <ol>
 <li id="footnote1">環$R$のイデアル$I$に対して$I\subset J$なる極大イデアル$J$が存在することは、$I\subset I'$なるイデアル$I'$全体の集合にZornの補題を適用することで示せます(<a href="http://www.math.u-ryukyu.ac.jp/~suga/algebra/lecturenote.pdf">参考</a>; 定理 3.4.2)。$R$がNoetherである場合、明示的にはZornの補題を使わずに示せますが、選択公理の下で同値な三条件のどれを定義として採用するかによっては選択公理を使う必要が生じると思います。<a href="#footnoteref1">↩</a></li>
