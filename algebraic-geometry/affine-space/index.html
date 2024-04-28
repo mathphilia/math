@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>アフィン空間の代数的集合</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="アフィン空間における代数的集合やZariski位相、アフィン空間の部分集合のイデアルを定義します。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/affine-space.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="アフィン空間の代数的集合" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/affine-space" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">代数幾何学</a> / アフィン空間の代数的集合</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>アフィン空間の代数的集合</h2>
+<h3 id="affine-space">アフィン空間</h3>
+<paragraph>以下、$k$を代数閉体とします。$n$個の$k$の直積、即ち$\{(a_1,a_2,\dots,a_n)\mid a_i\in k\}$を$k$上の<strong>$n$次元アフィン空間</strong>といい、$\mathbb A^n(k)$や単に$\mathbb A^n$と書きます。余談ですが、アフィン空間のアフィン(affine)は人名のように見えて人名ではありません。「関連」を意味するラテン語に由来し、アフィン暗号, アフィン結合, アフィン論理など多くの用語に使われているようですが、核となる意味が何なのかは知りません。ちなみに私が思う"人名のように見えて人名ではない数学用語"三銃士はアフィン, エルゴード, マルチンゲールです。</paragraph>
+<paragraph>$k$上の多項式環$A\coloneqq k[X_1,\dots,X_n]$の元を$\mathbb A^n\to k$の写像とみると、$f$の<strong>零点集合</strong>$\mathcal Z(f)\coloneqq\{P\in\mathbb A^n\mid f(P)=0\}$を定義できます。より一般に、$A$の部分集合$S$に対して$S$の零点集合を
+$$\mathcal Z(S)\coloneqq\{P\in\mathbb A^n\mid{}^\forall f\in S;\;f(P)=0\}$$
+と定義します。$\mathcal Z$は文献によっては$Z$や$V$と書かれることもあります。代数閉体は$\mathbb C$や$\bar{\mathbb F_p}$などで、零点集合をイメージするのは困難です。ということで、零点集合の例として$\mathbb R^2$の部分集合を考えてみます。</paragraph>
+<div class="figure"><img alt="零点集合" src="/math/thumbnail/algebraic-geometry.png"><span>当カテゴリのサムネイル画像</span></div>
+<paragraph>左の図は、$xy$平面でいえば$x^3+x^2-y^2=0$、即ち$y^2=x^3+x^2$で表されるグラフです。代数幾何学では、このような多項式を用いて表される図形を取り扱います。右の図は$x^3-x^2y+xy-y^2=0$のグラフですが、右辺は$(x^2+y)(x-y)$と因数分解できるので、$y=-x^2$のグラフと$y=x$のグラフを合わせた形になっています。零点集合は、このように曲線 (あるいは点, 曲面, 超曲面)が複数組み合わさったような形になることもあります。</paragraph>
+<div id="algebraic-set" class="box definition">
+    <div class="title">代数的集合</div>
+    <div class="content">アフィン空間$\mathbb A^n$の部分集合$Y$が<strong>代数的集合</strong>であるとは、多項式環$A$の部分集合$S$が存在して$Y=\mathcal Z(S)$となることをいう。</div>
+</div>
+<paragraph>例えば、$\mathcal Z(\varnothing)=\mathbb A^n,$ $\mathcal Z(A)=\varnothing$となるので$\mathbb A^n$全体や空集合は代数的集合です。今$S$は$A$の部分集合としか仮定していませんが、実は有限集合としてとることができるというのが次の定理です。</paragraph>
+<div id="Hilbert" class="box theorem">
+    <div class="title"></div>
+    <div class="content">任意の代数的集合$Y$は、$A$の有限部分集合によって生成される。即ちある$\{f_1,\dots,f_r\}\subset A$が存在して$Y=\mathcal Z(\{f_1,\dots,f_r\})$となる。この右辺は$\mathcal Z(f_1,\dots,f_r)$と略記される。</div>
+</div>
+<div id="proof-Hilbert" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$Y=\mathcal Z(S)$なる$S\subset A$をとる。$S$によって生成される$A$のイデアルを$I$とおくと、$\mathcal Z(S)=\mathcal Z(I)$が成り立つことを示す。$S\subset I$より、全ての$f\in I$によって$f(P)=0$となるなら全ての$f\in S$によって$f(P)=0$となる。したがって$\mathcal Z(I)\subset\mathcal Z(S)$は明らか。全ての$f\in S$によって$f(P)=0$となるような$P\in\mathbb A^n$をとる。任意の$f\in I$は$S$の元の$A$線型結合で書けるから、
+    $$f=\alpha_1g_1+\alpha_2g_2+\dots+\alpha_mg_m\quad(\alpha_i\in A,\,g_i\in S)$$
+    とおける。したがって$f(P)=\dsum_{i=1}^m\alpha_i(P)g_i(P)=0$となり、$\mathcal Z(S)\subset\mathcal Z(I)$も成り立つ。</paragraph>
+    <paragraph>ここで、<a href="../Noetherian#cor-Hilbert">Hilbertの基底定理(の系)</a>より$A$はNoether環なので、$I$は有限生成である。$I$の生成系を$\{f_1,\dots,f_r\}$とおけば、前段落で示した事実から$\mathcal Z(\{f_1,\dots,f_r\})=\mathcal Z(I)$が成り立つ。</paragraph>
+    </div>
+</div>
+<h3 id="topology">Zariski位相</h3>
+<div id="Zariski" class="box theorem">
+    <div class="title">Zariski位相</div>
+    <div class="content">アフィン空間における閉集合を代数的集合と定義すると、これは位相空間の公理を満たす。この位相を<strong>Zariski位相</strong>という。</div>
+</div>
+<div id="proof-Zariski" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>前述したとおり、空集合および全体集合は代数的集合となる。よって、二つの代数的集合の合併および任意個の代数的集合の交わりが代数的集合となることを言えばよい。</paragraph>
+    <paragraph>$Y_1,$ $Y_2$を代数的集合とし、$Y_1=\mathcal Z(S_1),$ $Y_2=\mathcal Z(S_2)$なる$S_1,S_2\subset A$をとる。
+    $$S=S_1\cdot S_2\coloneqq\{f_1f_2\in A\mid f_1\in S_1,\,f_2\in S_2\}$$
+    とおくと、$P\in\mathbb A^n$が$Y_1\cup Y_2$に属することは任意の$f\in S_1,$ $g\in S_2$に対して$f(P)=0$または$g(P)=0$であること、即ち任意の$fg\in S$に対して$(fg)(P)=0$であることと言い換えられる。よって、$Y_1\cup Y_2=\mathcal Z(S_1\cdot S_2)$が成り立つ。</paragraph>
+    <paragraph>$\{Y_\lambda\}_{\lambda\in\Lambda}$を代数的集合の族とし、$Y_\lambda=\mathcal Z(S_\lambda)$なる$S_\lambda$をとる。$P\in\mathbb A^n$が$\dcap_{\lambda\in\Lambda}Y_\lambda$に属することは、全ての$\lambda\in\Lambda$と全ての$f\in S_\lambda$に対して$f(P)=0$であることと言い換えられる。よって、$\dcap_{\lambda\in\Lambda}Y_\lambda=\mathcal Z\left(\dcup_{\lambda\in\Lambda}S_\lambda\right)$が成り立つ。</paragraph>
+    </div>
+</div>
+<paragraph>例として、$1$次元アフィン空間$\mathbb A^1$のZariski位相を考えてみましょう。$A=k[X]$は単項イデアル整域なので、任意の代数的集合は一つの多項式によって生成されます。$f\in k[X]$とすると、$k$が代数閉体であることから
+$$f=c(X-a_1)(X-a_2)\dots(X-a_d)\quad(c,a_i\in k)$$
+と$1$次式の積に分解されます。したがって、$f\neq0$であれば$\mathcal Z(f)$は有限集合$\{a_1,\dots,a_d\}$ (特に、$d=0$即ち$f$が定数のとき空集合)で、$f=0$の場合は$\mathcal Z(f)=\mathcal Z(\varnothing)=\mathbb A^1$です。以上より、$\mathbb A^1$の閉集合は全体集合および有限集合ですからこの位相は補有限位相になります。</paragraph>
+<h3 id="ideal">イデアル</h3>
+<paragraph>代数的集合とイデアルの関係を見るために以下の記号を導入します: $\mathbb A^n$の部分集合$T$に対し、
+$$\mathcal I(T)\coloneqq\{f\in A\mid{}^\forall P\in T;\;f(P)=0\}$$
+と書いてこれを$T$の<strong>イデアル</strong>といいます。多項式の集合を点の集合に写す$\mathcal Z$に対し、$\mathcal I$は点の集合を多項式の集合に写します。$\mathcal Z$はzero set (零点集合)の略であり、$\mathcal I$はideal (イデアル)の略です($V$はvanish由来らしい)。実際、$\mathcal I(T)$は$A$のイデアルになります。</paragraph>
+<div id="I-ideal" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$T\subset\mathbb A^n$に対し、$\mathcal I(T)$は$A$のイデアルである。</div>
+</div>
+<div id="proof-ideal" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$0\in\mathcal I(T)$なので、特に$\mathcal I(T)$は空でない。また、$f_1,f_2\in\mathcal I(T)$および$\alpha_1,\alpha_2\in A$をとると、任意の$P\in T$に対して$(\alpha_1f_1+\alpha_2f_2)(P)=0$である。</paragraph>
+    </div>
+</div>
+<paragraph>最後に、$\mathcal Z$と$\mathcal I$の関係について簡単に分かる事実をまとめておきます。</paragraph>
+<div id="I-ideal" class="box proposition">
+    <div class="title"></div>
+    <div class="content">
+    <ol>
+        <li>$S_1\subset S_2\subset A$に対して$\mathcal Z(S_2)\subset\mathcal Z(S_1)$が成り立つ。また、$T_1\subset T_2\subset\mathbb A^n$に対して$\mathcal I(T_2)\subset\mathcal I(T_1)$が成り立つ。</li>
+        <li>$S\subset A$に対して$S\subset\mathcal I(\mathcal Z(S))$が成り立つ。また、$T\subset\mathbb A^n$に対して$T\subset\mathcal Z(\mathcal I(T))$が成り立つ。</li>
+        <li>$S\subset A,$ $T\subset\mathbb A^n$に対して$\mathcal Z(S)=\mathcal Z(\mathcal I(\mathcal Z(S)))$および$\mathcal I(T)=\mathcal I(\mathcal Z(\mathcal I(T)))$が成り立つ。特に、代数的集合のイデアル$I$と代数的集合$Y$に対して$I=\mathcal I(\mathcal Z(I))$および$Y=\mathcal Z(\mathcal I(Y))$が成り立つ。</li>
+    </ol>
+    </div>
+</div>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>

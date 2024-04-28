@@ -238,7 +238,12 @@ p {
 
 paragraph {
     display: block;
+    margin: 0.5em 0 0;
     text-indent: 1em;
+}
+
+paragraph:first-child {
+    margin: 0;
 }
 
 paragraph * {
@@ -250,6 +255,7 @@ strong {
 }
 
 ol {
+    counter-reset: index;
     margin: 0.5em 0;
     padding-left: 2em;
 }
