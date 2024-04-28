@@ -34,7 +34,7 @@
 </div>
 <h2>Hilbertの零点定理</h2>
 <h3 id="correspondence">アフィン空間と多項式環の対応</h3>
-<paragraph><a href="../affine-space">アフィン空間の代数的集合</a>で、アフィン空間$\mathbb A^n$の代数的集合と多項式環$A$のイデアルの間には$\mathcal Z$や$\mathcal I$を通して深い関係があることを学びました。その中で、$S\subset A$に対して$S\subset\mathcal I(\mathcal Z(S))$が、$T\subset\mathbb A^n$に対して$T\subset\mathcal Z(\mathcal I(T))$がそれぞれ成り立つことや、代数的集合のイデアル$I$と代数的集合$Y$に対して$I=\mathcal I(\mathcal Z(I))$および$Y=\mathcal Z(\mathcal I(Y))$が成り立つことが分かりました。では、$\mathcal Z(\mathcal I(S))$や$\mathcal I(\mathcal Z(T))$を明示的に表す方法はないでしょうか。あるいは、$\mathcal Z$と$\mathcal I$が互いに逆写像となるように、代数的集合全体の集合の部分集合やイデアル全体の集合の部分集合をとることはできないでしょうか。まず、$\mathcal Z(\mathcal I(T))$については次のような関係式があります。</paragraph>
+<paragraph><a href="../affine-space">アフィン空間の代数的集合</a>で、アフィン空間$\mathbb A^n$の代数的集合と多項式環$A$のイデアルの間には$\mathcal Z$や$\mathcal I$を通して深い関係があることを学びました。その中で、$S\subset A$に対して$S\subset\mathcal I(\mathcal Z(S))$が、$T\subset\mathbb A^n$に対して$T\subset\mathcal Z(\mathcal I(T))$がそれぞれ成り立つことや、代数的集合のイデアル$I$と代数的集合$Y$に対して$I=\mathcal I(\mathcal Z(I))$および$Y=\mathcal Z(\mathcal I(Y))$が成り立つことが分かりました。では、$\mathcal Z(\mathcal I(S))$や$\mathcal I(\mathcal Z(T))$を明示的に表す方法はないでしょうか。まず、$\mathcal Z(\mathcal I(T))$については次のような関係式があります。</paragraph>
 <div id="closure" class="box proposition">
     <div class="title"></div>
     <div class="content">$T\subset\mathbb A^n$に対し、$\mathcal Z(\mathcal I(T))=\bar T$が成り立つ。ここに、$\bar T$は(Zariski位相における)$T$の閉包である。</div>
@@ -110,7 +110,7 @@ $$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
     となる。したがって任意に$f\in\mathcal I(Y_1),$ $g\in\mathcal I(Y_2)$をとると$fg\in P$となるので、$P$が素イデアルであることから$f\in P$または$g\in P$が必要。このためには$\mathcal I(Y_1)\subset P$または$\mathcal I(Y_2)\subset P$でなければならず、前者を仮定しても一般性を失わない。$Y_1$は代数的集合なので$Y_1\subset\mathcal Z(P)\subset\mathcal Z(\mathcal I(Y_1))=Y_1$を得、よって$\mathcal Z(P)$の既約性が分かる。</paragraph>
     </div>
 </div>
-<paragraph>この定理から$\mathcal Z(X^3+X^2-Y^2)$の既約性が分かります。実際、$f,g\in\mathbb C[X,Y]^\times$が$-fg=X^3+X^2-Y^2$を満たすなら$f,g$が$Y$に関して$0$次では明らかに駄目で、かと言って$f=Y+f_0(X),$ $g=Y+g_0(X)$とおくと$f_0g_0=X^3+X^2$の分解を全て考えてもうまく行かないので$X^3+X^2-Y^2$は既約、即ち$(X^3+X^2-Y^2)$は素イデアルです。</paragraph>
+<paragraph>この定理から$\mathcal Z(X^3+X^2-Y^2)$の既約性が分かります。実際、$f,g\in\mathbb C[X,Y]^\times$が$-fg=X^3+X^2-Y^2$を満たすなら$f,g$が$Y$に関して$0$次では明らかに駄目で、かと言って$f=Y+f_0(X),$ $g=Y+g_0(X)$とおくと$f_0g_0=-(X^3+X^2)$の分解を全て考えてもうまく行かないので$X^3+X^2-Y^2$は既約、即ち$(X^3+X^2-Y^2)$は素イデアルです。</paragraph>
 <paragraph>一般に、既約多項式$f\in k[X,Y]$に対して$\mathcal Z(f)$はアフィン多様体となります。この$\mathcal Z(f)$を<strong>アフィン曲線</strong>といいます。同様に、既約な$f\in k[X_1,X_2,X_3]$に対する$\mathcal Z(f)$を<strong>アフィン曲面</strong>, 既約な$f\in k[X_1,\dots,X_n]$ ($3\lt n$)に対する$\mathcal Z(f)$を<strong>アフィン超曲面</strong>といいます。</paragraph>
 <paragraph>環のNoether性に対応する位相空間上の概念を導入します。呼称は安直にそのまま「Noether性」です。</paragraph>
 <div id="Noetherian" class="box definition">
@@ -125,7 +125,7 @@ $$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
 <div id="proof-decomposition" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>まず、このような分解の存在性を示す。有限個の既約集合の和に分解できないような$X$の非空閉集合全体の集合を$S$とおき、これが空でないと仮定する。<a href="../Noetherian#proof1">Noether環の三定義の同値性の証明</a>と同様にして極小条件(Noether的位相空間$X$の部分集合からなる非空集合には極小元が存在する)が分かるので、$S$の極小元をとって$Y$とする。$Y$が既約集合であれば$Y$は一つの既約集合の和として表せてしまうので、$Y=Y'\cup Y''$なる閉集合$Y',Y''\subsetneqq Y$が存在する。$Y$の極小性から$Y',$ $Y''$は有限個の既約集合の和に分解できるので、$Y$も分解可能である。</paragraph>
+    <paragraph>まず、このような分解の存在性を示す。有限個の既約集合の和に分解できないような$X$の非空閉集合全体の集合を$S$とおき、これが空でないと仮定する。<a href="../Noetherian#proof1">Noether環の三定義の同値性の証明</a>と同様にして極小条件(Noether的位相空間$X$の閉集合からなる非空集合には極小元が存在する)が分かるので、$S$の極小元をとって$Y$とする。$Y$が既約集合であれば$Y$は一つの既約集合の和として表せてしまうので、$Y=Y'\cup Y''$なる閉集合$Y',Y''\subsetneqq Y$が存在する。$Y$の極小性から$Y',$ $Y''$は有限個の既約集合の和に分解できるので、$Y$も分解可能である。</paragraph>
     <paragraph>$Y$を有限個の既約集合$Y_1,\dots,Y_r$の和として表したときに$Y_i\subset Y_j$なる$i\neq j$が存在したとしても、$Y_i$を捨てる操作を繰り返すことで$Y=Y_1\cup\dots\cup Y_r$を保ったままそのような$i,j$をなくすことができる。このとき$Y_i$の一意性を示す。$Y'_1,\dots,Y'_s$が同じ条件を満たす既約集合であるとすると、$Y'_1\subset Y_1\cup\dots\cup Y_r$ゆえ
     $$Y'_1=(Y'_1\cap Y_1)\cup\dots\cup(Y'_1\cap Y_r)$$
     が成り立つ。しかし$Y'_1$は既約なので、いずれかの$i$は$Y'_1\subset Y_i$を満たしていなければならない。ここで一般性を失わず$i=1$とおける。同様の理屈から$Y_1\subset Y'_j$なる$j$が存在することになるが、このとき$Y'_1\subset Y'_j$となるので$j=1$でなければならない。以上より$Y_1=Y'_1$である。$Z=\bar{Y\setminus Y_1}$とおくと、これは$Y_2\cup\dots\cup Y_r$および$Y'_2\cup\dots\cup Y'_r$に等しい。実際$Y\setminus Y_1\subset Z\subset Y$より$Y_i\subset Y=Z\cup Y_1$で、$Y_i=(Y_i\cap Z)\cup(Y_i\cap Y_1)$という分解ができることと$Y_i\not\subset Y_1$から$Y_i\subset Z$。$Y'_i$も同様。ゆえに$Z$にも同様の操作を行うことができ、$r$に関する数学的帰納法から分解の一意性が従う。</paragraph>
