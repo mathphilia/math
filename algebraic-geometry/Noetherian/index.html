@@ -137,7 +137,7 @@
     がとれる。</paragraph>
     </div>
 </div>
-<paragraph>非Noether環の面白い例を紹介します。</paragraph>
+<paragraph>非Noether環の面白い例を紹介します。特にこれは「Noether環の部分環はNoether環である」の反例にもなっています。</paragraph>
 <div id="nonNoetherian" class="box proposition">
     <div class="title"></div>
     <div class="content">$R=\{f\in\mathbb Q[X]\mid f(m)\in\mathbb Z\;({}^\forall m\in\mathbb Z)\}$はNoether環でない。</div>
@@ -160,12 +160,15 @@
 <paragraph>Hilbertの基底定理は、代数幾何学やGröbner基底, 不変式論など、様々な分野で重要な役割を持つ定理です。証明はアクロバティックで、どこから思いついたのか分からないような発想が出てきます。</paragraph>
 <div id="basis-theorem" class="box theorem">
     <div class="title">Hilbertの基底定理</div>
-    <div class="content">環$R$がNoether環であるとき、多項式環$R[X]$もNoether環である。</div>
+    <div class="content">環$R$がNoether環であることは、多項式環$R[X]$がNoether環であることと同値である。</div>
 </div>
 <div id="proof-Hilbert" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$R$をNoether環として$R[X]$がNoether環でないとすると、イデアル$I\subset R$に対して以下の手続きで$f_1,f_2,f_3,\dots\in I$を定めることができる。
+    <paragraph>$R[X]$がNoether環であるとする。イデアル$I\subset R$に対して$(I,X)\subset R[X]$を考えるとこれは仮定より有限生成。
+    $$I=\{f(0)\in R\mid f\in(I,X)\}$$
+    が成り立つから、$I$も有限生成である。</paragraph>
+    <paragraph>逆に、$R$をNoether環として$R[X]$がNoether環でないとする。任意にイデアル$I\subset R$をとったとき、以下の手続きで$f_1,f_2,f_3,\dots\in I$を定めることができる。
     <ol>
         <li>$f_1$は、$I\setminus(0)$の元のうち次数が最小のものからとる。</li>
         <li>$f_n$ ($1\lt n$)は、$I\setminus(f_1,f_2,\dots,f_{n-1})$の元のうち次数が最小のものからとる。</li>
@@ -177,10 +180,10 @@
     で$f$を定めると、$f\in(f_1,f_2,\dots,f_n)$である。また、$f$の$\deg f_{n+1}$次の係数は$a_{n+1},$ 即ち$f_{n+1}$の$\deg f_{n+1}$次の係数に等しい。よって$f-f_{n+1}\in I\setminus(f_1,f_2,\dots,f_n)$であって$\deg(f-f_{n+1})<\deg f_{n+1}$だが、これは次数の最小性に反する。</paragraph>
     </div>
 </div>
-<paragraph>これの逆($R[X]$がNoether環なら$R$もNoether環)は前述の命題1から直ちに従います。また、系として以下が成り立ちます。</paragraph>
+<paragraph>系として以下が成り立ちます。</paragraph>
 <div id="cor-Hilbert" class="box corollary">
     <div class="title"></div>
-    <div class="content">環$R$がNoether環であるとき、多変数多項式環$R[X_1,\dots,X_n]$もNoether環である。</div>
+    <div class="content">環$R$がNoether環であることは、多変数多項式環$R[X_1,\dots,X_n]$がNoether環であることと同値である。</div>
 </div>
 <div id="proof-cor" class="box proof">
     <div class="title"></div>

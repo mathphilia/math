@@ -254,22 +254,87 @@ strong {
     color: red;
 }
 
-ol {
-    counter-reset: index;
+ol, ul {
     margin: 0.5em 0;
     padding-left: 2em;
 }
 
-ol#ref-list {
-    counter-reset: index;
-    list-style-type: none;
-    padding-left: 1em;
+ol.Alpha {
+    counter-reset: Alpha;
+    padding-left: 3em;
 }
 
-ol#ref-list li::before {
+ol.Alpha li {
+    counter-increment: Alpha;
+}
+
+ol.Alpha li::marker {
+    content: "(" counter(Alpha, upper-alpha) ") ";
+}
+
+ol.alpha {
+    counter-reset: alpha;
+    padding-left: 3em;
+}
+
+ol.alpha li {
+    counter-increment: alpha;
+}
+
+ol.alpha li::marker {
+    content: "(" counter(alpha, lower-alpha) ") ";
+}
+
+ol.arabic {
+    counter-reset: arabic;
+    padding-left: 3em;
+}
+
+ol.arabic li {
+    counter-increment: arabic;
+}
+
+ol.arabic li::marker {
+    content: "(" counter(arabic) ") ";
+}
+
+ol.Roman {
+    counter-reset: Roman;
+    padding-left: 3em;
+}
+
+ol.Roman li {
+    counter-increment: Roman;
+}
+
+ol.Roman li::marker {
+    content: "(" counter(Roman, upper-roman) ") ";
+}
+
+ol.roman {
+    counter-reset: roman;
+    padding-left: 3em;
+}
+
+ol.roman li {
+    counter-increment: roman;
+}
+
+ol.roman li::marker {
+    content: "(" counter(roman, lower-roman) ") ";
+}
+
+ol#ref-list {
+    counter-reset: index;
+    padding-left: 3em;
+}
+
+ol#ref-list li {
     counter-increment: index;
-    content: "[" counter(index) "]";
-    padding-right: 0.5em;
+}
+
+ol#ref-list li::marker {
+    content: "[" counter(index) "] ";
 }
 
 code {

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>色々な方程式の解の-n乗和</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="tanx=xやsinx=1/xの解の逆二乗和などを計算する方法を考えます。" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="色々な方程式の解の-n乗和" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/misc/root-sum" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">その他</a> / 色々な方程式の解の$-n$乗和</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>色々な方程式の解の$-n$乗和</h2>
+<h3 id="problem">概要</h3>
+<p>以下のような問題を解く方法について考えます。使う道具は複素解析です。</p>
+<div id="tanx-x" class="box problem">
+    <div class="title"></div>
+    <div class="content">$\tan x=x$の正の解を小さい方から順に$\tau_1,$ $\tau_2,$ $\tau_3,\dots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac1{\tau_n^4}$の和を求めよ。</div>
+</div>
+<h3 id="plan">バーゼル問題</h3>
+<paragraph>バーゼル問題の有名な解法として、$\sin$の無限乗積展開を使うものがあります。$\sin$の零点は$\pi$の整数倍なので、$x\to0$で$\sin x=x+O(x^3)$であることと併せて
+$$\sin x=x\prod_{n=1}^\infty\left(1-\frac{x^2}{n^2\pi^2}\right)$$
+となり(?)、特に$x^3$の係数は$\dsum_{n=1}^\infty\frac1{n^2\pi^2}$となります。これと$\sin$のMaclaurin展開における$x^3$の係数を比較すると、$\dsum_{n=1}^\infty\frac1{n^2}=\dfrac{\pi^2}6$を得ます。「(?)」と書いた部分は厳密ではありません。無限個の零点に対して因数定理の考え方が使えることは明らかではありませんし、そもそもこの考え方だと例えば$e^{-x^2}\sin x$も同じ無限乗積展開を持つことになってしまいます。ということで、この発想を使いつつ非厳密性を排した証明を模索します。</paragraph>
+<h3 id="Basel">バーゼル問題の(厳密な)解答</h3>
+<p>突然ですが、上の無限乗積展開が正しいとして$\dfrac d{dx}\ln(\sin x)$がどうなるかを雑に考えてみましょう。
+$$\ln(\sin x)=\ln\left(x\prod_{n=1}^\infty\left(1-\frac{x^2}{n^2\pi^2}\right)\right)=\ln x+\sum_{n=1}^\infty\left(\ln\left(1+\frac x{n\pi}\right)+\ln\left(1-\frac x{n\pi}\right)\right)$$
+より、両辺微分して(項別微分できることは明らかでない)
+$$\frac1{\tan x}=\frac1x+\sum_{n=1}^\infty\left(\frac1{x+n\pi}+\frac1{x-n\pi}\right)$$
+となります。つまり$\dfrac1{\tan x}$は、$\sin x$の零点を極に持つような函数になっていることになります。このように、$\ln f(x)$を微分することで$f(x)$の零点を極に持つ(より具体的には、重複度$n$の零点が留数$n$の極になる)ような函数を作り出すことができそうです。そして、極の情報は複素積分を使うことで取り出すことができます。</p>
+<p>$\dfrac1{x-a}\cdot\dfrac1{x^2}$ ($a\neq0$)の$x=a$における留数は$\dfrac1{a^2}$なので、$\dfrac1{\tan x}$を$x^2$で割るとうまく行きそうです。$\dfrac1{\tan x}$を$x=0$周りでLaurent展開すると<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>
+$$\frac1{\tan x}=x^{-1}-\frac13x-\frac1{45}x^3-\dots$$
+となるので、中心$0$, 半径$R=\left(N+\dfrac34\right)\pi$ ($n$: 正整数)の円周$C_N$に沿って積分すると
+$$\frac1{2\pi i}\oint_{C_N}\frac1{x^2\tan x}dx=\sum_{n=-N}^N\res_{x=n\pi}\frac1{x^2\tan x}=-\frac13+2\sum_{n=1}^N\frac1{n^2\pi^2}$$
+を得ます。$N\to\infty$でこの積分値が$0$に収束することを示しましょう。
+\begin{align*}
+\sin(Re^{i\theta})&=\sin(iR\sin\theta+R\cos\theta)\\
+&=i\sinh(R\sin\theta)\cos(R\cos\theta)+\cosh(R\sin\theta)\sin(R\cos\theta)\\
+\cos(Re^{i\theta})&=\cos(iR\sin\theta+R\cos\theta)\\
+&=\cosh(R\sin\theta)\cos(R\cos\theta)-i\sinh(R\sin\theta)\sin(R\cos\theta)
+\end{align*}
+であるので
+\begin{align*}
+|\sin(Re^{i\theta})|&=\sqrt{\sinh^2(R\sin\theta)+\sin^2(R\cos\theta)}\\
+|\cos(Re^{i\theta})|&=\sqrt{\sinh^2(R\sin\theta)+\cos^2(R\cos\theta)}
+\end{align*}
+となります。$f(\theta)\coloneqq|\sin(Re^{i\theta})|^2,$ $g(\theta)\coloneqq|\cos(Re^{i\theta})|^2$とおくと、$0\lt x\lt\dfrac\pi2$において
+\begin{align*}
+f'(\theta)&=R\cos\theta\sinh(2R\sin\theta)-R\sin\theta\sin(2R\cos\theta)\\
+&\gt R\cos\theta\cdot2R\sin\theta-R\sin\theta\cdot2R\cos\theta=0\\
+g'(\theta)&=R\cos\theta\sinh(2R\sin\theta)+R\sin\theta\sin(2R\cos\theta)\\
+&\gt R\cos\theta\cdot2R\sin\theta+R\sin\theta\cdot-2R\cos\theta=0
+\end{align*}
+より$f(0)=\sin^2R\leqq f(\theta)\leqq\sinh^2R,$ $f(0)=\cos^2R\leqq f(\theta)\leqq\cosh^2R$です。周期性と対称性から、任意の実数$\theta$に対して$|\sin R|\leqq|\sin(Re^{i\theta})|\leqq|\sinh R|,$ $|\cos R|\leqq|\cos(Re^{i\theta})|\leqq|\cosh R|$が成り立つことが分かりました。よって、
+\begin{align*}
+\left|\frac1{\tan(Re^{i\theta})}\right|&=\sqrt{1+\frac{\cos^2(R\cos\theta)-\sin^2(R\cos\theta)}{\sinh^2(R\sin\theta)+\sin^2(R\cos\theta)}}\\
+&\leqq\sqrt{1+\frac{\cos(2R\cos\theta)}{|\sin(Re^{i\theta})|^2}}\leqq\sqrt{1+\frac1{\sin^2R}}=\sqrt3
+\end{align*}
+を得ます。以上より、
+$$\left|\oint_{C_N}\frac1{x^2\tan x}dx\right|\leqq\int_0^{2\pi}\left|\frac{iRe^{i\theta}}{(Re^{i\theta})^2\tan(Re^{i\theta})}\right|dx\leqq\int_0^{2\pi}\frac1{\sqrt3R}dx\to0\quad(\text{as }N\to\infty)$$
+なので$0=-\dfrac13+2\dsum_{n=1}^\infty\frac1{n^2\pi^2}$即ち$\dsum_{n=1}^\infty\frac1{n^2}=\frac{\pi^2}6$が示されました。</p>
+<h3 id="application">問題1への応用</h3>
+<p>バーゼル問題を問題1風に言い換えると次のようになります。</p>
+<div id="tanx-x" class="box problem">
+    <div class="title">バーゼル問題の言い換え</div>
+    <div class="content">$\sin x=0$の正の解を小さい方から順に$\alpha_1,$ $\alpha_2,$ $\alpha_3,\dots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac{\pi^2}{\alpha_n^2}$の和を求めよ。</div>
+</div>
+<p>先程この問題を$\dfrac1{x^2}\cdot\dfrac d{dx}\ln(\sin x)$の積分を使って解いたので今回は同様に$\dfrac1{x^4}\cdot\dfrac d{dx}\ln(\tan x-x)$の積分を使いたいところですが、後々の計算の手間を考えて$\dfrac1{x^4}\cdot\dfrac d{dx}\ln(\sin x-x\cos x)$を使うことにします。</p>
+<p>$\dfrac d{dx}\ln(\sin x-x\cos x)=\dfrac{x\sin x}{\sin x-x\cos x}$を$x=0$周りでLaurent展開すると
+$$\frac{x\sin x}{\sin x-x\cos x}=3x^{-1}-\frac15x-\frac1{175}x^3-\dots$$</p>
+となるので、中心$0$, 半径$R=\left(N+\dfrac34\right)\pi$ ($n$: 正整数)の円周$C_N$に沿って積分すると
+$$\frac1{2\pi i}\oint_{C_N}\frac{x\sin x}{x^2\sin x-x\cos x}dx=\sum_{n=-N}^N\res_{x=n\pi}\frac1{x^2\tan x}=-\frac15+2\sum_{n=1}^N\frac1{\tau_n^2}$$
+を得ます。というのは少し飛躍があります。なぜなら、$\tan x=x$の解が実数に限られることを前提としているからです。どうしようかな…。
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">複雑な函数のLaurent展開を求める場合、$\sin$や$\cos$といった単純な函数のLaurent展開を使って形式的Laurent級数環で計算するとよいです。例えば$\dfrac1{\tan x}$の場合、
+$$\left(x-\frac16x^3+\frac1{120}x^5-\dots\right)y=1-\frac12x^2+\frac1{24}x^4-\dots$$
+なる$y\in\mathbb C((x))$の係数を$-1$次から順に決定すればよいです。<a href="#footnoteref1">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>
