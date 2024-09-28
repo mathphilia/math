@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#5D5" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:description" content="Hilbertの零点定理を通して、Hilbertの零点定理とイデアルの関係を考えます。" />
+    <meta property="og:description" content="Hilbertの零点定理を通して、代数的集合とイデアルの関係を考えます。" />
     <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/Nullstellensatz.png" />
     <meta property="og:site_name" content="数学雑記帖" />
     <meta property="og:title" content="Hilbertの零点定理" />
@@ -49,19 +49,19 @@
 <h3 id="Nullstellensatz">Hilbertの零点定理</h3>
 <paragraph>Hilbertの零点定理を示すための(おそらく最も簡単な)方法は、弱零点定理と呼ばれる命題とRabinowitsch trickと呼ばれるテクニックを使うものです。実際のところ弱零点定理の証明には<a href="../integral-extension#Zariski-lemma">Zariskiの補題</a>を使うので、零点定理(弱零点定理に対応して強零点定理とも呼ばれる)の補題とは言えないくらい重いものになっています。とはいえそれはRabinowitsch trickによって零点定理の証明が簡単になっているからであり、本来は零点定理の証明は難しいものです。</paragraph>
 <div id="weak" class="box theorem">
-    <div class="title">弱零点定理</div>
+    <div class="title">弱零点定理 (weak Nullstellensatz)</div>
     <div class="content">$A$のイデアル$I$が$\mathcal Z(I)=\varnothing$を満たすとき、$I=A$である。</div>
 </div>
 <div id="proof-weak" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$I\neq A$をイデアルとし、$J$を$I\subset J$なる$A$の極大イデアルとする<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>。このとき$\mathcal Z(J)\subset\mathcal Z(I)$なので、$\mathcal Z(J)\neq\varnothing$であることを示せばよい。$K=A/J$とおくとこれは体であり、$k$を自然に$K$の部分体と見る。$X_i\in A$が属する$A/J$の同値類を$\bar X_i$とおくと、$K\cong k[\bar X_1,\dots,\bar X_n]$は$k$上有限生成環である。Zariskiの補題から$K/k$は代数拡大だが、$k$は代数閉体なので$K=k$でなければならない。したがって、$\bar X_i$に属する$a_i\in k$が存在することになる。以上より
-$$(X_1-a_1,\dots,X_n-a_n)\subset J$$
+    <paragraph>$I\neq A$をイデアルとし、$J$を$I\subset J$なる$A$の極大イデアルとする。このとき$\mathcal Z(J)\subset\mathcal Z(I)$なので、$\mathcal Z(J)\neq\varnothing$であることを示せばよい。$K=A/J$とおくとこれは体であり、$k$を自然に$K$の部分体と見る。$x_i\in A$が属する$A/J$の同値類を$\bar x_i$とおくと、$K\cong k[\bar x_1,\dots,\bar x_n]$は$k$上有限生成環である。Zariskiの補題から$K/k$は代数拡大だが、$k$は代数閉体なので$K=k$でなければならない。したがって、$\bar x_i$に属する$a_i\in k$が存在することになる。以上より
+$$(x_1-a_1,\dots,x_n-a_n)\subset J$$
 であるが左辺は極大イデアルであるので両辺は等しく、このとき$\mathcal Z(J)=\{(a_1,\dots,a_n)\}$である。</paragraph>
     </div>
 </div>
 <div id="strong" class="box theorem">
-    <div class="title">Hilbertの零点定理</div>
+    <div class="title">Hilbertの零点定理 (Hilbert's Nullstellensatz)</div>
     <div class="content">$A$のイデアル$I$に対し、$\mathcal I(\mathcal Z(I))=\sqrt I$が成り立つ。ここに、$\sqrt I$は$I$の根基、即ち
     $$\sqrt I\coloneqq\{f\in A\mid{}^\exists n\in\mathbb Z_{\gt0}\st f^n\in I\}$$
     である。</div>
@@ -70,12 +70,12 @@ $$(X_1-a_1,\dots,X_n-a_n)\subset J$$
     <div class="title"></div>
     <div class="content">
     <paragraph>$I$の有限生成系$\{f_1,\dots,f_r\}$をとる。任意の$g\in\mathcal I(\mathcal Z(I))$に対し、$g$のある冪が$f_1,\dots,f_r$の$A$線型結合で書けることを示せばよい。</paragraph>
-    <paragraph>自然に$A\subset A'\coloneqq k[X_1,\dots,X_n,X_{n+1}]$と見做し、$A'$のイデアル$J=(f_1,\dots,f_r,X_{n+1}g-1)$を考える(ここがRabinowitsch trick)。$P\in\mathbb A^{n+1}$が$f_1(P)=\dots=f_r(P)=0$を満たすとき$g(P)=0$なので、$(X_{n+1}g-1)(P)\neq0$である。よって$\mathcal Z(J)=\varnothing$ゆえ、弱零点定理より$1\in J$である。$1=\dsum_{i=1}^r\alpha_i\cdot f_i+\alpha\cdot(X_{n+1}g-1)$ ($\alpha_i,\alpha\in A'$)とおき、$X_{n+1}=\dfrac1Y$とおいて分母を払うと
+    <paragraph>自然に$A\subset A'\coloneqq k[x_1,\dots,x_n,x_{n+1}]$と見做し、$A'$のイデアル$J=(f_1,\dots,f_r,x_{n+1}g-1)$を考える(ここがRabinowitsch trick)。$P\in\mathbb A^{n+1}$が$f_1(P)=\dots=f_r(P)=0$を満たすとき$g(P)=0$なので、$(x_{n+1}g-1)(P)\neq0$である。よって$\mathcal Z(J)=\varnothing$ゆえ、弱零点定理より$1\in J$である。$1=\dsum_{i=1}^r\alpha_i\cdot f_i+\alpha\cdot(x_{n+1}g-1)$ ($\alpha_i,\alpha\in A'$)とおき、$x_{n+1}=\dfrac1y$とおいて分母を払うと
     \begin{align*}
-    1&=\dsum_{i=1}^r\alpha_i\left(X_1,\dots,X_n,\frac1Y\right)\cdot f_i+\alpha\left(X_1,\dots,X_n,\frac1Y\right)\cdot\left(\frac gY-1\right)\\
-    Y^d&=\dsum_{i=1}^r\beta_i(X_1,\dots,X_n,Y)\cdot f_i+\beta(X_1,\dots,X_n,Y)\cdot(g-Y)
+    1&=\dsum_{i=1}^r\alpha_i\left(x_1,\dots,x_n,\frac1y\right)\cdot f_i+\alpha\left(x_1,\dots,x_n,\frac1y\right)\cdot\left(\frac gy-1\right)\\
+    Y^d&=\dsum_{i=1}^r\beta_i(x_1,\dots,x_n,y)\cdot f_i+\beta(x_1,\dots,x_n,y)\cdot(g-y)
     \end{align*}
-    となる。ただしこれら操作は$k[X_1,\dots,X_n](Y)$で行われているものとし、$d$は適当な正整数、$\beta_i,\beta\in A'$は適当な多項式である。最後の式に$Y=g$を代入すると、$g^d$が$f_1,\dots,f_r$の$A$線型結合で表された式が得られる。</paragraph>
+    となる。ただしこれら操作は$k[x_1,\dots,x_n](y)$で行われているものとし、$d$は適当な正整数、$\beta_i,\beta\in A'$は適当な多項式である。最後の式に$y=g$を代入すると、$g^d$が$f_1,\dots,f_r$の$A$線型結合で表された式が得られる。</paragraph>
     </div>
 </div>
 <paragraph>よって、一般に$S\subset A$に対して$\mathcal I(\mathcal Z(S))=\sqrt{(S)}$です。また、$I$が根基イデアルである ($I=\sqrt I$である)とき$\mathcal I(\mathcal Z(I))=I$であると分かります。</paragraph>
@@ -83,20 +83,52 @@ $$(X_1-a_1,\dots,X_n-a_n)\subset J$$
 <h3 id="irreducible">既約集合</h3>
 <div id="irreducible-set" class="box definition">
     <div class="title">既約集合</div>
-    <div class="content">位相空間$X$の非空部分集合$Y$が<strong>既約</strong>であるとは、$Y$の相対位相に関して閉な$Y_1,Y_2\subsetneqq Y$であって$Y=Y_1\cup Y_2$を満たすものが存在しないことをいう。</div>
+    <div class="content">位相空間$X$の非空部分集合$Y$が<strong>既約 (irreducible)</strong>であるとは、$Y$の相対位相に関して閉な$Y_1,Y_2\subsetneqq Y$であって$Y=Y_1\cup Y_2$を満たすものが存在しないことをいう。</div>
 </div>
-<div id="irreducible-set" class="box definition">
-    <div class="title">アフィン多様体</div>
-    <div class="content">アフィン空間の既約閉集合をアフィン代数多様体、あるいは単にアフィン多様体という。また、アフィン多様体上の開集合を準アフィン多様体という。</div>
+<paragraph>相対位相の定義より$Y\subset X$の閉集合$Y_1,Y_2$は$X$の閉集合$X_1,X_2$を用いて$Y_1=X_1\cap Y,$ $Y_2=X_2\cap Y$と書けるので、上の定義は次のように言い換えられます; 位相空間$X$の非空部分集合$Y$が既約であるとは、$X$の閉集合$X_1,X_2$が$Y\subset X_1\cup X_2$を満たすなら$Y\subset X_1$ or $Y\subset X_2$となることをいう。</paragraph>
+<paragraph>全体集合が既約であるような位相空間を既約空間といいます。例えば、$\mathbb A^1$はZariski位相に関して既約です。実際$\mathbb A^1$の位相は補有限位相でしたから、閉集合$Y_1,Y_2\subsetneqq\mathbb A^1$は有限集合なので$Y_1\cup Y_2=\mathbb A^1$とはなり得ません($k$は代数閉体ゆえ無限体であることに注意)。一方$1$次元以上のEuclid空間は既約ではありません。実際、
+$$Y_1=\{\bm x\in\mathbb R^n\mid|\bm x|\leqq1\},\;Y_2=\{\bm x\in\mathbb R^n\mid1\leqq|\bm x|\}$$
+とすればよいです。したがって、既約空間においてはEuclid空間的な直観が通用しません。具体的にいくつかの命題を述べます。</paragraph>
+<div id="non-Hausdorff" class="box proposition">
+    <div class="title"></div>
+    <div class="content">濃度$2$以上の既約空間はHausdorffでない。</div>
 </div>
-<paragraph>位相多様体は(topological) manifold, アフィン多様体は(affine) varietyであり、これらは(少なくとも表層的には)別物です。</paragraph>
-<paragraph>二つの代数的集合$V_1\coloneqq\mathcal Z(X^3+X^2-Y^2),$ $V_2\coloneqq\mathcal Z(X^3-X^2Y+XY-Y^2)$ ($\subset\mathbb A^2(\mathbb C)$)のうち、$V_1$はアフィン多様体ですが$V_2$はアフィン多様体ではありません。</paragraph>
+<div id="proof-non-Hausdorff" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>既約空間$X$の濃度が$2$以上であるとし、相異なる$x,y\in X$をとる。$x\in U,$ $y\in V$なる開集合$U,V\subset X$に対して$U^c,V^c\neq X$であるから、$X=U^c\cup V^c$とはなり得ない。両辺の補集合を考えれば$U\cap V\neq\varnothing$が分かるので、$X$はHausdorffでない。</paragraph>
+    </div>
+</div>
+<div id="open" class="box proposition">
+    <div class="title"></div>
+    <div class="content">既約空間の空でない開部分集合は、稠密かつ既約である。</div>
+</div>
+<div id="proof-open" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$U\neq\varnothing$を既約空間$X$の開部分集合とし、$U$が$X$上稠密であることを示す。$U$の閉包を$\bar U$とすると、$U\subset\bar U$なので$U^c\cup\bar U=X$である。$X$は既約なので$U^c=X$または$\bar U=X$だが、$U$は空でないので$\bar U=X$。</paragraph>
+    <paragraph>次に$U$が既約であることを示す。$X$の閉集合$X_1,X_2$であって$U\subset X_1\cup X_2$を満たすものをとる。$X_1\cup X_2$は$U$を包む閉集合なので$X$に等しく、$X$の既約性から$X_1=X$か$X_2=X$でなければない。したがって特に、$X_1\subset U$ or $X_2\subset U$である。</paragraph>
+    </div>
+</div>
+<paragraph>また、既約集合の閉包も既約になります。</paragraph>
+<div id="non-Hausdorff" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$Y$を位相空間$X$の既約集合とすると、その閉包$\bar Y$も既約集合である。</div>
+</div>
+<div id="proof-non-Hausdorff" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$X$の閉集合$X_1,X_2$が$\bar Y\subset X_1\cup X_2$を満たすとする。このとき$Y\subset X_1\cup X_2$でもあるから、$Y$の既約性より$Y\subset X_1$ or $Y\subset X_2$である。$X_1,X_2$が閉であることに注意して両辺の閉包をとれば$\bar Y\subset X_1$ or $\bar Y\subset X_2$を得る。</paragraph>
+    </div>
+</div>
+<h3 id="irreducible">アフィン多様体</h3>
+<paragraph>二つの代数的集合$V_1\coloneqq\mathcal Z(x^3+x^2-y^2),$ $V_2\coloneqq\mathcal Z(x^3-x^2y+xy-y^2)$ ($\subset\mathbb A^2(\mathbb C)$)のうち、$V_1$は既約ですが$V_2$は既約ではありません。</paragraph>
 <div class="figure"><img alt="零点集合" src="/math/thumbnail/algebraic-geometry.png"><span>イメージ図 ($\mathbb R^2$で描画していることに注意)</span></div>
-<paragraph>$V_2$が既約でないことは、$X^3-X^2Y+XY-Y^2=(X^2+Y)(X-Y)$より
-$$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
+<paragraph>$V_2$が既約でないことは、$x^3-x^2y+xy-y^2=(x^2+y)(x-y)$より
+$$\mathcal Z(x^3-x^2y+xy-y^2)=\mathcal Z(x^2+y)\cup\mathcal Z(x-y)$$
 となることから分かります。これを基に考えると、既約集合とイデアルの対応関係が見えてきます。</paragraph>
 <div id="prime" class="box theorem">
-    <div class="title">既約代数的集合と素イデアルの対応</div>
+    <div class="title"></div>
     <div class="content">$\mathbb A^n$の既約代数的集合と$A$の素イデアルは、$\mathcal Z$と$\mathcal I$によって対応する。</div>
 </div>
 <div id="proof-prime" class="box proof">
@@ -105,22 +137,27 @@ $$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
     <paragraph>$Y\subset\mathbb A^n$を既約代数的集合とする。$f,g\in A$が$fg\in\mathcal I(Y)$を満たすとき、$Y\subset\mathcal Z(fg)=\mathcal Z(f)\cup\mathcal Z(g)$なので
     $$Y=(Y\cap\mathcal Z(f))\cup(Y\cap\mathcal Z(g))$$
     と分解できる。右辺の二つの集合はいずれも$Y$上閉であるから、$Y$の既約性によりいずれかは$Y$に一致する必要がある。$Y\cap\mathcal Z(f)=Y$としても一般性を失わず、このとき$Y\subset\mathcal Z(f)$なので$f\in\mathcal I(Y)$。よって$\mathcal I(Y)$は素イデアルである。</paragraph>
-    <paragraph>逆に素イデアル$P\subset A$に対し、$\mathcal Z(P)$が相対的に閉な$Y_1,Y_2\subset\mathcal Z(P)$の和で書けたとする。素イデアルは根基イデアルなので
+    <paragraph>逆に素イデアル$P\subset A$に対し、$\mathcal Z(P)$が既約であることを示す。弱零点定理より$\mathcal Z(P)$は空でない。$\mathcal Z(P)$が相対的に閉な$Y_1,Y_2\subset\mathcal Z(P)$の和で書けたとすると、素イデアルは根基イデアルなので
     $$P=\mathcal I(\mathcal Z(P))=\mathcal I(Y_1\cup Y_2)=\mathcal I(Y_1)\cap\mathcal(Y_2)$$
     となる。したがって任意に$f\in\mathcal I(Y_1),$ $g\in\mathcal I(Y_2)$をとると$fg\in P$となるので、$P$が素イデアルであることから$f\in P$または$g\in P$が必要。このためには$\mathcal I(Y_1)\subset P$または$\mathcal I(Y_2)\subset P$でなければならず、前者を仮定しても一般性を失わない。$Y_1$は代数的集合なので$Y_1\subset\mathcal Z(P)\subset\mathcal Z(\mathcal I(Y_1))=Y_1$を得、よって$\mathcal Z(P)$の既約性が分かる。</paragraph>
     </div>
 </div>
-<paragraph>この定理から$\mathcal Z(X^3+X^2-Y^2)$の既約性が分かります。実際、$f,g\in\mathbb C[X,Y]\setminus\mathbb C$が$-fg=X^3+X^2-Y^2$を満たすなら$f,g$が$Y$に関して$0$次では明らかに駄目で、かと言って$f=Y+f_0(X),$ $g=Y+g_0(X)$とおくと$f_0g_0=-(X^3+X^2)$の分解を全て考えてもうまく行かないので$X^3+X^2-Y^2$は既約、即ち$(X^3+X^2-Y^2)$は素イデアルです。</paragraph>
-<paragraph>一般に、既約多項式$f\in k[X,Y]$に対して$\mathcal Z(f)$はアフィン多様体となります。この$\mathcal Z(f)$を<strong>アフィン曲線</strong>といいます。同様に、既約な$f\in k[X_1,X_2,X_3]$に対する$\mathcal Z(f)$を<strong>アフィン曲面</strong>, 既約な$f\in k[X_1,\dots,X_n]$ ($3\lt n$)に対する$\mathcal Z(f)$を<strong>アフィン超曲面</strong>といいます。</paragraph>
+<paragraph>この定理から$\mathcal Z(x^3+x^2-y^2)$の既約性が分かります。実際、$f,g\in\mathbb C[x,y]\setminus\mathbb C$が$-fg=x^3+x^2-y^2$を満たすなら$f,g$が$y$に関して$0$次では明らかに駄目で、かと言って$f=y+f_0(x),$ $g=y+g_0(x)$とおくと$f_0g_0=-(x^3+x^2)$の分解を全て考えてもうまく行かないので$x^3+x^2-y^2$は既約、即ち$(x^3+x^2-y^2)$は素イデアルです。また、$\mathbb A^n$が既約空間であることも従います。</paragraph>
+<div id="irreducible-set" class="box definition">
+    <div class="title">アフィン多様体</div>
+    <div class="content">アフィン空間の既約閉集合にZariski位相から誘導される位相を入れて位相空間と見做し、<strong>アフィン代数多様体 (affine algebraic variety)</strong>、あるいは単に<strong>アフィン多様体 (affine variety)</strong>という。また、アフィン多様体上の開集合を<strong>準アフィン多様体 (quasi-affine variety)</strong>という。</div>
+</div>
+<paragraph>位相多様体はmanifold, アフィン多様体はvarietyであり、これらは(少なくとも表層的には)別物です。</paragraph>
+<paragraph>前述の議論から、一般に既約多項式$f\in k[x,y]$に対して$\mathcal Z(f)$はアフィン多様体となります。この$\mathcal Z(f)$を<strong>アフィン曲線 (affine curve)</strong>といいます。同様に、既約な$f\in k[x_1,x_2,x_3]$に対する$\mathcal Z(f)$を<strong>アフィン曲面 (affine surface)</strong>, 既約な$f\in k[x_1,\dots,x_n]$ ($3\lt n$)に対する$\mathcal Z(f)$を<strong>アフィン超曲面 (affine hypersurface)</strong>といいます。</paragraph>
 <paragraph>環のNoether性に対応する位相空間上の概念を導入します。呼称は安直にそのまま「Noether性」です。</paragraph>
 <div id="Noetherian" class="box definition">
     <div class="title">Noether的位相空間</div>
-    <div class="content">位相空間$X$が<strong>Noether的</strong>であるとは、$X$の任意の閉集合列$Y_1\supset Y_2\supset Y_3\supset\dots$が有限回で停止すること、即ちある正整数$n$が存在して$Y_n=Y_{n+1}=Y_{n+2}=\dots$となることをいう。</div>
+    <div class="content">位相空間$X$が<strong>Noether的 (Noetherian)</strong>であるとは、$X$の任意の閉集合列$Y_1\supset Y_2\supset Y_3\supset\dots$が有限回で停止すること、即ちある正整数$n$が存在して$Y_n=Y_{n+1}=Y_{n+2}=\dots$となることをいう。</div>
 </div>
-<paragraph>この条件を、Noether環の定義にあった昇鎖条件に対して<strong>降鎖条件</strong>といいます。</paragraph>
+<paragraph>この条件を、Noether環の定義にあった昇鎖条件に対して<strong>降鎖条件 (descending chain condition; DCC)</strong>といいます。</paragraph>
 <div id="decomposition" class="box theorem">
     <div class="title"></div>
-    <div class="content">Noether的位相空間$X$において、空でない閉集合$Y$は有限個の既約集合$Y_1,\dots,Y_r$の和として表せる。また、$i\neq j$に対し$Y_i\not\subset Y_j$であることを要請でき、このとき$Y_i$たちは順序を除いて一意的に定まる。この$Y_i$を$Y$の<strong>既約成分</strong>という。</div>
+    <div class="content">Noether的位相空間$X$において、空でない閉集合$Y$は有限個の既約集合$Y_1,\dots,Y_r$の和として表せる。また、$i\neq j$に対し$Y_i\not\subset Y_j$であることを要請でき、このとき$Y_i$たちは順序を除いて一意的に定まる。この$Y_i$を$Y$の<strong>既約成分 (irreducible component)</strong>という。</div>
 </div>
 <div id="proof-decomposition" class="box proof">
     <div class="title"></div>
@@ -136,10 +173,6 @@ $$\mathcal Z(X^3-X^2Y+XY-Y^2)=\mathcal Z(X^2+Y)\cup\mathcal Z(X-Y)$$
     <div class="title"></div>
     <div class="content">空でない代数的集合$Y\subset\mathbb A^n$はアフィン多様体$Y_1,\dots,Y_r$の和として表せる。また、$i\neq j$に対し$Y_i\not\subset Y_j$であることを要請でき、このとき$Y_i$たちは順序を除いて一意的に定まる。この$Y_i$を$Y$の既約成分という。</div>
 </div>
-<h3 id="footnote">脚註</h3>
-<ol>
-<li id="footnote1">環$R$のイデアル$I$に対して$I\subset J$なる極大イデアル$J$が存在することは、$I\subset I'$なるイデアル$I'$全体の集合にZornの補題を適用することで示せます(<a href="http://www.math.u-ryukyu.ac.jp/~suga/algebra/lecturenote.pdf">参考</a>; 定理 3.4.2)。$R$がNoetherである場合、明示的にはZornの補題を使わずに示せますが、選択公理の下で同値な三条件のどれを定義として採用するかによっては選択公理を使う必要が生じると思います。<a href="#footnoteref1">↩</a></li>
-</ol>
 <div class="adjacent">
     <a class="prev"></a>
     <a class="next"></a>

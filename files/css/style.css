@@ -184,14 +184,15 @@ img.copy {
     display: inline;
     margin-left: 0.3em;
     visibility: hidden;
-    height: .7em;
+    height: 1em;
+    vertical-align: -10%;
 }
 
 img.copy:hover {
     cursor: pointer;
 }
 
-h2:hover img.copy, h3:hover img.copy {
+:hover > img.copy{
     visibility: visible;
 }
 
@@ -206,6 +207,14 @@ a:active {
 
 a:hover {
     text-decoration: underline;
+}
+
+a[href^="http"]::after {
+    content: "　";
+    background-image: url("../images/external.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 a.text {

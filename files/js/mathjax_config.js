@@ -7,7 +7,13 @@ MathJax = {
         displayMath: [['$$', '$$']],
         macros: {
             Aut: ['\\operatorname{Aut}'],
+            End: ['\\operatorname{End}'],
+            Frac: ['\\operatorname{Frac}'],
+            Hom: ['\\operatorname{Hom}'],
+            Im: ['\\operatorname{Im}'],
             Ker: ['\\operatorname{Ker}'],
+            Re: ['\\operatorname{Re}'],
+            Span: ['\\operatorname{Span}'],
             and: ['\\ \\text{ and }\\,'],
             bar: ['\\overline'],
             bm: ['\\boldsymbol'],
@@ -33,6 +39,8 @@ MathJax = {
             sgn: ['\\operatorname{sgn}'],
             suc: ['\\operatorname{suc}'],
             st: ['\\ \\text{ s.t. }\\,'],
+            tilde: ['\\widetilde'],
+            trdeg: ['\\operatorname{tr.\\!deg}'],
             vec: ['\\overrightarrow'],
         },
         packages: {

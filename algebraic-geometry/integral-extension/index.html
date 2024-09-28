@@ -13,6 +13,11 @@
     <meta property="og:title" content="整拡大とZariskiの補題" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/integral-extension" />
+<script src="../../files/js/mathjax_config.js"></script>
+<script src="../../algebraic-geometry/thumbnail/thumbnail.json.js"></script>
+<script src="../../files/js/script.js"></script>
+<link rel="stylesheet" href="../../files/css/style.css" />
+<link rel="stylesheet" href="../../files/css/theorem.css" />
     <script src="/math/files/js/mathjax_config.js"></script>
     <script src="../thumbnail/thumbnail.json.js"></script>
     <script src="/math/files/js/script.js"></script>
@@ -36,26 +41,26 @@
 <h3 id="definition">定義</h3>
 <div id="integral" class="box definition">
     <div class="title"></div>
-    <div class="content">環$R$を環$R'$の部分環とする。$v\in R'$が$f(v)=0$なるモニック多項式$f\in R[X]$を持つとき、$v$は$R$上<strong>整である</strong>という。$R'$の任意の元が$R$上整であるとき、$R'$は$R$上整である、または$R$の<strong>整拡大</strong>であるという。</div>
+    <div class="content">環$R$を環$R'$の部分環とする。$v\in R'$が$f(v)=0$なるモニック多項式$f\in R[x]$を持つとき、$v$は<strong>$R$上整である (integral over $R$)</strong>という。$R'$の任意の元が$R$上整であるとき、$R'$は$R$上整である、または$R$の<strong>整拡大 (integral extension)</strong>であるという。</div>
 </div>
-<paragraph>「整である」という概念は、体における「代数的である」という概念の一般化です。体拡大$L/K$において、$v\in L$が$K$上代数的であるとは$f(v)=0$なる$f\in K[X]\setminus\{0\}$が存在することでした。ここで$f$がモニックであることは要請されていませんが、$f$の最高次の係数で$f$を割れば(体なのでこの操作は可能)モニックになりますから、$f$がモニックであることを要請しても条件は同値です。</paragraph>
-<paragraph>例として、$R=\mathbb Z,$ $R'=\mathbb R$に対し$\sqrt2\in R'$は$R$上整な元です。実際、$\sqrt2$は$X^2-2\in R[X]$の根です。一方$\dfrac12\in R'$は$R$上整ではありません。実際、$d$次のモニック多項式$f\in R[X]$に対して$f\left(\dfrac12\right)$を既約分数で書くと分母が$2^d$になります。</paragraph>
+<paragraph>「整である」という概念は、体における「代数的である」という概念の一般化です。体拡大$L/K$において、$v\in L$が$K$上代数的であるとは$f(v)=0$なる$f\in K[x]\setminus\{0\}$が存在することでした。ここで$f$がモニックであることは要請されていませんが、$f$の最高次の係数で$f$を割れば(体なのでこの操作は可能)モニックになりますから、$f$がモニックであることを要請しても条件は同値です。</paragraph>
+<paragraph>例として、$R=\mathbb Z,$ $R'=\mathbb R$に対し$\sqrt2\in R'$は$R$上整な元です。実際、$\sqrt2$は$x^2-2\in R[x]$の根です。一方$\dfrac12\in R'$は$R$上整ではありません。実際、$d$次のモニック多項式$f\in R[x]$に対して$f\left(\dfrac12\right)$を既約分数で書くと分母が$2^d$になります。</paragraph>
 <h3 id="property">性質</h3>
 <paragraph>命題を述べる前に、三つの有限生成性の違いを確認します。
 <ol>
-    <li>有限生成加群; 環$R$上の加群$M$が<strong>加群の意味で</strong>有限生成であるとは、有限集合$S\subset M$が存在し、$M$の任意の元が$S$の元の$R$係数線型結合で書けることをいう。</li>
-    <li>有限生成環; 環$R$を環$R'$の部分環とする。$R'$が$R$上<strong>環の意味で</strong>有限生成であるとは、有限集合$S\subset R'$が存在し、$R'=R[S]$と書けることをいう。</li>
-    <li>有限生成体; 体$K$を環$K'$の部分体とする。$K'$が$K$上<strong>体の意味で</strong>有限生成であるとは、有限集合$S\subset K'$が存在し、$K'=K[S]$と書けることをいう。</li>
+    <li>有限生成加群; 環$R$上の加群$M$が<strong>加群の意味で</strong>有限生成であるとは、有限集合$B\subset M$が存在し、$M$の任意の元が$B$の元の$R$係数線型結合で書けることをいう。</li>
+    <li>有限生成環; 環$R$を環$R'$の部分環とする。$R'$が$R$上<strong>環の意味で</strong>有限生成であるとは、有限集合$B\subset R'$が存在し、$R'=R[B]$と書けることをいう。</li>
+    <li>有限生成体; 体$K$を環$K'$の部分体とする。$K'$が$K$上<strong>体の意味で</strong>有限生成であるとは、有限集合$B\subset K'$が存在し、$K'=K(B)$と書けることをいう。</li>
 </ol>
-例えば、$R=\mathbb Q,$ $R'=\mathbb Q[X]$とすると$R'$は$R$上有限生成な環です($S=\{X\}$とすればよい)が、$R$上有限生成な加群ではありません。実際、(空でない)有限集合$S\subset R'$の元の次数の最大値を$d$とすれば、$X^{d+1}\in R'$は$S$の元の$R$係数線型結合で書けません。また、体$K$上の一変数有理函数体$K(X)$は$K$上有限生成な体ですが、次に述べるように有限生成環ではありません。</paragraph>
+例えば、$R=\mathbb Q,$ $R'=\mathbb Q[x]$とすると$R'$は$R$上有限生成な環です($B=\{x\}$とすればよい)が、$R$上有限生成な加群ではありません。実際、(空でない)有限集合$B\subset R'$の元の次数の最大値を$d$とすれば、$x^{d+1}\in R'$は$B$の元の$R$係数線型結合で書けません。また、体$K$上の一変数有理函数体$K(x)$は$K$上有限生成な体ですが、次に述べるように有限生成環ではありません。</paragraph>
 <div id="rational" class="box proposition">
     <div class="title"></div>
-    <div class="content">$K$を体とする。有理函数体$K(X)$は環の意味で$K$上有限生成でない。</div>
+    <div class="content">$K$を体とする。有理函数体$K(x)$は環の意味で$K$上有限生成でない。</div>
 </div>
 <div id="proof-rational" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>有限集合$S\in K(X)$が存在して$K(X)=K[S]$と書けると仮定する。$S\neq\varnothing$なので、$S$の元の分母の積が定義される。これを$f$ ($\in K[X]$)とおくと、$f$を割り切らない多項式$g\in K[X]\setminus\{0\}$に対して$g^{-1}\in K(X)$は$S$で生成されないので矛盾する。</paragraph>
+    <paragraph>有限集合$B\subset K(x)$が存在して$K(x)=K[B]$と書けると仮定する。$B\neq\varnothing$なので、$B$の元たちの分母全体の総積が定義される。これを$f$ ($\in K[x]$)とおくと、$(xf+1)^{-1}\in K(x)$は$B$で生成されないので矛盾する。</paragraph>
     </div>
 </div>
 <paragraph>次に、整な元全体の集合が環を成すことを示しましょう。</paragraph>
@@ -65,15 +70,15 @@
     <ol>
         <li>$v$は$R$上整である。</li>
         <li>$R[v]$は加群の意味で$R$上有限生成である。</li>
-        <li>$R[v]$を含む$R'$の部分環$S$であって、加群の意味で$R$上有限生成であるものが存在する。</li>
+        <li>$R[v]$を含む$R'$の部分環$R''$であって、加群の意味で$R$上有限生成であるものが存在する。</li>
     </ol></div>
 </div>
 <div id="proof-equivalence" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>(1.$\implies$2.) $v$が$R$上整であると仮定し、$f(v)=0$なるモニックな$f\in R[X]$をとる。任意の$w\in R'$はある$g\in R[X]$を用いて$w=g(v)$と書ける。$g$を$f$で割った余りを$r$とおくと、$w=g(v)=r(v)$が成り立つ。$r$の次数は$f$の次数未満であるから、$w$は$1,$ $v,$ $v^2,\dots,$ $v^{\deg f-1}$の$R$線型結合で書ける。</paragraph>
-    <paragraph>(2.$\implies$3.) 2.を仮定すると、$S=R[v]$とすれば3.が成り立つ。</paragraph>
-    <paragraph>(3.$\implies$1.) 3.の成立を仮定し、そのような$S$をとる。$S$の有限生成系$\{w_1,w_2,\dots,w_n\}$をとると、$vw_i\in R[v]\subset S$なので
+    <paragraph>(1.$\implies$2.) $v$が$R$上整であると仮定し、$f(v)=0$なるモニックな$f\in R[X]$をとる。任意の$w\in R[v]$はある$g\in R[X]$を用いて$w=g(v)$と書ける。$g$を$f$で割った余りを$r$とおくと、$w=g(v)=r(v)$が成り立つ。$r$の次数は$f$の次数未満であるから、$w$は$1,$ $v,$ $v^2,\dots,$ $v^{\deg f-1}$の$R$線型結合で書ける。</paragraph>
+    <paragraph>(2.$\implies$3.) 2.を仮定すると、$R''=R[v]$とすれば3.が成り立つ。</paragraph>
+    <paragraph>(3.$\implies$1.) 3.の成立を仮定し、そのような$R''$をとる。$R''$の有限生成系$\{w_1,w_2,\dots,w_n\}$をとると、$vw_i\in R[v]\subset R''$なので
     $$vw_i=a_{i,1}w_1+a_{i,2}w_2+\dots+a_{i,n}w_n$$
     なる$a_{i,j}\in R$が存在する。$w=\begin{pmatrix}w_1&w_2&\dots&w_n\end{pmatrix}^\top,$ $A=(a_{i,j})$とおけば<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>$vw=Aw$即ち$(vE-A)w=0$と行列表示できる。両辺に$vE-A$の余因子行列を左から掛けると$\det(vE-A)w=0$となり、$w\neq0$より$\det(vE-A)=0$を得る。</paragraph>
     </div>
@@ -85,31 +90,49 @@
 <div id="proof-extension" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$a$は$R$上整なので、$R[a]$は$R$上の有限生成加群である。その有限生成系を$\{u_1,u_2,\dots,u_m\}$とおく。また、$b$は$R[a]$ ($\supset R$)上整なので、$R[a,b]=R[a][b]$は$R[a]$上の有限生成加群である。その有限生成系を$\{v_1,v_2,\dots,v_n\}$とおく。$R[a,b]$の元は$v_1,v_2,\dots,v_n$の$R[a]$線型結合で書くことができ、$v_1,v_2,\dots,v_n$およびその係数は$u_1,u_2,\dots,u_m$の$R$線型結合で書くことができるので、$R[a,b]$は$\{u_1,u_2,\dots,u_m\}$により$R$上生成される。任意に$w\in R[a,b]$をとると$R\subset R[w]\subset R[a,b]$であることから、$w$は$R$上整である。特に$a+b,ab$が$R$上整であること、任意の$R$の元は$R$上整であることから定理が従う。</paragraph>
+    <paragraph>$R$上整な$a,b\in R'$をとると、$R[a]$は$R$上の有限生成加群である。その有限生成系を$\{u_1,u_2,\dots,u_m\}$とおく。また、$b$は$R[a]$ ($\supset R$)上整なので、$R[a,b]=R[a][b]$は$R[a]$上の有限生成加群である。その有限生成系を$\{v_1,v_2,\dots,v_n\}$とおく。$R[a,b]$の元は$v_1,v_2,\dots,v_n$の$R[a]$線型結合で書くことができ、$v_1,v_2,\dots,v_n$およびその係数は$u_1,u_2,\dots,u_m$の$R$線型結合で書くことができるので、$R[a,b]$は$\{u_1,u_2,\dots,u_m\}$により$R$上生成される。任意に$w\in R[a,b]$をとると$R\subset R[w]\subset R[a,b]$であることから、$w$は$R$上整である。特に$a+b,ab$が$R$上整であること、任意の$R$の元は$R$上整であることから定理が従う。</paragraph>
+    </div>
+</div>
+<paragraph>この環を$R'$における$R$の整閉包といいます。</paragraph>
+<div id="int-cl" class="box definition">
+    <div class="title">整閉包</div>
+    <div class="content">環$R$を環$R'$の部分環とする。$R'$の元のうち$R$上整な元の全体からなる集合を$R'$における$R$の整閉包という。</div>
+</div>
+<paragraph>整閉包を表す一般的な記法はないようですが、ここでは$\bar R_{R'}$と書くことにします。</paragraph>
+<div id="closure-prop" class="box proposition">
+    <div class="title"></div>
+    <div class="content">環$R$を環$R'$の部分環とすると、$R'$における$\bar R_{R'}$の整閉包は$\bar R_{R'}$である。</div>
+</div>
+<div id="proof-rational" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$v\in R'$が$\bar R_{R'}$上整であるとすると、ある$u_0,\dots,u_{n-1}\in\bar R_{R'}$が存在して
+    $$v^n+u_{n-1}v^{n-1}+\dots+u_1v+u_0=0$$
+    となる。<a href="#proof-equivalence">補題1の証明</a>より$R[v]$の元は$1,v,\dots,v^{n-1}$の線型結合で書けるが、この係数は$u_0,\dots,u_{n-1}$の$R$係数多項式で書ける。よって$R[v]$は$R[u_0,\dots,u_{n-1}]$加群として有限生成である。$u_0$は$R$上整なので$R[u_0,\dots,u_{n-1}]$は$R[u_1,\dots,u_{n-1}]$加群として有限生成で、以下同様に繰り返すと$R[u_0,\dots,u_{n-1}]$は$R$加群として有限生成であると分かる。以上より$R[v]$は有限生成$R$加群であるので$v$は$R$上整。</paragraph>
     </div>
 </div>
 <paragraph>最後に、Zariskiの補題を示すための補題を示します。</paragraph>
 <div id="extension" class="box lemma">
     <div class="title"></div>
-    <div class="content">$K$を体とする。「任意の$q\in K(X)$に対してある正整数$m$が存在し、$f^mq$は$K[X]$上整である」を満たすような$f\in K[X]\setminus\{0\}$は存在しない。</div>
+    <div class="content">$K$を体とする。「任意の$q\in K(x)$に対してある正整数$m$が存在し、$f^mq$は$K[x]$上整である」を満たすような$f\in K[x]\setminus\{0\}$は存在しない。</div>
 </div>
 <div id="proof-extension" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$g\in K[X]$を$f$で割り切れない多項式とする。正整数$m$およびモニックな$K[X]$係数多項式$p$に対し、$p\left(\dfrac{f^m}g\right)$を既約分数で表したとき分母は$g^{\deg p}$となるので$\dfrac{f^m}g$は$K[X]$上整でない。</paragraph>
+    <paragraph>$g\in K[x]$を$f$で割り切れない多項式とする。正整数$m$およびモニックな$K[x]$係数多項式$p$に対し、$p\left(\dfrac{f^m}g\right)$を既約分数で表したとき分母は$g^{\deg p}$となるので$\dfrac{f^m}g$は$K[x]$上整でない。</paragraph>
     </div>
 </div>
 <h3 id="Zariski">Zariskiの補題</h3>
 <paragraph>名前には「補題」とついていますが、本記事の目標となる命題なので定理の枠を使っています。</paragraph>
 <div id="Zariski-lemma" class="box theorem">
-    <div class="title">Zariskiの補題</div>
-    <div class="content">体$K$上有限生成な環$L$が体であるとき、$L/K$は有限次代数拡大である。</div>
+    <div class="title">Zariskiの補題 (Zariski's lemma)</div>
+    <div class="content">体$K$上有限生成な環$L$が体であるとき、$L/K$は有限次拡大である。</div>
 </div>
 <div id="proof-Zariski" class="box proof">
     <div class="title"></div>
     <div class="content">
     <paragraph>$L=K[v_1,v_2,\dots,v_n]$とおき、$n$に関する数学的帰納法で示す。また、有限次拡大ならば代数拡大であることに注意する。</paragraph>
-    <paragraph>$n=0$のときは明らか。$n=1$のとき、$v_1$が$K$上超越的であると仮定すると$L=K(v_1)\cong K(X)$だがこれは環の意味で$K$上有限生成でない。よって$v_1$は$K$上代数的で、単拡大なので拡大次数は有限。</paragraph>
+    <paragraph>$n=0$のときは明らか。$n=1$のとき、$v_1$が$K$上超越的であると仮定すると$L=K(v_1)\cong K(x)$だがこれは環の意味で$K$上<a href="#rational">有限生成でない</a>。よって$v_1$は$K$上代数的で、単拡大なので拡大次数は有限。</paragraph>
     <paragraph>$n-1$のときの成立を仮定する。
     $$L\subset K(v_1)[v_2,\dots,v_n]\subset K(v_1,v_2,\dots,v_n)=L$$
     より$L=K(v_1)[v_2,\dots,v_n]$である。仮定より$L/K(v_1)$は有限次拡大なので、$K(v_1)/K$が有限次拡大、即ち代数拡大であれば$[L:K]=[L:K(v_1)][K(v_1):K]\lt\infty$となって定理が従う。よって以下$v_1$が$K$上超越的であることを仮定する<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a></sup>。</paragraph>
@@ -117,7 +140,7 @@
     $$v_i^{d_i}+a_{i,d_i-1}v_i^{d_i-1}+\dots+a_{i,1}v_i+a_{i,0}=0$$
     と書ける。ここで、全$a_{i,j}$の分母の積を$A$とおけば
     $$(Av_i)^{d_i}+Aa_{i,d_i-1}(Av_i)^{d_i-1}+\dots+A^{d_i-1}a_{i,1}(Av_i)+A^{d_i}a_{i,0}=0$$
-    となって$Av_i$が$K[v_1]$上整な元であると分かる。よって、$w\in L$に対して$w=f(v_2,\dots,v_n)$なる$f\in K[v_1][X_2,\dots,X_n]$をとると、定理1より$A^{\deg f}w$は$K[v_1]$上整な元となる。特に、$K(v_1)$の任意の元$w$に対してある正整数$m$が存在し$A^mw$が$K[v_1]$上整となるが、これは補題に反する。</paragraph>
+    となって$Av_i$が$K[v_1]$上整な元であると分かる。よって、$w\in L$に対して$w=f(v_2,\dots,v_n)$なる$f\in K[v_1][x_2,\dots,x_n]$をとると、定理1より$A^{\deg f}w$は$K[v_1]$上整な元となる。特に、$K(v_1)$の任意の元$w$に対してある正整数$m$が存在し$A^mw$が$K[v_1]$上整となるが、これは<a href="#extension">補題</a>に反する。</paragraph>
     </div>
 </div>
 <h3 id="footnote">脚註</h3>

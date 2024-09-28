@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>上昇定理・下降定理 (次元論②)</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="整拡大における素イデアル列の対応についていくつかの性質を調べ、体上有限生成な整域の次元に関する性質を証明します。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/dimension-2.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="上昇定理・下降定理 (次元論②)" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/dimension-2" />
+<script src="../../files/js/mathjax_config.js"></script>
+<script src="../../algebraic-geometry/thumbnail/thumbnail.json.js"></script>
+<script src="../../files/js/script.js"></script>
+<link rel="stylesheet" href="../../files/css/style.css" />
+<link rel="stylesheet" href="../../files/css/theorem.css" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">代数幾何学</a> / 上昇定理・下降定理 (次元論②)</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>上昇定理・下降定理 (次元論②)</h2>
+<paragraph>この項目では、イデアルについて説明しています。エッシャーのリトグラフについては「<a href="https://ja.wikipedia.org/wiki/上昇と下降_(エッシャー)">上昇と下降 (エッシャー)</a>」をご覧ください。</paragraph>
+<h3 id="preparation">用語の準備</h3>
+<div id="lying-def" class="box definition">
+    <div class="title">俯瞰性質</div>
+    <div class="content">$R\subset R'$を環拡大とし、$\mathfrak p\subset R,$ $\mathfrak p'\subset R'$をそれぞれ素イデアルとする。$\mathfrak p=\mathfrak p'\cap R$を満たすとき$\mathfrak p'$は$\mathfrak p$の<strong>上にある (lie over)</strong>といい、$R$の任意の素イデアル$\mathfrak p$に対して$R'$の素イデアル$\mathfrak p'$が存在し、$\mathfrak p'$が$\mathfrak p$の上にあるとき環拡大$R\subset R'$は<strong>俯瞰性質 (lying-over property)</strong>を満たすという。</div>
+</div>
+<div id="going-up-def" class="box definition">
+    <div class="title">上昇性質</div>
+    <div class="content">$R\subset R'$を環拡大とする。任意の素イデアル列
+    $$\mathfrak p_1\subset\mathfrak p_2\subset\dots\subset\mathfrak p_n\subset R$$
+    および$\mathfrak p_1=\mathfrak p'_1\cap R$なる素イデアル$\mathfrak p'_1\subset R'$に対し、$R'$の素イデアル列
+    $$\mathfrak p'_1\subset\mathfrak p'_2\subset\dots\subset\mathfrak p'_n\subset R'$$
+    であって$\mathfrak p_i=\mathfrak p'_i\cap R$なるようなものが存在するとき、環拡大$R\subset R'$は<strong>上昇性質 (going-up property)</strong>を満たすという。</div>
+</div>
+<div id="going-down-def" class="box definition">
+    <div class="title">下降性質</div>
+    <div class="content">$R\subset R'$を環拡大とする。任意の素イデアル列
+    $$\mathfrak p_1\subset\mathfrak p_2\subset\dots\subset\mathfrak p_n\subset R$$
+    および$\mathfrak p_n=\mathfrak p'_n\cap R$なる素イデアル$\mathfrak p'_n\subset R'$に対し、$R'$の素イデアル列
+    $$\mathfrak p'_1\subset\mathfrak p'_2\subset\dots\subset\mathfrak p'_n\subset R'$$
+    であって$\mathfrak p_i=\mathfrak p'_i\cap R$なるようなものが存在するとき、環拡大$R\subset R'$は<strong>下降性質 (going-down property)</strong>を満たすという。</div>
+</div>
+<p>俯瞰性質, 上昇性質, 下降性質はそれぞれ俯瞰定理 (lying-over theorem), 上昇定理 (going-up theorem), 下降定理 (going-down theorem)ということもあります(例えば参考文献<a href="#ref1">[1]</a>ではそのように呼んでいる)。ただ、ある条件下で俯瞰性質が成り立つという定理を指して俯瞰定理(他も同様)ということも多いです。以下暫くは、環拡大として<a href="../integral-extension/#integral">整拡大</a>のみを考えます。</p>
+<h3 id="lying-over">俯瞰定理</h3>
+<div id="field-iff" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$R\subset R'$を整域の整拡大とする。$R$が体であるための必要十分条件は$R'$が体であることである。</div>
+</div>
+<div id="field-iff-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>($\Rightarrow$) $R$が体であるとする。任意に$x\in R'$をとるとこれは$R$上整なので、ある$a_0,\dots,a_{n-1}\in R$が存在して
+    $$x^n+a_{n-1}x^{n-1}+\dots+a_2x^2+a_1x+a_0=0$$
+    となる。ここで$a_0\neq0$としても一般性は失われない。よって$a_0^{-1}$は存在し、
+    $$x\cdot-a_0^{-1}(x^{n-1}+a_{n-1}x^{n-2}+\dots+a_2x+a_1)=1$$
+    となる。したがって$x$は$R'$の可逆元である。</paragraph>
+    <p>($\Leftarrow$) $R'$が体であるとする。任意に$x\in R$をとるとこれは$R'$に属するので$x^{-1}\in R$である。よって$a_0,\dots,a_{n-1}\in R$が存在して
+    $$(x^{-1})^n+a_{n-1}(x^{-1})^{n-1}+\dots+a_1x^{-1}+a_0=0$$
+    となる。この両辺に$x^{n-1}$を掛ければ
+    $$x^{-1}=-(a_{n-1}+\dots+a_1x^{n-2}+a_0x^{n-1})\in R$$
+    を得る。</p>
+    </div>
+</div>
+<p>この命題は<a href="#">系</a>の一般化になっています。</p>
+<div id="prime-iff" class="box corollary">
+    <div class="title"></div>
+    <div class="content">$R\subset R'$を整拡大とし、素イデアル$\mathfrak p\subset R,$ $\mathfrak p'\subset R'$が$\mathfrak p=\mathfrak p'\cap R$を満たすとする。$\mathfrak p$が極大イデアルであるための必要十分条件は$\mathfrak p'$が極大イデアルであることである。</div>
+</div>
+<div id="field-iff-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>$\tilde R\coloneqq R/\mathfrak p,$ $\tilde R'\coloneqq R'/\mathfrak p'$とおくとこれらは整域である。また、$\tilde R\to\tilde R',x+\mathfrak p\mapsto x+\mathfrak p'$はwell-definedな単射ゆえ、自然に$\tilde R\subset\tilde R'$と見ることができる。任意に$x+\mathfrak p'\in\tilde R'$をとると、$x$が$R$上整であることからある$f\in R[X]$が存在して$f(x)=0$となる。$f$を自然に$\tilde R$係数の多項式と見れば$f(x+\mathfrak p')=0$なので、$x+\mathfrak p'$は$\tilde R$上整である。</p>
+    <p>以上より$\tilde R,$ $\tilde R'$は命題の仮定を満たすので、「$\mathfrak p$が極大${}\iff\tilde R$が体${}\iff\tilde R'$が体${}\iff\mathfrak p'$が極大」となる。</p>
+    </div>
+</div>
+<p>参考文献<a href="#ref2">[2]</a>ではこれを使って$R,$ $R'$が整域である場合の証明をしています。この場合は、以下に示す一般的な状況での証明よりシンプルです<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>。実用上は整域の整拡大に関する俯瞰定理を主に使うので、それでよいという説はあります。</p>
+<div id="theorem-over" class="box theorem">
+    <div class="title">俯瞰定理</div>
+    <div class="content">整拡大$R\subset R'$は俯瞰性質を満たす。</div>
+</div>
+<div id="proof-over" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>素イデアル$\mathfrak p\subset R$を任意にとり、その上にある$R'$の素イデアルの存在を示す。$I\cap R\subset\mathfrak p$を満たすイデアル$I\subset R'$全体の集合を$J$とする。$J$は帰納的順序集合であり、また零イデアルが属するので空ではない。したがってZornの補題により極大元$\mathfrak p'$をとる。</p>
+    <p>$\mathfrak p'$が素イデアルであることを示そう。$\alpha,\beta\in R'\setminus\mathfrak p'$であって$\alpha\beta\in\mathfrak p'$なるものをとる。$\mathfrak p'$の極大性より
+    $$(\mathfrak p',\alpha)\cap R\not\subset\mathfrak p,\;(\mathfrak p',\beta)\cap R\not\subset\mathfrak p$$
+    である。よって$a,b\in R\setminus\mathfrak p$であって$a\in(\mathfrak p',\alpha),$ $b\in(\mathfrak p',\beta)$なるものが存在する。このときある$x,y\in R'$が存在して
+    $$a\equiv\alpha x,\;b\equiv\beta y\pmod{\mathfrak p'}$$
+    であるから、$ab\equiv\alpha\beta xy\equiv0\pmod{\mathfrak p'}$となる。しかし、$a,b\in R$かつ$ab\in\mathfrak p'$より$ab\in\mathfrak p'\cap R\subset\mathfrak p$だがこれは$a,b\notin\mathfrak p$に反する。</p>
+    <p>次に$\mathfrak p'\cap R=\mathfrak p$を示す。$\mathfrak p'\cap R\subsetneqq\mathfrak p$と仮定し、$\gamma\in\mathfrak p\setminus\mathfrak p'$をとる。$\mathfrak p'$の極大性から$(\mathfrak p',\gamma)\cap R\not\subset\mathfrak p$なので、ある$c\in R\setminus\mathfrak p,$ $z\in R'$が存在して$c\equiv\gamma z\pmod{\mathfrak p'}$となる。$z$は$R$上整なので、ある$a_0,\dots,a_{n-1}\in R$が存在して
+    \begin{align*}
+    z^n+a_{n-1}z^{n-1}+\dots+a_1z+a_0&=0\\
+    (\gamma z)^n+a_{n-1}\gamma(\gamma z)^{n-1}+\dots+a_1\gamma^{n-1}\cdot\gamma z+a_0\gamma^n&=0
+    \end{align*}
+    となる。よって$\bmod\mathfrak p'$で考えれば、
+    $$c^n+a_{n-1}\gamma c^{n-1}+\dots+a_1\gamma^{n-1}c+a_0\gamma^n\equiv0\pmod{\mathfrak p'}$$
+    を得る。左辺は$R$の元なので、$\equiv0\pmod{\mathfrak p'}$と併せて左辺は$\mathfrak p$の元であると分かる。更に$\gamma\in\mathfrak p$から$c^n\in\mathfrak p$即ち$c\in\mathfrak p$であるが、これは$c\in R\setminus\mathfrak p$に反する。</p>
+    </div>
+</div>
+<h3 id="going-up">上昇定理</h3>
+<div id="theorem-up" class="box theorem">
+    <div class="title">上昇定理</div>
+    <div class="content">整拡大$R\subset R'$は上昇性質を満たす。</div>
+</div>
+<div id="proof-up" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>任意の素イデアル列$\mathfrak p_1\subset\mathfrak p_2\subset R$および$\mathfrak p_1=\mathfrak p'_1\cap R$なる素イデアル$\mathfrak p'_1\subset R'$に対し、ある素イデアル$\mathfrak p'_2\subset R'$が存在して$\mathfrak p'_1\subset\mathfrak p'_2,$ $\mathfrak p_2=\mathfrak p'_2\cap R$を満たすことを示せばよい。</p>
+    <p><a href="#field-iff-proof">前述</a>の通り$R'/\mathfrak p'_1$は$R/\mathfrak p_1$上整であるから、<a href="#theorem-over">俯瞰定理</a>より素イデアル$\mathfrak p_2/\mathfrak p_1\subset R/\mathfrak p_1$の上にある素イデアル$\bar{\mathfrak p'_2}\subset R'/\mathfrak p'_1$が存在する。このとき
+    $$\mathfrak p_2/\mathfrak p_1=\bar{\mathfrak p'_2}\cap(R/\mathfrak p_1)$$
+    であり、各辺は
+    \begin{align*}
+    \mathfrak p_2/\mathfrak p_1&=\{x+\mathfrak p_1\in R/\mathfrak p_1\mid x\in\mathfrak p_2\}\\
+    \bar{\mathfrak p'_2}\cap(R/\mathfrak p_1)&=\{x+\mathfrak p_1\in R/\mathfrak p_1\mid x+\mathfrak p'_1\in\bar{\mathfrak p'_2},\,x\in R\}
+    \end{align*}
+    と書ける($x\in R$に対して$x+\mathfrak p_1$は$x+\mathfrak p'_1$と同一視されることに注意)。ゆえに、自然な射影$R'\to R'/\mathfrak p'_1$に関する$\bar{\mathfrak p'_2}$の逆像を$\mathfrak p'_2$とすると、$\mathfrak p_2=\mathfrak p'_2\cap R$を得る。</p>
+    </div>
+</div>
+<p>上昇定理を使うと、整拡大と次元の関係が分かります。</p>
+<div id="incomparability" class="box lemma">
+    <div class="title"></div>
+    <div class="content">$R\subset R'$を整拡大、$\mathfrak p\subset R$を素イデアルとし、$\mathfrak p'_1,\mathfrak p'_2\subset R'$をいずれも$\mathfrak p$の上にある相異なる素イデアルとする。このとき$\mathfrak p'_1\not\subset\mathfrak p'_2$および$\mathfrak p'_2\not\subset\mathfrak p'_1$が成り立つ。</div>
+</div>
+<p>この性質はincomparability propertyと呼ばれることもあるようですが、日本語への定訳は見つかりませんでした。</p>
+<div id="incomparability-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>$S\coloneqq R\setminus\mathfrak p$とおくと、$S^{-1}R'$は$S^{-1}R$ ($=R_\mathfrak p$)上整である。実際$\dfrac xs\in S^{-1}R'$ ($x\in R',$ $s\in S$)を任意にとれば、ある$a_0,\dots,a_{n-1}\in R$が存在して
+    \begin{align*}
+    x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0&=0\\
+    \left(\frac xs\right)^n+\frac{a_{n-1}}s\left(\frac xs\right)^{n-1}+\dots+\frac{a_1}{s^{n-1}}\frac xs+\frac{a_0}{s^n}&=0
+    \end{align*}
+    となるので$\dfrac xs$は$S^{-1}R$上整である。</p>
+    <p><a href="../dimension-1#correspond">素イデアルの対応定理</a>によって$\mathfrak p$に対応する$S^{-1}R$の素イデアルは$S^{-1}\mathfrak p$で、$\mathfrak p'_1,$ $\mathfrak p'_2$に対応する$S^{-1}R'$の素イデアルはそれぞれ$S^{-1}\mathfrak p'_1,$ $S^{-1}\mathfrak p'_2$である。ここで、$S^{-1}\mathfrak p=\mathfrak p R_\mathfrak p$は$S^{-1}R$の<a href="../dimension-1#local-proof">極大イデアルである</a>。また、$\mathfrak p=\mathfrak p'_i\cap R$から$S^{-1}\mathfrak p=S^{-1}\mathfrak p'_i\cap S^{-1}R$ ($i=1,2$)であり、
+    $$\mathfrak p'_1\subset\mathfrak p'_2\iff S^{-1}\mathfrak p'_1\subset S^{-1}\mathfrak p'_2$$
+    である。<a href="#prime-iff">系1</a>より$S^{-1}\mathfrak p'_1,$ $S^{-1}\mathfrak p'_2$はいずれも極大イデアルなのでこれらに真の包含関係はなく、$\mathfrak p'_1\neq\mathfrak p'_2$から$\mathfrak p'_1\not\subset\mathfrak p'_2$および$\mathfrak p'_2\not\subset\mathfrak p'_1$を得る。</p>
+    </div>
+</div>
+<div id="dim-equal" class="box theorem">
+    <div class="title"></div>
+    <div class="content">$R\subset R'$が整拡大であるとき、$\dim R=\dim R'$が成り立つ。</div>
+</div>
+<div id="dim-equal-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>まず、$R$の長さ$\dim R$の素イデアル列
+    $$\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_{\dim R}$$
+    をとると、<a href="#theorem-over">俯瞰定理</a>および<a href="#theorem-up">上昇定理</a>によって、$R'$の素イデアル列
+    $$\mathfrak p'_0\subset\mathfrak p'_1\subset\mathfrak p'_2\subset\dots\subset\mathfrak p'_{\dim R}$$
+    であって$\mathfrak p_i=\mathfrak p'_i\cap R$を満たすものの存在が分かる。
+    $$\mathfrak p'_{i-1}\cap R=\mathfrak p_{i-1}\neq\mathfrak p_i=\mathfrak p'_i\cap R$$
+    より上記素イデアル列の$\subset$は真の包含であると分かり、$\dim R\leqq\dim R'$を得る。</p>
+    <p>次に$R'$の長さ$\dim R'$の素イデアル列
+    $$\mathfrak p'_0\subsetneqq\mathfrak p'_1\subsetneqq\mathfrak p'_2\subsetneqq\dots\subsetneqq\mathfrak p'_{\dim R'}$$
+    をとり、$\mathfrak p_i\coloneqq\mathfrak p'_i\cap R$とおく。このとき
+    $$\mathfrak p_0\subset\mathfrak p_1\subset\mathfrak p_2\subset\dots\subset\mathfrak p_{\dim R'}$$
+    である。$x,y\in R$を$xy\in\mathfrak p_i$となるようにとると、$xy\in\mathfrak p'_i\cap R\subset\mathfrak p'_i$より$x\in\mathfrak p'_i$ or $y\in\mathfrak p'_i$が成り立つ。したがって$x\in\mathfrak p'_i\cap R$ or $y\in\mathfrak p'_i\cap R$なので$\mathfrak p$は素イデアルである。$\mathfrak p_{i-1}=\mathfrak p_i$と仮定すると$\mathfrak p'_{i-1},$ $\mathfrak p'_i$は同じ素イデアルの上にあることになるが、$\mathfrak p'_{i-1}\subsetneqq\mathfrak p'_i$なので<a href="#incomparability">incomparability property</a>に反する。以上より上記素イデアル列の$\subset$は真の包含であると分かり、$\dim R'\leqq\dim R$を得る。</p>
+    </div>
+</div>
+<p>つまるところ、整拡大では環の“大きさ”があまり変わらないと言えます。</p>
+<h3 id="prepare">下降定理の準備</h3>
+<p>俯瞰性質と上昇性質は整拡大であれば常に成り立ちましたが、下降性質にはもう少し仮定が必要です。まずは下降定理を述べるための準備をします。</p>
+<div id="int-closed" class="box definition">
+    <div class="title">整閉整域</div>
+    <div class="content">$R\subset R'$を環の拡大とする。$R'$における$R$の整閉包$\bar R_{R'}$が$R$に等しいとき、$R$は$R'$において<strong>整閉 (integrally closed)</strong>であるという。特に、整域$R$が$\Frac R$において整閉であるとき$R$は<strong>整閉整域 (integrally closed domain)</strong>であるという。</div>
+</div>
+<p>例えば、整数係数モニック多項式の根となる有理数は整数に限られるので$\mathbb Z$は整閉整域です。より一般に、素元分解整域は整閉整域であることが示せます。</p>
+<div id="closed-example" class="box proposition">
+    <div class="title"></div>
+    <div class="content">素元分解整域は整閉整域である。</div>
+</div>
+<div id="proof-closed-example" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$R$を素元分解整域とする。$R$が整閉整域であることは、任意の$a\in\Frac R\setminus R$が$R$上整でないことと言い換えられるのでこれを示す。</paragraph>
+    <p>任意に$a\in\Frac R\setminus R$をとるとある$b,c\in R$を用いて$a=\dfrac bc$と書ける。このとき必要に応じて約分することで、$\gcd(b,c)$が単元となるようにできる。$R$係数モニック多項式
+    $$f\coloneqq x^n+r_{n-1}x^{n-1}+\dots+r_1x+r_0$$
+    に$a$を代入すると、
+    \begin{align*}
+    f(a)&=\frac{b^n}{c^n}+r_{n-1}\frac{b^{n-1}}{c^{n-1}}+\dots+r_1\frac bc+r_0\\
+    &=\frac1{c^n}(b^n+r_{n-1}b^{n-1}c+\dots+r_1bc^{n-1}+r_0c^n)
+    \end{align*}
+    となる。$a\notin R$より$c$は単元でなく、よって$c\nmid b^n$であり、したがって$f(a)\notin R$より$f(a)\neq0$を得る。</p>
+    </div>
+</div>
+<p>なお、代数閉体は代数拡大によって大きくならないのに対し、整閉整域は整拡大によって大きくなり得ます($\mathbb Z\subset\mathbb Z[\sqrt2]$など)。</p>
+<div id="int-over-ideal" class="box definition">
+    <div class="title">イデアル上整</div>
+    <div class="content">$R\subset R'$を環の拡大とし、$I\subset R$をイデアルとする。ある$a_0,\dots,a_{n-1}\in I$が存在して
+    $$x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0=0$$
+    が成り立つとき、$x$は<strong>$I$上整である (integral over $I$)</strong>という。また、$I$上整である$R'$の元全体を$\bar I_{R'}$と書き、$R'$における$I$の<strong>整閉包 (integral closure)</strong>という。</div>
+</div>
+<p>$\bar I_{R'}$は$R'$のイデアルであることを示します。</p>
+<div id="int-cl-prop" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$R\subset R'$を環の拡大とし、$I\subset R$をイデアルとする。$I$で生成される$\bar R_{R'}$のイデアルを$I\bar R_{R'}$と書くと、$\bar I_{R'}=\sqrt{I\bar R_{R'}}$である。</div>
+</div>
+<div id="int-cl-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>任意に$x\in\bar I_{R'}$をとると、$a_0,\dots,a_{n-1}\in I$を用いて
+    $$x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0=0$$
+    と書ける。$x\in\bar R_{R'}$であることと併せて$x^n\in I\bar R_{R'}$であると分かるので、$\bar I_{R'}\subset\sqrt{I\bar R_{R'}}$を得る。</p>
+    <p>任意に$x\in\sqrt{I\bar R_{R'}}$をとる。このときある正整数$n$が存在して$x^n\in I\bar R_{R'}$なので、正整数$m$および$\alpha_i\in I,$ $x_i\in\bar R_{R'}$が存在して$x^n=\dsum_{i=1}^m\alpha_ix_i$と書ける。このとき$x^n\in IR[x_1,\dots,x_m]$であり、したがって自己準同型
+    $$\varphi\colon R[x_1,\dots,x_m]\to R[x_1,\dots,x_m],v\mapsto x^nv$$
+    について$\Im\varphi\subset IR[x_1,\dots,x_m]$。また$x_i$は$R$上整なので$R[x_1,\dots,x_m]$は$R$加群として<a href="../integral-extension#equivalence">有限生成である</a>。以上より<a href="/math/misc/Cayley-Hamilton#module-theorem">Cayley-Hamiltonの定理</a>が適用でき、ある$c_0,\dots,c_{m-1}\in I$が存在して
+    $$\varphi^m+c_{m-1}\varphi^{m-1}+\dots+c_1\varphi+c_0\id=0$$
+    となる。特に、$x$は$I$上整である。</p>
+    </div>
+</div>
+<h3 id="going-down">下降定理</h3>
+<div id="lem-down" class="box lemma">
+    <div class="title"></div>
+    <div class="content">$R\subset R'$を整域の拡大とし、$R$は整閉整域であるとする。$I$を$R$のイデアル、$x\in\bar I_{R'}$とすると、$x$の$K\coloneqq\Frac R$上の最小多項式
+    $$p(t)\coloneqq t^n+c_{n-1}t^{n-1}+\dots+c_1t+c_0\in K[t]$$
+    について$c_i\in\sqrt I$である。</div>
+</div>
+<div id="lem-down-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>$K$の代数閉包における$p$の根、即ち$x$の共役元を$x_1=x,x_2,\dots,x_n$とおく。$x$が$I$上整なので$a_0,\dots,a_{n-1}\in I$が存在して
+    $$x^n+a_{n-1}x^{n-1}+\dots+a_1x+a_0=0$$
+    となるが、$f(t)\coloneqq t^n+a_{n-1}t^{n-1}+\dots+a_1t+a_0$とおくと$f$は$p$で割り切れる。よって、各$x_i$は$f$の根となり特に$I$上整である。各$c_i$は$x_1,\dots,x_n$の多項式で書けるので、これらも$I$上整である。$c_i\in K$であったので$c_i\in\bar I_K$であり、$R$が整閉整域であることに注意して環拡大$R\subset K$に<a href="#int-cl-prop">命題2</a>を適用すれば、
+    $$c_i\in\bar I_K=\sqrt{I\bar R_K}=\sqrt{IR}=\sqrt I$$
+    を得る。</p>
+    </div>
+</div>
+<p>さて、上昇定理の場合は剰余環を考えることで$\mathfrak p'_1$より大きい素イデアルのみを見、$\mathfrak p_2$に対応する$R'/\mathfrak p'_1$の素イデアルをとることで$\mathfrak p'_2$を見つけました。下降定理はこの逆で、$R'$の局所化を考えることで$\mathfrak p'_2$より小さい素イデアルのみを見、$\mathfrak p_1$に対応する$R'_{\mathfrak p'_2}$の素イデアルをとることで$\mathfrak p'_1$を見つけます。</p>
+<div id="theorem-down" class="box theorem">
+    <div class="title">下降定理</div>
+    <div class="content">$R\subset R'$を整域の整拡大とし、$R$は整閉整域であるとする。このとき$R\subset R'$は下降性質を満たす。</div>
+</div>
+<div id="proof-down" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>任意の素イデアル列$\mathfrak p_1\subset\mathfrak p_2\subset R$および$\mathfrak p_2=\mathfrak p'_2\cap R$なる素イデアル$\mathfrak p'_2\subset R'$に対し、ある素イデアル$\mathfrak p'_1\subset R'$が存在して$\mathfrak p'_1\subset\mathfrak p'_2,$ $\mathfrak p_1=\mathfrak p'_1\cap R$を満たすことを示せばよい。</p>
+    <p>$R'$を$\mathfrak p'_2$で局所化し、その中で$\mathfrak p_1$によって生成される素イデアル$\mathfrak p_1R'_{\mathfrak p'_2}$を$\bar{\mathfrak p'_1}$とおく。このとき$\bar{\mathfrak p'_1}\cap R=\mathfrak p_1$であることを示す。$\mathfrak p_1\subset\bar{\mathfrak p'_1}\cap R$は明らかなので、$\bar{\mathfrak p'_1}\cap R\subset\mathfrak p_1$を示せばよい。$\mathfrak p_1R'_{\mathfrak p'_2}=(R'\setminus\mathfrak p'_2)^{-1}\mathfrak p_1R'$であるから、$\bar{\mathfrak p'_1}$の元は$x\in\mathfrak p_1R',$ $s\in R'\setminus\mathfrak p'_2$を用いて$\dfrac xs$と書ける。$\bar R_{R'}=R'$なので<a href="#int-cl-prop">命題2</a>より$\bar{\mathfrak p_1}_{R'}=\sqrt{\mathfrak p_1R'}$であり、特に$x$は$\mathfrak p_1$上整であることが従う。よって<a href="#lem-down">補題</a>より、$\Frac R$における$x$の最小多項式は$a_0,\dots,a_{n-1}\in\mathfrak p_1$を用いて
+    $$t^n+a_{n-1}t^{n-1}+\dots+a_1t+a_0$$
+    と書ける。$y\coloneqq\dfrac xs\in R$であるとすると、
+    $$\left(\frac xy\right)^n+\frac{a_{n-1}}y\left(\frac xy\right)^{n-1}+\dots+\frac{a_1}{y^{n-1}}\frac xy+\frac{a_0}{y^n}=0$$
+    より$\Frac R$における$s=\dfrac xy$の最小多項式は
+    $$t^n+\frac{a_{n-1}}yt^{n-1}+\dots+\frac{a_1}{y^{n-1}}t+\frac{a_0}{y^n}$$
+    となる。$s\in R'$ゆえ$s$は$R$上整であるから、<a href="#lem-down">補題</a>を$I=R$として適用すれば$\dfrac{a_i}{y^{n-i}}\in R$が分かる。$\dfrac{a_i}{y^{n-i}}\cdot y^{n-i}=a_i\in\mathfrak p_1$だから、$y\notin\mathfrak p_1$を仮定すると$\dfrac{a_i}{y^{n-i}}\in\mathfrak p_1$である。このとき
+    $$s^n=-\left(\frac{a_{n-1}}ys^{n-1}+\dots+\frac{a_1}{y^{n-1}}s+\frac{a_0}{y^n}\right)$$
+    より$s^n\in\mathfrak p_1R'\subset\mathfrak p_2R'$である。$\mathfrak p_2R'$は$\mathfrak p_2$を含む$R'$のイデアルのうち最小なものであり、$\mathfrak p'_2$は$\mathfrak p_2$を含むので$\mathfrak p_2R'\subset\mathfrak p'_2$が分かる。したがって$s\in\mathfrak p'_2$だが、これは$s\in R'\setminus\mathfrak p'_2$との前提に反する。</p>
+    <p>以上より$y\in\mathfrak p_1$であるから$\bar{\mathfrak p'_1}\cap R\subset\mathfrak p_1$を得る。ゆえに
+    $$\bar{\mathfrak p'_1}\cap R'\cap R=\bar{\mathfrak p'_1}\cap R=\mathfrak p_1$$
+    より、$\bar{\mathfrak p'_1}\cap R'$は$\mathfrak p_1$の上にあるので$\mathfrak p'_1\coloneqq\bar{\mathfrak p'_1}\cap R'$とすればよい。</p>
+    </div>
+</div>
+<p>下降性質があると、$\ht$に関する綺麗な等式が成り立ちます。</p>
+<div id="height-equal" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$R\subset R'$が整域の整拡大で$R$は整閉整域であるとする。素イデアル$\mathfrak p\subset R,$ $\mathfrak p'\subset R'$が$\mathfrak p=\mathfrak p'\cap R$を満たすとき、$\ht\mathfrak p=\ht\mathfrak p'$が成り立つ。</div>
+</div>
+<div id="height-equal-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>長さ$\ht\mathfrak p'$の素イデアル列
+    $$\mathfrak p'_0\subsetneqq\mathfrak p'_1\subsetneqq\mathfrak p'_2\subsetneqq\dots\subsetneqq\mathfrak p'_{\ht\mathfrak p'}=\mathfrak p'$$
+    をとる。$\mathfrak p_i\coloneqq\mathfrak p'_i\cap R$とおくと$\mathfrak p_{i-1}\subset\mathfrak p_i$で、incomparability propertyから$\mathfrak p_{i-1}=\mathfrak p_i$ではありえない。よって$\mathfrak p$で終わる長さ$\ht\mathfrak p'$の素イデアル列が構成できたので、$\ht\mathfrak p'\leqq\ht\mathfrak p$である。</p>
+    <p>長さ$\ht\mathfrak p$の素イデアル列
+    $$\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_{\ht\mathfrak p}=\mathfrak p$$
+    をとる。このとき下降定理より、
+    $$\mathfrak p'_0\subset\mathfrak p'_1\subset\mathfrak p'_2\subset\dots\subset\mathfrak p'_{\ht\mathfrak p}=\mathfrak p'$$
+    かつ$\mathfrak p_i=\mathfrak p'_i\cap R$を満たすような素イデアル$\mathfrak p'_i\subset R'$が存在する。$\mathfrak p'_{i-1}\cap R\neq\mathfrak p'_i\cap R$からこの素イデアル列は真の増大列である。よって$\mathfrak p'$で終わる長さ$\ht\mathfrak p$の素イデアル列が構成できたので、$\ht\mathfrak p\leqq\ht\mathfrak p'$である。</p>
+    </div>
+</div>
+<h3 id="catenary">主定理</h3>
+<p>ここまでいろいろと頑張ってきたのは、『Algebraic Geometry』の定理1.8A (b)を示すためです(ちなみに<a href="../dimension-1">前回</a>は同定理 (a)を示すためのもの)。ステートメントは以下の通りです。</p>
+<div id="theorem-18Ab" class="box theorem">
+    <div class="title"></div>
+    <div class="content">体$R$上の有限生成整域$R$および素イデアル$\mathfrak p\subset R$について、等式$\ht\mathfrak p+\coht\mathfrak p=\dim R$が成り立つ。</div>
+</div>
+<p>『Algebraic Geometry』では$\ht\mathfrak p+\dim R/\mathfrak p=\dim R$としていますが、<a href="../dimension-1#height-equal">$\coht\mathfrak p=\dim R/\mathfrak p$</a>でしたから同値です。$\ht$と$\coht$で揃えた方がイメージが湧きやすい気がしたので、このような書き方にしました。本記事では、少し強い定理を示すことでこれを証明します。その前に補題を用意します。</p>
+<div id="NoetNorm" class="box theorem">
+    <div class="title">Noetherの正規化定理</div>
+    <div class="content">$R$を体$K$上の有限生成環とする。このとき、$K$上代数的に独立な$y_1,\dots,y_m\in R$であって$R$が$K[y_1,\dots,y_m]$上整となるようなものが存在する。</div>
+</div>
+<div id="NoetNorm-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$R=K[x_1,\dots,x_n]$となるように$x_1,\dots,x_n\in R$をとる。$n=0$のとき定理の成立は明らか。$n-1$以下での成立を仮定し、$n$での成立を示す。</paragraph>
+    <p>$x_1,\dots,x_n$が$K$上代数的に独立であれば、$m=n,$ $y_i=x_i$とすればよい。以下$x_1,\dots,x_n$は代数的に従属であるとし、$K$上の非自明な代数関係式$\dsum_{|\alpha|\leqq N}c_\alpha\bm x^\alpha=0$<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a></sup>をとる。$\ell$を$N$より大きい整数とし、$1\lt i\leqq n$に対して$x'_i\coloneqq x_i-x_1^{\ell^{i-1}}$とおく。$x_i=x_i'+x_1^{\ell^{i-1}}$を上の代数関係式に代入すると、
+    $$\sum_{|\alpha|\leqq N}c_\alpha(x_1^{\alpha_1+\alpha_2\ell+\dots+\alpha_n\ell^{n-1}}+\dots)=0$$
+    となる。$|\alpha|_\ell\coloneqq\alpha_1+\alpha_2\ell+\dots+\alpha_n\ell^{n-1}$とおくと、$\ell$進法で考えることで異なる$\alpha$に対して異なる$|\alpha|_\ell$が定まると分かる。$c_\alpha\neq0$なる$\alpha$のうち$|\alpha|_\ell$が最大となるものを$\alpha_\max$とすると、
+    $$c_{\alpha_\max}x_1^{|\alpha_\max|_\ell}+\dots=0$$
+    となる。両辺を$c_{\alpha_\max}$で割ると$x_1$の$K[x_2',\dots,x_n']$係数整関係式が得られるので、$x_1$は$K[x_2',\dots,x_n']$上整。また、$1\lt i\leqq n$に対して$x_i=x_i'+x_1^{\ell^{i-1}}$より$x_i$も$K[x_2',\dots,x_n']$上整で、したがって$K[x_1,\dots,x_n]$は$K[x_2',\dots,x_n']$上整である。</p>
+    <p>数学的帰納法の仮定から、$K$上代数的に独立な$y_1,\dots,y_m\in K[x_2',\dots,x_n']$であって$K[x_2',\dots,x_n']$が$K[y_1,\dots,y_m]$上整となるようなものが存在する。このとき
+    $$K[y_1,\dots,y_m]\subset K[x_2',\dots,x_n']\subset K[x_1,\dots,x_n]$$
+    は整拡大であり、定理の前半が示された。</p>
+    </div>
+</div>
+<p>というわけで準備が整いました。</p>
+<div id="maximal-chain" class="box definition">
+    <div class="title">極大な素イデアル列</div>
+    <div class="content">環$R$の素イデアル列
+    $$\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_r$$
+    が<strong>極大である (maximal)</strong>、または<strong>飽和している (saturated)</strong>とは、どの$i$に対しても$\mathfrak p_{i-1}\subsetneqq\mathfrak p\subsetneqq\mathfrak p_i$なる素イデアル$\mathfrak p$が存在しないときをいう。</div>
+</div>
+<div id="catenary" class="box theorem">
+    <div class="title"></div>
+    <div class="content">体$K$上有限生成な環$R$における飽和素イデアル列$\mathfrak p_0\subsetneqq\dots\subsetneqq\mathfrak p_r$に対し、$r=\dim R/\mathfrak p_0-\dim R/\mathfrak p_r$が成り立つ。</div>
+</div>
+<p>$\dim R/\mathfrak p_0-\dim R/\mathfrak p_r$は列の途中の素イデアルに依存せず$R,$ $\mathfrak p_0,$ $\mathfrak p_r$のみで決定されるので、この定理は極大鎖の長さが一定であること、特に「$\mathfrak p_0$から始まり$\mathfrak p_r$で終わる$R$の素イデアル列の長さの最大値」に等しいことを意味します。</p>
+<div id="catenary-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$\tilde R\coloneqq R/\mathfrak p_0$とし、$\mathfrak p_i$に対応する$\tilde R$の素イデアルを$\tilde{\mathfrak p}_i$とおくと$\tilde{\mathfrak p}_0=(0)$である。よって定理は、素イデアル列の下端が$(0)$であって環が整域である場合に帰着される。更に、素イデアル列の上端が極大イデアルであることも仮定できることを示す。$\tilde{\mathfrak p}_r$が極大でない場合、$\tilde{\mathfrak p}_r$を含む$\tilde R$の極大イデアル$\mathfrak m$をとる。$\tilde{\mathfrak p}_r\subsetneqq\mathfrak m$が飽和していれば$\tilde{\mathfrak p}_0\subsetneqq\dots\subsetneqq\tilde{\mathfrak p}_r\subsetneqq\mathfrak m$は飽和している。$\tilde{\mathfrak p}_r\subsetneqq\mathfrak m$が飽和していなければ$\tilde{\mathfrak p}_r$と$\mathfrak m$の間に素イデアルを挿入し、それでも飽和していなければまた挿入し、…と繰り返す。$\tilde R$は体上有限生成整域ゆえ有限次元であるので、この操作は有限回で停止する。最終的に得られる飽和列を
+    $$\tilde{\mathfrak p}_0\subsetneqq\dots\subsetneqq\tilde{\mathfrak p}_r\subsetneqq\dots\subsetneqq\tilde{\mathfrak p}_{r'}=\mathfrak m$$
+    とすると、素イデアル列の上端が極大イデアルである場合に定理が成立すれば
+    \begin{align*}
+    r'&=\dim\tilde R/\tilde{\mathfrak p}_0-\dim\tilde R/\tilde{\mathfrak p}_{r'}\\
+    r'-r&=\dim\tilde R/\tilde{\mathfrak p}_r-\dim\tilde R/\tilde{\mathfrak p}_{r'}\\
+    \end{align*}
+    より$r=\dim\tilde R/\tilde{\mathfrak p}_0-\dim\tilde R/\tilde{\mathfrak p}_r$を得る。以下$R$は整域であり、$\mathfrak p_0$は零イデアル, $\mathfrak p_r$は極大イデアルであるものとする。$R/\mathfrak p_0\cong R$であり$R/\mathfrak p_r$は体なので、$r=\dim R$を示せばよい。</paragraph>
+    <p>$r=0$のとき、$(0)$が極大イデアルであることから$R$は体なので$\dim R=0=r$である。$r-1$以下で定理の成立を仮定し、$r$での成立を示す。<a href="#NoetNorm">Noetherの正規化定理</a>より、$K$上代数的に独立な$y_1,\dots,y_d\in R$であって$R$が$K[y_1,\dots,y_d]$上整となるようなものが存在する。このとき$y_1,\dots,y_d$は$\Frac R$の$K$上の超越基底となり、$R$のKrull次元は<a href="../dimension-1#dim-trdeg">超越次数に等しい</a>ので$\dim R=\trdeg R=d$である。<a href="../dimension-1#correspond">素イデアルの対応定理</a>より、$R/\mathfrak p_1$におけるイデアル列
+    $$(0)=\mathfrak p_1/\mathfrak p_1\subsetneqq\mathfrak p_2/\mathfrak p_1\subsetneqq\dots\subsetneqq\mathfrak p_r/\mathfrak p_1$$
+    は飽和していて$\mathfrak p_r/\mathfrak p_1$は$R/\mathfrak p_1$の極大イデアルである。数学的帰納法の仮定より$\dim R/\mathfrak p_1=r-1$なので、$\dim R/\mathfrak p_1=d-1$を示せばよい。</p>
+    <p>代数的独立性の定義より$d$変数多項式環から$K[y_1,\dots,y_d]$への自然な環同型が存在するので、$y_1,\dots,y_d$を不定元と見做す。$f\in K[y_1,\dots,y_d]\cap\mathfrak p_1$であって零多項式でないものをとり、$\ell$を$\deg f$より大きい整数とする。$1\lt i\leqq d$に対して$y'_i\coloneqq y_i-y_1^{\ell^{i-1}}$とおくと、Noetherの正規化定理の<a href="#NoetNorm-proof">証明</a>と同様の理屈により
+    $$f=cy_1^m+(\text{$y_1$について低次の$y_1,y'_2,\dots,y'_d$の項})$$
+    ($c\in K^\times,$ $m\in\mathbb Z_{\gt0}$)という形に書ける。この等式は$y_1$が$K[f,y'_2,\dots,y'_d]$上整であることを示しており、$y_i$ ($1\lt i\leqq d$)は$y_1$と$y'_i$の多項式で書けるので、$R[f,y'_2,\dots,y'_d]\subset R[y_1,\dots,y_d]$は整拡大である。したがって$R$は$K[f,y'_2,\dots,y'_d]$上整で、$\Frac R/K[f,y'_2,\dots,y'_d]$は代数拡大となる。このとき超越次数の一意性から$f,y'_2,\dots,y'_d$は$K$上代数的に独立であることが分かる。</p>
+    <p>さて、整域の整拡大$K[f,y'_2\dots,y'_d]\subset R$において$\mathfrak p\coloneqq\mathfrak p_1\cap K[f,y'_2\dots,y'_d]$とするとこれは素イデアルだが、$f\in\mathfrak p_1$であったので$(f)\subset\mathfrak p$である。$K[f,y'_2\dots,y'_d]$は自然に$d$変数多項式環と同型なので$(f)\subset K[f,y'_2\dots,y'_d]$は素イデアルだから$1\leqq\ht\mathfrak p$だが、<a href="#height-equal">命題4</a>から$\ht\mathfrak p=\ht\mathfrak p_1=1$である。以上より$\mathfrak p=(f)$で、
+    $$R/\mathfrak p_1\supset K[f,y'_2,\dots,y'_d]/(\mathfrak p_1\cap K[f,y'_2,\dots,y'_d])=K[y'_2,\dots,y'_d]$$
+    は整拡大。よって$\dim R/\mathfrak p_1=\trdeg R/\mathfrak p_1=d-1$を得る。</p>
+    </div>
+</div>
+<p>ちなみに、この定理の結論を満たすような環を鎖状環といいます。</p>
+<div id="int-closed" class="box definition">
+    <div class="title">鎖状環</div>
+    <div class="content">$R$の任意の素イデアル$\mathfrak p,$ $\mathfrak q$ ($\mathfrak p\subset\mathfrak q$)と、それらを両端とする任意の極大な素イデアル列
+    $$\mathfrak p=\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\dots\subsetneqq\mathfrak p_r=\mathfrak q$$
+    に対して$r=\dim R/\mathfrak p-\dim R/\mathfrak q$が成り立つとき、$R$は<strong>鎖状環 (catenary ring)</strong>であるという。</div>
+</div>
+<p>ということで、やっと準備が整いました。</p>
+<div id="proof-18Ab" class="box proof">
+    <div class="title">(<a href="#theorem-18Ab">定理5</a>)</div>
+    <div class="content">
+    <paragraph>長さ$\ht\mathfrak p$の素イデアル列$(0)\subsetneqq\dots\subsetneqq\mathfrak p$と長さ$\coht\mathfrak p$の素イデアル列$\mathfrak p\subsetneqq\dots\subsetneqq\mathfrak m$をとると、これらは飽和していて$\mathfrak m$は極大イデアルである。よってこれらを繋げた
+    $$(0)\subsetneqq\dots\subsetneqq\mathfrak p\subsetneqq\dots\subsetneqq\mathfrak m$$
+    も飽和していて長さは$\ht\mathfrak p+\coht\mathfrak p$なので、<a href="#catenary">定理7</a>より
+    $$\ht\mathfrak p+\coht\mathfrak p=\dim R/(0)-\dim R/\mathfrak m=\dim R$$
+    である。</paragraph>
+    </div>
+</div>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">$R$および$R'$が整域である場合は以下のように示せます。
+<div id="proof-over-domain" class="box proof">
+    <div class="title">(整域の整拡大は俯瞰性質を満たす)</div>
+    <div class="content">
+    <p>素イデアル$\mathfrak p\subset R$を任意にとり、その上にある$R'$の素イデアルの存在を示す。$S\coloneqq R\setminus\mathfrak p$とおくと、<a href="#proof-over-domain">前述</a>の通り$S^{-1}R'$は$S^{-1}R$上整である。$S^{-1}R'$の極大イデアルを$\mathfrak m$とする。$x,y\in S^{-1}R$を$xy\in\mathfrak m\cap S^{-1}R$となるようにとると、$x\in\mathfrak m$ or $y\in\mathfrak m$から$x\in\mathfrak m\cap S^{-1}R$ or $y\in\mathfrak m\cap S^{-1}R$である。よって$m\cap S^{-1}R$は$S^{-1}R$の素イデアルで、<a href="#prime-iff">系1</a>より$\mathfrak m\cap S^{-1}R$は極大イデアルであってこれは<a href="../dimension-1#local-proof">$\mathfrak pR_p$に等しい</a>。以上より、
+    \begin{align*}
+    \mathfrak m\cap R'\cap R&=\mathfrak m\cap R=\mathfrak m\cap S^{-1}R\cap R\\
+    &=\mathfrak pR_\mathfrak p\cap R=\mathfrak p
+    \end{align*}
+    ゆえ$\mathfrak m\cap R'$は$\mathfrak p$の上にある。</p>
+    </div>
+</div>
+(多分<a href="#ref2">[2]</a>でも整域であることは仮定していなかったと思うんですけどね…)<a href="#footnoteref1">↩</a></li>
+<li id="footnote2">多重指数とは非負整数の組であり、$\alpha\coloneqq(\alpha_1,\dots,\alpha_n)$に対して$\bm x^\alpha\coloneqq x_1^{\alpha_1}\dots x_n^{\alpha_n},$ $|\alpha|\coloneqq\alpha_1+\dots+\alpha_n$と定義されます。なお、少し後に出てくる$|\alpha|_\ell$は独自表記です。<a href="#footnoteref2">↩</a></li>
+</ol>
+<h3 id="reference"><span>参考文献</span></h3>
+<p>YouTubeの動画が参考文献ってどうなんですかね…。まあ実際にこの動画を見て理解したので仕方ないということで。なお、この動画には誤った証明が含まれていますのでお気をつけください。</p>
+<ol id="ref-list">
+    <li id="ref1"><a href="https://www.ams.org/journals/bull/1946-52-04/S0002-9904-1946-08552-3/S0002-9904-1946-08552-3.pdf">Prime Ideals and Integral Dependence</a> (PDF)<br>俯瞰定理・上昇定理・下降定理の原論文です。</li>
+    <li id="ref2"><a href="https://youtu.be/UCU1U7QSL2U">Cohen-Seidenberg Theorems (Commutative Algebra 15) - YouTube</a></li>
+    <li id="ref3"><a href="https://www.yaokisj.com/doc/NoetNorm.pdf">ネーターの正規化定理</a> (PDF)</li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>

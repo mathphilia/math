@@ -36,7 +36,7 @@
 <h3 id="introduction">はじめに</h3>
 <div id="distance" class="box definition">
     <div class="title">距離函数</div>
-    <div class="content">集合$X$上の<strong>距離函数</strong>とは、次を満たす写像$d:X\times X\to\mathbb R$をいう。
+    <div class="content">集合$X$上の<strong>距離函数</strong>とは、次を満たす写像$d\colon X\times X\to\mathbb R$をいう。
     <ol>
         <li>正定値性; 任意の$x,y\in X$について$0\leqq d(x,y)$であり、$d(x,y)=0\iff x=y$</li>
         <li>対称律; 任意の$x,y\in X$について$d(x,y)=d(y,x)$</li>
@@ -48,7 +48,7 @@
 <h3 id="generalize">距離函数の一般化</h3>
 <div id="general-distance" class="box definition">
     <div class="title">距離函数の一般化</div>
-    <div class="content">$R$を(単位的かつ可換な)順序環とする。集合$X$上の<strong>$R$値距離函数</strong>とは、次を満たす写像$d:X\times X\to R$をいう。
+    <div class="content">$R$を(単位的かつ可換な)順序環とする。集合$X$上の<strong>$R$値距離函数</strong>とは、次を満たす写像$d\colon X\times X\to R$をいう。
     <ol>
         <li>正定値性; 任意の$x,y\in X$について$0\leqq d(x,y)$であり、$d(x,y)=0\iff x=y$</li>
         <li>対称律; 任意の$x,y\in X$について$d(x,y)=d(y,x)$</li>
@@ -62,7 +62,7 @@
 </div>
 <div id="polynomial-valued" class="box example">
     <div class="title">順序環の上の自然な距離</div>
-    <div class="content">写像$d:R\times R\to R,(x,y)\mapsto|x-y|$を考えるとこれは$R$上の$R$値距離函数になります。実際正定値性と対称律は明らかで、三角不等式は$a,b\in R$について$-(|a|+|b|)\leqq a+b\leqq|a|+|b|$が成り立つことから$a=x-y,$ $b=y-z$を代入することで示されます。<br>
+    <div class="content">写像$d\colon R\times R\to R,(x,y)\mapsto|x-y|$を考えるとこれは$R$上の$R$値距離函数になります。実際正定値性と対称律は明らかで、三角不等式は$a,b\in R$について$-(|a|+|b|)\leqq a+b\leqq|a|+|b|$が成り立つことから$a=x-y,$ $b=y-z$を代入することで示されます。<br>
     以下ではこれを$R$の<strong>自然な距離</strong>と呼ぶことにします。</div>
 </div>
 <paragraph>距離が定まると位相が定まります。といっても距離位相は通常の距離に対して定義されるものですので、一応定義しておきます。</paragraph>
@@ -142,7 +142,7 @@ $$\{x_n\}\sim\{y_n\}\defiff\dlim_{n\to\infty}(x_n-y_n)=0$$
     <paragraph>$\{f_n\}+I\in\bar{R[x]}$をとると、$\{f_n\}$がCauchy列であることから任意の非負整数$k$に対して$N_k\in\mathbb N$が存在し、
     $${}^\forall m,n\in\mathbb N;\;N_k\lt m,n\implies|f_m-f_n|\lt x^k$$
     が成り立つ。したがって$\{f_n\}$の第$N_k$項より後は$k$次の係数が一定値となる。よって$a_k$を$f_{N_k+1}$の$k$次の係数とすればこれは$N_k$の取り方に依らず、しかも代表元$\{f_n\}$の取り方にも依らず定まる。この$a_k$を用いて
-    $$\varphi:\bar{R[x]}\to R[[x]],\{f_n\}+I\mapsto a_0+a_1x+a_2x^2+\dots$$
+    $$\varphi\colon\bar{R[x]}\to R[[x]],\{f_n\}+I\mapsto a_0+a_1x+a_2x^2+\dots$$
     を考えると、これはwell-definedな同型写像である。</paragraph>
     </div>
 </div>

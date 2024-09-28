@@ -50,17 +50,17 @@
     <div class="content">
     <paragraph>(1.$\implies$2.) 1.を仮定し、$M$の部分加群の上昇列$N_1\subset N_2\subset N_3\subset\dots$をとる。$N\coloneqq\dcup_{n=1}^\infty N_n$は$M$の部分加群なので有限生成である。$\{a_1,a_2,\dots,a_m\}$を$N$の生成系とすると、各$a_i$に対しある$n_i$が存在して$a_i\in N_{n_i}$となる。$n\coloneqq\dmax_in_i$とすれば、$N_n=N$である。</paragraph>
     <paragraph>(2.$\implies$3.) 2.を仮定し、$M$の部分加群からなる空でない集合$S$をとる。$S$が極大元を持たないと仮定して$N_1\in S$をとると、$N_1$が極大元でないことから$N_1\subsetneqq N_2$なる$N_2$が存在する。以下同様にして上昇列$N_1\subsetneqq N_2\subsetneqq N_3\subsetneqq\dots$がとれるが、これは停止しない。</paragraph>
-    <paragraph>(3.$\implies$1.) 3.を仮定し、$N$を$M$の部分加群とする。$S\coloneqq\{N'\subset N\mid\text{$N'$は有限生成}\}$とおくと$0\in S$なので$S\neq\varnothing$で、したがって$S$は極大元$\widetilde N$を持つ。$N\neq\widetilde N$であるとすると$a\in N\setminus\widetilde N$をとることができるが、このとき$\widetilde N\subsetneqq\widetilde N+Ra\subset N$であって$\widetilde N+Ra$は有限生成である。</paragraph>
+    <paragraph>(3.$\implies$1.) 3.を仮定し、$N$を$M$の部分加群とする。$S\coloneqq\{N'\subset N\mid\text{$N'$は有限生成}\}$とおくと$0\in S$なので$S\neq\varnothing$で、したがって$S$は極大元$\tilde N$を持つ。$N\neq\tilde N$であるとすると$a\in N\setminus\tilde N$をとることができるが、このとき$\tilde N\subsetneqq\tilde N+Ra\subset N$であって$\tilde N+Ra$は有限生成である。</paragraph>
     </div>
 </div>
 <div id="Noether-module" class="box definition">
     <div class="title">Noether加群</div>
-    <div class="content">$M$を$R$加群とする。定理1の三条件のいずれか(したがって全て)を満たすとき、$M$は<strong>Noether加群</strong>であるという。</div>
+    <div class="content">$M$を$R$加群とする。定理1の三条件のいずれか(したがって全て)を満たすとき、$M$は<strong>Noether加群 (Noetherian module)</strong>であるという。</div>
 </div>
 <paragraph>同様にしてNoether環も定義されます。応用上はNoether環の方がよく見かけるかもしれませんが、一般的な形で議論したかったのでNoether加群を先に紹介しました。</paragraph>
 <div id="Noether-ring" class="box definition">
     <div class="title">Noether環</div>
-    <div class="content">環$R$が$R$加群としてNoether加群であるとき、$R$は<strong>Noether環</strong>であるという。</div>
+    <div class="content">環$R$が$R$加群としてNoether加群であるとき、$R$は<strong>Noether環 (Noetherian ring)</strong>であるという。</div>
 </div>
 <paragraph>環$R$を$R$加群と見たとき部分加群はイデアルなので、上の定義は次のように言い換えられます; 環$R$がNoether環であるとは、以下のいずれか(したがって全て)を満たすことである。
 <ol>
@@ -82,7 +82,7 @@
 <div id="proof-submodule" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>(1.$\implies$2.) $M$がNoether加群であるとする。$N$の部分加群は$M$の部分加群でもあるので有限生成である。また、$L$を$M/N$の部分加群とすると標準射影$\pi:M\to M/N$による逆像$\pi^{-1}[L]$は$M$の部分加群なので、有限生成系$\{a_1,a_2,\dots,a_m\}$をとれる。即ち
+    <paragraph>(1.$\implies$2.) $M$がNoether加群であるとする。$N$の部分加群は$M$の部分加群でもあるので有限生成である。また、$L$を$M/N$の部分加群とすると標準射影$\pi\colon M\to M/N$による逆像$\pi^{-1}[L]$は$M$の部分加群なので、有限生成系$\{a_1,a_2,\dots,a_m\}$をとれる。即ち
     $$\pi^{-1}[L]=\{r_1a_1+r_2a_2+\dots+r_ma_m\mid r_i\in R\}$$
     で、両辺を$\pi$で送れば$L$が$\pi(a_1),\pi(a_2),\dots,\pi(a_m)$で生成されると分かる。</paragraph>
     <paragraph>(2.$\implies$1.) $N$および$M/N$がNoether加群であるとする。$L$を$M$の部分加群とすると、$N\cap L,$ $\pi[L]$はそれぞれ$N,$ $M/N$の部分加群なので有限生成である。$N\cap L,$ $\pi[L]$の生成系としてそれぞれ$\{u_1,u_2,\dots,u_m\},$ $\{\pi(v_1),\pi(v_2),\dots,\pi(v_n)\}$をとる。このとき$x\in L$に対してある$s_1,s_2,\dots,s_n$が存在して
@@ -117,7 +117,7 @@
     <div class="title"></div>
     <div class="content">
     <paragraph>$\{a_1,a_2,\dots,a_n\}$を$M$の生成系とすると、
-    $$f:R^k\to M,(r_1,r_2,\dots,r_n)\mapsto\sum_{i=1}^nr_ia_i$$
+    $$f\colon R^k\to M,(r_1,r_2,\dots,r_n)\mapsto\sum_{i=1}^nr_ia_i$$
     は全射準同型である。$R^n\cong R^{n-1}\oplus R$ ($1\lt n$)なので数学的帰納法より$R^n$はNoetherであり、したがって$M\cong R^n/\Ker f$もNoetherである。</paragraph>
     </div>
 </div>
@@ -140,12 +140,12 @@
 <paragraph>非Noether環の面白い例を紹介します。特にこれは「Noether環の部分環はNoether環である」の反例にもなっています。</paragraph>
 <div id="nonNoetherian" class="box proposition">
     <div class="title"></div>
-    <div class="content">$R=\{f\in\mathbb Q[X]\mid f(m)\in\mathbb Z\;({}^\forall m\in\mathbb Z)\}$はNoether環でない。</div>
+    <div class="content">$R=\{f\in\mathbb Q[x]\mid f(m)\in\mathbb Z\;({}^\forall m\in\mathbb Z)\}$はNoether環でない。</div>
 </div>
 <div id="proof-nonNoetherian" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>正整数$n$に対して$f_n\coloneqq\dfrac1{n!}\dprod_{\ell=0}^{n-1}(X-\ell)$とおく。$f_n(m+1)-f_n(m)=f_{n-1}(m)$ ($1\lt n$)なので、数学的帰納法より$f_n\in R$を得る。$R$のイデアルの列
+    <paragraph>正整数$n$に対して$f_n\coloneqq\dfrac1{n!}\dprod_{\ell=0}^{n-1}(x-\ell)$とおく。$f_n(m+1)-f_n(m)=f_{n-1}(m)$ ($1\lt n$)なので、数学的帰納法より$f_n\in R$を得る。$R$のイデアルの列
     $$(f_1)\subset(f_1,f_2)\subset(f_1,f_2,f_3)\subset\dots$$
     が有限回で停止すると仮定すると、ある正整数$N$が存在して
     $$N\lt n\implies(f_1,f_2,\dots,f_{n-1})=(f_1,f_2,\dots,f_{n-1},f_n)$$
@@ -157,18 +157,18 @@
     </div>
 </div>
 <h3 id="Hilbert">Hilbertの基底定理</h3>
-<paragraph>Hilbertの基底定理は、代数幾何学やGröbner基底, 不変式論など、様々な分野で重要な役割を持つ定理です。証明はアクロバティックで、どこから思いついたのか分からないような発想が出てきます。</paragraph>
+<paragraph>Hilbertの基底定理は、代数幾何学やGröbner基底, 不変式論など、様々な分野で重要な役割を持つ定理です。</paragraph>
 <div id="basis-theorem" class="box theorem">
-    <div class="title">Hilbertの基底定理</div>
+    <div class="title">Hilbertの基底定理 (Hilbert's basis theorem)</div>
     <div class="content">環$R$がNoether環であることは、多項式環$R[X]$がNoether環であることと同値である。</div>
 </div>
 <div id="proof-Hilbert" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$R[X]$がNoether環であるとする。イデアル$I\subset R$に対して$(I,X)\subset R[X]$を考えるとこれは仮定より有限生成。
-    $$I=\{f(0)\in R\mid f\in(I,X)\}$$
+    <paragraph>$R[x]$がNoether環であるとする。イデアル$I\subset R$に対して$(I)\subset R[x]$を考えるとこれは仮定より有限生成。
+    $$I=\{f(0)\in R\mid f\in(I)\}$$
     が成り立つから、$I$も有限生成である。</paragraph>
-    <paragraph>逆に、$R$をNoether環として$R[X]$がNoether環でないとする。任意にイデアル$I\subset R$をとったとき、以下の手続きで$f_1,f_2,f_3,\dots\in I$を定めることができる。
+    <paragraph>逆に、$R$をNoether環として$R[x]$がNoether環でないとする。任意にイデアル$I\subset R$をとったとき、以下の手続きで$f_1,f_2,f_3,\dots\in I$を定めることができる。
     <ol>
         <li>$f_1$は、$I\setminus(0)$の元のうち次数が最小のものからとる。</li>
         <li>$f_n$ ($1\lt n$)は、$I\setminus(f_1,f_2,\dots,f_{n-1})$の元のうち次数が最小のものからとる。</li>
@@ -176,19 +176,19 @@
     一般的に各$f_i$の選び方には複数の選択肢があるが、どれを選んでもよい(最小というよりは極小の方が近いかもしれない)。$f_i$の最高次の係数を$a_i$とおくと、$R$はNoether環なので$R$のイデアルの列
     $$(a_1)\subset(a_1,a_2)\subset(a_1,a_2,a_3)\subset\dots$$
     は有限回で停止する。即ち$a_{n+1}\in(a_1,a_2,\dots,a_n)$なる$n$が存在することになる。このとき$r_m\in R$を用いて$a_{n+1}=\dsum_{m=1}^nr_ma_m$と書ける。
-    $$f\coloneqq\sum_{m=1}^nr_mX^{\deg f_{n+1}-\deg f_m}f_m$$
+    $$f\coloneqq\sum_{m=1}^nr_mx^{\deg f_{n+1}-\deg f_m}f_m$$
     で$f$を定めると、$f\in(f_1,f_2,\dots,f_n)$である。また、$f$の$\deg f_{n+1}$次の係数は$a_{n+1},$ 即ち$f_{n+1}$の$\deg f_{n+1}$次の係数に等しい。よって$f-f_{n+1}\in I\setminus(f_1,f_2,\dots,f_n)$であって$\deg(f-f_{n+1})<\deg f_{n+1}$だが、これは次数の最小性に反する。</paragraph>
     </div>
 </div>
 <paragraph>系として以下が成り立ちます。</paragraph>
 <div id="cor-Hilbert" class="box corollary">
     <div class="title"></div>
-    <div class="content">環$R$がNoether環であることは、多変数多項式環$R[X_1,\dots,X_n]$がNoether環であることと同値である。</div>
+    <div class="content">環$R$がNoether環であることは、多変数多項式環$R[x_1,\dots,x_n]$がNoether環であることと同値である。</div>
 </div>
 <div id="proof-cor" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$R[X_1,\dots,X_n]\cong R[X_1,\dots,X_{n-1}][X_n]$なので、Hilbertの基底定理を$n$回適用すればよい(つまり数学的帰納法)。</paragraph>
+    <paragraph>$R[x_1,\dots,x_n]\cong R[x_1,\dots,x_{n-1}][x_n]$なので、Hilbertの基底定理を$n$回適用すればよい(つまり数学的帰納法)。</paragraph>
     </div>
 </div>
 <paragraph>なお、無限変数多項式環はNoether環ではありません。</paragraph>

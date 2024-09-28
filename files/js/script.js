@@ -70,6 +70,12 @@ onload = function()  {
         document.getElementById('h3-list').appendChild(listed);
     });
 
+    Array(...document.getElementsByClassName('title')).forEach(elem => {
+        let img = new Image();
+        img.className = 'copy';
+        elem.appendChild(img);
+    });
+
     Array(...document.getElementsByClassName('copy')).forEach((elem, index) => {
         elem.alt = 'copy';
         elem.src = '/math/files/images/copy.png';
@@ -78,8 +84,10 @@ onload = function()  {
             elem.style.visibility = 'visible';
         }
         let parent = elem.parentElement
+        let parentId = parent.className == 'title' ? parent.parentElement.id : parent.id;
+        parentId = (parentId ? '#' : '') + parentId;
         elem.onclick = function() {
-            navigator.clipboard.writeText(location.origin + location.pathname + (index ? '#' : '') + parent.id);
+            navigator.clipboard.writeText(location.origin + location.pathname + parentId);
             elem.src = '/math/files/images/copied.png';
             setTimeout(() => {
                 elem.src = '/math/files/images/copy.png';

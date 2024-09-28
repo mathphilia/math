@@ -34,15 +34,15 @@
 </div>
 <h2>アフィン空間の代数的集合</h2>
 <h3 id="affine-space">アフィン空間</h3>
-<paragraph>以下、$k$を代数閉体とします。$n$個の$k$の直積、即ち$\{(a_1,a_2,\dots,a_n)\mid a_i\in k\}$を$k$上の<strong>$n$次元アフィン空間</strong>といい、$\mathbb A^n(k)$や単に$\mathbb A^n$と書きます。余談ですが、アフィン空間のアフィン(affine)は人名のように見えて人名ではありません。「関連」を意味するラテン語に由来し、アフィン暗号, アフィン結合, アフィン論理など多くの用語に使われているようですが、核となる意味が何なのかは知りません。ちなみに私が思う"人名のように見えて人名ではない数学用語"三銃士はアフィン, エルゴード, マルチンゲールです。</paragraph>
-<paragraph>$k$上の多項式環$A\coloneqq k[X_1,\dots,X_n]$の元を$\mathbb A^n\to k$の写像とみると、$f$の<strong>零点集合</strong>$\mathcal Z(f)\coloneqq\{P\in\mathbb A^n\mid f(P)=0\}$を定義できます。より一般に、$A$の部分集合$S$に対して$S$の零点集合を
+<paragraph>以下、$k$を代数閉体とします。$n$個の$k$の直積、即ち$\{(a_1,a_2,\dots,a_n)\mid a_i\in k\}$を$k$上の<strong>$n$次元アフィン空間 ($n$-dimensional affine space)</strong>といい、$\mathbb A^n(k)$や単に$\mathbb A^n$と書きます。余談ですが、アフィン空間のアフィン(affine)は人名のように見えて人名ではありません。「関連」を意味するラテン語に由来し、アフィン暗号, アフィン結合, アフィン論理など多くの用語に使われているようですが、核となる意味が何なのかは知りません。ちなみに私が思う“人名のように見えて人名ではない数学用語”三銃士はアフィン, エルゴード, マルチンゲールです。</paragraph>
+<paragraph>$k$上の多項式環$A\coloneqq k[x_1,\dots,x_n]$の元を$\mathbb A^n\to k$の写像とみると、$f$の<strong>零点集合 (zero set)</strong>$\mathcal Z(f)\coloneqq\{P\in\mathbb A^n\mid f(P)=0\}$を定義できます。より一般に、$A$の部分集合$S$に対して$S$の零点集合を
 $$\mathcal Z(S)\coloneqq\{P\in\mathbb A^n\mid{}^\forall f\in S;\;f(P)=0\}$$
 と定義します。$\mathcal Z$は文献によっては$Z$や$V$と書かれることもあります。代数閉体は$\mathbb C$や$\bar{\mathbb F_p}$などで、零点集合をイメージするのは困難です。ということで、零点集合の例として$\mathbb R^2$の部分集合を考えてみます。</paragraph>
 <div class="figure"><img alt="零点集合" src="/math/thumbnail/algebraic-geometry.png"><span>当カテゴリのサムネイル画像</span></div>
 <paragraph>左の図は、$xy$平面でいえば$x^3+x^2-y^2=0$即ち$y^2=x^3+x^2$で表されるグラフです。代数幾何学では、このような多項式を用いて表される図形を取り扱います。右の図は$x^3-x^2y+xy-y^2=0$のグラフですが、右辺は$(x^2+y)(x-y)$と因数分解できるので$y=-x^2$のグラフと$y=x$のグラフを合わせた形になっています。零点集合は、このように曲線 (あるいは点, 曲面, 超曲面)が複数組み合わさったような形になることもあります。</paragraph>
 <div id="algebraic-set" class="box definition">
     <div class="title">代数的集合</div>
-    <div class="content">アフィン空間$\mathbb A^n$の部分集合$Y$が<strong>代数的集合</strong>であるとは、多項式環$A$の部分集合$S$が存在して$Y=\mathcal Z(S)$となることをいう。</div>
+    <div class="content">アフィン空間$\mathbb A^n$の部分集合$Y$が<strong>代数的集合 (algebraic set)</strong>であるとは、多項式環$A$の部分集合$S$が存在して$Y=\mathcal Z(S)$となることをいう。</div>
 </div>
 <paragraph>例えば、$\mathcal Z(\varnothing)=\mathbb A^n,$ $\mathcal Z(A)=\varnothing$となるので$\mathbb A^n$全体や空集合は代数的集合です。今$S$は$A$の部分集合としか仮定していませんが、実は有限集合としてとることができるというのが次の定理です。</paragraph>
 <div id="Hilbert" class="box theorem">
@@ -61,7 +61,7 @@ $$\mathcal Z(S)\coloneqq\{P\in\mathbb A^n\mid{}^\forall f\in S;\;f(P)=0\}$$
 <h3 id="topology">Zariski位相</h3>
 <div id="Zariski" class="box theorem">
     <div class="title">Zariski位相</div>
-    <div class="content">アフィン空間における閉集合を代数的集合と定義すると、この閉集合系は位相空間の公理を満たす。これにより定まる位相を<strong>Zariski位相</strong>という。</div>
+    <div class="content">アフィン空間における閉集合を代数的集合と定義すると、この閉集合系は位相空間の公理を満たす。これにより定まる位相を<strong>Zariski位相 (Zariski topology)</strong>という。</div>
 </div>
 <div id="proof-Zariski" class="box proof">
     <div class="title"></div>
@@ -73,13 +73,13 @@ $$\mathcal Z(S)\coloneqq\{P\in\mathbb A^n\mid{}^\forall f\in S;\;f(P)=0\}$$
     <paragraph>$\{Y_\lambda\}_{\lambda\in\Lambda}$を代数的集合の族とし、$Y_\lambda=\mathcal Z(S_\lambda)$なる$S_\lambda$をとる。$P\in\mathbb A^n$が$\dcap_{\lambda\in\Lambda}Y_\lambda$に属することは、全ての$\lambda\in\Lambda$と全ての$f\in S_\lambda$に対して$f(P)=0$であることと言い換えられる。よって、$\dcap_{\lambda\in\Lambda}Y_\lambda=\mathcal Z\left(\dcup_{\lambda\in\Lambda}S_\lambda\right)$が成り立つ。</paragraph>
     </div>
 </div>
-<paragraph>例として、$1$次元アフィン空間$\mathbb A^1$のZariski位相を考えてみましょう。$A=k[X]$は単項イデアル整域なので、任意の代数的集合は一つの多項式によって生成されます。$f\in k[X]$とすると、$k$が代数閉体であることから
-$$f=c(X-a_1)(X-a_2)\dots(X-a_d)\quad(c,a_i\in k)$$
+<paragraph>例として、$1$次元アフィン空間$\mathbb A^1$のZariski位相を考えてみましょう。$A=k[x]$は単項イデアル整域なので、任意の代数的集合は一つの多項式によって生成されます。$f\in k[x]$とすると、$k$が代数閉体であることから
+$$f=c(x-a_1)(x-a_2)\dots(x-a_d)\quad(c,a_i\in k)$$
 と$1$次式の積に分解されます。したがって、$f\neq0$であれば$\mathcal Z(f)$は有限集合$\{a_1,\dots,a_d\}$ (特に、$d=0$即ち$f$が定数のとき空集合)で、$f=0$の場合は$\mathcal Z(f)=\mathcal Z(\varnothing)=\mathbb A^1$です。以上より、$\mathbb A^1$の閉集合は全体集合および有限集合ですからこの位相は補有限位相になります。</paragraph>
 <h3 id="ideal">イデアル</h3>
 <paragraph>代数的集合とイデアルの関係を見るために以下の記号を導入します: $\mathbb A^n$の部分集合$T$に対し、
 $$\mathcal I(T)\coloneqq\{f\in A\mid{}^\forall P\in T;\;f(P)=0\}$$
-と書いてこれを$T$の<strong>イデアル</strong>といいます。多項式の集合を点の集合に写す$\mathcal Z$に対し、$\mathcal I$は点の集合を多項式の集合に写します。$\mathcal Z$はzero set (零点集合)の略であり、$\mathcal I$はideal (イデアル)の略です($V$はvanish由来らしい)。実際、$\mathcal I(T)$は$A$のイデアルになります。</paragraph>
+と書いてこれを$T$の<strong>イデアル (ideal)</strong>といいます。多項式の集合を点の集合に写す$\mathcal Z$に対し、$\mathcal I$は点の集合を多項式の集合に写します。$\mathcal Z$はzero setの略であり、$\mathcal I$はidealの略です($V$はvanish由来らしい)。実際、$\mathcal I(T)$は$A$のイデアルになります。</paragraph>
 <div id="I-ideal" class="box proposition">
     <div class="title"></div>
     <div class="content">$T\subset\mathbb A^n$に対し、$\mathcal I(T)$は$A$のイデアルである。</div>

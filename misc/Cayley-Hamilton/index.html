@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>加群におけるCayley-Hamiltonの定理</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="加群におけるCayley-Hamiltonの定理を証明します。加群にあまり慣れていない人(主に私)向けに体上の行列や環上の行列の話から始め、Cayley-Hamiltonの定理の証明を三つ紹介します。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/misc/thumbnail/general-distance.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="加群におけるCayley-Hamiltonの定理" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/misc/Cayley-Hamilton" />
+<script src="../../files/js/mathjax_config.js"></script>
+<script src="../../algebraic-geometry/thumbnail/thumbnail.json.js"></script>
+<script src="../../files/js/script.js"></script>
+<link rel="stylesheet" href="../../files/css/style.css" />
+<link rel="stylesheet" href="../../files/css/theorem.css" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">その他</a> / 加群におけるCayley-Hamiltonの定理</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>加群におけるCayley-Hamiltonの定理</h2>
+<paragraph>加群にあまり慣れていない人(主に私)向けに体上の行列や環上の行列の話から始め、Cayley-Hamiltonの定理の証明を三つ紹介します。正確に言えば、一つ目の証明は体上の行列におけるCayley-Hamiltonの定理の証明、二つ目の証明は環上の行列における定理の証明、三つ目の証明は一般の加群における定理の証明なので、証明を三つ与えているのは体上の行列についてだけです。</paragraph>
+<h3 id="field-matrix">体上の行列</h3>
+<paragraph>まずは体上の行列から始めましょう。</paragraph>
+<div id="field-theorem" class="box theorem">
+    <div class="title">Cayley-Hamiltonの定理 (体上の行列)</div>
+    <div class="content">体$K$上の正方行列$A$の固有多項式を$\varphi_A$とおくと、$\varphi_A(A)=O$である。</div>
+</div>
+<paragraph>上三角化を使って証明します。線型代数学の教科書に載っている証明は恐らく大抵これでしょう。まず、任意の行列は上三角化できることを示します。</paragraph>
+<div id="triangularize" class="box lemma">
+    <div class="title"></div>
+    <div class="content">体$K$上の任意の正方行列は上三角化可能である。即ち、$K$上の任意の正方行列$A$に対してある正則行列$P$が存在し、$P^{-1}AP$が上三角行列となるようにできる($P$や$P^{-1}AP$は一般に$K$上の行列にできるとは限らないが、$K$の代数閉包$\bar K$上の行列としてとれる)。</div>
+</div>
+<div id="triangularize-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>行列のサイズに関する数学的帰納法に拠る。$A$が$1$次の場合、$P$を単位行列とすればよい。</paragraph>
+    <paragraph>$n-1$次正方行列は上三角化可能であると仮定し、$n$次の正方行列$A$を上三角化する。$A$の固有値$\lambda$とそれに対応する固有ヴェクトル$\bm v\in K^n$をとると、$\bm v\neq\bm0$なので、$\bm v_1(=\bm v),\bm v_2,\dots,\bm v_n$が$K^n$の基底となるように$\bm v_2,\dots,\bm v_n\in K^n$をとれる。ここで
+     $$P_1\coloneqq\begin{pmatrix}\bm v_1&\bm v_2&\cdots&\bm v_n\end{pmatrix}$$
+    は正則であり、
+    \begin{align*}
+    AP_1&=\begin{pmatrix}A\bm v_1&A\bm v_2&\cdots&A\bm v_n\end{pmatrix}=\begin{pmatrix}\lambda\bm v_1&\cdots&\cdots&\cdots\end{pmatrix}\\
+    &=\begin{pmatrix}\bm v_1&\cdots&\bm v_n\end{pmatrix}\begin{pmatrix}\lambda&*&\cdots&*\\0&*&\cdots&*\\\vdots&\vdots&\ddots&\vdots\\0&*&\cdots&*\end{pmatrix}=P_1\begin{pmatrix}\lambda&*\\\bm0&A'\end{pmatrix}
+    \end{align*}
+    となる。ここで、$A'$は$n-1$次であり数学的帰納法の仮定から上三角化できるので、その変換行列を$P'$とおく。このとき
+    $$\begin{pmatrix}1&\bm0\\\bm0&P'^{-1}\end{pmatrix}\begin{pmatrix}\lambda&*\\\bm0&A'\end{pmatrix}\begin{pmatrix}1&\bm0\\\bm0&P'\end{pmatrix}=\begin{pmatrix}\lambda&*\\\bm0&P'^{-1}A'P'\end{pmatrix}$$
+    である。よって、$P_2\coloneqq\begin{pmatrix}1&\bm0\\\bm0&P'\end{pmatrix},$ $T\coloneqq\begin{pmatrix}\lambda&*\\\bm0&P'^{-1}A'P'\end{pmatrix}$とおけば$T$は上三角行列であり、
+     \begin{align*}
+    &P_1^{-1}AP_1=\begin{pmatrix}\lambda&*\\\bm0&A'\end{pmatrix}=P_2TP_2^{-1}\\
+    \therefore{}&T=P_2^{-1}(P_1^{-1}AP_1)P_2=(P_1P_2)^{-1}A(P_1P_2)
+    \end{align*}
+    を得る。したがって、$P=P_1P_2$とすればよいことが分かる。</paragraph>
+    </div>
+</div>
+<paragraph>準備ができたので本題を示します。</paragraph>
+<div id="field-proof" class="box proof">
+    <div class="title">(<a href="#field-theorem">定理1</a>)</div>
+    <div class="content">
+    <paragraph>正則行列$P$によって$T=P^{-1}AP$と上三角化するとき、上の証明より$T$の対角成分に$A$の固有値が(重複度を含めて)並ぶようにできる($\varphi_A=\varphi_T$より、実際のところ$T$は必ずその形になると分かる)。即ち、
+    $$T\coloneqq\begin{pmatrix}\lambda_1&\cdots&*&*\\\vdots&\ddots&\vdots&\vdots\\0&\cdots&\lambda_{n-1}&*\\0&\cdots&0&\lambda_n\end{pmatrix}$$
+    としたとき$\lambda_1,\dots,\lambda_n$が$A$の固有値となる。したがって$\bm x\coloneqq\begin{pmatrix}x_1&\cdots&x_n\end{pmatrix}^\top\in K^n$を任意にとると、
+    \begin{align*}
+    \varphi_A(T)\bm x&=(T-\lambda_1E)\dots(T-\lambda_nE)\bm x\\
+    &=(T-\lambda_1E)\dots(T-\lambda_{n-1}E)\begin{pmatrix}\lambda_1-\lambda_n&\cdots&*&*\\\vdots&\ddots&\vdots&\vdots\\0&\cdots&\lambda_{n-1}-\lambda_n&*\\0&\cdots&0&0\end{pmatrix}\begin{pmatrix}x_1\\\vdots\\x_{n-1}\\x_n\end{pmatrix}\\
+    &=(T-\lambda_1E)\dots(T-\lambda_{n-1}E)\begin{pmatrix}*\\\vdots\\ *\\0\end{pmatrix}\\
+    &=(T-\lambda_1E)\dots(T-\lambda_{n-2}E)\begin{pmatrix}*&\cdots&*&*\\\vdots&\ddots&\vdots&\vdots\\0&\cdots&0&*\\0&\cdots&0&0\end{pmatrix}\begin{pmatrix}*\\\vdots\\ *\\0\end{pmatrix}\\
+    &=(T-\lambda_1E)\dots(T-\lambda_{n-2}E)\begin{pmatrix}*\\\vdots\\0\\0\end{pmatrix}\\
+    &=\dots=\bm0
+    \end{align*}
+    となる。したがって$\varphi_A(T)=O$だが、$P^{-1}T^kP=(P^{-1}TP)^k=A^k$なので
+    $$\varphi_A(A)=P^{-1}\varphi_A(T)P=O$$
+    を得る。</paragraph>
+    </div>
+</div>
+<paragraph>色々とごちゃごちゃしましたが示すことができました。ここまで体上の行列を考えましたが、Cayley-Hamiltonの定理の主張において逆元は考えていないので体である必要はありません。</paragraph>
+<h3 id="ring-matrix">環上の行列</h3>
+<paragraph>環$R$の元を成分に持つような行列も体の場合と同様に考えられ、その和や積も同様に定義されます。ここまでは$R$が可換である必要がありませんが、行列式を考える上では可換性がないと困ります。そのため以下では可換環上の行列のみを考えます。先程の証明は上三角化をするに当たって逆元を考えていますから、環上の行列に対しては使えません。</paragraph>
+<paragraph>さて、本節の証明では可換環$R$上の行列を係数に持つ多項式を考えます。方針としては、$\Phi_A\coloneqq xE-A$とその余因子行列$\tilde\Phi_A$の積が$\varphi_A(x)E$である($M_n(R)[x]$は$M_n(R[x])$と自然に同一視できることに注意)ことから、両辺に$x=A$を代入して$\varphi_A(A)=\Phi_A(A)\tilde\Phi_A(A)=O$とします。しかし行列積は非可換なので、「$A$を代入する」という操作は一般には準同型となりません。つまり、$f,g\in M_n(R)[x]$に対して$(fg)(A)=f(A)g(A)$であるとは限りません。実際、
+$$f=\sum_iP_ix^i,\;g=\sum_iQ_ix^i$$
+($P_i,Q_i\in M_n(R)$)とおくと
+\begin{align*}
+(fg)(A)&=\eval{\sum_i\sum_jP_iQ_jx^{i+j}}_{x=A}=\sum_i\sum_jP_iQ_jA^{i+j}\\
+f(A)g(A)&=\left(\sum_iP_iA^i\right)\left(\sum_iQ_iA^i\right)=\sum_i\sum_jP_iA^iQ_jA^j
+\end{align*}
+となります。更にこの式から、$Q_j$が$A$と可換であれば$(fg)(A)=f(A)g(A)$は成り立つと分かります。ということで、多項式の係数を$A$と可換なものに限ってみましょう。$M_n(R)$の元のうち$A$と可換なもの全体がなす集合を$M_n(R,A)$とおくとこれは(一般には可換でない)環になり、$f\in M_n(R,A)[x]$を$f(A)\in M_n(R)$に写す写像は環準同型となります。また、Cayley-Hamiltonの定理に出てくる行列は$M_n(R,A)$に属するので前述のアイデアによる証明が可能となります。</paragraph>
+<div id="ring-theorem" class="box theorem">
+    <div class="title">Cayley-Hamiltonの定理 (環上の行列)</div>
+    <div class="content">可換環$R$上の正方行列$A$の固有多項式を$\varphi_A$とおくと、$\varphi_A(A)=O$である。</div>
+</div>
+<div id="ring-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$A$のサイズを$n$とし、$R$上の$n$次行列のうち$A$と可換なもの全体がなす環を$M_n(R,A)$とおく。このとき写像
+    $$M_n(R,A)[x]\to M_n(R),\sum_iP_ix^i\mapsto\sum_iP_iA^i$$
+    は環準同型となる。$\Phi_A\coloneqq xE-A\in M_n(R,A)[x]$の余因子行列を$\tilde\Phi_A$とおくと、$\tilde\Phi_A\cdot(xE-A)=(xE-A)\cdot\tilde\Phi_A$より$\tilde\Phi_AA=A\tilde\Phi_A$である。よって両辺の係数比較をすることにより、$\tilde\Phi_A\in M_n(R,A)[x]$が分かる。$\Phi_A\in M_n(R,A)[x]$であることは明らかなので、
+    $$\varphi_A(A)=\Phi_A(A)\tilde\Phi_A(A)=O$$
+    を得る。</paragraph>
+    </div>
+</div>
+<h3 id="endomorphism">線型変換・加群の自己準同型</h3>
+<paragraph>ここまで行列に関して考えてきましたが、体上の(有限次)行列は(有限次元)線型空間の上の線型変換と同一視できるのでした。$K$を体として線型変換$f\colon K^n\to K^n$をとり、ある基底に関する表現行列を$A,$ その固有多項式を$\varphi_A$とします。ここで、別の基底に関する表現行列は正則行列$P$を用いて$P^{-1}AP$と書けますから、
+$$\varphi_{P^{-1}AP}=|xE-P^{-1}AP|=|P|^{-1}\cdot|xE-A|\cdot|P|=\varphi_A$$
+となります。つまり$f$の表現行列の固有多項式は一意に定まるので、これを$f$の固有多項式$\varphi_f$と定めればwell-definedになります。$A^n$に対応する線型変換は$f^n\coloneqq f\circ f\circ\dots\circ f$ ($n$重合成)ですから、任意の$\bm v\in K^n$に対して
+$$\varphi_f(f)(\bm v)=\varphi_A(A)\bm v=\bm0$$
+となります。よって、零写像の意味で$\varphi_f(f)=0$が成り立ちます。次に環上の行列に対応するものを考えます。</paragraph>
+<div id="base-module" class="box definition">
+    <div class="title">自由加群</div>
+    <div class="content">環$R$上の加群$M$とその部分集合$B$について、$B$が$M$の<strong>基底 (base)</strong>であるとは、
+    <ul>
+    <li>任意の有限集合$\{x_1,\dots,x_n\}\in B$は線型独立である。即ち、$r_1,\dots,r_n\in R$が$r_1x_1+\dots+r_nx_n=0$を満たすならば$r_1=\dots=r_n=0$である。</li>
+    <li>$M$は$B$で生成される。即ち、任意の$x\in M$に対してある有限集合$\{x_1,\dots,x_n\}\in B$および$r_1,\dots,r_n\in R$が存在し、$r_1x_1+\dots+r_nx_n=x$となる。</li>
+    </ul>
+    を満たすことをいう。また、基底を持つ加群を<strong>自由加群 (free module)</strong>という。</div>
+</div>
+<paragraph>線型空間は(選択公理の下で)常に基底を持ちましたが、加群の場合必ずしも持つとは限りません。例えば$\mathbb Z$加群$M\coloneqq\mathbb Z/5\mathbb Z$を考えます。まず$\varnothing\subset M$は当然$M$を生成しないので基底ではありません。対して空でない$B\subset M$から$x\in B$をとると、$5\cdot x=0$より$B$は線型独立にならないので$B$は基底ではありません。</paragraph>
+<paragraph>可換環上の有限生成自由加群$M$の基底をとると、自己準同型$f\colon M\to M$の表現行列が定義されます。きちんと議論するなら基底の濃度(階数といいます)の一意性を示したりする必要がありますが、ややこしいので省略します<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>。そして、先程と同様の議論から$f$の固有多項式$\varphi_f$が定まると分かり、可換環上の有限生成自由加群の自己準同型に関するCayley-Hamiltonの定理「$\varphi_f(f)=0$」を得ます。</paragraph>
+<h3 id="general-modules">一般の加群</h3>
+<paragraph>今、可換環上の「自由」加群における自己準同型についてのCayley-Hamiltonの定理を考えました。一方で自由加群に限らない一般の加群については基底がないので表現行列が作れず、固有多項式も定義されません。しかし、ある多項式$\varphi\in R[x]$が存在して$\varphi(f)=0$が成り立つことは示すことができます(証明における$\varphi$の構成法から行列に関するCayley-Hamiltonの定理も従う)。実はもう少し詳しく、以下の定理が成り立ちます。</paragraph>
+<div id="module-theorem" class="box theorem">
+    <div class="title">Cayley-Hamiltonの定理 (加群の自己準同型)</div>
+    <div class="content">可換環$R$上の加群$M$が$n$個の元から生成されるとする。自己準同型$f\colon M\to M$と$R$のイデアル$I$が$\Im\varphi\subset IM$を満たすとき、ある$c_0,\dots,c_{n-1}\in I$が存在して
+    $$f^n+c_{n-1}f^{n-1}+\dots+c_2f^2+c_1f+c_0\id_M=0$$
+    が成り立つ。</div>
+</div>
+<paragraph>ここで、$IM\coloneqq\left\{\dsum_{\text{有限和}}a_ix_i\in M\,\middle|\,a_i\in I,x_i\in M\right\}$です。一般の加群では$f$の固有多項式が定義されないという話をしましたが、証明では“固有多項式もどき”を作ります。方針は環上の行列のときの証明に似ていて、$R[f]$上の行列$\Phi_f\coloneqq fE-A$ ($A$は$M$の生成系と$f$から定まる行列)の余因子行列$\tilde\Phi_f$を考え、$M$の自己準同型$|fE-A|=\Phi_f\tilde\Phi_f$が零写像であることから定理が従うという流れです。話を自己準同型から行列に置き換えるなら、「$|xE-A|=\Phi_A\tilde\Phi_A$ ($\Phi_A\coloneqq xE-A$)の両辺に$x=A$を代入して$\varphi_A(A)=O$」というようなイメージです。もちろんこのままの書き方だと<a href="https://ja.wikipedia.org/wiki/ケイリー・ハミルトンの定理
+#短絡的な「証明」の誤りに関する注意">よくある嘘証明</a>でしかないので、きちんと証明の形に整えます。</paragraph>
+<div id="module-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$M$の生成系として$\{x_1,\dots,x_n\}$をとると、$f(x_i)\in IM$なので
+    $$f(x_i)=\sum_{\text{有限和}}k_jy_j\quad(k_j\in I,y_j\in M)$$
+    と表される。各$y_j$は$x_1,\dots,x_n$の線型結合で書けるので、結局
+    $$f(x_i)=\sum_{j=1}^na_{ij}x_j\quad(a_{ij}\in I)$$
+    と書ける。ここで、$M$上の自己準同型全体がなす環$\End(M)$の部分環として、
+    $$R[f]\coloneqq\left\{\sum_ir_if^i\in\End(M)\,\middle|\,r_i\in R\right\}$$
+    即ち$f$の多項式で表される自己準同型全体がなす環を考える。簡単な計算により、これは可換環であることが分かる。$R[f]$の元を成分に持つ行列を考えると、
+    $$\begin{pmatrix}f&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&f\end{pmatrix}\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}=\begin{pmatrix}a_{11}\id_M&\cdots&a_{1n}\id_M\\\vdots&\ddots&\vdots\\a_{n1}\id_M&\cdots&a_{nn}\id_M\end{pmatrix}\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$$
+    となる。ここで、$g\in R[f]$と$x\in M$の“積”は$g(x)$で定義する($n$本の等式を形式的に行列の形で書いていると考えてもよい)。したがって、
+    $$\Phi_f\coloneqq\begin{pmatrix}f&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&f\end{pmatrix}-\begin{pmatrix}a_{11}\id_M&\cdots&a_{1n}\id_M\\\vdots&\ddots&\vdots\\a_{n1}\id_M&\cdots&a_{nn}\id_M\end{pmatrix},\;\bm x\coloneqq\begin{pmatrix}x_1\\\vdots\\x_n\end{pmatrix}$$
+    とおけば$\Phi_f\bm x=\bm0$が成り立つ。両辺に左から$\Phi_f$の余因子行列を掛けると、
+    $$\tilde\Phi_f\Phi_f\bm x=|\Phi_f|\bm x=\bm0$$
+    即ち$|\Phi_f|(x_i)=0$が成り立つ。$\{x_1,\dots,x_n\}$は$M$の生成系であったから$|\Phi_f|$は零写像であることが分かる。以上より、$\Phi_f$の定義から
+    $$f^n+c_{n-1}f^{n-1}+\dots+c_2f^2+c_1f+c_0\id_M=0$$
+    なる$c_0,\dots,c_{n-1}\in I$が存在することが分かる。</paragraph>
+    </div>
+</div>
+<paragraph>最後に、簡単な応用として中山の定理を証明します(蛇足？)。</paragraph>
+<div id="Nakayama-lemma" class="box theorem">
+    <div class="title">中山の補題</div>
+    <div class="content">$R$を可換環、$M$を有限生成$R$加群とし、$I\subset R$をイデアルとする。$M=IM$であるとき、$aM=0$を満たす$a\in1+I$が存在する。</div>
+</div>
+<div id="Nakayama-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$f=\id_M$に対して<a href="#module-theorem">定理3</a>を適用すると
+    $$(1+c_{n-1}+\dots+c_2+c_1+c_0)\id_M=0\quad({}^\exists c_i\in I)$$
+    を得る。したがって$a\coloneqq1+c_{n-1}+\dots+c_2+c_1+c_0$とすればこれは定理の条件を満たす。</paragraph>
+    </div>
+</div>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">雑な説明を書いておきます。$n$個の元からなる基底を持つ自由加群は$R^n$と同型で、極大イデアル$\mathfrak m$をとると加群のテンソル積$R^n\otimes_R(R/\mathfrak m)$は$R/\mathfrak m$加群$(R/\mathfrak m)^n$と同型になります(参考: <a href="https://ja.wikipedia.org/wiki/加群のテンソル積#付加的構造">加群のテンソル積 - Wikipedia</a>)。$R/\mathfrak m$は体なので、つまるところ$R^n\otimes_R(R/\mathfrak m)$は$n$次元の線型空間になるわけです。したがって$m\neq n$であれば、$m$個の元からなる基底も$n$個の元からなる基底も持つということは起こりません。<a href="#footnoteref1">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>
