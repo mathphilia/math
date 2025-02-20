@@ -33,7 +33,7 @@
     <a class="next"></a>
 </div>
 <h2>環の次元 (次元論①)</h2>
-<paragraph>今回から暫く次元論の話になります。というのも、主要参考文献である『Algebraic Geometry』の第1章にて次元論に関する数個の定理の証明が略されていたのですが、そのことごとくが証明の大変なものだったからです。</paragraph>
+<paragraph>今回から暫く次元論の話になります。というのも、主要参考文献である<a href="../prerequisite#ref3">『Algebraic Geometry』</a>の第1章にて次元論に関する数個の定理の証明が略されていたのですが、そのことごとくが証明の大変なものだったからです。</paragraph>
 <h3 id="Krull">Krull次元</h3>
 <div id="height" class="box definition">
     <div class="title">イデアルの高さ</div>
@@ -224,7 +224,7 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
     <div class="title"></div>
     <div class="content">
     <paragraph>$K$上代数的に独立な集合$B\subset L$全体の集合を$\Omega$とし、包含関係によって順序集合と見る。$\varnothing\in\Omega$より特に$\Omega$は空でない。$\Omega$の全順序部分集合$\Omega_0$に対して$\dcup_{B\in\Omega_0}B$は$\Omega_0$の上界である。実際有限部分集合$B_0\subset\dcup_{B\in\Omega_0}B$をとると、ある$B\in\Omega_0$が存在して$B_0\subset B$となるので$\dcup_{B\in\Omega_0}B$は代数的に独立。したがって、Zornの補題から極大元$\tilde B\in\Omega$が存在する。$L/K(\tilde B)$が代数拡大でないと仮定すると$K(\tilde B)$上超越的な$\alpha\in L$が存在するが、このとき$\tilde B\cup\{\alpha\}$は代数的に独立なので$\tilde B$の極大性に反する。したがって$\tilde B$は$L/K$の超越基底となる。</paragraph>
-    <paragraph>$B,$ $B'$を$L/K$の超越基底とし、$|B'|\leqq|B|$を示す。まずは$|B|<\infty$の場合について考える。$B=\{\alpha_1,\dots,\alpha_n\}$とおき、任意に$\alpha'_1\in B$をとる。$K(\alpha'_1,\alpha_1,\dots,\alpha_n)/K(\alpha_1,\dots,\alpha_n)$は代数拡大ゆえ、<a href="#dependence-lemma">補題</a>よりある$f\in K[y_1,x_1,\dots,x_n]$が存在して$f(\alpha'_1,\alpha_1,\dots,\alpha_n)=0$となる。$\alpha'_1$は$K$上超越的なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=1$と仮定できる。このとき$\alpha_1$は$K(\alpha'_1,\alpha_2,\dots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha_2,\dots,\alpha_n)$は代数拡大である(<a href="http://www.math.u-ryukyu.ac.jp/~suga/algebra/lecturenote.pdf">参考</a>; 命題 4.3.1)。次に$\alpha'_2\in B'\setminus\{\alpha'_1\}$をとると、$K(\alpha'_1,\alpha'_2,\alpha_2,\dots,\alpha_n)/K(\alpha'_1,\alpha_2,\dots,\alpha_n)$は代数拡大ゆえ補題よりある$f\in K[y_1,y_2,x_2,\dots,x_n]$が存在して$f(\alpha'_1,\alpha'_2,\alpha_2,\dots,\alpha_n)=0$となる。$\alpha'_1,\alpha'_2$は$K$上代数的に独立なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=2$と仮定できる。このとき$\alpha_2$は$K(\alpha'_1,\alpha'_2,\alpha_3,\dots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha'_2,\alpha_3,\dots,\alpha_n)$は代数拡大である。$n\lt|B'|$であるとすると、以上の操作を繰り返すことで$L/(\alpha'_1,\dots,\alpha'_n)$が代数拡大であるように相異なる$\alpha'_1,\dots,\alpha'_n\in B'$をとることができ、かつ$\{\alpha'_1,\dots,\alpha'_n\}\subsetneqq B'$である。このとき補題より$B'$は$K$上代数的に従属であることになり、超越基底であることに矛盾する。したがって背理法により$|B'|\leqq|B|$を得る。</paragraph>
+    <paragraph>$B,$ $B'$を$L/K$の超越基底とし、$|B'|\leqq|B|$を示す。まずは$|B|<\infty$の場合について考える。$B=\{\alpha_1,\dots,\alpha_n\}$とおき、任意に$\alpha'_1\in B$をとる。$K(\alpha'_1,\alpha_1,\dots,\alpha_n)/K(\alpha_1,\dots,\alpha_n)$は代数拡大ゆえ、<a href="#dependence-lemma">補題</a>よりある$f\in K[y_1,x_1,\dots,x_n]$が存在して$f(\alpha'_1,\alpha_1,\dots,\alpha_n)=0$となる。$\alpha'_1$は$K$上超越的なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=1$と仮定できる。このとき$\alpha_1$は$K(\alpha'_1,\alpha_2,\dots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha_2,\dots,\alpha_n)$は代数拡大である(<a href="../prerequisite#ref1">参考</a>; 命題 4.3.1)。次に$\alpha'_2\in B'\setminus\{\alpha'_1\}$をとると、$K(\alpha'_1,\alpha'_2,\alpha_2,\dots,\alpha_n)/K(\alpha'_1,\alpha_2,\dots,\alpha_n)$は代数拡大ゆえ補題よりある$f\in K[y_1,y_2,x_2,\dots,x_n]$が存在して$f(\alpha'_1,\alpha'_2,\alpha_2,\dots,\alpha_n)=0$となる。$\alpha'_1,\alpha'_2$は$K$上代数的に独立なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=2$と仮定できる。このとき$\alpha_2$は$K(\alpha'_1,\alpha'_2,\alpha_3,\dots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha'_2,\alpha_3,\dots,\alpha_n)$は代数拡大である。$n\lt|B'|$であるとすると、以上の操作を繰り返すことで$L/(\alpha'_1,\dots,\alpha'_n)$が代数拡大であるように相異なる$\alpha'_1,\dots,\alpha'_n\in B'$をとることができ、かつ$\{\alpha'_1,\dots,\alpha'_n\}\subsetneqq B'$である。このとき補題より$B'$は$K$上代数的に従属であることになり、超越基底であることに矛盾する。したがって背理法により$|B'|\leqq|B|$を得る。</paragraph>
     <paragraph>次に$B$が無限集合の場合を示す。$\alpha\in B$を任意にとると$\alpha$は$K(B')$上代数的なので、ある有限集合$B'_\alpha\subset B'$が存在して$\alpha$は$K(B'_\alpha)$上代数的である。$\alpha'\in B'\setminus\dcup_{\alpha\in B}B'_\alpha$が存在すると仮定すると任意の$\alpha\in B$は$K(B'_\alpha)$上代数的であり、特に$K(B'\setminus\{\alpha'\})$上代数的である。また、$B$が超越基底であることから$\alpha'$は$K(B)$上代数的である。以上より
     $$K(B\cup B')/K(B\cup(B'\setminus\{\alpha'\}))/K(B'\setminus\{\alpha'\})$$
     は代数拡大なので、$\alpha'$は$K(B'\setminus\{\alpha'\})$上代数的で即ち$K(B')/K(B'\setminus\{\alpha'\})$は代数拡大である。よって<a href="#dependence-lemma">補題</a>から$B'$は$K$上代数的に従属であることになり、超越基底であることに矛盾する。したがって背理法により$B'\setminus\dcup_{\alpha\in B}B'_\alpha=\varnothing$が分かり、
@@ -303,7 +303,7 @@ $$(S^{-1}K[\bm x])/(S^{-1}\mathfrak p')=S^{-1}(K[\bm x]/\mathfrak p')=K(\alpha_1
 <li id="footnote5">基本的な内容だとは思いますが、少々悩んだので証明を書いておきます。一般に、$K(t_1,\dots,t_n)/K$が代数拡大であるとき$K[t_1,\dots,t_n]=K(t_1,\dots,t_n)$であることを示します。このためには、任意の$a\in K[t_1,\dots,t_n]\setminus\{0\}$に対して$a^{-1}\in K[t_1,\dots,t_n]$であることを示せばよいです。$a$の$K$上の最小多項式を$f=\dsum_ic_ix^i$とおくと、
 $$a^{-1}=\frac1{-c_0a}\cdot-c_0=\frac1{-c_0a}\sum_{0\lt i}c_ia^i=-\sum_{0\lt i}\frac{c_i}{c_0}a^{i-1}\in K[a]\subset K[t_1,\dots,t_n]$$
 となって示されました。<a href="#footnoteref5">↩</a></li>
-<li id="footnote6">$K[x_1,\dots,x_m]$と$K[x_1,\dots,x_n]$が同型でないことは超越次数の一意性から直ちに従うのでは？と思ったりしましたが、これでは$K$代数として同型でないことしか分からず不十分です。$K$代数としては同型でないが環同型ではある例として、以下があります。
+<li id="footnote6">$K[x_1,\dots,x_m]$と$K[x_1,\dots,x_n]$が同型でないことは超越次数の一意性から直ちに従うのでは？と思ったりしましたが、これでは$K$代数<sup><a id="footnoteref1" href="#footnote7">[脚註7]</a></sup>として同型でないことしか分からず不十分です。$K$代数としては同型でないが環同型ではある例として、以下があります。
 <div id="not-isomorphic" class="box proposition">
     <div class="title"></div>
     <div class="content">$R$を$\mathbb Q[x,y]/(x-y^2)$の分数体, $R'$を$\mathbb Q[x,y]/(x^2-y)$の分数体とするとき、$R$と$R'$は$\mathbb Q(x)$代数としては同型でないが環としては同型である。</div>
@@ -316,6 +316,14 @@ $$a^{-1}=\frac1{-c_0a}\cdot-c_0=\frac1{-c_0a}\sum_{0\lt i}c_ia^i=-\sum_{0\lt i}\
     </div>
 </div>
 もっと簡単な例もあるかもしれません。<a href="#footnoteref6">↩</a></li>
+<li id="footnote7">$K$代数という用語を導入し忘れていました。具体的な定義は以下に示しますが、ざっくり$K$を部分環に持つ環( or 零環)だと思ってもらえればよいです(環準同型$\iota\colon K\to R',a\mapsto a\cdot1$は$K$が体で$R'\neq0$なら単射であることに注意)。
+<div id="algebra-1" class="box definition">
+    <div class="title">環上の多元環</div>
+    <div class="content">$R$を環とし、$R$加群$R'$に環構造が入っているとする(もちろん加群$R'$の加法と環$R'$の加法は同一)。$R'$の積が$R$双線型性
+    $$r\cdot(xy)=(r\cdot x)y=x(r\cdot y)\quad({}^\forall r\in R,{}^\forall x,y\in R')$$
+    を満たすとき、$R'$は<strong>$R$上の(結合的)多元環 ((associative) algebra over $R$)</strong>または<strong>$R$代数 ($R$-algebra)</strong>であるという。</div>
+</div>
+$R$代数の準同型は$R$加群準同型であり環準同型でもある写像をいい、全単射な準同型を同型といいます。$R$代数の定義にはこの他にも同値なものがあり、どちらがメジャーかはよく分かりません。定義の解説や例など、書きはじめると長くなるのでので別記事で詳説しましょうか…。<a href="#footnoteref7">↩</a></li>
 </ol>
 <h3 id="reference"><span>参考文献</span></h3>
 <ol id="ref-list">

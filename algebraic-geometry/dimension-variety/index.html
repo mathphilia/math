@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>アフィン多様体の次元</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="アフィン多様体の次元を定義し、環の次元との関係を見ます。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/dimension-variety.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="アフィン多様体の次元" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/dimension-variety" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">代数幾何学</a> / アフィン多様体の次元</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>アフィン多様体の次元</h2>
+<h3 id="dim-topological">位相空間の次元</h3>
+<p>前回の記事で環の次元について考えましたが、今回はアフィン多様体の次元について考えます。一般に、位相空間の次元を以下のように定義します。</p>
+<div id="dim-top-def" class="box definition">
+    <div class="title">位相空間の次元</div>
+    <div class="content">位相空間$X$に対し、
+    $$Z_0\subsetneqq Z_1\subsetneqq Z_2\subsetneqq\dots\subsetneqq Z_r\subset X$$
+    なる<a href="../Nullstellensatz#irreducible-set">既約</a>閉集合列が存在するような非負整数$r$の上限を$X$の<strong>次元 (dimension)</strong>といい、$\dim X$と書く。</div>
+</div>
+<p>空間の次元には、この他にもLegesgue被覆次元やHausdorff次元などいろいろなものがあります。これ以降位相空間の次元としては定義1のものしか出てこないのでこれを単に「次元」と言いますが、代数幾何以外の文脈ではこの意味の次元を採用する場面は少ないと思われます。というのも、普通は$\mathbb R^n$が$n$次元空間であるとの前提から次元を定義することが多いからです。</p>
+<p>$\mathbb R^n$の次元がどうなるか考えてみます(位相はもちろんEuclid)。<a href="../Nullstellensatz#non-Hausdorff">以前</a>示した通り、濃度$2$以上のHausdorff空間は既約ではありません。$\mathbb R^n$はHausdorffでしたからその既約部分集合は一点集合しかなく、Hausdorff空間において一点集合は閉なので$\dim\mathbb R^n=0$であることが分かりました。証明から分かる通り、一般に濃度$2$以上のHausdorff空間の次元は$0$です。</p>
+<p>ここで、任意の位相空間に次元が定義できること、即ち既約閉集合の存在性を示しておきます。</p>
+<div id="top-has-dim" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$X$を位相空間とする。空でない閉集合全体の集合を$\Sigma$とおき、逆包含関係により順序を入れる。即ち
+    $$S\leqq T\defiff T\subset S$$
+    である。$\Sigma$の全順序部分集合$\Sigma_0$に対し、$F\coloneqq\dcap_{S\in \Sigma_0}S$は閉集合なので$\Sigma_0$は上界として$F$を持つ。よって、Zornの補題より$\Sigma$には極大元$\widetilde S$が存在する。</paragraph>
+    <p>この$\widetilde S$が既約であることを示せばよい。まず、$\Sigma$の定義から$\widetilde S$は空でない。また、$\widetilde S=S_1\cup S_2$となるような閉集合$S_1,S_2$をとったとき、$\widetilde S$の極大性(包含関係の意味では極小性)から$S_1=S_2=\widetilde S$でなければならない。以上より、$\widetilde S$は$X$の既約閉部分集合である。</p>
+    </div>
+</div>
+<p>方針としては、任意の環に極大イデアルが存在することの証明と似ていますね。次に$0$でない次元を持つ位相空間の例を見てみましょう。</p>
+<div id="indiscrete-space" class="box example">
+    <div class="title">補有限位相</div>
+    <div class="content">無限集合$X$に補有限位相を入れます。このとき$X$の閉集合は有限集合と$X$自身のみです。このうち既約なのは一点集合と$X$自身のみなので、長さ(ここでは$Z_0\subsetneqq\cdots\subsetneqq Z_r$の長さを$r$としている)が$1$以上の既約閉集合鎖としては$\{*\}\subsetneqq X$という形のものしかありません。よって、$\dim X=1$となります。</div>
+</div>
+<div id="Spec-valuation-ring" class="box example">
+    <div class="title"></div>
+    <div class="content">$X=\{0,1,2,3,\dots,n\}$に、
+    $$X_{\gt a}\coloneqq\{x\in X\mid a\gt x\}\quad(a\in X)$$
+    という形の集合および$X$自身を開集合とする位相を入れます。このとき閉集合は
+    $$X_{\leqq a}\coloneqq\{x\in X\mid x\leqq a\}\quad(a\in X)$$
+    および$\varnothing$になります。また、空でない閉集合は全て既約になります。実際$X_{\leqq a}=Y_1\cup Y_2$なる閉集合$Y_1,Y_2\subset X$について、少なくとも一方は$a$を含みますから$X_{\leqq a}$自身に一致します。以上のことから、
+    $$X_{\leqq0}\subsetneqq X_{\leqq1}\subsetneqq\dots\subsetneqq X_{\leqq n}=X$$
+    は$X$の既約閉集合鎖として最長なので、$\dim X=n$となります。同様に、全順序無限集合$X$に$\varnothing,$ $X_{\gt a},$ $X$を開集合とする位相を入れれば$\dim X=\infty$となります。</div>
+</div>
+<p>最後に簡単な命題を一つ示しておきます。</p>
+<div id="dim-leqq" class="box proposition">
+    <div class="title"></div>
+    <div class="content">位相空間$X$の部分集合$Y$について、$\dim Y\leqq\dim X$である。</div>
+</div>
+<div id="dim-leqq-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$Y$の既約閉集合列$Z_0\subsetneqq\dots\subsetneqq Z_r$をとる。<a href="../Nullstellensatz#closure-irred">既約集合の閉包は既約</a>なので、各$\bar{Z_i}$は$X$の既約閉集合である。よって、$\bar{Z_{i-1}}\subsetneqq\bar{Z_i}$であることを示せば$X$の既約閉集合列$\bar{Z_0}\subsetneqq\dots\subsetneqq\bar{Z_r}$が得られ、$r\leqq\dim X$であると分かる。</paragraph>
+    <paragraph>$Y$の既約閉集合$Z$に対して$\bar Z\cap Y=Z$であることを示す。$Z\subset\bar Z\cap Y$であることは明らか。$P\in\bar Z\cap Y$を任意にとると、$P$の任意の開近傍$U\subset X$に対して$Z\cap U\neq\varnothing$である。また、$Z$が($Y$の)閉集合であることから$Z$の触点である$P\in Y$は$Z$に属する。</paragraph>
+    </div>
+</div>
+<h3 id="dim-topological">アフィン多様体の次元</h3>
+<p>例を見る限り「次元」っぽくないように見えますが、アフィン多様体に適用することで自然な定義に感じられてきます(アフィン多様体用の定義なので当たり前ですが)。</p>
+<div id="variety-def" class="box definition">
+    <div class="title">(準)アフィン多様体の次元</div>
+    <div class="content">$Y$を(準)アフィン多様体とする。このとき$Y$の<strong>次元 (dimension)</strong>を位相空間$Y$の次元として定義し、$\dim Y$と書く。</div>
+</div>
+<p>例えば$1$次元アフィン空間$\mathbb A^1$は補有限位相空間なので、$\dim\mathbb A^1=1$になります。次に一般のアフィン多様体$Y$の次元を調べるため、$Y$に環を関連付けることを考えます。</p>
+<div id="variety-def" class="box definition">
+    <div class="title">アフィン座標環</div>
+    <div class="content">代数的集合$Y\subset\mathbb A^n$に対し、その<strong>アフィン座標環 (affine coordinate ring)</strong>を$A(Y)\coloneqq A/\mathcal I(Y)$で定める。</div>
+</div>
+<p>特に$Y$がアフィン多様体であれば、<a href="../Nullstellensatz#prime">$\mathcal I(Y)$は素イデアル</a>でしたから$A(Y)$は整域になります。また逆に、任意の有限生成$k$代数はあるアフィン多様体の座標環になります。実際$B=k[a_1,\dots,a_n]$とおき、環準同型
+$$\varphi\colon k[x_1,\dots,x_n]\to k[a_1,\dots,a_n],f\mapsto f(a_1,\dots,a_n)$$
+を考えれば$B=k[x_1,\dots,x_n]/\Ker\varphi$であることが分かります。$B$は整域なので$\Ker\varphi$は素イデアルですから、$Y\coloneqq\mathcal Z(\Ker\varphi)$はアフィン多様体であって$B=A(Y)$です。さて、勘のいい人は察しているかもしれませんが、アフィン多様体の次元はその座標環のKrull次元に一致します。</p>
+<div id="dim-equal" class="box theorem">
+    <div class="title"></div>
+    <div class="content">代数的集合$Y\subset\mathbb A^n$について、$\dim Y=\dim A(Y)$が成り立つ。</div>
+</div>
+<div id="dim-equal-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$r\coloneqq\dim Y$とし、$Y$の既約閉部分集合列
+    $$Z_0\subsetneqq Z_1\subsetneqq Z_2\subsetneqq\dots\subsetneqq Z_r\subset X$$
+    をとる。各$Z_i$は$\mathbb A^n$の既約閉集合でもあるので、$A$の素イデアル列
+    $$\mathcal I(Z_r)\subsetneqq\dots\subsetneqq\mathcal I(Z_2)\subsetneqq\mathcal I(Z_1)\subsetneqq\mathcal I(Z_0)$$
+    をとれる。$A(Y)=A/\mathcal I(Y)$なので、<a href="../dimension-1#correspond">素イデアルの対応定理</a>から$A(Y)$における長さ$r$の素イデアル列を構成できる。よって$r\leqq\dim A(Y)$である。</paragraph>
+    <p>逆に$r\coloneqq\dim A(Y)$とし、$A(Y)$の素イデアル列
+    $$\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_r$$
+    をとる。素イデアルの対応定理から、$A$の素イデアル列
+    $$\mathcal I(Y)\subset\mathfrak p'_0\subsetneqq\mathfrak p'_1\subsetneqq\mathfrak p'_2\subsetneqq\dots\subsetneqq\mathfrak p'_r$$
+    をとれる。各素イデアルに対応するアフィン多様体を考えれば、$\mathbb A^n$における長さ$r$の既約閉集合列($\subset Y$)を構成できる。$Y$に包まれる$\mathbb A^n$の既約閉集合は$Y$の既約閉部分集合でもあるので、$r\leqq\dim Y$である。</p>
+    </div>
+</div>
+<p>このことから、特に$n$次元アフィン空間は$n$次元であることが示せます。系と言っていますが、これの証明のために次元論をゴリゴリやることになったわけです。</p>
+<div id="dim-An" class="box corollary">
+    <div class="title"></div>
+    <div class="content">$\dim\mathbb A^n=n$である。</div>
+</div>
+<div id="dim-An-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$\mathbb A^n$のアフィン座標環は$A=k[x_1,\dots,x_n]$である。<a href="../dimension-1#poly-ring">$\dim A=n$</a>であったので、<a href="#dim-equal">定理1</a>から$\dim\mathbb A^n=n$を得る。</paragraph>
+    </div>
+</div>
+<h3 id="other">その他次元に関すること</h3>
+<p>以下、アフィン多様体に関する命題を紹介していきます。いくつか証明ができていない部分もありますが、<del>どうせ今後使わないので</del>証明しようとすると可換環論メインになってしまうので許して…。まず位相に関する補題を示します。</p>
+<div id="Y-Ybar" class="box lemma">
+    <div class="title"></div>
+    <div class="content">$Y$を位相空間$X$の部分集合とする。$Y$の閉集合と$\bar Y$の閉集合には、包含関係を保つ以下のような一対一対応がある。
+    <ol class="roman">
+        <li>$Y$の閉集合$\to\bar Y$の閉集合: $Z\mapsto\bar Z$</li>
+        <li>$\bar Y$の閉集合$\to Y$の閉集合: $Z'\mapsto Z'\cap Y$</li>
+    </ol>
+    ここで、閉包は全て$X$における閉包である。またこのとき、既約集合は既約集合と対応する。</div>
+</div>
+<div id="Y-Ybar-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <p>まず、各対応が包含関係を保つこと、および閉集合を閉集合に写すことは明らか。</p>
+    <p>次に、(i), (ii)が互いに逆写像であることを示す。$Y$の閉集合$Z$について$Z=\bar Z\cap Y$であることは<a href="#dim-leqq-proof">命題1の証明</a>中で示した。$\bar Y$の閉集合$Z'$について、$Z'\cap Y\subset Z'$の両辺の閉包をとれば$\bar{Z'\cap Y}\subset Z'$を得る。また、$\bar{Z'\cap Y}$は$Z'\cap Y$を包む閉集合全体の共通部分であり、$\bar{Z'}\cap\bar Y$は
+    $$(\text{$Z'$を包む閉集合})\cap(\text{$Y$を包む閉集合})$$
+    という集合全体の共通部分である。$Z'$を包む閉集合と$Y$を包む閉集合の共通部分は$Z'\cap Y$を包む閉集合でもあるので、
+    $$\bar{Z'\cap Y}=\bigcap_{\substack{F\subset Z'\cap Y\\\text{$F$: closed}}}F\subset\bigcap_{\substack{F_1\subset Z',F_2\subset Y\\\text{$F_1,F_2$: closed}}}(F_1\cap F_2)=\bar{Z'}\cap\bar Y=Z'\cap\bar Y=Z'$$
+    を得る。以上より、$Z'=\bar{Z'\cap Y}$である。</p>
+    <p>最後に、各対応が既約集合を既約集合に写すことを示す。(i)が既約集合を既約集合に写すことは<a href="../Nullstellensatz#closure-irred">以前</a>示した。$Z'$を$Y$の閉集合とし、$Z'\cap Y\subset X_1\cup X_2$なる閉集合$X_1,X_2\subset X$をとる。このとき
+    $$Z'=\bar{Z'\cap Y}\subset\bar{X_1\cup X_2}=X_1\cup X_2$$
+    なので、$Z'$の既約性から$Z'\subset X_1$または$Z'\subset X_2$である。よって$Z'\cap Y$も$X_1$か$X_2$に包まれるので、$Z'\cap Y$は既約である。</p>
+    </div>
+</div>
+<p>補題を使うと、準アフィン多様体の次元を求めるにはアフィン多様体の次元を考えればよいと分かります。</p>
+<div id="dim-Ybar" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$Y$を準アフィン多様体とすると、$\dim Y=\dim\bar Y$が成り立つ。</div>
+</div>
+<div id="dim-An-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph><a href="#dim-leqq">命題1</a>より$\dim Y\leqq\dim\mathbb A^n=n$であり、特に$Y$は有限次元。$d=\dim Y$とおくと$Y$の既約閉集合列$Z_0\subsetneqq\dots\subsetneqq Z_d$をとることができるが、これは($Z_0$の前や$Z_{i-1}$と$Z_i$の間, $Z_d$の後ろに既約閉集合を挿入して列を伸ばせないという意味で)極大な列である。また、<a href="#Y-Ybar">補題1</a>により得られる$\bar{Z_0}\subsetneqq\dots\subsetneqq\bar{Z_d}$も極大である<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>。実際、どこかに既約閉集合を挿入できるのであれば補題1の対応によって$Y$の既約閉集合列も伸ばせるので極大性に反する。さて、<a href="#dim-equal-proof">定理1の証明</a>で述べたように、$\bar Y$の既約閉集合と$A(Y)$の素イデアルは一対一対応する。よって、$\mathfrak p_i\coloneqq\mathcal I(Z_i)/\mathcal I(\bar Y)$とおけば$\mathfrak p_d\subsetneqq\dots\subsetneqq\mathfrak p_0$は$A(\bar Y)$の飽和素イデアル鎖であり、$\mathfrak p_d$は零イデアル, $\mathfrak p_0$は極大イデアルである。$A(\bar Y)$は$k$上有限生成環なので<a href="../dimension-2#catenary">鎖状環であり</a>、
+    $$d=\dim(A(\bar Y)/\mathfrak p_d)-\dim(A(\bar Y)/\mathfrak p_0)=\dim A(\bar Y)-0=\dim\bar Y$$
+    となる。</paragraph>
+    </div>
+</div>
+<p>『Algebraic Geometry』では$\bar{Z_0}\subsetneqq\dots\subsetneqq\bar{Z_d}$が極大鎖であることから$Z_0$に対応する極大イデアルの高さが$d$だと書いていましたが、$A$が鎖状環だということを使わないとそうは断定できない気がします。</p>
+<p>最後に、$\mathbb A^n$内のアフィン超曲面は$A$の単項素イデアルに対応することを示しましょう。準備として、可換環論の定理を二つ(片方は証明抜きで)紹介します。</p>
+<div id="theorem-111A" class="box theorem">
+    <div class="title">Krullの単項イデアル定理 (Krull's Hauptidealsatz)<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a></sup></div>
+    <div class="content">$R$をNoether環とし、$x$を零元, 零因子, 単元でない$R$の元とする。このとき、$(x)$の任意の極小素イデアル$\mathfrak p$の高さは$1$である。</div>
+</div>
+<div id="is-this-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph><a href="https://ryoya9826.github.io/files/note/ring.pdf">PDF</a>の系5.5.2や<a href="https://en.wikipedia.org/wiki/Krull%27s_principal_ideal_theorem">英語版 Wikipedia</a>に証明がある(が、よく分からなかった)。また、『Introduction to Commutative Algebra』(Atiyah･Macdonald, 1969)の112ページにもあるらしい(版や翻訳によってページ位置は異なると思うが)。</paragraph>
+    </div>
+</div>
+<div id="theorem-112A" class="box theorem">
+    <div class="title"></div>
+    <div class="content">Noether整域$R$が一意分解整域であるための必要十分条件は、高さ$1$の素イデアルが全て単項イデアルとなることである<sup><a id="footnoteref3" href="#footnote3">[脚註3]</a></sup>。</div>
+</div>
+<div id="dim-An-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>($\Rightarrow$) $R$が一意分解整域であるとし、高さ$1$の素イデアル$\mathfrak p$をとる。$x\in\mathfrak p\setminus\{0\}$を$x=x_1\cdot\dots\cdot x_r$と素元分解すると、ある$i$が存在して$x_i\in\mathfrak p$となる。素元で生成される単項イデアルは素イデアルなので、$R$が整域であることと併せて$(0)\subset(x_i)\subset\mathfrak p$という素イデアル列が得られる。しかし$\ht\mathfrak p=1$であったので、$(x_i)=\mathfrak p$でなければならない。</paragraph>
+    <p>($\Leftarrow$) 高さ$1$の$R$の素イデアルが全て単項イデアルであるとする。まず、$x\in R$を既約元として$x$が素元であることを示す。$\mathfrak p$を$(x)$の極小素イデアルとすると、Krullの単項イデアル定理から$\ht\mathfrak p=1$である。よって仮定から$\mathfrak p$は単項イデアルなので$\mathfrak p=(a)$ ($a\in R$)と書けて、$x\in(a)$から$x=ar$ ($r\in R$)と書ける。$x$は既約なので$a$と$r$のいずれかは単元だが、$(a)\neq R$なので$r$が単元。したがって$(x)=(a)$は素イデアルなので、$x$が素元であると分かる。</p>
+    <p>任意の既約元が素元であることを使い、$R$が一意分解整域であることを示す。そのためには、任意の$x\in R$が有限個の既約元の積で書けることを示せばよい。$x$が有限個の既約元の積で書けないと仮定すると、$x$は既約元でないので$x=x_1y_1$なる単元でない$x_1,y_1\in R$が存在する。このとき仮定より$x_1$と$y_1$のいずれかは有限個の既約元の積で書けないが、$y_1$が有限個の既約元の積で書けないとしても一般性を失わない。すると同様に$y_1=x_2y_2$ ($x_2,y_2\in R\setminus R^\times$)と書けて、$y_2$が有限個の既約元の積で書けないとしてよい。以下同様にして$R$の非単元の列$\{x_n\}_{n=1}^\infty,$ $\{y_n\}_{n=1}^\infty$を作れる。このときイデアルの無限列
+    $$(y_1)\subset(y_2)\subset(y_3)\subset\dots$$
+    が得られるが、この$\subset$は真の包含である。実際$y_{n+1}\in(y_{n+1})$だが、$y_{n+1}\in(y_n)$であるとすると
+    $$y_{n+1}=ry_n=rx_{n+1}y_{n+1}\quad({}^\exists r\in R)$$</p>
+    即ち$rx_{n+1}=1$となって$x_{n+1}$が非単元であることに矛盾。したがって$R$のイデアルの無限上昇列が得られるが、これは$R$がNoetherとの仮定に反する。以上より、$R$の任意の元は既約元分解できる。</div>
+</div>
+<p>思ったより大変でした。ともかく準備が完了したので命題を証明します。</p>
+<div id="dim-hypersurface" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$Y\subset\mathbb A^n$をアフィン多様体とする。$Y$の次元が$n-1$であるための必要十分条件は、ある既約多項式<sup><a id="footnoteref4" href="#footnote4">[脚註4]</a></sup>$f\in k[x_1,\dots,x_n]$が存在して$Y=\mathcal Z(f)$となることである。</div>
+</div>
+<div id="dim-hypersurface-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>($\Leftarrow$) $f\in A$を定数でない既約多項式とし、アフィン多様体$Y\coloneqq\mathcal Z(f)$を考える。$f$の既約性から$(f)$は素イデアルなので、<a href="#theorem-111A">Krullの単項イデアル定理</a>から$\ht(f)=1$である。よって<a href="../dimension-2#theorem-18Ab">前回示した定理</a>から、
+    $$\dim Y=\dim A/(f)=\coht(f)=\dim A-\ht(f)=n-1$$
+    を得る。</paragraph>
+    <p>($\Rightarrow$) $Y\subset\mathbb A^n$を$(n-1)$次元アフィン多様体とし、$\mathfrak p\coloneqq\mathcal I(Y)$とする。先程と同様にして、
+    $$\ht\mathfrak p=\dim A-\coht\mathfrak p=n-\dim A/\mathfrak p=n-\dim Y=n-1$$
+    が分かる。体上の多項式環は一意分解整域なので、<a href="#theorem-112A">定理3</a>から$\mathfrak p$は単項イデアルである。$\mathfrak p$の生成元を$f$とすれば$\mathfrak p$が素イデアルであることから$f$は既約多項式であり、$Y=\mathcal Z(f)$である。</p>
+    </div>
+</div>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">$\bar{Z_0}\subsetneqq\dots\subsetneqq\bar{Z_d}$が極大列であるとは言っていますが長さが最大であるとは言っていないので、即座に$\dim\bar Y=d$とは言えません。<a href="#footnoteref1">↩</a></li>
+<li id="footnote2">Krull's HauptidealsatzよりKrull's principal ideal theoremということが多いかもしれないというのは置いておくとして、<a href="https://ja.wikipedia.org/wiki/クルルの単項イデアル定理">Wikipedia</a>等ではこの定理のステートメントは以下のようになっています。
+<div id="Hauptidealsatz" class="box theorem">
+    <div class="title">クルルの単項イデアル定理 (亜種)</div>
+    <div class="content">$I$をNoether環$R$の単項イデアル($\neq R$)とする。このとき、$I$の任意の極小素イデアルの高さは$1$以下である。</div>
+</div>
+軽く調べた限りではこちらの方がメジャーなようなので、定理4から定理2が導けることを証明しておきます。
+<div id="thm4-to-thm2" class="box proof">
+    <div class="title">定理4から定理2が導けること</div>
+    <div class="content">
+    <p>$(x)$の極小素イデアル$\mathfrak p$であって高さが$0$であるものが存在するなら、$x$が零元または零因子であることを示せばよい。以下前件を仮定する。</p>
+    <paragraph>素イデアルの対応定理から、$R_\mathfrak p$の素イデアルは$\mathfrak pR_\mathfrak p$のみである。環の冪零根基はその環の極小素イデアル(単に極小素イデアルと言ったら素イデアル全体のうち極小なもの、即ち$(0)$の極小素イデアルを指す)全体の共通部分に一致するので、$\mathfrak pR_\mathfrak p$は$R_\mathfrak p$の冪零根基であると分かる。特に$x\in\mathfrak p$であることから、ある正整数$n$が存在して$\left(\dfrac x1\right)^n=0$となる。このとき局所化の定義からある$y\in R\setminus\mathfrak p$が存在して$x^ny=0$なので、$x$は$0$または零因子である。</paragraph>
+    </div>
+</div>
+定理2から定理4が導けること、即ち$x$が零因子なら$(x)$の極小素イデアルの高さが$1$以下であることの証明は思いつきませんでした。なので、定理2と定理4の両方を理解したいなら定理4の証明を読んでください。<a href="#footnoteref2">↩</a></li>
+<li id="footnote3">高さ$1$の単項でない素イデアルの例を挙げておきます。$\mathfrak p\coloneqq(2,1+\sqrt{-5})\subset\mathbb Z[\sqrt{-5}]$がその例であることを示しましょう。
+<div id="non-example" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>まず
+    $$\mathfrak p=\{m+n\sqrt{-5}\in\mathbb Z[\sqrt{-5}]\mid m\equiv n\;(\mathrm{mod}\;2)\}$$
+    なので、$\mathbb Z[\sqrt{-5}]/\mathfrak p\cong\mathbb Z/2\mathbb Z$であると分かる。$\mathbb Z/2\mathbb Z$は整域なので、$\mathfrak p$は素イデアルである。</paragraph>
+    <paragraph>次に、$(0)\subsetneqq\mathfrak q\subset\mathfrak p$なる素イデアル$\mathfrak q\subset\mathbb Z[\sqrt{-5}]$が$\mathfrak p$に限られることを示せば$\ht\mathfrak p=1$が分かる。存在すると仮定して$m+n\sqrt{-5}\in\mathfrak q\setminus(0)$をとると
+    $$(m+n\sqrt{-5})(m-n\sqrt{-5})=m^2+5n^2\in\mathfrak q$$
+    である。また、$m+n\sqrt{-5}$は$0$でも$\pm1$でもないので$1\lt m^2+5n^2$である。$\mathfrak q$が素イデアルであることから$m^2+5n^2$の素因数のうちいずれかは$\mathfrak q$に属するが、$\mathfrak p$に奇数は属さないので$2\in\mathfrak q$が分かる。また、
+    $$(1+\sqrt{-5})(1-\sqrt{-5})=6\in(2)\subset\mathfrak q$$
+    から$1+\sqrt{-5}$と$1-\sqrt{-5}$のいずれかは$\mathfrak q$に属する。$1-\sqrt{-5}\in\mathfrak q$なら
+    $$1+\sqrt{-5}=(1-\sqrt{-5})+2\cdot\sqrt{-5}\in\mathfrak q$$
+なので、いずれにしても$1+\sqrt{-5}\in\mathfrak q$である。以上より$(2,1+\sqrt{-5})\subset\mathfrak q$なので、$\mathfrak p=\mathfrak q$を得る。</paragraph>
+    <p>最後に$\mathfrak p$が単項イデアルでないことを示す。$\mathfrak p=(m+n\sqrt{-5})$と表されると仮定すると、特に$2\in\mathfrak p$なのである$m'+n'\sqrt{-5}\in\mathbb Z[\sqrt{-5}]$が存在して
+    $$(m+n\sqrt{-5})(m'+n'\sqrt{-5})=2$$
+    となる。このとき両辺の絶対値の$2$乗を考えれば
+    $$\left|(m+n\sqrt{-5})(m'+n'\sqrt{-5})\right|^2=(m^2+5n^2)(m'^2+5n'^2)=4$$
+    となる。よって$m^2+5n^2$は$4$の約数となるが、そのような整数$m,n$の組は$(\pm1,0),$ $(\pm2,0)$しかない。したがって$m+n\sqrt{-5}$の候補は$\pm1,$ $\pm2$に限られるが、これらで生成されるイデアルは$\mathfrak p$に一致しない。</p>
+    </div>
+</div>
+<a href="#footnoteref3">↩</a></li>
+<li id="footnote4">『Algebraic Geometry』にはnonconstant irreducible polynomialとありますが、定多項式が既約多項式になり得るような定義を見たことがない(特に体係数の多項式については)ので単に「既約多項式」と訳しました。<a href="#footnoteref4">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>

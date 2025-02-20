@@ -1,6 +1,9 @@
 MathJax = {
     loader: {
-        load: ['[tex]/mathtools', '[tex]/physics']
+        load: ['[tex]/mathtools', '[tex]/physics', '[XyJax]/xypic.js'],
+        paths: {
+            XyJax: 'https://cdn.jsdelivr.net/gh/sonoisa/XyJax-v3@3.0.1/build/'
+        }
     },
     tex: {
         inlineMath: [['$', '$']],
@@ -13,6 +16,7 @@ MathJax = {
             Im: ['\\operatorname{Im}'],
             Ker: ['\\operatorname{Ker}'],
             Re: ['\\operatorname{Re}'],
+            Res: ['\\operatorname*{Res}'],
             Span: ['\\operatorname{Span}'],
             and: ['\\ \\text{ and }\\,'],
             bar: ['\\overline'],
@@ -35,7 +39,6 @@ MathJax = {
             or: ['\\ \\text{ or }\\,'],
             ord: ['\\operatorname{ord}'],
             paral: ['\\mathrel{\\rotatebox[origin=c]{-25}{$\\parallel$}}'],
-            res: ['\\operatorname*{Res}'],
             sgn: ['\\operatorname{sgn}'],
             suc: ['\\operatorname{suc}'],
             st: ['\\ \\text{ s.t. }\\,'],
@@ -44,7 +47,7 @@ MathJax = {
             vec: ['\\overrightarrow'],
         },
         packages: {
-            '[+]': ['mathtools', 'physics']
+            '[+]': ['mathtools', 'physics', 'xypic']
         }
     },
 };

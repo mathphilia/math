@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body {
-    background-color: #FFE;
+    background-color: #FFF;
     display: grid; 
     flex-direction: column;
     font-family: serif;
@@ -126,12 +126,12 @@ div.adjacent {
     }
 }
 
-div.adjacent img, ul#article-list img {
+div.adjacent img, ul.article-list img {
     margin: 0em 1rem;
     height: 4em;
 }
 
-div.adjacent a, ul#article-list a {
+div.adjacent a, ul.article-list a {
     align-items: center;
     border: 1px solid black;
     border-radius: 1em;
@@ -172,11 +172,11 @@ a.next::before {
     font-size: 2em;
 }
 
-ul#article-list {
+ul.article-list {
     padding: 0;
 }
 
-ul#article-list a {
+ul.article-list a {
     max-width: max(36em,80%);
 }
 
@@ -351,6 +351,10 @@ code {
     border-radius: 0.2em;
     font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;
     padding: 0.1em;
+}
+
+del {
+    color: gray;
 }
 
 mjx-container {

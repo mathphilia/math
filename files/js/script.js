@@ -1,14 +1,14 @@
-onload = function()  {
+onload = function() {
     let thisPage = location.pathname.replace(/\/$/, '').split('/').at(-1);
     let pageIndex = pages.pageName.indexOf(thisPage);
-    if(pageIndex < 0){
+    if(pageIndex < 0) {
         pageIndex = undefined;
     }
 
-    Array(...document.getElementsByClassName('prev')).forEach(elem => {
+    Array.from(document.getElementsByClassName('prev')).forEach(elem => {
         let prevPageName = pages.pageName[pageIndex - 1];
         let prevPageTitle = pages.pageTitle[pageIndex - 1];
-        if(prevPageName === undefined){
+        if(prevPageName === undefined) {
             return;
         }
         elem.href = '../' + prevPageName;
@@ -21,10 +21,10 @@ onload = function()  {
         elem.appendChild(titleSpan);
     });
 
-    Array(...document.getElementsByClassName('next')).forEach(elem => {
+    Array.from(document.getElementsByClassName('next')).forEach(elem => {
         let nextPageName = pages.pageName[pageIndex + 1];
         let nextPageTitle = pages.pageTitle[pageIndex + 1];
-        if(nextPageName === undefined){
+        if(nextPageName === undefined) {
             return;
         }
         elem.href = '../' + nextPageName;
@@ -37,29 +37,35 @@ onload = function()  {
         elem.appendChild(titleSpan);
     });
 
-    let articles = document.getElementById('article-list');
-    if(articles){
-        for(let i = 0; i < pages.pageName.length; i++){
+    let articles = Array.from(document.getElementsByClassName('article-list'));
+    pageIndex = -1;
+    for(let i = 0; i < articles.length; i++) {
+        let sectionLength = pages.sections[i];
+        if(sectionLength == undefined) {
+            sectionLength = pages.pageName.length;
+        }
+        for(let j = 0; j < sectionLength; j++) {
+            pageIndex++;
             let articleA = document.createElement('a');
-            articleA.href = pages.pageName[i];
+            articleA.href = pages.pageName[pageIndex];
             let thumbnail = new Image();
-            thumbnail.alt = pages.pageTitle[i];
-            thumbnail.src = `thumbnail/${pages.pageName[i]}.png`;
+            thumbnail.alt = pages.pageTitle[pageIndex];
+            thumbnail.src = `thumbnail/${pages.pageName[pageIndex]}.png`;
             articleA.appendChild(thumbnail);
             let titleSpan = document.createElement('span');
-            titleSpan.innerText = pages.pageTitle[i];
+            titleSpan.innerText = pages.pageTitle[pageIndex];
             articleA.appendChild(titleSpan);
-            articles.appendChild(articleA);
+            articles[i].appendChild(articleA);
         }
     }
 
-    Array(...document.getElementsByTagName('h2')).forEach(elem => {
+    Array.from(document.getElementsByTagName('h2')).forEach(elem => {
         let img = new Image();
         img.className = 'copy';
         elem.appendChild(img);
     });
 
-    Array(...document.getElementsByTagName('h3')).forEach(elem => {
+    Array.from(document.getElementsByTagName('h3')).forEach(elem => {
         let img = new Image();
         img.className = 'copy';
         elem.appendChild(img);
@@ -70,20 +76,20 @@ onload = function()  {
         document.getElementById('h3-list').appendChild(listed);
     });
 
-    Array(...document.getElementsByClassName('title')).forEach(elem => {
+    Array.from(document.getElementsByClassName('title')).forEach(elem => {
         let img = new Image();
         img.className = 'copy';
         elem.appendChild(img);
     });
 
-    Array(...document.getElementsByClassName('copy')).forEach((elem, index) => {
+    Array.from(document.getElementsByClassName('copy')).forEach((elem, index) => {
         elem.alt = 'copy';
         elem.src = '/math/files/images/copy.png';
         elem.title = 'copy URL';
-        if('ontouchend' in document){
+        if('ontouchend' in document) {
             elem.style.visibility = 'visible';
         }
-        let parent = elem.parentElement
+        let parent = elem.parentElement;
         let parentId = parent.className == 'title' ? parent.parentElement.id : parent.id;
         parentId = (parentId ? '#' : '') + parentId;
         elem.onclick = function() {

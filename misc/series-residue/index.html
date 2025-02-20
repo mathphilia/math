@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>留数定理を用いた級数の計算</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="留数定理を用いて色々な無限級数を計算します。" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="留数定理を用いた級数の計算" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/misc/series-residue" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">その他</a> / 留数定理を用いた級数の計算</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>留数定理を用いた級数の計算</h2>
+<h3 id="Basel">バーゼル問題</h3>
+<paragraph>まずはバーゼル問題から始めましょう。よく見かける解法として$\sin$の無限乗積展開を使うものがあります。$\sin$の零点は$\pi$の整数倍なので、$x\to0$で$\sin x=x+O(x^3)$であることと併せて
+$$\sin x=x\prod_{n=1}^\infty\left(1-\frac{x^2}{n^2\pi^2}\right)$$
+となり(?)、特に$x^3$の係数は$\dsum_{n=1}^\infty\frac1{n^2\pi^2}$となります。これと$\sin$のMaclaurin展開における$x^3$の係数を比較すると、$\dsum_{n=1}^\infty\frac1{n^2}=\dfrac{\pi^2}6$を得ます。「(?)」と書いた部分は厳密ではありません。無限個の零点に対して因数定理の考え方が使えることは明らかではありませんし、そもそもこの考え方だと例えば$e^{-x^2}\sin x$も同じ無限乗積展開を持つことになってしまいます。ということで、この発想を使いつつ非厳密性を排した証明を模索します。</paragraph>
+<paragraph>突然ですが、上の無限乗積展開が正しいとして$\dfrac d{dx}\ln(\sin x)$がどうなるかを雑に考えてみましょう。
+\begin{align*}
+\ln(\sin x)&=\ln\left(x\prod_{n=1}^\infty\left(1-\frac{x^2}{n^2\pi^2}\right)\right)\\
+&=\ln x+\sum_{n=1}^\infty\left(\ln\left(1+\frac x{n\pi}\right)+\ln\left(1-\frac x{n\pi}\right)\right)
+\end{align*}
+より、両辺微分して(項別微分できることは明らかでない)
+$$\cot x=\frac1x+\sum_{n=1}^\infty\left(\frac1{x+n\pi}+\frac1{x-n\pi}\right)$$
+となります。つまり$\cot x$は、$\sin x$の零点を極に持つような函数になっていることになります。このように、$\ln f(x)$を微分することで$f(x)$の零点を極に持つ(より具体的には、重複度$n$の零点が留数$n$の極になる)ような函数を作り出すことができそうです。そして、極の情報は複素積分を使うことで取り出すことができます。</paragraph>
+<h3 id="Basel-answer">バーゼル問題の解答</h3>
+<paragraph>$\dfrac1{x-a}\cdot\dfrac1{x^2}$ ($a\neq0$)の$x=a$における留数は$\dfrac1{a^2}$なので、$\cot x\cdot\dfrac1{x^2}$の複素積分を考えるとうまく行きそうです。ということで、$f(x)\coloneqq\dfrac{\cot x}{x^2}$の留数を計算してみましょう。$f$の極は$x=k\pi$ ($k\in\mathbb Z$)であり、それぞれの極における留数は以下の通りです。
+<ol class="roman">
+    <li>$k\neq0$のとき<br>$\tan x=(x-k\pi)+O((x-k\pi)^3)$ ($x\to k\pi$)なので、$x=k\pi$は$f$の$1$位の極であることが分かります。よって、
+    \begin{align*}
+    \Res_{x=k\pi}f(x)&=\lim_{x\to k\pi}\frac{x-k\pi}{\tan x}\cdot\frac1{x^2}\\
+    &=\left(\frac1{\cos^2(k\pi)}\right)^{-1}\cdot\frac1{(k\pi)^2}=\frac1{k^2\pi^2}
+    \end{align*}
+    となります。</li>
+    <li>$k=0$のとき<br>(i)と同様にして$x=0$は$3$位の極であることが分かります。$x=0$周りでの$\cot x$のLaurent級数展開は
+    $$\cot x=x^{-1}-\frac13x-\frac1{45}x^3-\frac2{945}x^5-\cdots$$
+    である<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>ので、$f$の$x=0$における留数は$-\dfrac13$です。</li>
+</ol>
+したがって留数定理より、原点中心半径$r_n\coloneqq\left(n+\dfrac12\right)\pi$ ($0\lt n$)の円を$C_n$とすると
+$$I_n\coloneqq\int_{C_n}f(x)dx=-\frac13+\sum_{|k|\leqq n,k\neq0}\frac1{k^2\pi^2}=-\frac13+\frac2{\pi^2}\sum_{k=1}^n\frac1{k^2}$$
+が成り立ちます。よって、$\dlim_{n\to\infty}I_n$であることを示すことができれば
+$$-\frac13+\frac2{\pi^2}\sum_{k=1}^\infty\frac1{k^2}=\lim_{n\to\infty}\frac1{2\pi i}I_n=0$$
+より$\dsum_{k=1}^\infty\frac1{k^2}=\frac{\pi^2}6$が分かります。</paragraph>
+<paragraph>$x=r_ne^{i\theta}$と置換すると、
+$$I_n=\int_0^{2\pi}\frac{\cot(r_ne^{i\theta})}{r_n^2e^{2i\theta}}\cdot ir_ne^{i\theta}d\theta=i\int_0^{2\pi}\frac{\cot(r_ne^{i\theta})}{r_ne^{i\theta}}d\theta$$
+となるので$|\cot(r_ne^{i\theta})|$を評価します。
+\begin{align*}
+|\cot(r_ne^{i\theta})|&=\left|\frac{\cosh(ir_ne^{i\theta})}{\sinh(ir_ne^{i\theta})}\right|=\left|\frac{e^{-r_n\sin\theta+ir_n\cos\theta}+e^{r_n\sin\theta-ir_n\cos\theta}}{e^{-r_n\sin\theta+ir_n\cos\theta}-e^{r_n\sin\theta-ir_n\cos\theta}}\right|\\
+&\leqq\frac{e^{-r_n\sin\theta}+e^{r_n\sin\theta}}{|e^{-r_n\sin\theta}-e^{r_n\sin\theta}|}=\coth(r_n|\sin\theta|)
+\end{align*}
+より、$1\leqq r_n|\sin\theta|$であるときは$|\cot(r_ne^{i\theta})|\leqq\coth1$が成り立ちます。一方$r_n|\sin\theta|\leqq1$のときはどうなるでしょうか。まず、$a,b\in\mathbb R$に対し
+\begin{align*}
+|\cot(a+bi)|&=\left|\frac{\cos a\cos bi-\sin a\sin bi}{\sin a\cos bi+\cos a\sin bi}\right|\\
+&=\frac{\sqrt{\cos^2a\cosh^2b+\sin^2a\sinh^2b}}{\sqrt{\sin^2a\cosh^2b+\cos^2a\sinh^2b}}\quad\cdots(*)
+\end{align*}
+が成り立ちます。$r_n|\sin\theta|\leqq1$のとき$\sqrt{r_n^2-1}\leqq r_n|\cos\theta|\leqq r_n$で、$r_n\geqq\dfrac32\pi=4.712\cdots$なので
+$$r_n-\sqrt{r_n^2-1}=\frac1{r_n+\sqrt{r_n^2-1}}\leqq\frac14$$
+となり、特に$\sqrt{r_n^2-1}\geqq r_n-\dfrac14\pi=\left(n+\dfrac14\right)\pi$が言えます。結局$\left(n+\dfrac14\right)\pi\leqq r_n|\cos\theta|\leqq\left(n+\dfrac12\right)\pi$なので、$r_ne^{i\theta}$の実部の絶対値は$\left(n+\dfrac14\right)\pi$以上$\left(n+\dfrac12\right)\pi$以下ということになります。したがって$(*)$で$a+bi=r_ne^{i\theta}$とおけば、$\cos^2a\leqq\sin^2a,$ $\sinh^2b\leqq\cosh^2b$より$|\cot(a+bi)|\leqq1$が分かりました。$1\leqq\coth1$なので、$1\leqq r_n|\sin\theta|$の場合と併せて常に$|\cot(r_ne^{i\theta})|\leqq\coth1$が得られました。以上より、
+$$\lim_{n\to\infty}|I_n|\leqq\lim_{n\to\infty}\int_0^{2\pi}\frac{|\cot(r_ne^{i\theta})|}{r_n}d\theta\leqq\lim_{n\to\infty}2\pi\cdot\frac{\coth1}{r_n}=0$$
+即ち$\dlim_{n\to\infty}I_n=0$となって証明が完了しました。</paragraph>
+<paragraph>やはりというか何というか、$\dlim_{n\to\infty}I_n=0$の証明が大仕事ですね(もっと簡単な方法もあるかも)。ただ、ここで示した$|\cot(r_ne^{i\theta})|\leqq\coth1$は重要で、これの使いまわしで色々な級数を計算できます。</paragraph>
+<h3 id="various-series">様々な級数</h3>
+<paragraph>$\zeta(2m)\coloneqq\dsum_{n=1}^\infty\frac1{n^{2m}}$ ($0\lt m$)を求めます。バーゼル問題のときと同様に考えて、$f(x)\coloneqq\dfrac{\cot x}{x^{2m}}$を原点中心半径$r_n\coloneqq\left(n+\dfrac12\right)\pi$ ($0\lt n$)の円$C_n$上で積分します。$I_n\coloneqq\dint_{C_n}f(x)dx$とおいて$x=r_ne^{i\theta}$と置換すると、
+\begin{align*}
+|I_n|&=\left|\int_0^{2\pi}\frac{\cot(r_ne^{i\theta})}{r_n^{2m}e^{2mi\theta}}\cdot ir_ne^{i\theta}d\theta\right|\leqq\int_0^{2\pi}\frac{|\cot(r_ne^{i\theta})|}{r_n^{2m-1}}d\theta\\
+&\leqq\int_0^{2\pi}\frac{\coth1}{r_n^{2m-1}}d\theta\to0\quad(\text{as $n\to\infty$})
+\end{align*}
+即ち$\dlim_{n\to\infty}I_n$が分かりました。また、$f$の極は以下の通りです。
+<ol class="roman">
+    <li>$x=k\pi$ ($k\neq0$)<br>$x=k\pi$は$f$の$1$位の極なので、
+    \begin{align*}
+    \Res_{x=k\pi}f(x)&=\lim_{x\to k\pi}\frac{x-k\pi}{\tan x}\cdot\frac1{x^{2m}}\\
+    &=\left(\frac1{\cos^2(k\pi)}\right)^{-1}\cdot\frac1{(k\pi)^{2m}}=\frac1{k^{2m}\pi^{2m}}
+    \end{align*}
+    となります。</li>
+    <li>$x=0$<br>$x=0$は$(2m+1)$位の極なので、$x=0$周りでの$\cot x$のLaurent級数展開を
+    $$\cot x=x^{-1}-\frac13x-\frac1{45}x^3-\frac2{945}x^5-\cdots=\sum_{\ell=0}^\infty c_\ell x^{2\ell-1}$$
+    とすると、$f$の$x=0$における留数は$c_m$になります。</li>
+</ol>
+したがって留数定理より
+$$\frac1{2\pi i}I_n=c_m+\sum_{|k|\leqq n,k\neq0}\frac1{k^{2m}\pi^{2m}}=c_m+\frac2{\pi^{2m}}\sum_{k=1}^n\frac1{k^{2m}}\to0\quad(\text{as $n\to\infty$})$$
+となり、$\zeta(2m)=-\dfrac{\pi^{2m}}2c_m$を得ます(勘がいい人は$\cot$の級数展開を見た時点で気づいていたかも？)。具体的には、
+$$\zeta(2)=\frac{\pi^2}6,\;\zeta(4)=\frac{\pi^4}{90},\;\zeta(6)=\frac{\pi^6}{945},\;\cdots$$
+という感じです。</paragraph>
+<paragraph>ところで$m=0$のとき$-\dfrac{\pi^{2m}}2c_m=-\dfrac12$となりますが、Riemannゼータ函数について$\zeta(0)=-\dfrac12$が成り立つようです(証明したことないので伝聞)。また、負の整数$m$に対しては$\zeta(2m)=0$らしく(所謂Riemannゼータ函数の自明な零点)、これは$\cot$の級数展開における$x^{2m}$の係数が$0$であることに対応していそうです。これは偶然ではないのでしょうが、解析接続を全く知らないので理屈は分かりません。ともかく、これらを使うと
+$$\pi x\cot\pi x=-2\sum_{\ell=-\infty}^\infty\zeta(2\ell)x^{2\ell}$$
+が得られます(もちろん収束半径はある)。なかなか綺麗ですね。$\ell=0$から始めた方が綺麗かもしれませんが。</paragraph>
+<paragraph>次は$S\coloneqq\dsum_{n=1}^\infty\frac1{1+n^2}$を計算してみましょう。と言ってもこの形のままだと先程までの方法を適用しづらいので、$\dsum_{n=-\infty}^\infty\frac1{1+n^2}=2S+1$の値を求めます。$\dfrac{\cot x}{1+x^2}$を積分すると後々困る<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a></sup>ので、$f(x)\coloneqq\dfrac{\cot x}{a^2+x^2}$ ($0\lt a$)を原点中心半径$r_n\coloneqq\left(n+\dfrac12\right)\pi$ ($0\lt n$)の円$C_n$上で積分します。なお、$a=r_n$だと積分路に極が乗ってしまうので、$a\neq r_n$としておきます。$I_n\coloneqq\dint_{C_n}f(x)dx$とおいて$x=r_ne^{i\theta}$と置換すると、
+\begin{align*}
+|I_n|&=\left|\int_0^{2\pi}\frac{\cot(r_ne^{i\theta})}{a^2+r_n^2e^{2i\theta}}\cdot ir_ne^{i\theta}d\theta\right|\\
+&\leqq r_n\int_0^{2\pi}\frac{|\cot(r_ne^{i\theta})|}{r_n^2-a^2}d\theta\quad(\text{$a\lt r_n$と仮定})\\
+&\leqq r_n\int_0^{2\pi}\frac{\coth1}{r_n^2-a^2}d\theta\to0\quad(\text{as $n\to\infty$})
+\end{align*}
+即ち$\dlim_{n\to\infty}I_n$が分かりました。このあたりの処理はずっと同じですね。$f$の極は以下の通りです。
+<ol class="roman">
+    <li>$x=k\pi$<br>$x=k\pi$は$f$の$1$位の極なので、
+    \begin{align*}
+    \Res_{x=k\pi}f(x)&=\lim_{x\to k\pi}\frac{x-k\pi}{\tan x}\cdot\frac1{a^2+x^2}\\
+    &=\left(\frac1{\cos^2(k\pi)}\right)^{-1}\cdot\frac1{a^2+(k\pi)^2}=\frac1{a^2+k^2\pi^2}
+    \end{align*}
+    となります。</li>
+</ol>
+したがって留数定理より
+\begin{align*}
+\frac1{2\pi i}I_n&=2\cdot-\frac1{2a}\coth a+\sum_{k=-\infty}^\infty\frac1{a^2+k^2\pi^2}\\
+&=-\frac1a\coth a+\sum_{k=-n}^n\frac1{a^2+k^2\pi^2}\to0\quad(\text{as $n\to\infty$})
+\end{align*}
+となり、$\dsum_{n=-\infty}^\infty\frac1{a^2+k^2\pi^2}=\frac1a\coth a$を得ます。特に$a=\pi$と選べば、
+\begin{align*}
+2S+1&=\sum_{n=-\infty}^\infty\frac{\pi^2}{\pi^2+k^2\pi^2}=\pi^2\cdot\frac1\pi\coth\pi\\
+\therefore S&=\frac12(\pi\coth\pi-1)
+\end{align*}
+が分かります。</paragraph>
+<paragraph>以上のように、$\dsum_{n=-\infty}^\infty\alpha(n)$という形の無限級数は$\alpha(x)\cot x$ (<a href="#footnote2">[脚註2]</a>で書いた通り、$\alpha(x)\cot\pi x$の方が良いが大体同じこと)を積分することで求まる…と言えればよいのですが、当然そう上手くは行きません。そもそも$\dlim_{n\to\infty}I_n$が$0$に収束するとは限りませんし、収束するとしてもその証明はほとんどの場合困難でしょう。また、極の特定も一般には難しいですし、仮に$n\pi$ ($n\in\mathbb Z$)以外の極が無限にあったら、無限級数の問題が別の無限級数の問題に置き換わるだけになります(これにより簡単な級数に帰着される場合もあるとは思いますが)。ということで、この方法でまともに計算できるのは、パッと思いつく限りでは$\alpha$が有理函数の場合くらいしかありません。</paragraph>
+<h3 id="root-sum">方程式の解の逆二乗和</h3>
+<paragraph>とはいえ、$\dlim_{n\to\infty}I_n$の証明や極の特定が困難という点に目を瞑ればこの方法は強力で、一見して求まりそうにない級数を計算することができます。</paragraph>
+<div id="tanx-x" class="box problem">
+    <div class="title"></div>
+    <div class="content">$\tan x=x$の正の解を小さい方から順に$x_1,$ $x_2,$ $x_3,\cdots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac1{x_n^2}$の和を求めよ。</div>
+</div>
+<paragraph>この問題は有名問題で、いろいろな解法があるようですが複素積分で解くこともできます。ただし、前述の通りきちんと証明するのは大変なので、グラフツールなどを使って「正しそう」と言える程度の説明をします。</paragraph>
+<paragraph>さて、バーゼル問題を解く方針を立てるときどのように考えたか思い返してみると、$\sin x$の零点を極に持つ函数$\dsum_{\sin a=0}\frac1{x-a}$を雑に作り、これに$\dfrac1{x^2}$を掛けて積分することで$\dsum_{\sin a=0}\frac1{a^2}$を求めようとしたのでした。同様に考えると、函数$g$に対して$\dfrac1{x^2}\dsum_{g(a)=0}\frac1{x-a}$を積分すれば$\dsum_{g(a)=0}\frac1{a^2}$が求まりそうな気がします。ということで$\dsum_{g(a)=0}\frac1{x-a}$みたいなものを作ります。$g(x)$をめちゃくちゃ雑に“因数分解”すると$\dprod_{g(a)=0}c_a(x-a)$ ($c_a\in\mathbb C$)のようになり(<a href="https://mathlog.info/articles/1553">Weierstrassの因数分解定理</a>辺りを見るに正しくなさそう)、これを対数微分(しかも雑に項別微分)すると
+$$\frac d{dx}\ln g(x)\stackrel?=\frac d{dx}\sum_{g(a)=0}\left(\ln c_a+\ln(x-a)\right)\stackrel?=\sum_{g(a)=0}\frac1{x-a}$$
+となり目標の形になりました。ここまでの議論はあまりに雑なので、この構成が実用上どの程度上手くいくかは不明です。少なくとも$g(x)$が$x=a$を$k$位の零点($2\leqq k$)に持っていると$\dfrac d{dx}\ln g(x)$が$x=a$を$k$位の極に持ちそうです。</paragraph>
+<paragraph>とりあえず上の問題に適用してみましょう。まず、$\tan x=x$の実数解は$0,$ $\pm x_1,$ $\pm x_2,$ $\cdots$ですが、虚数解は存在するでしょうか。<a href="https://www.desmos.com/calculator">Desmos</a>で設定から複素数モードをオンにし、
+\begin{align*}
+&g(z)=\tan z-z\\
+&\operatorname{real}(g(x+yi))=0\\
+&\operatorname{imag}(g(x+yi))=0
+\end{align*}
+と入力してみると$\tan z=z$の解が二色の線の交点($x$座標が解の実部, $y$座標が虚部)として現れます。ちなみに$z=\left(n+\dfrac12\right)\pi$のところも交点になっているように見えますが、もちろんこの点では$g(z)$が定義されないので解とはなりません。グラフが間違っているわけではなく、$z=\left(n+\dfrac12\right)\pi$のところが未定義点になるだけです。それはそうと、グラフを見ると$\tan x=x$に虚数解はなさそうです。グラフを見た感じ上手く不等式評価をすれば虚数解がないことを示せそうな気がしますが、ここではきちんと示さず進みます。$g(x)\coloneqq\tan x-x$に対して
+$$f(x)\coloneqq\frac1{x^2}\cdot\frac d{dx}\ln g(x)=\frac{\frac1{\cos^2x}-1}{x^2(\tan x-x)}=\frac{\tan^2x}{x^2(\tan x-x)}$$
+と見せかけて、後々の処理の簡便化のため$g(x)\coloneqq\sin x-x\cos x$に対して
+$$f(x)\coloneqq\frac1{x^2}\cdot\frac d{dx}\ln g(x)=\frac{\sin x}{x(\sin x-x\cos x)}$$
+とおき、原点中心半径$r_n$ ($x_n\lt r_n\lt x_{n+1}$)の円$C_n$上で積分します。
+$$I_n\coloneqq\int_{C_n}f(x)dx=i\int_0^{2\pi}\frac{\sin(r_ne^{i\theta})}{\sin(r_ne^{i\theta})-r_ne^{i\theta}\cos(r_ne^{i\theta})}d\theta\quad(x=r_ne^{i\theta})$$
+が$n\to0$で$0$に収束するか調べるのが次の難題です。再びDesmosの複素数モードを使い、
+\begin{align*}
+&f(z)=\frac{\sin z}{\sin z-z\cos z}\\
+&I(r)=i\int_0^{2\pi}f(re^{it})dt
+\end{align*}
+と入力して$I(1),$ $I(10),$ $I(100),$ $\cdots$を計算してみるとどんどん小さくなっていくことが観察できます。なお、$y=I(x)$のグラフを描画させようとしても処理が遅くて表示されるまで分単位かかります。端末に依るかもしれませんが。ということで、$r_n$をよほど意地悪に設定しない限り$\dlim_{n\to\infty}I_n=0$になると考えられます。$f$の極とそれらにおける留数を求めましょう。ちなみに$g(x)=\tan x-x$を使っていると$f(x)$の分母に$\tan^2x$があるので、$f$の極として$\tan x=x$の解の他に$\tan$の極が出ます。
+<ol class="roman">
+    <li>$x=\pm x_k$<br>$x=x_k$は$f$の$1$位の極なので、
+    $$\Res_{x=x_k}f(x)=\lim_{x\to x_k}\frac{x-x_k}{\sin x-x\cos x}\cdot\frac{\sin x}x=\frac1{x_k\sin x_k}\cdot\frac{\sin x_k}{x_k}=\frac1{x_k^2}$$
+    となります。</li>
+    <li>$x=0$<br>$f$を頑張ってLaurent展開すると
+    \begin{align*}
+    \frac{\sin x}{x(\sin x-x\cos x)}&=\frac{x-\frac16x^3+\frac1{120}x^5-\cdots}{\frac13x^4-\frac1{30}x^6+\frac1{840}x^8-\cdots}\\
+    &=3x^{-3}-\frac15x^{-1}-\frac1{175}x-\cdots
+    \end{align*}
+    となるので、$x=0$は$f$の$3$位の極であって留数は$-\dfrac15$であることが分かります。</li>
+</ol>
+したがって留数定理から$\dfrac1{2\pi i}I_n=-\dfrac15+2\dsum_{k=1}^n\frac1{x_k^2}$が分かり、$\dlim_{n\to\infty}I_n=0$と併せて$\dsum_{k=1}^\infty\frac1{x_k^2}=\frac1{10}$が得られました。$\zeta(2m)$のときと同様、$f$のLaurent展開の係数に$\dsum_{k=1}^\infty\frac1{x_k^{2m}}$ ($1\lt m$)の値も現れています。</paragraph>
+<paragraph>最後に練習問題を一問だけ出して終わります。答えは書きませんが、<a href="https://www.desmos.com/calculator">Desmos</a>や<a href="https://www.wolframalpha.com/">Wolfram|Alpha</a>等を使って数値計算すれば検算できます。</paragraph>
+<div id="tanx-x" class="box problem">
+    <div class="title"></div>
+    <div class="content">$\sin x=\dfrac1x$の正の解を小さい方から順に$x_1,$ $x_2,$ $x_3,$ $\cdots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac1{x_n^4}$の和を求めよ。</div>
+</div>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">複雑な函数のLaurent展開を求める場合、$\sin$や$\cos$といった単純な函数のLaurent展開を使って形式的Laurent級数環で計算するとよいです。例えば$\cot x$の場合、
+$$\left(x-\frac1{3!}x^3+\frac1{5!}x^5-\frac1{7!}x^7+\cdots\right)y=1-\frac1{2!}x^2+\frac1{4!}x^4-\frac1{6!}x^6+\cdots$$
+なる$y\in\mathbb C((x))$の係数を$-1$次から順に決定すればよいです。<a href="#footnoteref1">↩</a></li>
+<li id="footnote1">$\dfrac{\cot x}{1+x^2}$を積分すると$\cot x$の極における$\dfrac1{1+x^2}$の値の総和が出てくるので、求まるのが$\dsum_{n=-\infty}^\infty\frac1{1+(n\pi)^2}$になってしまうということです。なので$\dfrac{\cot\pi x}{1+x^2}$を積分すればよいという話ではありますが、$\dsum_{n=-\infty}^\infty\frac1{a^2+n^2}$を一般的に求めておきたいという気持ちもあったので$\dfrac1{a^2+x^2}$を積分する方針を選びました。<a href="#footnoteref1">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>

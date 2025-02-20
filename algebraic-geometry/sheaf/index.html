@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>層</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="層およびそれに関連する概念のの定義･性質について調べます。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/sheaf.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="層" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/sheaf" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">代数幾何学</a> / 層</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>層</h2>
+<h3 id="presheaf">前層と層</h3>
+<div id="presheaf-def" class="box definition">
+    <div class="title">前層</div>
+    <div class="content">位相空間$X$の上の<strong>前層 (presheaf on $X$)</strong>$F$とは、$X$の各開集合$U$に対して集合$F(U)$が、$V\subset U$なる$X$の開集合$U,V$に対して写像$\rho_{UV}\colon F(U)\to F(V)$がそれぞれ定まっていて、条件<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>
+    <ol class="alpha">
+        <li>$\rho_{UU}\colon F(U)\to F(U)$は恒等写像である。</li>
+        <li>$W\subset V\subset U$なる$X$の開集合$U,V,W$に対して$\rho_{UW}=\rho_{VW}\circ\rho_{UV}$が成り立つ。</li>
+    </ol>
+    を満たすものをいう。特に、各$F(U)$が(可換)群であって$\rho_{UV}$が群準同型であるとき$F$を<strong>(可換)群の前層 (presheaf of (commutative) groups)</strong>, 各$F(U)$が環であって$\rho_{UV}$が環準同型であるとき$F$を<strong>環の前層 (presheaf of rings)</strong>という。</div>
+</div>
+<paragraph>$\rho_{UV}$は$\rho_{VU}$と書かれることも多いですが、ここでは<a href="../prerequisite#ref3">『Algebraic Geometry』</a>に合わせた表記を使うことにします($\rho_{VU}$の他、$\rho_V^U$や$\rho_{V,U}$と書いたり、$\rho$を$r$や$\operatorname{res}$と書いたりもする)。ここでは$\rho_{UV}\colon F(U)\to F(V)$として定義しているのでお間違えなきようご注意ください。</paragraph>
+<paragraph>前層は圏論の言葉で書くこともできます。具体的には、$X$の開集合族を対象とし包含写像を射とする圏を$\operatorname{\mathbf{Top}}(X)$と書くと、前層は函手$\operatorname{\mathbf{Top}}(X)^\mathrm{op}\to\mathbf{Set}$と見ることができます。同様に可換群の前層は函手$\operatorname{\mathbf{Top}}(X)^\mathrm{op}\to\mathbf{Ab}$, 環の前層は函手$\operatorname{\mathbf{Top}}(X)^\mathrm{op}\to\mathbf{CRing}$と見做せます。したがってこれらの一般化として、圏$C$に対して函手$\operatorname{\mathbf{Top}}(X)^\mathrm{op}\to C$を前層と見ることができ、これは前層の定義において$F(U)$を$C$の対象, $\rho_{UV}$を$C$の射としたものに相当します(が、これ以降一般の圏に値を持つ前層は出てこないので忘れてよいです)。以下暫くは、前層として主に可換群の前層を考えます<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a>。</paragraph>
+<paragraph>さて、$F(U)$の元を($F$の$U$上の)<strong>切断 (a section of $F$ over $U$)</strong>、あるいは断面といい、$\rho_{UV}$を<strong>制限写像 (restriction map)</strong>といいます。また、開集合$V\subset U$および切断$s\in U$に対し、$\rho_{UV}(s)$を$s|_V$と書きます。前層は定義だけ見ても意味が分かりづらいので、例をいくつか見てみましょう。</paragraph>
+<div id="zero-presheaf" class="box example">
+    <div class="title">零前層<sup><a id="footnoteref3" href="#footnote3">[脚註3]</a></sup></div>
+    <div class="content">位相空間$X$の任意の開集合$U$に対して$F(U)=0$ (自明群, 自明環)と定めると(制限写像は唯一の準同型$0\to0$とする)、これは明らかに前層になります。</div>
+</div>
+<div id="on-variety" class="box example">
+    <div class="title">代数多様体の上の前層</div>
+    <div class="content">$X$を代数多様体とします。開集合$U\subset X$に対して$\mathcal O(U)$を$U$上の正則函数からなる環とし、開集合$V\subset U$と$f\in\mathcal O(U)$に対して$f$を$V$に(通常の意味で)制限したものを$\rho_{UV}(f)$とすると、これは環の前層になります。実際、正則函数は制限しても正則函数であり、$\rho_{UU}$は$f\colon U\to k$を$f|_U=f$に写すので恒等写像であり、$f\in\mathcal O(U)$に対して
+    $$(\rho_{VW}\circ\rho_{UV})(f)=\rho_{VW}(f|_V)=(f|_V)|_W=f|_W=\rho_{UW}(f)$$
+    です。</div>
+</div>
+<div id="on-manifold" class="box example">
+    <div class="title">様々な空間の上の前層</div>
+    <div class="content">上と同様にして、位相空間の上の実数値連続函数がなす前層, 微分多様体の上の可微分函数がなす前層, 複素多様体の上の正則函数がなす前層も考えられます。</div>
+</div>
+<div id="constant-presheaf" class="box example">
+    <div class="title">定数前層</div>
+    <div class="content">$X$を位相空間, $G$を可換群とします。開集合$U\subset X$に対して$\mathcal G(U)$を$U$から$G$への定数函数からなる群とし、$\rho_{UV}$を(通常の意味での)$V$への制限とすることで前層ができます。この$\mathcal G$を<strong>定数前層 (constant presheaf)</strong>といいます。</div>
+</div>
+<paragraph>以上の例から分かるように、前層の典型的な例はある空間の上の函数からなるものです。次に述べる層も、そのようなものをイメージすると雰囲気を掴みやすいと思います。</paragraph>
+<div id="sheaf-def" class="box definition">
+    <div class="title">層</div>
+    <div class="content">前層$F$が<strong>層 (sheaf)</strong>であるとは、条件
+    <ol class="alpha" style="counter-set: alpha 2">
+        <li>開集合$U$の開被覆$\{V_\lambda\}_{\lambda\in\Lambda}$ ($V_\lambda\subset U$)と$s,t\in F(U)$について、任意の$\lambda\in\Lambda$に対して$s|_{V_\lambda}=t|_{V_\lambda}$が成り立つならば$s=t$である。</li>
+        <li>開集合$U$の開被覆$\{V_\lambda\}_{\lambda\in\Lambda}$ ($V_\lambda\subset U$)と$s_\lambda\in F(V_\lambda)$について、任意の$\lambda,\mu\in\Lambda$に対して$s_\lambda|_{V_\lambda\cap V_\mu}=s_\mu|_{V_\lambda\cap V_\mu}$が成り立つならば、$s|_{V_\lambda}=s_\lambda$ (${}^\forall\lambda\in\Lambda$)なる$s\in F(U)$が存在する。</li>
+    </ol>
+    を満たすことをいう。</div>
+</div>
+<paragraph>ざっくりイメージとしては、(c)は「局所的に等しければ全体でも等しい」、(d)は「局所的な情報から全体的な情報を復元できる」という感じです。条件(c)により(d)の$s\in F(U)$は一意であることが分かりますが、逆に(d)の「$s\in F(U)$が存在する」の部分を「$s\in F(U)$が一意存在する」とすれば(c)が導かれます((b)を使う)。つまるところ(c)と(d)は一つの条件にまとめられるわけですが、扱いやすさの都合上(c)と(d)に分けていることが多いのだと思います。</paragraph>
+<paragraph>前層の例で見た零前層や代数多様体$X$の上の前層$\mathcal O_X$、そして位相空間の上の実数値連続函数がなす前層, 微分多様体の上の可微分函数がなす前層, 複素多様体の上の正則函数がなす前層は層でもあります(層$\mathcal O_X$は<strong>$X$上の正則函数の層 (the sheaf of regular functions on $X$)</strong>と呼ばれる)。例として$\mathcal O_X$が層であることをチェックしてみましょう。まず開集合$U$の開被覆$\{V_\lambda\}_{\lambda\in\Lambda}$ ($V_\lambda\subset U$)をとり、$f,g\in\mathcal O_X(U)$が任意の$\lambda\in\Lambda$に対して$f|_{V_\lambda}=g|_{V_\lambda}$を満たしているとします。ここでの$|_{V_\lambda}$は通常の意味での写像の制限ですから、$f(x)=g(x)$ (${}^\forall x\in V_\lambda$)ということになります。これが全ての$\lambda\in\Lambda$で成り立つことから$f(x)=g(x)$ (${}^\forall x\in U$)即ち$f=g$が言え、(c)が示されました。次に、開集合$U$の開被覆$\{V_\lambda\}_{\lambda\in\Lambda}$ ($V_\lambda\subset U$)と$f_\lambda\in\mathcal O_X(V_\lambda)$が$f|_{V_\lambda\cap V_\mu}=g|_{V_\lambda\cap V_\mu}$ (${}^\forall\lambda,\mu\in\Lambda$)を満たすとします。ここで$f\colon U\to k$を、$x\in U$に対して$x\in V_\lambda$なる$\lambda$を選んで$f(x)\coloneqq f_\lambda(x)$とすることで定めます。仮定からこの定め方はwell-definedで、正則函数の定義から$f$は$U$上の正則函数となることが分かります。当然この$f$は任意の$\lambda\in\Lambda$に対して$f|_{V_\lambda}=f_\lambda$を満たしますから、(d)も示されました。</paragraph>
+<paragraph>一方、定数前層は一般には層ではありません。実際、$X=(0,1)\cup(2,3),$ $G=\mathbb R$として定数前層$\mathcal G$を考えてみましょう。$X$の開被覆として$\{(0,1),(2,3)\}$を取り、$s_1\in\mathcal G((0,1))$を$s_1(x)=1$ (${}^\forall x\in(0,1)$)で、$s_2\in\mathcal G((2,3))$を$s_2(x)=2$ (${}^\forall x\in(2,3)$)で定めます。(d)より、$\mathcal G$が層であるためには$s\in\mathcal G(X)$が存在して$s|_{(0,1)}=s_1,$ $s|_{(2,3)}=s_2$でなければなりませんが、$s$は定数函数なのでこれは不可能です。</paragraph>
+<paragraph>次に、(前)層の間の射を考えます。</paragraph>
+<div id="morphism-def" class="box definition">
+    <div class="title">(前)層の射</div>
+    <div class="content">$F,G$を位相空間$X$上の(前)層とする。$F$から$G$への<strong>射 (morphism)</strong>$\varphi\colon F\to G$とは、各開集合$U\subset X$に対して群準同型$\varphi(U)\colon F(U)\to G(U)$が定まっていて、包含$V\subset U$に対して$\varphi(V)\circ\rho_{UV}=\rho'_{UV}\circ\varphi(U)$を満たすものをいう。ここに、$\rho_{UV}$は$F$の制限写像, $\rho'_{UV}$は$G$の制限写像である。
+    $$\xymatrix@C+1pc{
+    F(U)\ar[r]^{\rho_{UV}}\ar[d]_{\varphi(U)}&F(V)\ar[d]^{\varphi(V)}\\
+    G(U)\ar[r]_{\rho'_{UV}}&G(V)
+    }$$
+    $U\subset X,$ $s\in F(U)$に対し、$\varphi(U)(s)$を単に$\varphi(s)$と書くこともある。また、層の射$\varphi\colon F\to G,$ $\psi\colon G\to H$の合成$\psi\circ\varphi$を、各開集合$U\subset X$について$(\psi\circ\varphi)(U)\coloneqq\psi(U)\circ\varphi(U)$とすることで定義する。(前)層$F,G$の間の射$\varphi\colon F\to G,$ $\psi\colon G\to F$であって$\psi\circ\varphi=\id_F,$ $\varphi\circ\psi=\id_G$を満たすものがあるとき、$F$と$G$は<strong>同型 (isomorphic)</strong>であるといい、このような$\varphi,$ $\psi$はそれぞれ<strong>同型射 (isomorphism)</strong>であるという。</div>
+</div>
+<paragraph>最後の文で$\id_F$という未定義記号を出してしまいましたが、お察しの通り任意の開集合$U\subset X$に対して$\id_F(U)\coloneqq\id_{F(U)}$となるような射のことです($\id_G$も同様)。また、同型射とは、各開集合$U\subset X$について$\varphi(U)$が同型であることと言い換えられます。</paragraph>
+<paragraph>$\varphi(V)\circ\rho_{UV}=\rho'_{UV}\circ\varphi(U)$という条件は$\varphi(s|_V)=\varphi(s)|_V$ (${}^\forall s\in F(U)$)と書きなおせるので、「$\varphi$は制限と可換である」と言い換えることができます。また、前層は圏論的に言えば函手でしたから、前層の射$F\to G$は自然変換$F\Rightarrow G$です。なお、$\varphi(U)$や$\varphi(V)$を$\varphi$と略記する記法は、機械的に計算しやすくなる代わりに各元がどの集合に属しているのか分かりづらくなるというデメリットがあります。適宜自力で補完してください。</paragraph>
+<h3 id="injlim">順極限</h3>
+<paragraph>次節で茎と芽を定義するための準備として、順極限というものを定義します。極限といったら位相空間等における点列の極限をイメージすると思いますが(圏論的極限をイメージした人は本節を流し読みして構いません)、ここで考えるのは集合や可換群、あるいは一般の圏の対象の列の極限です。ただし、以下暫くは主に可換群の前層を考えるという話をしたので、可換群についての順極限の定義を述べます。必要に応じて「可換群」を「集合」や「圏$C$の対象」に、「群準同型」を「写像」や「圏$C$の射」に読み替えれば、それぞれ集合族の順極限, 圏$C$の対象の族の順極限になります。</paragraph>
+<paragraph>順序集合に関して、軽い復習と概念の導入をしておきます。集合$X$とその上の二項関係$\leqq$の組$(X,\leqq)$が(半)順序集合であるとは、
+<ol>
+    <li>任意の$x\in X$に対して$x\leqq x$である(反射律)。</li>
+    <li>任意の$x,y,z\in X$に対し、$x\leqq y$かつ$y\leqq z$ならば$x\leqq z$である(推移律)。</li>
+    <li>任意の$x,y\in X$に対し、$x\leqq y$かつ$y\leqq x$ならば$x=y$である(反対称律)。</li>
+</ol>
+を満たすことでした。そして、順序集合$(X,\leqq)$が条件
+$${}^\forall x,y\in X,\;{}^\exists z\in X\st[x\leqq z\and y\leqq z]$$
+を満たすとき、<strong>有向集合 (directed set)</strong>ないし<strong>フィルタ付き集合 (filtered set)</strong>といいます。これを用いて、順極限に使われる順系というものを定義します。</paragraph>
+<div id="direct-system" class="box definition">
+    <div class="title">順系</div>
+    <div class="content">有向集合$(I,\leqq)$で添え字づけられた可換群の族$\{G_i\}_{i\in I}$と群準同型の族$\{f_{ij}\}_{i,j\in I}$ ($f_{ij}\colon G_i\to G_j$)が以下の条件を満たすとき、$(G_i,f_{ij})$を<strong>順系 (direct system)</strong>, <strong>直系 (direct system)</strong>, または<strong>帰納系 (inductive system)</strong>という。
+    <ul>
+        <li>任意の$i\in I$に対し、$f_{ii}\colon G_i\to G_i$は恒等写像である。</li>
+        <li>任意の$i\leqq j\leqq k$に対し、$f_{ik}=f_{jk}\circ f_{ij}$が成り立つ。</li>
+    </ul></div>
+</div>
+<paragraph>これも圏$I$から圏$\mathbf{Ab}$への共変函手とみることができますね。順系の例は順極限の例で見ることにして、早速順極限を定義しましょう。</paragraph>
+<div id="direct-limit" class="box definition">
+    <div class="title">順極限</div>
+    <div class="content">有向集合$(I,\leqq)$で添え字づけられた順系$(G_i,f_{ij})$について、集合$\{(G_i,g)\mid i\in I,g\in G_i\}$上の同値関係$\sim$を次のように定める。
+    $$(G_i,g_i)\sim(G_j,g_j)\defiff{}^\exists k\in I\st[i,j\leqq k\and f_{ik}(g_i)=f_{jk}(g_j)]$$
+    このとき、上の集合を$\sim$で割った商集合に
+    $$\bar{(G_i,g_i)}+\bar{(G_j,g_j)}\coloneqq\bar{(G_k,f_{ik}(x_i)+f_{jk}(x_j))}$$
+    ($\bar{(G_i,g_i)}$は$(G_i,g_i)$が属する同値類であり、$i,j\leqq k$)で定義される演算<sup><a id="footnoteref4" href="#footnote4">[脚註4]</a></sup>を入れた群を$(G_i,f_{ij})$の<strong>順極限 (direct limit)</strong>, <strong>直極限 (direct limit)</strong>, または<strong>帰納極限 (inductive limit)</strong>といい、$\varinjlim G_i$と書く。</div>
+</div>
+<paragraph>この同値関係は、「添え字が十分大きいところでは$g_i$と$g_j$は一致する」というようなイメージです(全順序とは限らないのでこの言い方は変ですが)。また、$g\in G_i$を$\bar{(G_i,g)}\in\varinjlim G_i$に送ることで準同型ができます。順極限を圏論的に言うと、順系を函手$I\to\mathbf{Ab}$と見たときの余極限です。したがって、各$G_i$から準同型がのびている群のうち最も$\{G_i\}_{i\in I}$に近いものが順極限であるとイメージできます。</paragraph>
+<paragraph id="remark">順極限における演算について、一点注意を述べておきます。「$\varinjlim G_i$から任意に元を二つ持ってきて足す」というような操作をする場合、二元の取り方は$\bar{(G_i,g)},$ $\bar{(G_i,g')}$のようにすれば十分です。実際、別々の二つの群$G_i,G_j$を考えても足すときは結局共通の群$G_k$の上で足すことになるので。</paragraph>
+<paragraph>名前の響きとしては帰納極限が一番かっこいい気がするので帰納極限と言いたいところですが、<a href="https://en.wikipedia.org/wiki/Direct_limit#Terminology">英語版Wikipedia</a>によるとinductive limitは別の概念を指すこともままあるようなので順極限と言うことにします。直極限でなく順極限を選んだのは、direct limitの双対であるinverse limitには日本語で逆極限という訳があり、“逆”に対応するのは“順”だろうと考えたからです。更に余談ですが、順極限を表す$\varinjlim$のLaTeXコマンド<code>\varinjlim</code>のinjlimというのは何の略なのでしょうか。逆極限を表す$\varprojlim$のLaTeXコマンド<code>\varprojlim</code>は逆極限の別名である射影極限(projective limit)に由来していることが分かりやすいのですが。</paragraph>
+<paragraph>閑話休題して順極限の例を見ていきます。有向集合として分かりやすいのは$\mathbb Z_{\gt0}\coloneqq\{1,2,3,\dots\}$でしょう。実際これは通常の大小関係について順序集合となり、$i,j\in\mathbb Z_{\gt0}$に対して$k\coloneqq\max\{i,j\}$ととれば$i,j\leqq k$です。</paragraph>
+<div id="finite-sequence" class="box example">
+    <div class="title"></div>
+    <div class="content">$G$を可換群とし、$G_n$を直積群$G^n$と定義します。$i\leqq j$に対して準同型$f_{ij}\colon G_i\to G_j$を
+    $$(x_1,x_2,\dots,x_i)\mapsto(x_1,x_2,\dots,x_i,0,0,\dots,0)$$
+    と定めると、$(G_i,f_{ij})$は順系になります。この順系の順極限$\varinjlim G_n$は、有限項を除いて$0$である$G$値数列全体がなす群、つまり
+    $$G_\infty\coloneqq\{(x_1,x_2,\dots)\in G^{\mathbb Z_{\gt0}}\mid{}^\exists n\in\mathbb Z_{\gt0}\st{}^\forall k\gt n,a_k=0\}$$
+    と同型です。$\varinjlim G_n$から$G_\infty$への同型は、$\bigl(G_i,(x_1,\dots,x_i)\bigr)$が属する同値類を$(x_1,\dots,x_i,0,\dots)$に写すことで定まります。</div>
+</div>
+<paragraph>また、$\mathbb Z_{\gt0}$は整除関係$\mid$についても順序集合となり、$i,j\in\mathbb Z_{\gt0}$に対して$k\coloneqq ij$ととれば$i,j\mid k$なので$(\mathbb Z_{\gt0},\mid)$は有向集合です。</paragraph>
+<div id="finite-sequence" class="box example">
+    <div class="title"></div>
+    <div class="content">$G_n\coloneqq\mathbb Z/n\mathbb Z$とし、$m\mid n$に対して準同型$f_{mn}$を
+    $$f_{mn}\colon G_m\to G_n,x+m\mathbb Z\mapsto\frac nmx+n\mathbb Z$$
+    で定めると$(G_m,f_{mn})$は順系になります。$G_\infty\coloneqq\varinjlim G_n$において$(G_m,x+m\mathbb Z),$ $(G_n,y+n\mathbb Z)$が同じ剰余類に属するとすると、$m,n\mid\ell$なる正整数$\ell$が存在して
+    $$f_{m\ell}(x+m\mathbb Z)=\frac\ell mx+\ell\mathbb Z=f_{n\ell}(y+n\mathbb Z)=\frac\ell ny+\ell\mathbb Z$$
+    となります。ここで$0\leqq x\lt m,$ $0\leqq y\lt n$と仮定してよく、このとき$\dfrac\ell mx,$ $\dfrac\ell ny$はいずれも$0$以上$\ell$未満なので、これらが$\bmod\ell$で等しくなるなら整数として等しくなります。つまりは
+    $$(G_m,x+m\mathbb Z)\sim(G_n,y+n\mathbb Z)\iff nx=my$$
+    です。$nx=my$はモロに分数の定義ですね。$\dfrac xm$即ち$(G_m,x+m\mathbb Z)$と$\dfrac{x+m}m$即ち$(G_m,(x+m)+m\mathbb Z)$は等しいので、$G_\infty\cong\mathbb Q/\mathbb Z$であると分かります。順極限の例を<del>適当に</del>考えていたら有理数ができて驚きました。</div>
+</div>
+<paragraph>他にも<a href="https://ja.wikipedia.org/wiki/プリューファー群">Prüfer群</a>というのもあって面白そうなのですが、添え字集合が$(\mathbb Z_{\gt0},\leqq)$で上の例と大体同じなので割愛します。</paragraph>
+<h3 id="stalk-germ">茎と芽</h3>
+<paragraph>(前)層は各開集合の情報を与えますが、そこから特定の一点の情報を抽出するのが茎です。</paragraph>
+<div id="stalk-def" class="box definition">
+    <div class="title">茎</div>
+    <div class="content">$F$を位相空間$X$上の前層とする。$P\in X$に対し、$P$の開近傍系 ($P$を含む開集合全体)は逆包含関係、即ち$U\leqq V\defiff V\subset U$について有向集合となる。$P$の開近傍族で添え字づけられた$\{F(U)\}_{U\ni P}$および制限写像$\{\rho_{UV}\}_{U\supset V\ni P}$を考えると$(F(U),\rho_{UV})$は順系をなす。これの順極限$F_P\coloneqq\varinjlim F(U)$を$P$における$F$の<strong>茎 (stalk of $F$ at $P$)</strong>という。また、$(F(U),s)$が属する$F_P$の同値類を$P$における$s$の<strong>芽 (germ of $s$ at $P$)</strong>という。</div>
+</div>
+<paragraph>日本語で「茎」は「けい」または「くき」とよみ、「芽」は「が」または「め」と読みます。ただ、口頭だと「けい」「が」「め」は伝わりにくいのでstalk, germと読むことが多そうです。余談ですが、層を意味する英単語“sheaf”の本来の意味は日常的に使う地層等の層ではなく、「紙や刈り取った後の穀物などを一纏めにしたり結んだりしたもの」という意味です(<a href="https://dictionary.cambridge.org/dictionary/english/sheaf">Cambridge Dictionary</a>より)。これが「茎」や「芽」といった表現と対応しているわけですが、層と訳してしまうと「層の局所的な情報をまとめたものがなぜ茎？」となってしまう気がします。“sheaf”を一語で訳すと「束」辺りになるのでしょうが、束と訳される数学用語は<a href="https://ja.wikipedia.org/wiki/束_(数学)">いくつか</a>あり、その中に層と近接する分野の用語もあるっぽいので「束」という訳は避けたのかなと思います。ソース不明なので断言はできませんが、sheafに当たるフランス語の“faisceau” (<a href="https://en.wiktionary.org/wiki/faisceau">/fɛ.so/</a>, フェソー？)のソーからとったという説があるらしいです(<a href="https://alg-d.com/math/kan_extension/sheaf.pdf">参考</a>; 3ページの脚註2)。</paragraph>
+<paragraph>以下では$P$における$s$ ($\in F(U)$)の芽を$\bar{(U,s)}_P$や$s_P$や$\bar{(U,s)}$と書くことにします。ここで、$s_P$は$U$を特に明示する必要がないとき、$\bar{(U,s)}$は$P$が文脈から明らかなときに使うことが多いと思います。なお独自記法です。</paragraph>
+<paragraph>$\bar{(U,s)}_P=\bar{(V,t)}_P$であることは、$P\in W\subset U\cap V$なる開集合$W$が存在して$s|_W=t|_W$であること、つまり$P$の十分近くで$s=t$であることと言い換えられます。よって茎は、$P$の周りにおける$F$の切断をかき集め、$P$の近くで一致するもの同士を同一視したものと言えます。例えば$X=\mathbb R$上の層として実数値連続函数がなす層を考え、$s\in F((-3,2))$と$t\in F((-2,3))$を
+$$s(x)=0,\;t(x)=\max\{|x|-1,0\}$$
+と定めると、$(-1,1)$において$s=t$ですから$0\in X$における$s$と$t$の芽は等しくなります。</paragraph>
+<paragraph>さて、前層の射$\varphi\colon F\to G$があると、そこから自然に群準同型$\varphi_P\colon F_P\to G_P$が定まります。</paragraph>
+<div id="stalk-morphism" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$\varphi\colon F\to G$を位相空間$X$上の前層の射とする。このとき、$P\in X$に対して
+    $$\varphi_P\colon F_P\to G_P,\bar{(U,s)}_P\mapsto\bar{(U,\varphi(s))}_P$$
+    は群準同型である。</div>
+</div>
+<div id="stalk-morphism-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>まずはwell-definednessを確認する。$\bar{(U,s)}_P=\bar{(V,t)}_P$とすると、$P\in W\subset U\cap V$なる開近傍$W$が存在して$s|_W=t|_W$となる。よって
+    $$\varphi(s)|_W=\varphi(s|_W)=\varphi(t|_W)=\varphi(t)|_W$$
+    となるから、$\bar{(U,\varphi(s))}_P=\bar{(V,\varphi(t))}_P$である。</paragraph>
+    <paragraph>次に準同型性を確認する。任意に$\bar{(U,s)}_P,\bar{(U,s')}_P\in F_P$をとる(順極限の節の<a href="#remark">演算に関する注意</a>を参照)と、
+    \begin{align*}
+    \varphi_P(\bar{(U,s)}_P+\bar{(U,s')}_P)&=\varphi_P(\bar{(U,s+s')}_P)\\
+    &=\bar{(U,\varphi(s+s'))}_P=\bar{(U,\varphi(s)+\varphi(s'))}_P\\
+    &=\bar{(U,\varphi(s))}_P+\bar{(U,\varphi(s'))}_P\\
+    &=\varphi_P(\bar{(U,s)}_P)+\varphi_P(\bar{(U,s')}_P)
+    \end{align*}
+    となることから明らかである。</paragraph>
+    </div>
+</div>
+<paragraph>$\bar{(U,s)}_P$を$s_P$と書くような記法を使えば$\varphi_P(s_P)=\varphi(s)_P$となり、直感的に式変形できるでしょう。また、茎の準同型には次のような性質があります。この定理は、端的に言えば層の同型性が局所的な概念であることを意味しています。</paragraph>
+<div id="stalk-isomorphism" class="box theorem">
+    <div class="title"></div>
+    <div class="content">$\varphi\colon F\to G$を位相空間$X$上の層の射とする。$\varphi$が同型射であるための必要十分条件は、任意の$P\in X$に対して茎の準同型$\varphi_P$が同型写像となることである。</div>
+</div>
+<div id="stalk-isomorphism-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>($\Rightarrow$)は容易に分かる。実際、$\varphi$が同型射であるとき各開集合$U\subset X$に対して$\varphi(U)$が同型射なので、$\varphi_P$は全射であることは明らか。$\varphi_P(\bar{(U,s)}_P)=0$であると仮定するとある$V\subset U$が存在して$\varphi(s)|_V=0$で、$\varphi(s|_V)=0$と$\varphi(U)$の単射性から$s|_V=0$即ち$\bar{(U,s)}_P=0$が従う。</paragraph>
+    <paragraph>($\Leftarrow$)を示すため、任意の$P\in X$に対して$\varphi_P$が同型写像であることを仮定し、まず各$\varphi(U)$が単射であることを示す。$s\in F(U)$が$\varphi(s)=0$を満たすと仮定すると、任意の点$P\in U$について$P$における$\varphi(s)$の芽$\varphi(s)_P$は$0$になる。$\varphi_P$は単射なので、$\varphi_P(s_P)=0$から$s_P=0$を得る。よって$P$のある開近傍$V_P\subset U$が存在して$s|_{V_P}=0$となる。$P$は任意であったので、<a href="#sheaf-def">層の条件(c)</a>から$s=0$であることが分かる($\{V_P\}_{P\in U}$は$U$の開被覆であることに注意)。</paragraph>
+    <paragraph>次に各$\varphi(U)$が全射であることを示す。$t\in G(U)$を任意にとり、点$P$における芽$t_P$を考える。$\varphi_P$の全射性から$s_P\in F_P$が存在して$\varphi_P(s_P)=t_P$となる。このとき、$s_P=\bar{(V_P,s(P))}_P$なる$V_P\subset U,$ $s(P)\in F(V_P)$をとると
+    $$\varphi(s(P))_P=\varphi_P(s_P)=t_P=(t|_{V_P})_P$$
+    が成り立つ。したがって、$P$の十分小さい開近傍$W_P\subset V_P$をとることで$\varphi(s(P))|_{W_P}=t|_{W_P}$とできる。二点$P,Q\in U$に対し、上で定めた$W_P,W_Q\subset U$および$s(P),s(Q)\in F(W_P\cap W_Q)$をとると
+    $$\varphi(s(P)|_{W_P\cap W_Q})=\Bigl(\varphi(s(P))|_{W_P}\Bigr)|_{W_P\cap W_Q}=t|_{W_P\cap W_Q}=\varphi(s(Q)|_{W_P\cap W_Q})$$
+    である。よって、前段落で示した通り$\varphi(W_P\cap W_Q)$は単射なので$s(P)|_{W_P\cap W_Q}=s(Q)|_{W_P\cap W_Q}$を得る。以上より<a href="#sheaf-def">層の条件(d)</a>から、ある$s\in F(U)$が存在して$s|_{W_P}=s(P)|_{W_P}$となる。このとき
+    $$\varphi(s)|_{W_P}=\varphi(s(P))|_{W_P}=t_{W_P}$$
+    なので、再び<a href="#sheaf-def">層の条件(c)</a>から$\varphi(s)=t$であることが分かる。</paragraph>
+    </div>
+</div>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">『Algebraic Geometry』では前層の定義として可換群の前層の定義を述べ、条件(a), (b)に加えて$F(\varnothing)$が自明群であることを課しています。しかしここでは、以下のような理由から前層の定義にこの条件を入れないことにします。
+<ul>
+    <li>$F(\varnothing)=0$を課している文献が他に見つからない。</li>
+    <li>前層を函手として定義しようとすると$F(\varnothing)=0$が邪魔になる。</li>
+    <li>一般の圏では自明群に当たるもの(零対象)があるとは限らない(後に$\Ker$等が出てくるので、層論では零対象の存在を仮定するのでしょうか)。</li>
+    <li>層では自動的に$F(\varnothing)=0$となる(群や環の層の場合)。</li>
+</ul>
+四つ目の点に関して、軽く証明を書いておきます。$s,t\in F(\varnothing)$を任意にとり、$\varnothing$の開被覆として空な開集合族をとります($\{\varnothing\}$ではなく$\{U_\lambda\}_{\lambda\in\varnothing}$)。このとき<a href="#sheaf-def">層の条件</a>(c)から$s=t$となるので、$F(\varnothing)$は一点集合、即ち自明群や零環になります。<a href="#footnoteref1">↩</a></li>
+<li id="footnote2">『Algebraic Geometry』でそのようにしていたのでここでも可換群の(前)層についての話をするわけですが、代数幾何学の主要な対象であり第Ⅱ章の主役たるスキームでは、可換群でなく環の層が使われます。<a href="#footnoteref2">↩</a></li>
+<li id="footnote3">零(前)層, 自明(前)層, zero (pre)sheaf, trivial (pre)sheafで検索してもほとんど用例が見つからなかったので、一般的に用いられている言葉ではないと思います(とはいえ「零層」と言えば意味は通じると思いますが)。<a href="#footnoteref3">↩</a></li>
+<li id="footnote4">一応演算がwell-definedであることを示しておきます。そのためには、$i,j\leqq k_1$かつ$i,j\leqq k_2$なる$k_1,k_2$に対して
+$$(G_{k_1},f_{ik_1}(x_i)+f_{jk_1}(x_j))\sim(G_{k_2},f_{ik_2}(x_i)+f_{jk_2}(x_j))$$
+を示すことになります。$k_1,k_2\leqq k$なる$k$をとると、$f_{ij}$たちの準同型性と合成に関する仮定(<a href="#direct-system">順系の定義</a>)から
+$$f_{k_1k}(f_{ik_1}(x_i)+f_{jk_1}(x_j))=f_{ik}(x_i)+f_{jk}(x_j)=f_{k_2k}(f_{ik_2}(x_i)+f_{jk_2}(x_j))$$
+となって示せました。<a href="#footnoteref4">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>

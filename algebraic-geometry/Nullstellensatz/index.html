@@ -111,11 +111,11 @@ $$Y_1=\{\bm x\in\mathbb R^n\mid|\bm x|\leqq1\},\;Y_2=\{\bm x\in\mathbb R^n\mid1\
     </div>
 </div>
 <paragraph>また、既約集合の閉包も既約になります。</paragraph>
-<div id="non-Hausdorff" class="box proposition">
+<div id="closure-irred" class="box proposition">
     <div class="title"></div>
     <div class="content">$Y$を位相空間$X$の既約集合とすると、その閉包$\bar Y$も既約集合である。</div>
 </div>
-<div id="proof-non-Hausdorff" class="box proof">
+<div id="proof-closure-irred" class="box proof">
     <div class="title"></div>
     <div class="content">
     <paragraph>$X$の閉集合$X_1,X_2$が$\bar Y\subset X_1\cup X_2$を満たすとする。このとき$Y\subset X_1\cup X_2$でもあるから、$Y$の既約性より$Y\subset X_1$ or $Y\subset X_2$である。$X_1,X_2$が閉であることに注意して両辺の閉包をとれば$\bar Y\subset X_1$ or $\bar Y\subset X_2$を得る。</paragraph>
@@ -129,7 +129,7 @@ $$\mathcal Z(x^3-x^2y+xy-y^2)=\mathcal Z(x^2+y)\cup\mathcal Z(x-y)$$
 となることから分かります。これを基に考えると、既約集合とイデアルの対応関係が見えてきます。</paragraph>
 <div id="prime" class="box theorem">
     <div class="title"></div>
-    <div class="content">$\mathbb A^n$の既約代数的集合と$A$の素イデアルは、$\mathcal Z$と$\mathcal I$によって対応する。</div>
+    <div class="content">$\mathbb A^n$の既約代数的集合と$A$の素イデアルは、$\mathcal Z$と$\mathcal I$によって一対一対応する。</div>
 </div>
 <div id="proof-prime" class="box proof">
     <div class="title"></div>
@@ -147,7 +147,7 @@ $$\mathcal Z(x^3-x^2y+xy-y^2)=\mathcal Z(x^2+y)\cup\mathcal Z(x-y)$$
     <div class="title">アフィン多様体</div>
     <div class="content">アフィン空間の既約閉集合にZariski位相から誘導される位相を入れて位相空間と見做し、<strong>アフィン代数多様体 (affine algebraic variety)</strong>、あるいは単に<strong>アフィン多様体 (affine variety)</strong>という。また、アフィン多様体上の開集合を<strong>準アフィン多様体 (quasi-affine variety)</strong>という。</div>
 </div>
-<paragraph>位相多様体はmanifold, アフィン多様体はvarietyであり、これらは(少なくとも表層的には)別物です。</paragraph>
+<paragraph>位相空間において全体集合は常に開集合なので、アフィン多様体は準アフィン多様体でもあることに注意してください。なお、位相多様体はmanifold, アフィン多様体はvarietyであり、これらは(少なくとも表層的には)別物です。</paragraph>
 <paragraph>前述の議論から、一般に既約多項式$f\in k[x,y]$に対して$\mathcal Z(f)$はアフィン多様体となります。この$\mathcal Z(f)$を<strong>アフィン曲線 (affine curve)</strong>といいます。同様に、既約な$f\in k[x_1,x_2,x_3]$に対する$\mathcal Z(f)$を<strong>アフィン曲面 (affine surface)</strong>, 既約な$f\in k[x_1,\dots,x_n]$ ($3\lt n$)に対する$\mathcal Z(f)$を<strong>アフィン超曲面 (affine hypersurface)</strong>といいます。</paragraph>
 <paragraph>環のNoether性に対応する位相空間上の概念を導入します。呼称は安直にそのまま「Noether性」です。</paragraph>
 <div id="Noetherian" class="box definition">
@@ -168,7 +168,7 @@ $$\mathcal Z(x^3-x^2y+xy-y^2)=\mathcal Z(x^2+y)\cup\mathcal Z(x-y)$$
     が成り立つ。しかし$Y'_1$は既約なので、いずれかの$i$は$Y'_1\subset Y_i$を満たしていなければならない。ここで一般性を失わず$i=1$とおける。同様の理屈から$Y_1\subset Y'_j$なる$j$が存在することになるが、このとき$Y'_1\subset Y'_j$となるので$j=1$でなければならない。以上より$Y_1=Y'_1$である。$Z=\bar{Y\setminus Y_1}$とおくと、これは$Y_2\cup\dots\cup Y_r$および$Y'_2\cup\dots\cup Y'_r$に等しい。実際$Y\setminus Y_1\subset Z\subset Y$より$Y_i\subset Y=Z\cup Y_1$で、$Y_i=(Y_i\cap Z)\cup(Y_i\cap Y_1)$という分解ができることと$Y_i\not\subset Y_1$から$Y_i\subset Z$。$Y'_i$も同様。ゆえに$Z$にも同様の操作を行うことができ、$r$に関する数学的帰納法から分解の一意性が従う。</paragraph>
     </div>
 </div>
-<paragraph>$\mathbb A^n$はNoether的位相空間です。実際、$\mathbb A^n$の閉集合列$Y_1\supset Y_2\supset Y_3\supset\dots$を任意にとると$\mathcal Z(Y_1)\subset\mathcal Z(Y_2)\subset\mathcal Z(Y_3)\subset\dots$ですが、$A$はNoether環なのでこのイデアル列は有限回で停止します。$Y_i=\mathcal Z(\mathcal I(Y_i))$なのでこのとき閉集合列も有限回で停止すると分かります。したがって、上記の定理よりアフィン空間の代数的集合に対しても同様の性質が成り立つことになります。</paragraph>
+<paragraph>$\mathbb A^n$はNoether的位相空間です。実際、$\mathbb A^n$の閉集合列$Y_1\supset Y_2\supset Y_3\supset\dots$を任意にとると$\mathcal I(Y_1)\subset\mathcal I(Y_2)\subset\mathcal I(Y_3)\subset\dots$ですが、$A$はNoether環なのでこのイデアル列は有限回で停止します。$Y_i=\mathcal Z(\mathcal I(Y_i))$なのでこのとき閉集合列も有限回で停止すると分かります。したがって、上記の定理よりアフィン空間の代数的集合に対しても同様の性質が成り立つことになります。</paragraph>
 <div id="decomp-cor" class="box corollary">
     <div class="title"></div>
     <div class="content">空でない代数的集合$Y\subset\mathbb A^n$はアフィン多様体$Y_1,\dots,Y_r$の和として表せる。また、$i\neq j$に対し$Y_i\not\subset Y_j$であることを要請でき、このとき$Y_i$たちは順序を除いて一意的に定まる。この$Y_i$を$Y$の既約成分という。</div>
