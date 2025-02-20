@@ -40,9 +40,11 @@ onload = function() {
     let articles = Array.from(document.getElementsByClassName('article-list'));
     pageIndex = -1;
     for(let i = 0; i < articles.length; i++) {
-        let sectionLength = pages.sections[i];
-        if(sectionLength == undefined) {
+        let sectionLength;
+        if(pages.sections == undefined) {
             sectionLength = pages.pageName.length;
+        } else {
+            sectionLength = pages.sections[i]
         }
         for(let j = 0; j < sectionLength; j++) {
             pageIndex++;
