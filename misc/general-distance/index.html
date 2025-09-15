@@ -62,7 +62,7 @@
 </div>
 <div id="polynomial-valued" class="box example">
     <div class="title">順序環の上の自然な距離</div>
-    <div class="content">写像$d\colon R\times R\to R,(x,y)\mapsto|x-y|$を考えるとこれは$R$上の$R$値距離函数になります。実際正定値性と対称律は明らかで、三角不等式は$a,b\in R$について$-(|a|+|b|)\leqq a+b\leqq|a|+|b|$が成り立つことから$a=x-y,$ $b=y-z$を代入することで示されます。<br>
+    <div class="content">写像$d\colon R\times R\to R,\,(x,y)\mapsto|x-y|$を考えるとこれは$R$上の$R$値距離函数になります。実際正定値性と対称律は明らかで、三角不等式は$a,b\in R$について$-(|a|+|b|)\leqq a+b\leqq|a|+|b|$が成り立つことから$a=x-y$, $b=y-z$を代入することで示されます。<br>
     以下ではこれを$R$の<strong>自然な距離</strong>と呼ぶことにします。</div>
 </div>
 <paragraph>距離が定まると位相が定まります。といっても距離位相は通常の距離に対して定義されるものですので、一応定義しておきます。</paragraph>
@@ -78,14 +78,14 @@
     <div class="title">多項式の辞書式順序</div>
     <div class="content">$f,g\in R[x]$について
     \begin{align*}
-    f&=a_0+a_1x+a_2x^2+\dots+a_mx^m\\
-    g&=b_0+b_1x+b_2x^2+\dots+b_nx^n
+    f&=a_0+a_1x+a_2x^2+\cdots+a_mx^m\\
+    g&=b_0+b_1x+b_2x^2+\cdots+b_nx^n
     \end{align*}
-    で$a_0,a_1,a_2,\dots,a_m,b_0,b_1,b_2,\dots,b_n\in R$を定めるとき、$f\lt g$とは
-    $$a_0=b_0,\,a_1=b_1,\,a_2=b_2,\,\dots,\,a_{k-1}=b_{k-1},\,a_k\lt b_k$$
+    で$a_0,a_1,a_2,\cdots,a_m,b_0,b_1,b_2,\cdots,b_n\in R$を定めるとき、$f\lt g$とは
+    $$a_0=b_0,\,a_1=b_1,\,a_2=b_2,\,\cdots,\,a_{k-1}=b_{k-1},\,a_k\lt b_k$$
     を満たす非負整数$k$が存在することをいう。この順序$\lt$を$R[x]$の<strong>辞書式順序</strong>という。</div>
 </div>
-<paragraph>例えば、$\mathbb Z[x]$の元として$1+3x\lt2+x\lt2+x+x^2,$ $-1\lt12x^{34}\lt1$です。証明は省略しますが、これは全順序であって$R[x]$はこの順序について順序環を成します。この順序環に自然な距離を入れると、この距離位相に関して$R[x]$は位相環になります。本筋からは外れますがきれいだと思ったので略証を書きます。</paragraph>
+<paragraph>例えば、$\mathbb Z[x]$の元として$1+3x\lt2+x\lt2+x+x^2$, $-1\lt12x^{34}\lt1$です。証明は省略しますが、これは全順序であって$R[x]$はこの順序について順序環を成します。この順序環に自然な距離を入れると、この距離位相に関して$R[x]$は位相環になります。本筋からは外れますがきれいだと思ったので略証を書きます。</paragraph>
 <div id="polynomial-topology" class="box proposition">
     <div class="title">多項式環の位相</div>
     <div class="content">辞書式順序を備えた順序環$R[x]$に自然な距離を入れると、距離位相について$R[x]$は位相環となる。</div>
@@ -103,11 +103,11 @@
 <paragraph>なお、順序環の自然な距離による位相が必ずしも位相環を作るとは限りません。実際、$R[x]$に以下で定める順序$\lt_\text{inv}$ (辞書式順序の逆)を入れると反例になります:</paragraph>
 <paragraph>$f,g\in R[x]$について
 \begin{align*}
-f&=a_0+a_1x+a_2x^2+\dots+a_mx^m\\
-g&=b_0+b_1x+b_2x^2+\dots+b_nx^n
+f&=a_0+a_1x+a_2x^2+\cdots+a_mx^m\\
+g&=b_0+b_1x+b_2x^2+\cdots+b_nx^n
 \end{align*}
-で$a_0,a_1,a_2,\dots,a_m,b_0,b_1,b_2,\dots,b_n\in R$を定め、$d=\max(\deg f,\deg g)$とする。このとき$f\lt_\text{inv}g$とは、
-$$a_d=b_d,\,a_{d-1}=b_{d-1},\,a_{d-2}=b_{d-2},\,\dots,\,a_{k+1}=b_{k+1},\,a_k\lt b_k$$
+で$a_0,a_1,a_2,\cdots,a_m,b_0,b_1,b_2,\cdots,b_n\in R$を定め、$d=\max(\deg f,\deg g)$とする。このとき$f\lt_\text{inv}g$とは、
+$$a_d=b_d,\,a_{d-1}=b_{d-1},\,a_{d-2}=b_{d-2},\,\cdots,\,a_{k+1}=b_{k+1},\,a_k\lt b_k$$
 を満たす$d$以下の非負整数$k$が存在することをいう。
 </paragraph>
 <h3 id="completion">点列の極限と多項式環の完備化</h3>
@@ -118,7 +118,7 @@ $$a_d=b_d,\,a_{d-1}=b_{d-1},\,a_{d-2}=b_{d-2},\,\dots,\,a_{k+1}=b_{k+1},\,a_k\lt
     $${}^\forall\varepsilon\in R_+,{}^\exists N\in\mathbb N\st({}^\forall n\in\mathbb N;\;N\lt n\implies d(x_n,x)\lt\varepsilon)$$
     が成り立つときこの点列が<strong>$x$に収束する</strong>といい、$\dlim_{n\to\infty}x_n=x$や$x_n\to x$ (as $n\to\infty$)などと書くことにする。</div>
 </div>
-<paragraph>通常の距離空間での定義と同様です。例として$f_n=x^n$で定まる$R$上の点列の極限を考えます。任意に$\varepsilon\in R[x]_+$をとって、$\varepsilon$の最低次の項の次数を$N$とします。このとき$\varepsilon\gt x^{N+1}\gt x^{N+2}\gt\dots$ですから、任意の$N\lt n\in\mathbb N$について$|f_n-0|=f_n\lt\varepsilon$が成り立ちます。以上より$\dlim_{n\to\infty}x^n=0$が得られました。</paragraph>
+<paragraph>通常の距離空間での定義と同様です。例として$f_n=x^n$で定まる$R$上の点列の極限を考えます。任意に$\varepsilon\in R[x]_+$をとって、$\varepsilon$の最低次の項の次数を$N$とします。このとき$\varepsilon\gt x^{N+1}\gt x^{N+2}\gt\cdots$ですから、任意の$N\lt n\in\mathbb N$について$|f_n-0|=f_n\lt\varepsilon$が成り立ちます。以上より$\dlim_{n\to\infty}x^n=0$が得られました。</paragraph>
 <paragraph>次に順序環を完備化します。</paragraph>
 <div id="ring-completion" class="box definition">
     <div class="title">順序環の完備化</div>
@@ -142,14 +142,14 @@ $$\{x_n\}\sim\{y_n\}\defiff\dlim_{n\to\infty}(x_n-y_n)=0$$
     <paragraph>$\{f_n\}+I\in\bar{R[x]}$をとると、$\{f_n\}$がCauchy列であることから任意の非負整数$k$に対して$N_k\in\mathbb N$が存在し、
     $${}^\forall m,n\in\mathbb N;\;N_k\lt m,n\implies|f_m-f_n|\lt x^k$$
     が成り立つ。したがって$\{f_n\}$の第$N_k$項より後は$k$次の係数が一定値となる。よって$a_k$を$f_{N_k+1}$の$k$次の係数とすればこれは$N_k$の取り方に依らず、しかも代表元$\{f_n\}$の取り方にも依らず定まる。この$a_k$を用いて
-    $$\varphi\colon\bar{R[x]}\to R[[x]],\{f_n\}+I\mapsto a_0+a_1x+a_2x^2+\dots$$
+    $$\varphi\colon\bar{R[x]}\to R[[x]],\,\{f_n\}+I\mapsto a_0+a_1x+a_2x^2+\cdots$$
     を考えると、これはwell-definedな同型写像である。</paragraph>
     </div>
 </div>
-<paragraph>やっていることは射影極限に似ていますが、こちらの方が自然な感じがします。また、任意の$f\in(x)$に対し、$(1-f)\dlim_{n\to\infty}(1+f+f^2+\dots+f^n)=1$であるという意味で
+<paragraph>やっていることは射影極限に似ていますが、こちらの方が自然な感じがします。また、任意の$f\in(x)$に対し、$(1-f)\dlim_{n\to\infty}(1+f+f^2+\cdots+f^n)=1$であるという意味で
 $$\sum_{n=0}^\infty f^n=\frac1{1-f}$$
 が成り立ちます。これと同様のことは形式的冪級数環でも成り立ちます(同型なので当たり前)が、極限が定義されていないので「$f^n$には$n$次未満の項がないから無限和のうち$x^n$を含む項は高々有限個で各係数を決定するのに必要なのは実質的に有限和のみであるのでこの表記は正当」などと御託を並べることになります。今回の構成では環に極限が定義されているため、無限和を直接扱うことができるという強みがあります。</paragraph>
-<h3 id="problem">しかし…</h3>
+<h3 id="problem">しかし……</h3>
 <paragraph>色々と調べていたら、順序位相なるものの存在を知りました。</paragraph>
 <div id="order-topology" class="box definition">
     <div class="title">順序位相</div>

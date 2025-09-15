@@ -113,7 +113,7 @@ $$(x',y',z')=\frac16(5x+2y-z,2x+2y+2z,-x+2y+5z)$$
 \end{tikzpicture}</code></pre>
 とすればよいです。</paragraph>
 <div class="figure"><img alt="立方体" src="cube.png"><span>立方体</span></div>
-<paragraph>余談ですが、何故かこの図だと奥行きが小さいように見える気がします。透視図法を使えば良いのかもしれませんが…。$(0,10,0)$と$(1,0,1)$が重なるような目線で射影すると更に薄くなります。</paragraph>
+<paragraph>余談ですが、何故かこの図だと奥行きが小さいように見える気がします。透視図法を使えば良いのかもしれませんが……。$(0,10,0)$と$(1,0,1)$が重なるような目線で射影すると更に薄くなります。</paragraph>
 <paragraph>単位球面は
 $$(x,y,z)=(\cos\theta\cos\varphi,\sin\theta\cos\varphi,\sin\varphi)$$
 とパラメータ表示できるので、
@@ -167,7 +167,7 @@ $$(x,y,z)=(\cos\theta(3+\cos\varphi),\sin\theta(3+\cos\varphi),\sin\varphi)$$
 <paragraph>これは美しくありません。本来見えないはずの裏側の線が見えていることが主原因だと考え、見える部分だけを表示するとこうなります(ついでに輪郭線を書き加えておきました)。</paragraph>
 <div class="figure"><img alt="二次元トーラス (美しい)" src="torus-2.png"><span>二次元トーラス (美しい)</span></div>
 <paragraph>この図の描画方法を考えましょう。$\theta$を固定して$\varphi$動かしたり$\varphi$を固定して$\theta$を動かしたりして線を描くわけですが、線が立体の手前側にあるか奥側にあるかの境目は、図における立体の輪郭線に相当します。よって、輪郭の位置を把握すれば表裏を判断できることになります。
-$$f\colon\mathbb R^2\to\mathbb R^3,(\theta,\varphi)\mapsto(\cos\theta(3+\cos\varphi),\sin\theta(3+\cos\varphi),\sin\varphi)$$
+$$f\colon\mathbb R^2\to\mathbb R^3,\,(\theta,\varphi)\mapsto(\cos\theta(3+\cos\varphi),\sin\theta(3+\cos\varphi),\sin\varphi)$$
 とおくと、点$f(\theta_0,\varphi_0)$におけるトーラスの接平面は
 $$\langle f_\theta(\theta_0,\varphi_0),f_\varphi(\theta_0,\varphi_0)\rangle$$
 に平行です(証明は省きますが、この部分空間の次元は常に$2$です)。$f(\theta_0,\varphi_0)$を平面に射影した像が輪郭に含まれるのは視線の方向を表す$(1,-2,1)$が接平面に属するとき、即ち
@@ -253,7 +253,7 @@ f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\v
 <paragraph>二変数の標準正規分布の確率密度関数のグラフを描きます。目標はこちら(参考:<a href="#pdf">[4]</a>)。</paragraph>
 <div class="figure"><img alt="二変数標準正規分布" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Multivariate_Gaussian.png/450px-Multivariate_Gaussian.png"><span>二変数標準正規分布</span></div>
 <paragraph>確率密度函数は$\dfrac1{2\pi}\exp\left(-\dfrac{x^2+y^2}2\right)$で与えられますが、$z$座標が小さくなりすぎないように$16\pi$倍して
-$$f\colon\mathbb R^2\to\mathbb R^3,(x,y)\mapsto\left(x,y,4\exp\left(-\dfrac{x^2+y^2}2\right)\right)$$
+$$f\colon\mathbb R^2\to\mathbb R^3,\,(x,y)\mapsto\left(x,y,4\exp\left(-\dfrac{x^2+y^2}2\right)\right)$$
 を描画します。輪郭線を計算しましょう。接平面を生成するヴェクトルは
 \begin{align*}
 f_x(x,y)&=\left(1,0,-4x\exp\left(-\dfrac{x^2+y^2}2\right)\right)\\

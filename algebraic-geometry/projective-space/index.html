@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>射影空間</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="射影空間およびその上の代数多様体を定義します。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/projective-space.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="射影空間" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/projective-space" />
+<script src="https://mathphilia.github.io/math/files/js/mathjax_config.js"></script>
+<script src="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/thumbnail.json.js"></script>
+<script src="https://mathphilia.github.io/math/files/js/script.js"></script>
+<link rel="stylesheet" href="https://mathphilia.github.io/math/files/css/style.css" />
+<link rel="stylesheet" href="https://mathphilia.github.io/math/files/css/theorem.css" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">代数幾何学</a> / 射影空間</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>射影空間</h2>
+<h3 id="proj-space">射影空間</h3>
+<paragraph>これまでは主にアフィン空間上の代数多様体について議論してきました。アフィン空間には、計算が比較的容易で直感的に理解しやすいという利点がある一方で、交点の個数や対称性などいくつかの幾何学的性質が完全には捉えられないという制約もあります。例えば、代数閉体上で定義された一変数多項式の解の個数は常に(重複度を含めて)その次数に一致しますが、これに類似した平面曲線に関する命題「多項式$f,g\in k[x,y]$ ($\deg f=m$, $\deg g=n$)で定義された二つのアフィン曲線の交点数は$mn$個である」は非常に人工的な仮定の下でしか成立しません。これは、方程式の解の一部がアフィン空間の外、即ち「無限遠」に存在することに起因しています。射影空間には無限遠の点がうまく織り込まれており、適当な仮定の下でこれと同様の命題が成り立つことが知られています(Bézoutの定理)。本節ではBézoutの定理の主張までたどり着きませんが、古典代数幾何学の主要な舞台となる射影空間を学びます。</paragraph>
+<paragraph>ということで射影空間を定義しますが、これ以降も第1節に引き続き、$k$と書いたら原則として代数閉体を表すものとします。</paragraph>
+<div id="proj-space-def" class="box definition">
+    <div class="title">射影空間</div>
+    <div class="content">$k^{n+1}\setminus\{\bm0\}=\{(a_0,\cdots,a_n)\mid a_i\in k\}\setminus\{(0,\cdots,0)\}$上の同値関係$\sim$を
+    $$(a_0,\cdots,a_n)\sim(b_0,\cdots,b_n)\defiff{}^\exists\lambda\in k^\times\st{}^\forall i,\,a_i=\lambda b_i$$
+    で定める。このとき商集合$\mathbb P_k^n\coloneqq(k^{n+1}\setminus\{\bm0\})/{\sim}$を$k$上の<strong>$n$次元射影空間 ($n$-dimensional projective space, projective $n$-space)</strong>という。$(a_0,\cdots,a_n)\in k^{n+1}\setminus\{\bm0\}$が属する$\sim$の同値類を$(a_0:\cdots:a_n)$と書く。また、同値類$P\in\mathbb P_k^n$に属する$k^{n+1}\setminus\{\bm0\}$の元を、$P$の<strong>斉次座標 (homogeneous coordinate)</strong>という。</div>
+</div>
+<paragraph>以下では$\mathbb P_k^n$を単に$\mathbb P^n$と書くことが多いです。</paragraph>
+<p>冒頭で射影空間について、アフィン空間に無限遠点を付け加えたようなものだと述べました。実際$\mathbb P^n$の部分集合
+$$U_i\coloneqq\{(a_0:\cdots:a_n)\in\mathbb P^n\mid a_i\neq0\}$$
+を考えると、これは全単射
+\begin{align*}
+\varphi_i&\colon U_i\to\mathbb A^n,\,(a_0:\cdots:a_n)\mapsto\left(\frac{a_0}{a_i},\cdots,\frac{a_{i-1}}{a_i},\frac{a_{i+1}}{a_i},\cdots,\frac{a_n}{a_i}\right)\\
+\psi_i&\colon\mathbb A^n\to U_i,\,(a_1,\cdots,a_n)\mapsto(a_1:\cdots:a_i:1:a_{i+1}:\cdots:a_n)
+\end{align*}
+($\varphi_i\circ\psi_i=\id_{\mathbb A^n}$, $\psi_i\circ\varphi_i=\id_{U_i}$)によって$n$次元アフィン空間と自然に同一視できます。雑な言い方になりますが、ほぼすべての点は$a_i\neq0$なので、$U_i$での函数の振る舞い($U_i$を$\mathbb A^n$と見做せばイメージしやすい)を見れば$\mathbb P^n$での振る舞いもある程度イメージできることになります。また、$\mathbb P^n$の定義から$(a_0:\cdots:a_n)$の$a_0,\cdots,a_n$のうち少なくとも1つは非零なので、$\mathbb P^n$は$U_i$たちで覆われます。</p>
+<paragraph>さて、アフィン空間のときと同様に射影空間でも代数的集合を考えます。そのために$f\in k[x_0,\cdots,x_n]$に対して
+$$\mathcal Z(f)\coloneqq\{(a_0:\cdots:a_n)\in\mathbb P^n\mid f(a_0,\cdots,a_n)=0\}$$
+としたいところですが、一般には$(a_0:\cdots:a_n)=(a'_0:\cdots:a'_n)$であっても$f(a_0,\cdots,a_n)=f(a'_0,\cdots,a'_n)$とは限りません。そこで、この$\mathcal Z(f)$の定義がwell-definedとなるように$f$に条件を付けます。</paragraph>
+<div id="hom-poly-def" class="box definition">
+    <div class="title">斉次多項式</div>
+    <div class="content">$f\in k[x_0,\cdots,x_n]$が非負整数$d$を用いて
+    $$f=\sum_{e_{i0}+\cdots+e_{in}=d}c_ix_0^{e_{i0}}\cdots x_n^{e_{in}}$$
+    の形で表せるとき、即ち$d$次単項式の和として書けるとき、$f$は<strong>$d$次斉次多項式 (homogeneous polynomial of degree $d$)</strong>であるという。</div>
+</div>
+<p>この定義においては、任意の非負整数$d$について「零多項式は$d$次斉次多項式である」は真です。気持ち悪いと感じるかもしれませんが、このように定義すると議論が楽になりがちです。なお、零多項式の次数についてはundefinedとします($-\infty$とする人もいる)。$f$を$d$次斉次多項式とし、$(a_0:\cdots:a_n)=(a'_0:\cdots:a'_n)\in\mathbb P^n$とします。このときある$\lambda\in k^\times$が存在して
+$$(a_0,\cdots,a_n)=(\lambda a'_0,\cdots\lambda a'_n)$$
+と書けるので、$f=\dsum_{e_{i0}+\cdots+e_{in}=d}c_ix_0^{e_{i0}}\cdots x_n^{e_{in}}$とおくと
+\begin{align*}
+f(a_0,\cdots,a_n)&=\sum_{e_{i0}+\cdots+e_{in}=d}c_i(\lambda a'_0)^{e_{i0}}\cdots(\lambda a'_n)^{e_{in}}\\
+&=\sum_{e_{i0}+\cdots+e_{in}=d}c_i\lambda^{e_{i0}+\cdots+e_{in}}{a'}_0^{e_{i0}}\cdots{a'}_n^{e_{in}}\\
+&=\lambda^df(a'_0,\cdots,a'_n)
+\end{align*}
+を得ます。よって、$f(a_0,\cdots,a_n)=f(a'_0,\cdots,a'_n)$は一般には成り立ちませんが
+$$f(a_0,\cdots,a_n)=0\iff f(a'_0,\cdots,a'_n)=0$$
+は成り立つことが分かります。以上より、$f$が斉次多項式であるとき$P\in\mathbb P^n$に対して“$f(P)=0$”はwell-definedなので、これを以て
+$$\mathcal Z(f)\coloneqq\{P\in\mathbb P^n\mid f(P)=0\}$$
+を定めます。アフィン空間の場合と同様、(同じ次数でなくともよい)斉次多項式の集合$T$に対してその零点集合を
+$$\mathcal Z(T)\coloneqq\{P\in\mathbb P^n\mid{}^\forall f\in T,\,f(P)=0\}$$
+とします。以下、$S\coloneqq k[x_0,\cdots,x_n]$とします。</p>
+<div id="algebraic-set" class="box definition">
+    <div class="title">代数的集合</div>
+    <div class="content">射影空間$\mathbb P^n$の部分集合$Y$が<strong>代数的集合 (algebraic set)</strong>であるとは、斉次多項式からなる$S\coloneqq k[x_0,\cdots,x_n]$の部分集合$T$が存在して$Y=\mathcal Z(T)$となることをいう。</div>
+</div>
+<p>射影空間にも、アフィン空間と同様にして位相を入れます。</p>
+<div id="Zariski" class="box theorem">
+    <div class="title">Zariski位相</div>
+    <div class="content">射影空間における閉集合を代数的集合と定義すると、この閉集合系は位相空間の公理を満たす。これにより定まる位相を<strong>Zariski位相 (Zariski topology)</strong>という。</div>
+</div>
+<div id="proof-Zariski" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$\mathcal Z(1)=\varnothing$, $\mathcal Z(0)=\mathbb P^n$なので、空集合および全体集合は代数的集合となる。よって、二つの代数的集合の合併および任意個の代数的集合の交わりが代数的集合となることを言えばよい。</paragraph>
+    <paragraph>$Y_1$, $Y_2$を代数的集合とし、$Y_1=\mathcal Z(T_1)$, $Y_2=\mathcal Z(T_2)$なる斉次多項式の集合$T_1,T_2\subseteqq S$をとる。
+    $$T=T_1\cdot T_2\coloneqq\{f_1f_2\in S\mid f_1\in T_1,\,f_2\in T_2\}$$
+    とおくと、$T$は斉次多項式のみからなる。$P\in\mathbb P^n$が$Y_1\cup Y_2$に属するとき、${}^\forall f\in T_1,\,f(P)=0$または${}^\forall g\in T_2,\,g(P)=0$なので任意の$fg\in T$に対して$(fg)(P)=0$である。逆に、$P\notin Y_1\cup Y_2$なら${}^\exists f\in T_1\st f(P)\neq0$かつ${}^\exists g\in T_2\st g(P)\neq0$なので、この$f$, $g$について$(fg)(P)\neq0$である。よって、$Y_1\cup Y_2=\mathcal Z(T_1\cdot T_2)$が成り立つ。</paragraph>
+    <paragraph>$\{Y_\lambda\}_{\lambda\in\Lambda}$を代数的集合の族とし、$Y_\lambda=\mathcal Z(T_\lambda)$なる$T_\lambda$をとる。$P\in\mathbb P^n$が$\dcap_{\lambda\in\Lambda}Y_\lambda$に属することは、すべての$\lambda\in\Lambda$とすべての$f\in T_\lambda$に対して$f(P)=0$であることと言い換えられる。よって、$\dcap_{\lambda\in\Lambda}Y_\lambda=\mathcal Z{\left(\bigcup_{\lambda\in\Lambda}T_\lambda\right)}$が成り立つ。</paragraph>
+    </div>
+</div>
+<div id="irreducible-set" class="box definition">
+    <div class="title">射影多様体</div>
+    <div class="content">射影空間の既約閉集合にZariski位相から誘導される位相を入れた位相空間を<strong>射影代数多様体 (projective algebraic variety)</strong>、あるいは単に<strong>射影多様体 (projective variety)</strong>という。また、射影多様体内の開集合を<strong>準射影多様体 (quasi-projective variety)</strong>という。</div>
+</div>
+<p>位相空間において全体集合は常に開集合なので、射影多様体は準射影多様体でもあることに注意してください。</p>
+<h3 id="hom-ideal">次数環・斉次イデアル</h3>
+<p>斉次多項式について考える上での便宜のため、多項式環を一般化した次数環とその斉次イデアルを定義します。以下の定義は代数に慣れていないとよく分からないかもしれないので、同値な言い換えも述べます。</p>
+<div id="graded-def" class="box definition">
+    <div class="title">次数環</div>
+    <div class="content">環$R$が加法群として$R=\displaystyle\bigoplus_{d=0}^\infty R_d$の形に直和分解されていて<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>、任意の非負整数$d,e$について$R_d\cdot R_e\subseteqq R_{d+e}$であるとき、$R$は<strong>次数環 (graded ring)</strong>または<strong>次数付き環</strong>であるという。また、$R_d$の元を<strong>次数$d$の斉次元 (homogeneous element of degree $d$)</strong>という。</div>
+</div>
+<paragraph>まず、$R=\displaystyle\bigoplus_{d=0}^\infty R_d$の形に直和分解されているとは、任意の$r\in R$が$r=\dsum_\text{有限和}r_d$ ($r_d\in R_d$)の形で一意的に表せるということです。例えば$R\coloneqq k[x_0,\cdots,x_n]$とすると、$R_d$を$d$次斉次多項式の全体とすることで$R=\displaystyle\bigoplus_{d=0}^\infty R_d$が成り立ちます。実際$R_d$が加法群$R$の部分群であることは明らかであり、$f\in R$を斉次多項式の和に分解する方法は$f$に含まれる$d$次単項式全体の和を$r_d$とする方法のみです。</paragraph>
+<p>次に、$R_d\cdot R_e$とは$\{f\cdot g\mid f\in R_d,\ g\in R_e\}$のことでしたから、$R_d\cdot R_e\subseteqq R_{d+e}$は「任意の$f\in R_d$および任意の$g\in R_e$について$f\cdot g\in R_{d+e}$である」こと、つまり「次数$d$の斉次元と次数$e$の斉次元の積は次数$d+e$の斉次元である」ことを意味します。例えば$R\coloneqq k[x_0,\cdots,x_n]$なら、$f$を$d$次斉次多項式, $g$を$e$次斉次多項式として
+\begin{align*}
+f=\sum_{e_{i0}+\cdots+e_{in}=d}c_ix_0^{e_{i0}}\cdots x_n^{e_{in}}\\
+g=\sum_{e'_{i0}+\cdots+e'_{in}=e}c'_ix_0^{e'_{i0}}\cdots x_n^{e'_{in}}
+\end{align*}
+とおけば、$fg$に現れる項$c_ic'_ix_0^{e_{i0}+e'_{i0}}\cdots x_n^{e_{in}+e'_{in}}$の次数は常に
+$$(e_{i0}+e'_{i0})+\cdots+(e_{in}+e'_{in})=(e_{i0}+\cdots+e_{in})+(e'_{i0}+\cdots+e'_{in})=d+e$$
+です。したがって$fg$は$(d+e)$次斉次多項式なので、前段落と併せて$R$は次数環であることが分かります。</p>
+<p>次数環$R$の元$r$を$r=\dsum_{d=0}^\infty r_d$ ($r_d$は次数$d$の斉次元であり、有限個の例外を除いて$r_d=0$)の形で表すことを斉次分解<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a></sup>といい、このときの$r_d$を$r$の<strong>$d$次斉次成分 (homogeneous component of degree $d$)</strong>といいます。また、$r_d\neq0$なる非負整数$d$のうち最も大きいものを$r$の次数といい、$\deg r$で表します。斉次多項式のときと同様、零元は任意の非負整数次の斉次元とし、また零元の次数はundefinedとします($-\infty$とする人もいる)。</p>
+<p>なお、$\deg1=\deg(1\cdot1)=2\deg1$であることから、$\deg1=0$であること、特に$1$が斉次元であることが分かります。</p>
+<p>続いて斉次イデアルを定義します。</p>
+<div id="hom-ideal-def" class="box definition">
+    <div class="title">斉次イデアル</div>
+    <div class="content">次数環$R=\displaystyle\bigoplus_{d=0}^\infty R_d$のイデアル$I$が<strong>斉次イデアル (homogeneous ideal)</strong>であるとは、
+    $$I=\bigoplus_{d=0}^\infty(I\cap R_d)$$
+    と直和分解されることをいう。</div>
+</div>
+<p>斉次イデアルの定義にも次数環の定義と同様の言い換えがありますが、これについては次の命題で詳しく述べます。</p>
+<div id="hom-equiv-prop" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$I$を次数環$R=\displaystyle\bigoplus_{d=0}^\infty R_d$のイデアルとする。このとき、$I$が斉次イデアルであることは以下の各条件と同値である。
+    <ol>
+        <li>任意の$a\in I$について、$a$の斉次成分はすべて$I$に属する。</li>
+        <li>斉次元のみからなる$B\subseteqq I$が存在し、$I$は$B$によって生成される。</li>
+    </ol></div>
+</div>
+<div id="hom-equiv-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>1. $(\Rightarrow)$ $I$が斉次イデアルであるとすると、$a\in I$は$I\cap R_d$の元の和で一意に表せる。$a=\dsum_\text{有限和}a_d$ ($a_d\in I\cap R_d$)とおけば、各$a_d$は斉次元なのでこれは斉次分解でもある。したがって$a$の斉次成分はすべて$I$の元である。</paragraph>
+    <paragraph>$(\Leftarrow)$ $I$の任意の元の任意の斉次成分が$I$に属すると仮定し、$I$の任意の元が$I\cap R_d$の元の和として一意に表せることを示す。$a\in I$を任意にとって$a=\dsum_\text{有限和}a_d$と斉次分解する。仮定より各$a_d$は$I$に属するのでこれは$I\cap R_d$の元による$a$の分解を与える。</paragraph>
+    <paragraph>2. $(\Rightarrow)$ $I$が斉次イデアルであると仮定し、$I$に属する斉次元全体の集合を$B$とする。このとき$(B)\subseteqq I$であることは明らか。また、$I$の任意の元は$B$の元(即ち$I\cap R_d$たちのいずれかに属する元)の有限和で表せるので、$(B)=I$を得る。</paragraph>
+    <paragraph>$(\Leftarrow)$ 斉次元のみからなる$B\subseteqq I$によって$I$が生成されると仮定する。このとき$a\in I$は$B$の元の$R$線型結合で書けるため、$a$の任意の斉次成分はやはり$B$の元の$R$線型結合で表せる。よって$a\in(B)=I$である。よって、$I$は1.を満たすので斉次イデアルである。</paragraph>
+    </div>
+</div>
+<p>これらによって斉次イデアルの判定が楽になります。なお、$B$が斉次元のみからなる集合でなくとも$(B)$が斉次イデアルになりうることに注意してください。例えば$k[x,y]$のイデアル$I=(x+y^2,x-y^2)$を考えると、$x+y^2$や$x-y^2$は斉次多項式ではありませんが$I=(x,y^2)$なので$I$は斉次イデアルです。</p>
+<div id="hom-oper-prop" class="box proposition">
+    <div class="title"></div>
+    <div class="content">斉次イデアル同士の和, 積, 共通部分および斉次イデアルの根基は再び斉次イデアルとなる。</div>
+</div>
+<div id="hom-oper-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$I,J$を斉次イデアルとする。</paragraph>
+    <paragraph>任意に$a\in I+J$をとると、ある$a'\in I$, $a''\in J$を用いて$a=a'+a''$と書ける。$a',a''$の$d$次斉次成分はそれぞれ$I,J$に属し、$a$の$d$次斉次成分はこれらの和であるから$I+J$に属する。したがって$I+J$は斉次イデアルである。</paragraph>
+    <paragraph>任意に$a\in IJ$をとると、ある$a'_i\in I$, $a''_i\in J$を用いて$a=\dsum a'_ia''_i$と書ける。$a$の$d$次斉次成分が$IJ$に属することを言うには、各$a'_ia''_i$の$d$次斉次成分が$IJ$に属することを言えばよい。$a'_ia''_i$の$d$次斉次成分は、$a'_i$の$j$次斉次成分と$a''_i$の$(d-j)$次斉次成分の積を$j=0,\cdots,d$に亙って足し合わせることで得られる。$a'_i$の$j$次斉次成分は$I$に属し、$a''_i$の$(d-j)$次斉次成分は$J$に属するので$a'_ia''_i$の$d$次斉次成分は$IJ$に属することが分かる。以上より$IJ$は斉次イデアルである。</paragraph>
+    <paragraph>任意に$a\in I\cap J$をとると、$a$の斉次成分はすべて$I$にも$J$にも属するから$I\cap J$に属し、したがって$I\cap J$は斉次イデアルである。</paragraph>
+    <paragraph>任意に$a\in\sqrt I$をとり、$a=\dsum_{d=0}^ma_d$ ($a_d\in R_d$)と斉次分解する。また、$a^n\in I$なる正整数$n$をとる。このとき$a^n$の$mn$次斉次成分は$a_m^n$であり、これが$I$に属することから$a_m\in\sqrt I$である。$a-a_m$について同様の議論をすれば$a_{m-1}\in\sqrt I$が分かる。以下同様に繰り返せばすべての$a_d$が$\sqrt I$に属すると示された。</paragraph>
+    </div>
+</div>
+<p>斉次イデアルと素イデアルとの関係についても考えます。</p>
+<div id="hom-prime-prop" class="box proposition">
+    <div class="title"></div>
+    <div class="content">次数環$R$の斉次イデアル$I$が素イデアルとなるための必要十分条件は、斉次元$u,v\in R$が$uv\in I$を満たすならば$u\in I$または$v\in I$が成り立つことである。</div>
+</div>
+<div id="hom-prime-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$ab\in I$を満たす$a,b\in R$を任意にとり、$a=\dsum_{d=0}^ma_d$, $b=\dsum_{d=0}^mb_d$ ($a_d,b_d\in R_d$)と斉次分解する。$ab$の$2m$次斉次成分は$a_mb_m$であり、$I$が斉次イデアルであることから$a_mb_m\in I$となる。仮定より$a_m\in I$または$b_m\in I$である。$a_m\in I$なら$a$を$a-a_m$に置き換え、$b_m\in I$なら$b$を$b-b_m$に置き換えて同様の議論を繰り返す。すると、すべての$a_d$またはすべての$b_d$が$I$に属すると示され、したがって$a\in I$または$b\in I$を得る。</paragraph>
+    </div>
+</div>
+<p>最後に、Noether次数環における斉次イデアルについて見ます。</p>
+<div id="hom-Noet-prop" class="box proposition">
+    <div class="title"></div>
+    <div class="content">Noether次数環の斉次イデアル$I$は、有限個の斉次多項式によって生成できる。</div>
+</div>
+<div id="hom-Noet-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>Noether環のイデアルは有限個の元で生成できるので$I=(a_1,\cdots,a_r)$とおく。また、各$a_j$を$a_j=\dsum_da_{j,d}$と斉次分解したとき、$a_{j,d}$たちで生成されるイデアルは$(a_1,\cdots,a_r)$に一致するので示された。</paragraph>
+    </div>
+</div>
+<h3 id="alset-ideal">代数的集合とイデアル</h3>
+<p>アフィン空間のときは$A=k[x_1,\cdots,x_n]$のイデアル$I$に対して$\mathcal Z(I)$を何ら問題なく考えることができましたが、射影空間の$\mathcal Z$には斉次多項式のみからなる集合が入るので、斉次イデアル$I$に対して$\mathcal Z(I)$を以下のように定義します。
+$$\mathcal Z(I)\coloneqq\mathcal Z(\{f\in I\mid f\colon\text{斉次多項式}\})$$
+$I$を斉次イデアルに限定したのは、<a href="#hom-equiv-prop">命題1</a>の2.の性質によるものです。つまり、斉次イデアルは斉次多項式で生成されるのに対し、非斉次イデアルではそれができないので、$I$が斉次イデアルであるとき$I$と$\{f\in I\mid f\colon\text{斉次多項式}\}$の結びつきが強いと言えます。</p>
+<p>この表記とNoether性を使って、射影代数的集合が有限個の多項式によって定められることを示します。</p>
+<div id="finiteness-thm" class="box theorem">
+    <div class="title"></div>
+    <div class="content">代数的集合$Y\subseteqq\mathbb P^n$は、ある$f_1,\cdots,f_r$を用いて$Y=\mathcal Z(f_1,\cdots,f_r)$と表せる。</div>
+</div>
+<div id="finiteness-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$Y=\mathcal Z(T)$を満たし斉次多項式のみからなる集合$T\subseteqq S$をとり、$T$で生成される(斉次)イデアルを$I$とおく。このとき<a href="../affine-space#proof-finite">アフィン空間の場合の証明</a>と同様の流れから、$\mathcal Z(T)=\mathcal Z(I)$となることが分かる($\mathcal Z(I)$の意味合いの違いはあるが、さほど計算は変わらない)。よって、<a href="#hom-Noet-prop">命題4</a>により$I$の有限生成系$\{f_1,\cdots,f_r\}$をとれば$\mathcal Z(f_1,\cdots,f_r)=\mathcal Z(I)=Y$を得る。</paragraph>
+    </div>
+</div>
+<paragraph>射影空間においては、アフィン空間と同様に$W\subseteqq\mathbb P^n$のイデアルを
+$$\{f\in S\mid{}^\forall P\in W,\,f(P)=0\}$$
+で定義することはできません。なぜなら非斉次多項式については$f(P)=0$がundefinedとなってしまうからです。ということで射影空間の場合は、$f(P)=0$ (${}^\forall P\in W$)を満たす斉次多項式$f\in S$全体で生成される$S$のイデアルを$\mathcal I(W)$と書き、$W$の<strong>斉次イデアル (homogeneous ideal)</strong>といいます。この$\mathcal I(W)$が$S$の斉次イデアルとなることは<a href="#hom-equiv-prop">命題1</a>の2.から分かります。</paragraph>
+<p>代数的集合や斉次イデアルに関する詳しい性質については、</p>
+<div id="coord-ring-def" class="box definition">
+    <div class="title">斉次座標環</div>
+    <div class="content">代数的集合$Y\subseteqq\mathbb P^n$に対し、その<strong>斉次座標環 (homogeneous coordinate ring)</strong>を$S(Y)\coloneqq S/\mathcal I(Y)$で定める。</div>
+</div>
+<p>アフィン座標環は、$Y$上の多項式函数全体のなす環と解釈できたのでした。斉次座標環でもそのような解釈を与えたいのですが、その前にいくらか準備が必要です。</p>
+<h3 id="rel-aff-proj">アフィン空間との関係</h3>
+<p>記事前半で与えた全単射
+\begin{align*}
+\varphi_i&\colon U_i\to\mathbb A^n,\,(a_0:\cdots:a_n)\mapsto\left(\frac{a_0}{a_i},\cdots,\frac{a_{i-1}}{a_i},\frac{a_{i+1}}{a_i},\cdots,\frac{a_n}{a_i}\right)\\
+\psi_i&\colon\mathbb A^n\to U_i,\,(a_1,\cdots,a_n)\mapsto(a_1:\cdots:a_i:1:a_{i+1}:\cdots:a_n)
+\end{align*}
+が実は同相写像にもなっていることを示します。基本的な方針は、$U_i$の閉集合と$\mathbb A^n$の閉集合を対応させるため、$S=k[x_0,\cdots,x_n]$の斉次元と$A=k[y_1,\cdots,y_n]$の元の対応を$\varphi_i$や$\psi_i$に似た方法で構成することです。</p>
+<div id="homeo-thm" class="box theorem">
+    <div class="title"></div>
+    <div class="content">$U_i$と$\mathbb A^n$は$\varphi_i$, $\psi_i$によって同相である。</div>
+</div>
+<div id="homeo-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>簡単のため、$i=0$の場合のみ考える。即ち、
+    \begin{align*}
+    \varphi&\colon U_0\to\mathbb A^n,\,(a_0:\cdots:a_n)\mapsto\left(\frac{a_1}{a_0},\cdots,\frac{a_n}{a_0}\right)\\
+    \psi&\colon\mathbb A^n\to U_0,\,(a_1,\cdots,a_n)\mapsto(1:a_1:\cdots:a_n)
+    \end{align*}
+    がそれぞれ連続写像であることを示す。</paragraph>
+    <p>まず、$S$の斉次元全体の集合$S^\mathrm h$から$A$への写像$\alpha$および$A$から$S^\mathrm h$への写像$\beta$を
+    \begin{align*}
+    \alpha&\colon S^\mathrm h\to A,\,f(x_0,\cdots,x_n)\mapsto f(1,y_1,\cdots,y_n)\\
+    \beta&\colon A\to S^\mathrm h,\,g(y_1,\cdots,y_n)\mapsto x_0^{\deg g}g{\left(\frac{x_1}{x_0},\cdots,\frac{x_n}{x_0}\right)}
+    \end{align*}
+    と定める。</p>
+    <p>閉集合$Y\subseteqq U_0$に対し$\mathbb P^n$における$Y$の閉包を$\bar Y$とおくと、$\bar Y$は射影代数的集合なのである$T\subseteqq S^\mathrm h$が存在して$\bar Y=\mathcal Z(T)$となる。このとき、$T'\coloneqq\alpha(T)$とすれば$\psi^{-1}(Y)=\mathcal Z(T')$であることを示そう。$P=(a_1,\cdots,a_n)\in\mathbb A^n$を任意にとる。$Y=\bar Y\cap U_0$なので、$P\in\psi^{-1}(Y)$であることは任意の$f\in T$について
+    $$f\bigl(\psi(P)\bigr)=f(1,a_1,\cdots,a_n)=\alpha(f)(P)=0$$
+    が成り立つことと同値。また、$P\in\mathcal Z(T')$であることは任意の$\tilde f\in T'$について$\tilde f(P)=0$であること、即ち任意の$f\in T$について$\alpha(f)(P)=0$であることと同値である。以上より$\psi^{-1}(Y)=\mathcal Z(T')$でありこれは$\mathbb A^n$の閉集合なので、$\psi$は連続である。</p>
+    <p>閉集合$W\subseteqq\mathbb A^n$を任意にとると、$W$はアフィン代数的集合なのである$T'\subseteqq A$が存在して$W=\mathcal Z(T')$となる。このとき、$T\coloneqq\beta(T')$とすれば$\varphi^{-1}(W)=\mathcal Z(T)\cap U_0$であることを示そう。$P=(a_0:\cdots:a_n)\in U_0$を任意にとる。$P\in\varphi^{-1}(W)$であることは、任意の$g\in T'$について
+    $$g\bigl(\varphi(P)\bigr)=g{\left(1,\frac{a_1}{a_0},\cdots,\frac{a_n}{a_0}\right)}=a_0^{-\deg g}\beta(g)(P)=0$$
+    即ち$\beta(g)(P)=0$が成り立つことと同値($P\in U_0$ゆえ$a_0\neq0$であることに注意)。また、$P\in\mathcal Z(T)\cap U_0$であることは任意の$\tilde g\in T$について$\tilde g(P)=0$であること、即ち任意の$g\in T'$について$\beta(g)(P)=0$であることと同値である。以上より$\varphi^{-1}(Y)=\mathcal Z(T)\cap U_0$でありこれは$U_0$の閉集合なので、$\varphi$は連続である。</p>
+    </div>
+</div>
+<p>系として、(準)射影多様体は(準)アフィン多様体を貼り合わせたものと見做せることが分かります。</p>
+<div id="gluing-cor" class="box corollary">
+    <div class="title"></div>
+    <div class="content">$Y$を(準)射影多様体とすると、$Y$は$\varphi_i$を通じて(準)アフィン多様体と同相な部分集合$Y\cap U_i$によって覆われる。</div>
+</div>
+<div id="gluing-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$Y$が$Y\cap U_i$たちで覆われることは$\dcup_{i=0}^nU_i=\mathbb P^n$から明らかなので、各$Y\cap U_i$が$\varphi_i$を通じて(準)アフィン多様体と同相であることを示す。</paragraph>
+    <p>まず$Y$が射影多様体であるとき、$\varphi\colon U_i\to\mathbb A^n$が同相写像であることから$\varphi|_{Y\cap U_i}\colon Y\cap U_i\to\varphi(Y)$は同相写像である。<a href="../Nullstellensatz#open">既約空間の開集合が既約である</a>ことから$Y\cap U_i$は既約であり<sup><a id="footnoteref3" href="#footnote3">[脚註3]</a></sup>、これと同相な$\varphi(Y)$も既約となる。また、$\varphi$の同相性から$\varphi(Y)$は閉集合であることも分かるので、$\varphi(Y)$はアフィン多様体であることが分かる。</p>
+    <p>$Y$が準射影多様体であるとし、$Y$を開部分集合に持つ射影多様体$Y'$をとる<sup><a id="footnoteref4" href="#footnote4">[脚註4]</a></sup>。$\varphi|_{Y'\cap U_i}\colon Y'\cap U_i\to\varphi(Y')$が同相写像であることから$\varphi(Y)$はアフィン多様体$\varphi(Y')$の開集合なので、$Y$は準アフィン多様体$\varphi(Y')$と同相である。</p>
+    </div>
+</div>
+<p>射影座標環のイメージを考える前にもう一つ代数的な準備をします。</p>
+<div id="quotient-grade-prop" class="box proposition">
+    <div class="title"></div>
+    <div class="content">$R=\displaystyle\bigoplus_{d=0}^\infty R_d$を次数環とし、$I$をその斉次イデアルとする。このとき$I_d\coloneqq I\cap R_d$は加法群$I$の部分群であり、$R/I$は$R/I=\displaystyle\bigoplus_{d=0}^\infty(R_d/I_d)$と見ることで次数環になる。</div>
+</div>
+<p>環$\displaystyle\bigoplus_{d=0}^\infty(R_d/I_d)$の演算は、$(r+I_d)+(r'+I_d)\coloneqq(r+r')+I_d$, $(r+I_d)\cdot(r'+I_e)=rr'+I_{d+e}$によって定めます。</p>
+<div id="quotient-grade-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$I_d$が$I$の部分群であることは、$I$および$R_d$がそれぞれ加法群$R$の部分群であることから従う。</paragraph>
+    <p>$R/I=\displaystyle\bigoplus_{d=0}^\infty(R_d/I_d)$を示す。環準同型$f\colon R\to\displaystyle\bigoplus_{d=0}^\infty(R_d/I_d)$を
+    $$\sum_{d=0}^\infty r_d\mapsto\sum_{d=0}^\infty(r_d+I_d)\qquad(r_d\in R_d)$$
+    で定める(斉次分解の一意性からこの写像はwell-defined)。このとき$r=\dsum_{d=0}^\infty r_d\in R$について、$r\in\Ker f$であることは全ての$d$について$r_d+I_d=0$であること、即ち$r_d\in I_d$であることと同値。また、<a href="#hom-equiv-prop">命題1</a>の1.よりこれは$r\in I$と同値である。よって$\Ker f=I$なので、環準同型定理より$R/I=\displaystyle\bigoplus_{d=0}^\infty(R_d/I_d)$を得る。</p>
+    <p>最後に、$(R_d/I_d)\cdot(R_e/I_e)\subseteqq R_{d+e}/I_{d+e}$は環$\displaystyle\bigoplus_{d=0}^\infty(R_d/I_d)$の演算の定義から直ちに従う。</p>
+    </div>
+</div>
+<p>以下で射影座標環のイメージを説明しますが、あくまで私個人の解釈と捉えてください。これは射影座標環なるものを考える動機付けに関する私なりの解釈であり、代数幾何学の勉強をする上でさほど役に立つものではないと思うので、肌に合わなければ読み飛ばしてかまいません。</p>
+<p>$Y$を射影代数的集合とし、その射影座標環$S(Y)$を考えます。アフィン座標環を$Y$上の多項式函数全体のなす環と解釈したのと同様に$S(Y)$も解釈したいのですが、非斉次多項式は扱いづらすぎるので$S(Y)$の斉次元、即ち$S_d/\mathcal I(Y)_d$の元のみを考えます。詳しくは次段落で述べますが、<a href="#homeo-proof">定理3の証明</a>における$\alpha$ (以下ではどの$x_i$に着目しているかを区別するため$\alpha_i$と書く)を用いて$f+I_d\in f+I_d\in S_d/\mathcal I(Y)$を$\alpha_i(f)\colon\varphi_i(Y)\to k$をwell-definedに考えることができます。$Y\cap U_i$と$\varphi_i(Y)$が同相であることからこの函数は$Y\cap U_i$上の函数と見ることができ、$Y\cap U_i$を貼り合わせると$Y$になるので、この方法で$S(Y)$の斉次元を$Y$上の函数擬きと見做せます。</p>
+<p>$f+I_d=g+I_d$なる$f,g\in S_d$をとり、$\alpha(f),\alpha(g)\colon\mathbb A^n\to k$を考えます。すると、$P=(a_0:\cdots:a_n)\in Y$に対して
+\begin{align*}
+\alpha(f)(\varphi_i(P))-\alpha(g)(\varphi_i(P))&=\alpha(f-g){\left(\frac{a_0}{a_i},\cdots,\frac{a_{i-1}}{a_i},\frac{a_{i+1}}{a_i},\cdots,\frac{a_n}{a_i}\right)}\\
+&=(f-g){\left(\frac{a_0}{a_i},\cdots,\frac{a_{i-1}}{a_i},1,\frac{a_{i+1}}{a_i},\cdots,\frac{a_n}{a_i}\right)}
+\end{align*}
+であり、$(f-g)(a_0,\cdots,a_n)=0$なので
+$$\left(\frac{a_0}{a_i}:\cdots:\frac{a_{i-1}}{a_i}:1:\frac{a_{i+1}}{a_i}:\cdots:\frac{a_n}{a_i}\right)=(a_0:\cdots:a_n)$$
+と併せて$\alpha(f)(\varphi_i(P))-\alpha(g)(\varphi_i(P))$ (${}^\forall P\in Y$)を得ます。したがって、$f+I_d\in S_d/\mathcal I(Y)$の元から函数$\alpha_i(f)\colon\varphi_i(Y)\to k$をwell-definedに作ることができると分かりました。</p>
+<p>なお、各$d\geqq0$に対して$\alpha_i$は単射ではありますが全射ではありません。単射であることは$\beta\circ\alpha$が恒等写像となることから従い、全射でないことは例えば$\alpha_0(f)=x_1^{d+1}$なる$f\in S_d$が存在しないことから分かります。また、多項式函数$g\colon\varphi(Y)\to k$が与えられたとき、$d$を十分大きくとれば$\alpha_i(f)=g$となるような$f\in S_d$を選ぶことができます($x_i^{d-\deg g}\beta(g)$とすればよい)。</p>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">ここでは非負整数を次数とする次数環のみ扱いますが、より一般に整数で次数付けされた次数環を考えることもあります。例えばLaurent多項式環$R\coloneqq K[x,x^{-1}]$は、$d\in\mathbb Z$に対して$R_d\coloneqq\{ax^d\mid a\in K\}$とすることで$R=\displaystyle\bigoplus_{d=-\infty}^\infty R_d$となり、また$R_d\cdot R_e\subseteqq R_{d+e}$ (${}^\forall d,e\in\mathbb Z$)が成り立ちます。あるいは更に一般化して、一般のモノイドで次数付けすることもできます。<a href="#footnoteref1">↩</a></li>
+<li id="footnote2">斉次分解という言葉がどの程度一般的に用いられているか分かりません。斉次元分解, 斉次成分分解などでも意味は通じると思いますが、日本語でも英語でも特に用語として定まってはいないようです。<a href="#footnoteref2">↩</a></li>
+<li id="footnote3">$U_i$が開集合であることは説明していませんでしたが、$U_i=\mathbb P^n\setminus\mathcal Z(x_i)$から直ちに従います。<a href="#footnoteref3">↩</a></li>
+<li id="footnote4">説明の簡便化のため$Y'$を具体的に構成することはしませんでしたが、$Y'=\bar Y$ ($\mathbb P^n$における閉包)とすればよいことを以下で示します。$Y$を開部分集合に持つ射影多様体$Y''$をとります。まず、$Y$は<a href="../Nullstellensatz#open">既約空間の開集合なので既約</a>であり、<a href="../Nullstellensatz/#closure-irred">既約集合の閉包も既約</a>でしたから$\bar Y$も既約です。$\bar Y$は$\mathbb P^n$の閉集合ですから射影多様体であることが分かります。あとは$Y$が$\bar Y$の開集合であることを示せばよいです。$Y$が$Y''$の開集合であることからある開集合$V\subseteqq\mathbb P^n$が存在して$Y=V\cap Y''$となりますが、$Y''$が$Y$を包む閉集合であることから$\bar Y\subseteqq Y''$なので、
+$$V\cap\bar Y=V\cap Y''\cap\bar Y=Y\cap\bar Y=Y$$
+を得ます。よって$Y$は$\bar Y$の開集合です。<a href="#footnoteref4">↩</a></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>

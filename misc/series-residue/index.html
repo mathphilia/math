@@ -77,7 +77,7 @@ $$I_n=\int_0^{2\pi}\frac{\cot(r_ne^{i\theta})}{r_n^2e^{2i\theta}}\cdot ir_ne^{i\
 \end{align*}
 が成り立ちます。$r_n|\sin\theta|\leqq1$のとき$\sqrt{r_n^2-1}\leqq r_n|\cos\theta|\leqq r_n$で、$r_n\geqq\dfrac32\pi=4.712\cdots$なので
 $$r_n-\sqrt{r_n^2-1}=\frac1{r_n+\sqrt{r_n^2-1}}\leqq\frac14$$
-となり、特に$\sqrt{r_n^2-1}\geqq r_n-\dfrac14\pi=\left(n+\dfrac14\right)\pi$が言えます。結局$\left(n+\dfrac14\right)\pi\leqq r_n|\cos\theta|\leqq\left(n+\dfrac12\right)\pi$なので、$r_ne^{i\theta}$の実部の絶対値は$\left(n+\dfrac14\right)\pi$以上$\left(n+\dfrac12\right)\pi$以下ということになります。したがって$(*)$で$a+bi=r_ne^{i\theta}$とおけば、$\cos^2a\leqq\sin^2a,$ $\sinh^2b\leqq\cosh^2b$より$|\cot(a+bi)|\leqq1$が分かりました。$1\leqq\coth1$なので、$1\leqq r_n|\sin\theta|$の場合と併せて常に$|\cot(r_ne^{i\theta})|\leqq\coth1$が得られました。以上より、
+となり、特に$\sqrt{r_n^2-1}\geqq r_n-\dfrac14\pi=\left(n+\dfrac14\right)\pi$が言えます。結局$\left(n+\dfrac14\right)\pi\leqq r_n|\cos\theta|\leqq\left(n+\dfrac12\right)\pi$なので、$r_ne^{i\theta}$の実部の絶対値は$\left(n+\dfrac14\right)\pi$以上$\left(n+\dfrac12\right)\pi$以下ということになります。したがって$(*)$で$a+bi=r_ne^{i\theta}$とおけば、$\cos^2a\leqq\sin^2a$, $\sinh^2b\leqq\cosh^2b$より$|\cot(a+bi)|\leqq1$が分かりました。$1\leqq\coth1$なので、$1\leqq r_n|\sin\theta|$の場合と併せて常に$|\cot(r_ne^{i\theta})|\leqq\coth1$が得られました。以上より、
 $$\lim_{n\to\infty}|I_n|\leqq\lim_{n\to\infty}\int_0^{2\pi}\frac{|\cot(r_ne^{i\theta})|}{r_n}d\theta\leqq\lim_{n\to\infty}2\pi\cdot\frac{\coth1}{r_n}=0$$
 即ち$\dlim_{n\to\infty}I_n=0$となって証明が完了しました。</paragraph>
 <paragraph>やはりというか何というか、$\dlim_{n\to\infty}I_n=0$の証明が大仕事ですね(もっと簡単な方法もあるかも)。ただ、ここで示した$|\cot(r_ne^{i\theta})|\leqq\coth1$は重要で、これの使いまわしで色々な級数を計算できます。</paragraph>
@@ -133,18 +133,18 @@ $$\pi x\cot\pi x=-2\sum_{\ell=-\infty}^\infty\zeta(2\ell)x^{2\ell}$$
 \therefore S&=\frac12(\pi\coth\pi-1)
 \end{align*}
 が分かります。</paragraph>
-<paragraph>以上のように、$\dsum_{n=-\infty}^\infty\alpha(n)$という形の無限級数は$\alpha(x)\cot x$ (<a href="#footnote2">[脚註2]</a>で書いた通り、$\alpha(x)\cot\pi x$の方が良いが大体同じこと)を積分することで求まる…と言えればよいのですが、当然そう上手くは行きません。そもそも$\dlim_{n\to\infty}I_n$が$0$に収束するとは限りませんし、収束するとしてもその証明はほとんどの場合困難でしょう。また、極の特定も一般には難しいですし、仮に$n\pi$ ($n\in\mathbb Z$)以外の極が無限にあったら、無限級数の問題が別の無限級数の問題に置き換わるだけになります(これにより簡単な級数に帰着される場合もあるとは思いますが)。ということで、この方法でまともに計算できるのは、パッと思いつく限りでは$\alpha$が有理函数の場合くらいしかありません。</paragraph>
+<paragraph>以上のように、$\dsum_{n=-\infty}^\infty\alpha(n)$という形の無限級数は$\alpha(x)\cot x$ (<a href="#footnote2">[脚註2]</a>で書いた通り、$\alpha(x)\cot\pi x$の方が良いが大体同じこと)を積分することで求まる……と言えればよいのですが、当然そう上手くは行きません。そもそも$\dlim_{n\to\infty}I_n$が$0$に収束するとは限りませんし、収束するとしてもその証明はほとんどの場合困難でしょう。また、極の特定も一般には難しいですし、仮に$n\pi$ ($n\in\mathbb Z$)以外の極が無限にあったら、無限級数の問題が別の無限級数の問題に置き換わるだけになります(これにより簡単な級数に帰着される場合もあるとは思いますが)。ということで、この方法でまともに計算できるのは、パッと思いつく限りでは$\alpha$が有理函数の場合くらいしかありません。</paragraph>
 <h3 id="root-sum">方程式の解の逆二乗和</h3>
 <paragraph>とはいえ、$\dlim_{n\to\infty}I_n$の証明や極の特定が困難という点に目を瞑ればこの方法は強力で、一見して求まりそうにない級数を計算することができます。</paragraph>
 <div id="tanx-x" class="box problem">
     <div class="title"></div>
-    <div class="content">$\tan x=x$の正の解を小さい方から順に$x_1,$ $x_2,$ $x_3,\cdots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac1{x_n^2}$の和を求めよ。</div>
+    <div class="content">$\tan x=x$の正の解を小さい方から順に$x_1$, $x_2$, $x_3,\cdots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac1{x_n^2}$の和を求めよ。</div>
 </div>
 <paragraph>この問題は有名問題で、いろいろな解法があるようですが複素積分で解くこともできます。ただし、前述の通りきちんと証明するのは大変なので、グラフツールなどを使って「正しそう」と言える程度の説明をします。</paragraph>
 <paragraph>さて、バーゼル問題を解く方針を立てるときどのように考えたか思い返してみると、$\sin x$の零点を極に持つ函数$\dsum_{\sin a=0}\frac1{x-a}$を雑に作り、これに$\dfrac1{x^2}$を掛けて積分することで$\dsum_{\sin a=0}\frac1{a^2}$を求めようとしたのでした。同様に考えると、函数$g$に対して$\dfrac1{x^2}\dsum_{g(a)=0}\frac1{x-a}$を積分すれば$\dsum_{g(a)=0}\frac1{a^2}$が求まりそうな気がします。ということで$\dsum_{g(a)=0}\frac1{x-a}$みたいなものを作ります。$g(x)$をめちゃくちゃ雑に“因数分解”すると$\dprod_{g(a)=0}c_a(x-a)$ ($c_a\in\mathbb C$)のようになり(<a href="https://mathlog.info/articles/1553">Weierstrassの因数分解定理</a>辺りを見るに正しくなさそう)、これを対数微分(しかも雑に項別微分)すると
 $$\frac d{dx}\ln g(x)\stackrel?=\frac d{dx}\sum_{g(a)=0}\left(\ln c_a+\ln(x-a)\right)\stackrel?=\sum_{g(a)=0}\frac1{x-a}$$
 となり目標の形になりました。ここまでの議論はあまりに雑なので、この構成が実用上どの程度上手くいくかは不明です。少なくとも$g(x)$が$x=a$を$k$位の零点($2\leqq k$)に持っていると$\dfrac d{dx}\ln g(x)$が$x=a$を$k$位の極に持ちそうです。</paragraph>
-<paragraph>とりあえず上の問題に適用してみましょう。まず、$\tan x=x$の実数解は$0,$ $\pm x_1,$ $\pm x_2,$ $\cdots$ですが、虚数解は存在するでしょうか。<a href="https://www.desmos.com/calculator">Desmos</a>で設定から複素数モードをオンにし、
+<paragraph>とりあえず上の問題に適用してみましょう。まず、$\tan x=x$の実数解は$0$, $\pm x_1$, $\pm x_2$, $\cdots$ですが、虚数解は存在するでしょうか。<a href="https://www.desmos.com/calculator">Desmos</a>で設定から複素数モードをオンにし、
 \begin{align*}
 &g(z)=\tan z-z\\
 &\operatorname{real}(g(x+yi))=0\\
@@ -161,7 +161,7 @@ $$I_n\coloneqq\int_{C_n}f(x)dx=i\int_0^{2\pi}\frac{\sin(r_ne^{i\theta})}{\sin(r_
 &f(z)=\frac{\sin z}{\sin z-z\cos z}\\
 &I(r)=i\int_0^{2\pi}f(re^{it})dt
 \end{align*}
-と入力して$I(1),$ $I(10),$ $I(100),$ $\cdots$を計算してみるとどんどん小さくなっていくことが観察できます。なお、$y=I(x)$のグラフを描画させようとしても処理が遅くて表示されるまで分単位かかります。端末に依るかもしれませんが。ということで、$r_n$をよほど意地悪に設定しない限り$\dlim_{n\to\infty}I_n=0$になると考えられます。$f$の極とそれらにおける留数を求めましょう。ちなみに$g(x)=\tan x-x$を使っていると$f(x)$の分母に$\tan^2x$があるので、$f$の極として$\tan x=x$の解の他に$\tan$の極が出ます。
+と入力して$I(1)$, $I(10)$, $I(100)$, $\cdots$を計算してみるとどんどん小さくなっていくことが観察できます。なお、$y=I(x)$のグラフを描画させようとしても処理が遅くて表示されるまで分単位かかります。端末に依るかもしれませんが。ということで、$r_n$をよほど意地悪に設定しない限り$\dlim_{n\to\infty}I_n=0$になると考えられます。$f$の極とそれらにおける留数を求めましょう。ちなみに$g(x)=\tan x-x$を使っていると$f(x)$の分母に$\tan^2x$があるので、$f$の極として$\tan x=x$の解の他に$\tan$の極が出ます。
 <ol class="roman">
     <li>$x=\pm x_k$<br>$x=x_k$は$f$の$1$位の極なので、
     $$\Res_{x=x_k}f(x)=\lim_{x\to x_k}\frac{x-x_k}{\sin x-x\cos x}\cdot\frac{\sin x}x=\frac1{x_k\sin x_k}\cdot\frac{\sin x_k}{x_k}=\frac1{x_k^2}$$
@@ -177,7 +177,7 @@ $$I_n\coloneqq\int_{C_n}f(x)dx=i\int_0^{2\pi}\frac{\sin(r_ne^{i\theta})}{\sin(r_
 <paragraph>最後に練習問題を一問だけ出して終わります。答えは書きませんが、<a href="https://www.desmos.com/calculator">Desmos</a>や<a href="https://www.wolframalpha.com/">Wolfram|Alpha</a>等を使って数値計算すれば検算できます。</paragraph>
 <div id="tanx-x" class="box problem">
     <div class="title"></div>
-    <div class="content">$\sin x=\dfrac1x$の正の解を小さい方から順に$x_1,$ $x_2,$ $x_3,$ $\cdots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac1{x_n^4}$の和を求めよ。</div>
+    <div class="content">$\sin x=\dfrac1x$の正の解を小さい方から順に$x_1$, $x_2$, $x_3$, $\cdots$とおく。このとき無限級数$\dsum_{n=1}^\infty\frac1{x_n^4}$の和を求めよ。</div>
 </div>
 <h3 id="footnote">脚註</h3>
 <ol>

@@ -40,7 +40,7 @@
     <div class="content">$R$加群$M$について、以下は同値。
     <ol>
         <li>$M$の部分加群は有限生成である。</li>
-        <li>$M$の部分加群の上昇列$N_1\subset N_2\subset N_3\subset\dots$は有限回で停止する。即ち、ある正整数$n$が存在して$N_n=N_{n+1}=N_{n+2}=\dots$が成り立つ。</li>
+        <li>$M$の部分加群の上昇列$N_1\subseteqq N_2\subseteqq N_3\subseteqq\cdots$は有限回で停止する。即ち、ある正整数$n$が存在して$N_n=N_{n+1}=N_{n+2}=\cdots$が成り立つ。</li>
         <li>$M$の部分加群からなる空でない集合は包含関係について極大元を持つ。</li>
     </ol></div>
 </div>
@@ -48,24 +48,24 @@
 <div id="proof1" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>(1.$\implies$2.) 1.を仮定し、$M$の部分加群の上昇列$N_1\subset N_2\subset N_3\subset\dots$をとる。$N\coloneqq\dcup_{n=1}^\infty N_n$は$M$の部分加群なので有限生成である。$\{a_1,a_2,\dots,a_m\}$を$N$の生成系とすると、各$a_i$に対しある$n_i$が存在して$a_i\in N_{n_i}$となる。$n\coloneqq\dmax_in_i$とすれば、$N_n=N$である。</paragraph>
-    <paragraph>(2.$\implies$3.) 2.を仮定し、$M$の部分加群からなる空でない集合$S$をとる。$S$が極大元を持たないと仮定して$N_1\in S$をとると、$N_1$が極大元でないことから$N_1\subsetneqq N_2$なる$N_2$が存在する。以下同様にして上昇列$N_1\subsetneqq N_2\subsetneqq N_3\subsetneqq\dots$がとれるが、これは停止しない。</paragraph>
-    <paragraph>(3.$\implies$1.) 3.を仮定し、$N$を$M$の部分加群とする。$S\coloneqq\{N'\subset N\mid\text{$N'$は有限生成}\}$とおくと$0\in S$なので$S\neq\varnothing$で、したがって$S$は極大元$\tilde N$を持つ。$N\neq\tilde N$であるとすると$a\in N\setminus\tilde N$をとることができるが、このとき$\tilde N\subsetneqq\tilde N+Ra\subset N$であって$\tilde N+Ra$は有限生成である。</paragraph>
+    <paragraph>(1.$\implies$2.) 1.を仮定し、$M$の部分加群の上昇列$N_1\subseteqq N_2\subseteqq N_3\subseteqq\cdots$をとる。$N\coloneqq\dcup_{n=1}^\infty N_n$は$M$の部分加群なので有限生成である。$\{a_1,a_2,\cdots,a_m\}$を$N$の生成系とすると、各$a_i$に対しある$n_i$が存在して$a_i\in N_{n_i}$となる。$n\coloneqq\dmax_in_i$とすれば、$N_n=N$である。</paragraph>
+    <paragraph>(2.$\implies$3.) 2.を仮定し、$M$の部分加群からなる空でない集合$S$をとる。$S$が極大元を持たないと仮定して$N_1\in S$をとると、$N_1$が極大元でないことから$N_1\subsetneqq N_2$なる$N_2$が存在する。以下同様にして上昇列$N_1\subsetneqq N_2\subsetneqq N_3\subsetneqq\cdots$がとれるが、これは停止しない。</paragraph>
+    <paragraph>(3.$\implies$1.) 3.を仮定し、$N$を$M$の部分加群とする。$S\coloneqq\{N'\subseteqq N\mid\text{$N'$は有限生成}\}$とおくと$0\in S$なので$S\neq\varnothing$で、したがって$S$は極大元$\tilde N$を持つ。$N\neq\tilde N$であるとすると$a\in N\setminus\tilde N$をとることができるが、このとき$\tilde N\subsetneqq\tilde N+Ra\subseteqq N$であって$\tilde N+Ra$は有限生成である。</paragraph>
     </div>
 </div>
 <div id="Noether-module" class="box definition">
     <div class="title">Noether加群</div>
-    <div class="content">$M$を$R$加群とする。定理1の三条件のいずれか(したがって全て)を満たすとき、$M$は<strong>Noether加群 (Noetherian module)</strong>であるという。</div>
+    <div class="content">$M$を$R$加群とする。定理1の三条件のいずれか(したがってすべて)を満たすとき、$M$は<strong>Noether加群 (Noetherian module)</strong>であるという。</div>
 </div>
 <paragraph>同様にしてNoether環も定義されます。応用上はNoether環の方がよく見かけるかもしれませんが、一般的な形で議論したかったのでNoether加群を先に紹介しました。</paragraph>
 <div id="Noether-ring" class="box definition">
     <div class="title">Noether環</div>
     <div class="content">環$R$が$R$加群としてNoether加群であるとき、$R$は<strong>Noether環 (Noetherian ring)</strong>であるという。</div>
 </div>
-<paragraph>環$R$を$R$加群と見たとき部分加群はイデアルなので、上の定義は次のように言い換えられます; 環$R$がNoether環であるとは、以下のいずれか(したがって全て)を満たすことである。
+<paragraph>環$R$を$R$加群と見たとき部分加群はイデアルなので、上の定義は次のように言い換えられます; 環$R$がNoether環であるとは、以下のいずれか(したがってすべて)を満たすことである。
 <ol>
     <li>$R$のイデアルは有限生成である。</li>
-    <li>$R$のイデアルの上昇列$I_1\subset I_2\subset I_3\subset\dots$は有限回で停止する。即ち、ある正整数$n$が存在して$I_n=I_{n+1}=I_{n+2}=\dots$が成り立つ。</li>
+    <li>$R$のイデアルの上昇列$I_1\subseteqq I_2\subseteqq I_3\subseteqq\cdots$は有限回で停止する。即ち、ある正整数$n$が存在して$I_n=I_{n+1}=I_{n+2}=\cdots$が成り立つ。</li>
     <li>$R$のイデアルからなる空でない集合は包含関係について極大元を持つ。</li>
 </ol>
 条件1.より、Noether環は単項イデアル整域の一般化であると言えます。</paragraph>
@@ -82,17 +82,17 @@
 <div id="proof-submodule" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>(1.$\implies$2.) $M$がNoether加群であるとする。$N$の部分加群は$M$の部分加群でもあるので有限生成である。また、$L$を$M/N$の部分加群とすると標準射影$\pi\colon M\to M/N$による逆像$\pi^{-1}[L]$は$M$の部分加群なので、有限生成系$\{a_1,a_2,\dots,a_m\}$をとれる。即ち
-    $$\pi^{-1}[L]=\{r_1a_1+r_2a_2+\dots+r_ma_m\mid r_i\in R\}$$
-    で、両辺を$\pi$で送れば$L$が$\pi(a_1),\pi(a_2),\dots,\pi(a_m)$で生成されると分かる。</paragraph>
-    <paragraph>(2.$\implies$1.) $N$および$M/N$がNoether加群であるとする。$L$を$M$の部分加群とすると、$N\cap L,$ $\pi[L]$はそれぞれ$N,$ $M/N$の部分加群なので有限生成である。$N\cap L,$ $\pi[L]$の生成系としてそれぞれ$\{u_1,u_2,\dots,u_m\},$ $\{\pi(v_1),\pi(v_2),\dots,\pi(v_n)\}$をとる。このとき$x\in L$に対してある$s_1,s_2,\dots,s_n$が存在して
+    <paragraph>(1.$\implies$2.) $M$がNoether加群であるとする。$N$の部分加群は$M$の部分加群でもあるので有限生成である。また、$L$を$M/N$の部分加群とすると標準射影$\pi\colon M\to M/N$による逆像$\pi^{-1}(L)$は$M$の部分加群なので、有限生成系$\{a_1,a_2,\cdots,a_m\}$をとれる。即ち
+    $$\pi^{-1}(L)=\{r_1a_1+r_2a_2+\cdots+r_ma_m\mid r_i\in R\}$$
+    で、両辺を$\pi$で送れば$L$が$\pi(a_1),\pi(a_2),\cdots,\pi(a_m)$で生成されると分かる。</paragraph>
+    <paragraph>(2.$\implies$1.) $N$および$M/N$がNoether加群であるとする。$L$を$M$の部分加群とすると、$N\cap L$, $\pi(L)$はそれぞれ$N$, $M/N$の部分加群なので有限生成である。$N\cap L$, $\pi(L)$の生成系としてそれぞれ$\{u_1,u_2,\cdots,u_m\}$, $\{\pi(v_1),\pi(v_2),\cdots,\pi(v_n)\}$をとる。このとき$x\in L$に対してある$s_1,s_2,\cdots,s_n$が存在して
     \begin{align*}
-    \pi(x)&=s_1\pi(v_1)+s_2\pi(v_2)+\dots+s_n\pi(v_n)\\
-    &=\pi(s_1v_1+s_2v_2+\dots+s_nv_n)
+    \pi(x)&=s_1\pi(v_1)+s_2\pi(v_2)+\cdots+s_n\pi(v_n)\\
+    &=\pi(s_1v_1+s_2v_2+\cdots+s_nv_n)
     \end{align*}
-    が成り立つ。したがって$x-(s_1v_1+s_2v_2+\dots+s_\ell v_n)\in N$なので、ある$r_1,r_2,\dots,r_m$が存在して
-    $$x-(s_1v_1+s_2v_2+\dots+s_\ell v_n)=r_1u_1+r_2u_2+\dots+r_mu_m$$
-    が成り立つ。以上より、$L$は$\{u_1,u_2,\dots,u_m,v_1,v_2,\dots,v_n\}$で生成される。</paragraph>
+    が成り立つ。したがって$x-(s_1v_1+s_2v_2+\cdots+s_\ell v_n)\in N$なので、ある$r_1,r_2,\cdots,r_m$が存在して
+    $$x-(s_1v_1+s_2v_2+\cdots+s_\ell v_n)=r_1u_1+r_2u_2+\cdots+r_mu_m$$
+    が成り立つ。以上より、$L$は$\{u_1,u_2,\cdots,u_m,v_1,v_2,\cdots,v_n\}$で生成される。</paragraph>
     </div>
 </div>
 <div id="sum" class="box corollary">
@@ -106,7 +106,7 @@
 <div id="proof-sum" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>埋め込み$M\hookrightarrow M\oplus N,a\mapsto(a,0)$によって自然に$M\subset M\oplus N$と考えると、$(M\oplus N)/M\cong N$であることから従う。</paragraph>
+    <paragraph>埋め込み$M\hookrightarrow M\oplus N,\,a\mapsto(a,0)$によって自然に$M\subseteqq M\oplus N$と考えると、$(M\oplus N)/M\cong N$であることから従う。</paragraph>
     </div>
 </div>
 <div id="finite" class="box corollary">
@@ -116,8 +116,8 @@
 <div id="proof-finite" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$\{a_1,a_2,\dots,a_n\}$を$M$の生成系とすると、
-    $$f\colon R^k\to M,(r_1,r_2,\dots,r_n)\mapsto\sum_{i=1}^nr_ia_i$$
+    <paragraph>$\{a_1,a_2,\cdots,a_n\}$を$M$の生成系とすると、
+    $$f\colon R^k\to M,\,(r_1,r_2,\cdots,r_n)\mapsto\sum_{i=1}^nr_ia_i$$
     は全射準同型である。$R^n\cong R^{n-1}\oplus R$ ($1\lt n$)なので数学的帰納法より$R^n$はNoetherであり、したがって$M\cong R^n/\Ker f$もNoetherである。</paragraph>
     </div>
 </div>
@@ -129,11 +129,11 @@
     <div class="title"></div>
     <div class="content">
     <paragraph>$S^{-1}M$の部分加群の無限列
-    $$N_1\subsetneqq N_2\subsetneqq N_3\subsetneqq\dots$$
+    $$N_1\subsetneqq N_2\subsetneqq N_3\subsetneqq\cdots$$
     がとれると仮定する。各$N_i$に対して$M$の部分加群
-    $$N_i'\coloneqq\{sx\in M\mid s\in S,x\in N_i\}$$
-    を対応させると、$N_i'\subsetneqq N_{i+1}'$が成り立つ。実際$N_i'\subset N_{i+1}'$は明らかで、$s\in S,$ $x\in N_{i+1}\setminus N_i$が$sx\in N_i'$を満たすなら$sx=ty$なる$t\in S,$ $y\in N_i$が存在することになるがこのとき$x=s^{-1}t y\in N_i$となり矛盾。以上より、$M$の部分加群の無限列
-    $$N_1'\subsetneqq N_2'\subsetneqq N_3'\subsetneqq\dots$$
+    $$N_i'\coloneqq\{y\in M\mid{}^\exists s\in S,{}^\exists x\in N_i\st sx=y\}$$
+    を対応させると、$N_i'\subsetneqq N_{i+1}'$が成り立つ。実際$N_i'\subseteqq N_{i+1}'$は明らかで、$s\in S$, $x\in N_{i+1}\setminus N_i$が$sx\in N_i'$を満たすなら$sx=s'x'$なる$s'\in S$, $x'\in N_i$が存在することになるがこのとき$x=s^{-1}s'x'\in N_i$となり矛盾。以上より、$M$の部分加群の無限列
+    $$N_1'\subsetneqq N_2'\subsetneqq N_3'\subsetneqq\cdots$$
     がとれる。</paragraph>
     </div>
 </div>
@@ -146,11 +146,11 @@
     <div class="title"></div>
     <div class="content">
     <paragraph>正整数$n$に対して$f_n\coloneqq\dfrac1{n!}\dprod_{\ell=0}^{n-1}(x-\ell)$とおく。$f_n(m+1)-f_n(m)=f_{n-1}(m)$ ($1\lt n$)なので、数学的帰納法より$f_n\in R$を得る。$R$のイデアルの列
-    $$(f_1)\subset(f_1,f_2)\subset(f_1,f_2,f_3)\subset\dots$$
+    $$(f_1)\subseteqq(f_1,f_2)\subseteqq(f_1,f_2,f_3)\subseteqq\cdots$$
     が有限回で停止すると仮定すると、ある正整数$N$が存在して
-    $$N\lt n\implies(f_1,f_2,\dots,f_{n-1})=(f_1,f_2,\dots,f_{n-1},f_n)$$
-    となる。ここで、$\implies$の右の式は$f_n\in(f_1,f_2,\dots,f_{n-1})$と言い換えられる。$p$を$N$より大きい素数とし、
-    $$f_p=r_1f_1+r_2f_2+\dots+r_{p-1}f_{p-1}$$
+    $$N\lt n\implies(f_1,f_2,\cdots,f_{n-1})=(f_1,f_2,\cdots,f_{n-1},f_n)$$
+    となる。ここで、$\implies$の右の式は$f_n\in(f_1,f_2,\cdots,f_{n-1})$と言い換えられる。$p$を$N$より大きい素数とし、
+    $$f_p=r_1f_1+r_2f_2+\cdots+r_{p-1}f_{p-1}$$
    を満たす$r_i\in R$をとると、特に$f_p(p)=\dsum_{i=1}^{p-1}r_i(p)f_i(p)$が成り立つ。
     $$f_i(p)=\frac1{i!}\prod_{\ell=0}^{i-1}(p-\ell)=\frac1{i!}\cdot\frac{p!}{(p-i)!}={}_pC_i$$
     より$1\leqq i\leqq p-1$のとき$f_i(p)$は$p$の倍数で、$r_i(p)$は整数ゆえ$f_p(p)$が$p$の倍数となるが$f_p(p)=1$なので不合理。したがって$R$はNoether環ではない。</paragraph>
@@ -165,30 +165,30 @@
 <div id="proof-Hilbert" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$R[x]$がNoether環であるとする。イデアル$I\subset R$に対して$(I)\subset R[x]$を考えるとこれは仮定より有限生成。
+    <paragraph>$R[x]$がNoether環であるとする。イデアル$I\subseteqq R$に対して$(I)\subseteqq R[x]$を考えるとこれは仮定より有限生成。
     $$I=\{f(0)\in R\mid f\in(I)\}$$
     が成り立つから、$I$も有限生成である。</paragraph>
-    <paragraph>逆に、$R$をNoether環として$R[x]$がNoether環でないとする。任意にイデアル$I\subset R$をとったとき、以下の手続きで$f_1,f_2,f_3,\dots\in I$を定めることができる。
+    <paragraph>逆に、$R$をNoether環として$R[x]$がNoether環でないとする。任意にイデアル$I\subseteqq R$をとったとき、以下の手続きで$f_1,f_2,f_3,\cdots\in I$を定めることができる。
     <ol>
         <li>$f_1$は、$I\setminus(0)$の元のうち次数が最小のものからとる。</li>
-        <li>$f_n$ ($1\lt n$)は、$I\setminus(f_1,f_2,\dots,f_{n-1})$の元のうち次数が最小のものからとる。</li>
+        <li>$f_n$ ($1\lt n$)は、$I\setminus(f_1,f_2,\cdots,f_{n-1})$の元のうち次数が最小のものからとる。</li>
     </ol>
     一般的に各$f_i$の選び方には複数の選択肢があるが、どれを選んでもよい(最小というよりは極小の方が近いかもしれない)。$f_i$の最高次の係数を$a_i$とおくと、$R$はNoether環なので$R$のイデアルの列
-    $$(a_1)\subset(a_1,a_2)\subset(a_1,a_2,a_3)\subset\dots$$
-    は有限回で停止する。即ち$a_{n+1}\in(a_1,a_2,\dots,a_n)$なる$n$が存在することになる。このとき$r_m\in R$を用いて$a_{n+1}=\dsum_{m=1}^nr_ma_m$と書ける。
+    $$(a_1)\subseteqq(a_1,a_2)\subseteqq(a_1,a_2,a_3)\subseteqq\cdots$$
+    は有限回で停止する。即ち$a_{n+1}\in(a_1,a_2,\cdots,a_n)$なる$n$が存在することになる。このとき$r_m\in R$を用いて$a_{n+1}=\dsum_{m=1}^nr_ma_m$と書ける。
     $$f\coloneqq\sum_{m=1}^nr_mx^{\deg f_{n+1}-\deg f_m}f_m$$
-    で$f$を定めると、$f\in(f_1,f_2,\dots,f_n)$である。また、$f$の$\deg f_{n+1}$次の係数は$a_{n+1},$ 即ち$f_{n+1}$の$\deg f_{n+1}$次の係数に等しい。よって$f-f_{n+1}\in I\setminus(f_1,f_2,\dots,f_n)$であって$\deg(f-f_{n+1})<\deg f_{n+1}$だが、これは次数の最小性に反する。</paragraph>
+    で$f$を定めると、$f\in(f_1,f_2,\cdots,f_n)$である。また、$f$の$\deg f_{n+1}$次の係数は$a_{n+1}$, 即ち$f_{n+1}$の$\deg f_{n+1}$次の係数に等しい。よって$f-f_{n+1}\in I\setminus(f_1,f_2,\cdots,f_n)$であって$\deg(f-f_{n+1})<\deg f_{n+1}$だが、これは次数の最小性に反する。</paragraph>
     </div>
 </div>
 <paragraph>系として以下が成り立ちます。</paragraph>
 <div id="cor-Hilbert" class="box corollary">
     <div class="title"></div>
-    <div class="content">環$R$がNoether環であることは、多変数多項式環$R[x_1,\dots,x_n]$がNoether環であることと同値である。</div>
+    <div class="content">環$R$がNoether環であることは、多変数多項式環$R[x_1,\cdots,x_n]$がNoether環であることと同値である。</div>
 </div>
 <div id="proof-cor" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$R[x_1,\dots,x_n]\cong R[x_1,\dots,x_{n-1}][x_n]$なので、Hilbertの基底定理を$n$回適用すればよい(つまり数学的帰納法)。</paragraph>
+    <paragraph>$R[x_1,\cdots,x_n]\cong R[x_1,\cdots,x_{n-1}][x_n]$なので、Hilbertの基底定理を$n$回適用すればよい(つまり数学的帰納法)。</paragraph>
     </div>
 </div>
 <paragraph>なお、無限変数多項式環はNoether環ではありません。</paragraph>

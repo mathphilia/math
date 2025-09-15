@@ -50,7 +50,7 @@ I_n&=\left[f(x)\cdot-\frac1\pi\cos\pi x\right]_0^1+\frac1\pi\int_0^1f'(x)\cos\pi
 I_n&=\frac1\pi\Bigl(f(1)-f(0)\Bigr)-\frac1{\pi^2}\int_0^1f''(x)\sin\pi xdx\\
 &=\frac1\pi\Bigl(f(1)-f(0)\Bigr)-\frac1{\pi^3}\Bigl(f''(1)-f''(0)\Bigr)+\frac1{\pi^4}\int_0^1f''''(x)\sin\pi xdx\\
 &=\frac1\pi\Bigl(f^{(0)}(1)-f^{(0)}(0)\Bigr)-\frac1{\pi^3}\Bigl(f^{(2)}(1)-f^{(2)}(0)\Bigr)+\frac1{\pi^5}\Bigl(f^{(4)}(1)-f^{(4)}(0)\Bigr)-\frac1{\pi^6}\int_0^1f^{(6)}(x)\sin\pi xdx\\
-&=\dots=\sum_{k=0}^m\frac{(-1)^k}{\pi^{2k+1}}\Bigl(f^{(2k)}(1)-f^{(2k)}(0)\Bigr)+\frac{(-1)^{m+1}}{\pi^{2(m+1)}}\int_0^1f^{(2(m+1))}(x)\sin\pi xdx
+&=\cdots=\sum_{k=0}^m\frac{(-1)^k}{\pi^{2k+1}}\Bigl(f^{(2k)}(1)-f^{(2k)}(0)\Bigr)+\frac{(-1)^{m+1}}{\pi^{2(m+1)}}\int_0^1f^{(2(m+1))}(x)\sin\pi xdx
 \end{align*}
 が得られます。ここで、$f(x)$は$2n$次多項式でしたから$2n$回より多く微分すると$0$になります。よって
 $$I_n=\sum_{k=0}^n\frac{(-1)^k}{\pi^{2k+1}}\Bigl(f^{(2k)}(1)-f^{(2k)}(0)\Bigr)$$
@@ -58,7 +58,7 @@ $$I_n=\sum_{k=0}^n\frac{(-1)^k}{\pi^{2k+1}}\Bigl(f^{(2k)}(1)-f^{(2k)}(0)\Bigr)$$
 <paragraph>さて、$\pi$が有理数であると仮定し、$\pi=\dfrac pq$を満たすように正整数$p,q$をとります。このとき$\dfrac{p^{2n+1}}{n!}I_n$が$n$に依らず整数であることを証明しましょう。
 $$\frac{p^{2n+1}}{n!}I_n=\sum_{k=0}^n(-1)^k\cdot p^{2(n-k)}q^{2k+1}\left(\frac{f^{(2k)}(1)}{n!}-\frac{f^{(2k)}(0)}{n!}\right)$$
 ですから、$f^{(2k)}(0)$および$f^{(2k)}(1)$が$n!$の倍数であることを示せば十分です。$x^{2k}$を$2k$回微分すると$2k!$になりますから、$f^{(2k)}(0)$は$f(x)$の$2k$次の係数の$2k!$倍になります。$2k\lt n$のときは$f(x)$の$2k$次の係数が$0$であることから、$n\leqq2k$のときは$2k!$が$n!$の倍数であることから、いずれの場合でも$f^{(2k)}(0)$は$n!$の倍数になります。また、$f(x)=f(1-x)$であることから両辺を$2k$回微分すると$f^{(2k)}(x)=f^{(2k)}(1-x)$で、これに$x=0$を代入すれば$f^{(2k)}(1)$が$n!$の倍数であると分かります。</paragraph>
-<paragraph>ところで、$0\leqq x\leqq1$において$x^n,$ $(1-x)^n,$ $\sin\pi x$はいずれも$0$以上$1$以下なので、それらの積を$0$から$1$まで積分した値である$I_n$も$0$以上$1$以下であるといえます。よって、
+<paragraph>ところで、$0\leqq x\leqq1$において$x^n$, $(1-x)^n$, $\sin\pi x$はいずれも$0$以上$1$以下なので、それらの積を$0$から$1$まで積分した値である$I_n$も$0$以上$1$以下であるといえます。よって、
 $$0\leqq\frac{p^{2n+1}}{n!}I_n\leqq\frac{p^{2n+1}}{n!}$$
 です。右辺は$n\to\infty$で$0$に収束するので<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>、$n$が十分大きくなると$0\leqq\dfrac{p^{2n+1}}{n!}I_n\leqq1$となります。しかしこれは$\dfrac{p^{2n+1}}{n!}I_n$が整数であることに反します。</paragraph>
 <paragraph>以上より、円周率が無理数であることが示されました。</paragraph>
@@ -77,8 +77,8 @@ $$0\leqq\frac{p^n\pi}{n!}I_n\leqq\frac{p^n\pi}{n!}$$
 <li id="footnote1">$\dlim_{n\to\infty}\frac{p^{2n+1}}{n!}=0$を証明します。$N$を$2p^2$以上の整数とすると、
 \begin{align*}
 \frac{p^{2n+1}}{n!}&=\frac{p^{(2N+1)}}{N!}\cdot p^{2(n-N)}\cdot\frac{N!}{n!}\\
-&=\frac{p^{(2N+1)}}{N!}\cdot\frac{p^2}n\cdot\frac{p^2}{n-1}\cdot\dots\cdot\frac{p^2}{N+1}\\
-&\lt\frac{p^{(2N+1)}}{N!}\cdot\frac12\cdot\frac12\cdot\dots\cdot\frac12=\frac{p^{(2N+1)}}{N!}\cdot\frac1{2^{n-N}}
+&=\frac{p^{(2N+1)}}{N!}\cdot\frac{p^2}n\cdot\frac{p^2}{n-1}\cdot\cdots\cdot\frac{p^2}{N+1}\\
+&\lt\frac{p^{(2N+1)}}{N!}\cdot\frac12\cdot\frac12\cdot\cdots\cdot\frac12=\frac{p^{(2N+1)}}{N!}\cdot\frac1{2^{n-N}}
 \end{align*}
 であることから従います。<a href="#footnoteref1">↩</a></li>
 </ol>

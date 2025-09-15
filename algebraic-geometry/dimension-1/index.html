@@ -38,17 +38,17 @@
 <div id="height" class="box definition">
     <div class="title">イデアルの高さ</div>
     <div class="content">環$R$の素イデアル$\mathfrak p$に対し、
-    $$\mathfrak p=\mathfrak p_0\supsetneqq\mathfrak p_1\supsetneqq\mathfrak p_2\supsetneqq\dots\supsetneqq\mathfrak p_r$$
+    $$\mathfrak p=\mathfrak p_0\supsetneqq\mathfrak p_1\supsetneqq\mathfrak p_2\supsetneqq\cdots\supsetneqq\mathfrak p_r$$
     なる素イデアル列が存在するような非負整数$r$の上限を$\mathfrak p$の<strong>高度 (height)</strong>といい、$\ht\mathfrak p$と書く。また、
-    $$\mathfrak p=\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_r$$
+    $$\mathfrak p=\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\cdots\subsetneqq\mathfrak p_r$$
     なる素イデアル列が存在するような非負整数$r$の上限を$\mathfrak p$の<strong>余高度 (coheight)</strong>といい、$\coht\mathfrak p$と書く。</div>
 </div>
 <paragraph>「高度」よりは「高さ」ということの方が多い気がしますが、余高度との対応をとるためには仕方がありませんでした。なお、$r$は列を構成する素イデアルの個数ではなく、$\supsetneqq$や$\subsetneqq$の個数に等しいことに注意してください。この一見何だか分からない量を用いて環の次元を定義します。</paragraph>
 <div id="Krull-dim" class="box definition">
     <div class="title">Krull次元</div>
-    <div class="content">環$R$に対し、素イデアル$\mathfrak p\subset R$の高さの上限を$R$の<strong>Krull次元 (Krull dimension)</strong>といい、$\dim R$と書く。誤解の虞がなければKrull次元のことを単に次元 (dimension)ということもある。</div>
+    <div class="content">環$R$に対し、素イデアル$\mathfrak p\subseteqq R$の高さの上限を$R$の<strong>Krull次元 (Krull dimension)</strong>といい、$\dim R$と書く。誤解の虞がなければKrull次元のことを単に次元 (dimension)ということもある。</div>
 </div>
-<paragraph>素イデアル列$\mathfrak p_0\subsetneqq\dots\subsetneqq\mathfrak p_r$の<strong>長さ (length)</strong>を$r$で定義すると、$\dim R$は$R$の素イデアル列の長さの上限と言い換えられます。全く「次元」っぽさがないKrull次元ですが、追々明らかになる超越次数や代数多様体の次元との関連によって「次元」と呼ばれています。</paragraph>
+<paragraph>素イデアル列$\mathfrak p_0\subsetneqq\cdots\subsetneqq\mathfrak p_r$の<strong>長さ (length)</strong>を$r$で定義すると、$\dim R$は$R$の素イデアル列の長さの上限と言い換えられます。全く「次元」っぽさがないKrull次元ですが、追々明らかになる超越次数や代数多様体の次元との関連によって「次元」と呼ばれています。</paragraph>
 <paragraph>例として、体には$(0)$以外の素イデアルがないので$0$次元です。また、体でない整域の次元は$1$以上です。実際$(0)$は素イデアルであり、非可逆元で生成される単項イデアルを含む極大イデアル$\mathfrak m$は$(0)$と異なる素イデアルなので、長さ$1$の素イデアル列$(0)\subsetneqq\mathfrak m$が得られます。特に、体でない単項イデアル整域はちょうど$1$次元になります。</paragraph>
 <div id="PID-dim" class="box proposition">
     <div class="title"></div>
@@ -61,7 +61,7 @@
     </div>
 </div>
 <paragraph>$\mathfrak p$を環$R$の素イデアルとして$\mathfrak p$の高度・余高度が有限であるとすると、
-$$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subsetneqq\mathfrak p_{-1}\subsetneqq\mathfrak p_0=\mathfrak p\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_{\coht\mathfrak p}$$
+$$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\cdots\subsetneqq\mathfrak p_{-2}\subsetneqq\mathfrak p_{-1}\subsetneqq\mathfrak p_0=\mathfrak p\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\cdots\subsetneqq\mathfrak p_{\coht\mathfrak p}$$
 という長さ$\ht\mathfrak p+\coht\mathfrak p$の素イデアル列をとれるので$\ht\mathfrak p+\coht\mathfrak p\leqq\dim R$が分かります。$r$を非負整数または$\infty$としたとき$\infty+r=r+\infty=\infty\leqq\infty$であると定めると、この不等式は一般に成り立ちます。</paragraph>
 <div id="PID-dim" class="box proposition">
     <div class="title"></div>
@@ -74,36 +74,47 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
     <div class="title">素イデアルの対応定理</div>
     <div class="content">$R$を環とする。
     <ol>
-        <li>$I$を$R$のイデアルとする。$I$を含む素イデアル全体と$R/I$の素イデアル全体の間には包含関係を保つ全単射がある。</li>
+        <li>$I$を$R$のイデアルとする。$I$を包む素イデアル全体と$R/I$の素イデアル全体の間には包含関係を保つ全単射がある。</li>
         <li>$S$を$R$の積閉集合とする。$S$と交わらない素イデアル全体と$S^{-1}R$の素イデアル全体の間には包含関係を保つ全単射がある。</li>
     </ol></div>
 </div>
 <div id="correspond-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>1. 自然な射影$\pi\colon R\to R/I$を用いて$\mathfrak p\mapsto\pi[\mathfrak p]$とすればよいことを示す。
+    <paragraph>1. 自然な射影$\pi\colon R\to R/I$を用いて$\mathfrak p\mapsto\pi(\mathfrak p)$とすればよいことを示す。
     <ol class="roman">
-        <li>well-definedness<br>$I$を含む素イデアル$\mathfrak p$に対し、$\pi[\mathfrak p]$が$R/I$の素イデアルであることを示す。$\pi[\mathfrak p]$が$R/I$のイデアルなのは容易に確かめられ、$(1+I)\cap\mathfrak p\neq\varnothing$なら$I\subset\mathfrak p$と併せて$1\in\mathfrak p$となってしまうので$1+I\notin\pi[\mathfrak p]$即ち$\pi[\mathfrak p]\neq R/I$も分かる。$xy\in\pi[\mathfrak p]$なる$x,y\in R/I$を任意にとると、$x',y'\in R$を用いて$x=\pi(x'),$ $y=\pi(y')$と書ける。このとき$\pi(x'y')\in\pi[\mathfrak p]$なので、ある$a\in\mathfrak p$が存在して$x'y'-a\in\Ker\pi=I$となる。よって$I\subset\mathfrak p$より$x'y'\in\mathfrak p$であるから$x'\in\mathfrak p$ or $y'\in\mathfrak p$が言え、$x\in\pi[\mathfrak p]$ or $y\in\pi[\mathfrak p]$が分かる。</li>
-        <li>全単射性<br>逆写像が$\mathfrak p'\mapsto\pi^{-1}[\mathfrak p']$で与えられる<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>ことを示す。まず、$I$を含む素イデアル$\mathfrak p$に対して$\mathfrak p\subset\pi^{-1}[\pi[\mathfrak p]]$は明らか。任意に$a\in\pi^{-1}[\pi[\mathfrak p]]$をとると$\pi(a)\in\pi[\mathfrak p]$であり、ある$a_0\in\mathfrak p$が存在して$a-a_0\in\Ker\pi=I$となる。よって$I\subset\mathfrak p$より$a\in\mathfrak p$であり、$\mathfrak p=\pi[\pi^{-1}[\mathfrak p]]$が分かる。逆に、$R/I$の素イデアル$\mathfrak p'$に対して$\mathfrak p'\supset\pi[\pi^{-1}[\mathfrak p']]$は明らかであり$\pi$の全射性から$\mathfrak p'\subset\pi[\pi^{-1}[\mathfrak p']]$も従う。</li>
-        <li>包含関係<br>$I$を含む素イデアル$\mathfrak p_1\subset\mathfrak p_2$に対し$\pi[\mathfrak p_1]\subset\pi[\mathfrak p_2]$であること、$R/I$の素イデアル$\mathfrak p'_1\subset\mathfrak p'_2$に対し$\pi^{-1}[\mathfrak p_1']\subset\pi^{-1}[\mathfrak p_2']$であることは明らか。</li>
+        <li>well-definedness<br>$I$を包む素イデアル$\mathfrak p$に対し、$\pi(\mathfrak p)$が$R/I$の素イデアルであることを示す。$\pi(\mathfrak p)$が$R/I$のイデアルなのは容易に確かめられ、$(1+I)\cap\mathfrak p\neq\varnothing$なら$I\subseteqq\mathfrak p$と併せて$1\in\mathfrak p$となってしまうので$1+I\notin\pi(\mathfrak p)$即ち$\pi(\mathfrak p)\neq R/I$も分かる。$xy\in\pi(\mathfrak p)$なる$x,y\in R/I$を任意にとると、$x',y'\in R$を用いて$x=\pi(x')$, $y=\pi(y')$と書ける。このとき$\pi(x'y')\in\pi(\mathfrak p)$なので、ある$a\in\mathfrak p$が存在して$x'y'-a\in\Ker\pi=I$となる。よって$I\subseteqq\mathfrak p$より$x'y'\in\mathfrak p$であるから$x'\in\mathfrak p$ or $y'\in\mathfrak p$が言え、$x\in\pi(\mathfrak p)$ or $y\in\pi(\mathfrak p)$が分かる。</li>
+        <li>全単射性<br>逆写像が$\mathfrak p'\mapsto\pi^{-1}(\mathfrak p')$で与えられる<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>ことを示す。まず、$I$を包む素イデアル$\mathfrak p$に対して$\mathfrak p\subseteqq\pi^{-1}(\pi(\mathfrak p))$は明らか。任意に$a\in\pi^{-1}(\pi(\mathfrak p))$をとると$\pi(a)\in\pi(\mathfrak p)$であり、ある$a_0\in\mathfrak p$が存在して$a-a_0\in\Ker\pi=I$となる。よって$I\subseteqq\mathfrak p$より$a\in\mathfrak p$であり、$\mathfrak p=\pi(\pi^{-1}(\mathfrak p))$が分かる。逆に、$R/I$の素イデアル$\mathfrak p'$に対して$\mathfrak p'\supseteqq\pi(\pi^{-1}(\mathfrak p'))$は明らかであり$\pi$の全射性から$\mathfrak p'\subseteqq\pi(\pi^{-1}(\mathfrak p'))$も従う。</li>
+        <li>包含関係<br>$I$を包む素イデアル$\mathfrak p_1\subseteqq\mathfrak p_2$に対し$\pi(\mathfrak p_1)\subseteqq\pi(\mathfrak p_2)$であること、$R/I$の素イデアル$\mathfrak p'_1\subseteqq\mathfrak p'_2$に対し$\pi^{-1}(\mathfrak p_1')\subseteqq\pi^{-1}(\mathfrak p_2')$であることは明らか。</li>
     </ol>
     </paragraph>
-    <paragraph style="margin-top: 1.5em;">2. $S^{-1}R$を自然に$R$の拡大環と見たとき、$\mathfrak p\mapsto\mathfrak p\cdot S^{-1}R$とすればよいことを示す。ここに、$\mathfrak p\cdot S^{-1}R$とは$\mathfrak p$で生成される$S^{-1}R$のイデアルを指す。$\mathfrak p\cdot S^{-1}R$の元$x$は$a_i\in\mathfrak p,$ $\dfrac{x_i}{s_i}\in S^{-1}R$ ($x_i\in R,$ $s_i\in S$)を用いて$x=\dsum_{\text{有限和}}\frac{a_ix_i}{s_i}$の形に書けるが、全ての$s_i$の積$s$ ($\in S$)を$x$に掛ければ分母を払うことができる。したがって、ある$a\in\mathfrak p$が存在して$x=\dfrac as$と書ける(このことから$\mathfrak p\cdot S^{-1}R$は$S^{-1}\mathfrak p$とも書ける)。
+    <paragraph style="margin-top: 1.5em;">2. $S^{-1}R$を自然に$R$の拡大環と見たとき、$\mathfrak p\mapsto\mathfrak p\cdot S^{-1}R$とすればよいことを示す。ここに、$\mathfrak p\cdot S^{-1}R$とは$\mathfrak p$で生成される$S^{-1}R$のイデアルを指す。$\mathfrak p\cdot S^{-1}R$の元$x$は$a_i\in\mathfrak p$, $\dfrac{x_i}{s_i}\in S^{-1}R$ ($x_i\in R$, $s_i\in S$)を用いて$x=\dsum_{\text{有限和}}\frac{a_ix_i}{s_i}$の形に書けるが、すべての$s_i$の積$s$ ($\in S$)を$x$に掛ければ分母を払うことができる。したがって、ある$a\in\mathfrak p$が存在して$x=\dfrac as$と書ける(このことから$\mathfrak p\cdot S^{-1}R$は$S^{-1}\mathfrak p$とも書ける)。
     <ol class="roman">
-        <li>well-definedness<br>$S$と交わらない素イデアル$\mathfrak p$に対し、$\mathfrak p\cdot S^{-1}R$が$S^{-1}R$の素イデアルであることを示す。$S\cap\mathfrak p=\varnothing$より$1\notin\mathfrak p\cdot S^{-1}R$なので、$\mathfrak p\cdot S^{-1}R\neq S^{-1}R$が分かる。$\dfrac{x_1}{s_1}\cdot\dfrac{x_2}{s_2}\in\mathfrak p\cdot S^{-1}R$なる$\dfrac{x_1}{s_1},\dfrac{x_2}{s_2}\in S^{-1}R$ ($x_i\in R,$ $s_i\in S$)を任意にとる。このとき$\dfrac{x_1x_2}{s_1s_2}=\dfrac as$なる$a\in\mathfrak p,$ $s\in S$をとると、ある$s'\in S$が存在して$s'(sx_1x_2-as_1s_2)=0\in\mathfrak p$となるから特に$x_1x_2\in\mathfrak p$でなければならない。よって$x_1\in\mathfrak p$ or $x_2\in\mathfrak p$であり、したがって$\dfrac{x_1}{s_1}\in\mathfrak p\cdot S^{-1}R$ or $\dfrac{x_2}{s_2}\in\mathfrak p\cdot S^{-1}R$を得る。</li>
-        <li>全単射性<br>逆写像が$\mathfrak p'\mapsto\mathfrak p'\cap R$で与えられることを示す。まず、$S$と交わらない素イデアル$\mathfrak p$に対して$\mathfrak p\subset\mathfrak p\cdot S^{-1}R\cap R$であることは明らか。$x\in\mathfrak p\cdot S^{-1}R\cap R$として$\dfrac x1=\dfrac as$なる$a\in\mathfrak p,$ $s\in S$をとると、ある$s'\in S$が存在して$s'(sx-a)=0\in\mathfrak p$となるから特に$sx\in\mathfrak p$でなければならず、$s\in S\subset R\setminus\mathfrak p$なので$x\in\mathfrak p$を得る。逆に、$S^{-1}R$の素イデアル$\mathfrak p'$に対して$\mathfrak p'\supset(\mathfrak p'\cap R)S^{-1}R$は容易に分かる。$\dfrac xs\in\mathfrak p'$を任意にとると$x=\dfrac xs\cdot s\in\mathfrak p'\cap R$であり、$\dfrac1s\in S^{-1}R$ゆえ$\mathfrak p'\subset(\mathfrak p'\cap R)S^{-1}R$も分かる。</li>
-        <li>包含関係<br>$S$と交わらない素イデアル$\mathfrak p_1\subset\mathfrak p_2$に対し$\mathfrak p_1\cdot S^{-1}R\subset\mathfrak p_2\cdot S^{-1}R$であること、$S^{-1}R$の素イデアル$\mathfrak p_1'\subset\mathfrak p_2'$に対し$\mathfrak p_1'\cap R\subset\mathfrak p_2'\cap R$であることは明らか。</li>
+        <li>well-definedness<br>$S$と交わらない素イデアル$\mathfrak p$に対し、$\mathfrak p\cdot S^{-1}R$が$S^{-1}R$の素イデアルであることを示す。$S\cap\mathfrak p=\varnothing$より$1\notin\mathfrak p\cdot S^{-1}R$なので、$\mathfrak p\cdot S^{-1}R\neq S^{-1}R$が分かる。$\dfrac{x_1}{s_1}\cdot\dfrac{x_2}{s_2}\in\mathfrak p\cdot S^{-1}R$なる$\dfrac{x_1}{s_1},\dfrac{x_2}{s_2}\in S^{-1}R$ ($x_i\in R$, $s_i\in S$)を任意にとる。このとき$\dfrac{x_1x_2}{s_1s_2}=\dfrac as$なる$a\in\mathfrak p$, $s\in S$をとると、ある$s'\in S$が存在して$s'(sx_1x_2-as_1s_2)=0\in\mathfrak p$となるから特に$x_1x_2\in\mathfrak p$でなければならない。よって$x_1\in\mathfrak p$ or $x_2\in\mathfrak p$であり、したがって$\dfrac{x_1}{s_1}\in\mathfrak p\cdot S^{-1}R$ or $\dfrac{x_2}{s_2}\in\mathfrak p\cdot S^{-1}R$を得る。</li>
+        <li>全単射性<br>逆写像が$\mathfrak p'\mapsto\mathfrak p'\cap R$で与えられることを示す。まず、$S$と交わらない素イデアル$\mathfrak p$に対して$\mathfrak p\subseteqq\mathfrak p\cdot S^{-1}R\cap R$であることは明らか。$x\in\mathfrak p\cdot S^{-1}R\cap R$として$\dfrac x1=\dfrac as$なる$a\in\mathfrak p$, $s\in S$をとると、ある$s'\in S$が存在して$s'(sx-a)=0\in\mathfrak p$となるから特に$sx\in\mathfrak p$でなければならず、$s\in S\subseteqq R\setminus\mathfrak p$なので$x\in\mathfrak p$を得る。逆に、$S^{-1}R$の素イデアル$\mathfrak p'$に対して$\mathfrak p'\supseteqq(\mathfrak p'\cap R)S^{-1}R$は容易に分かる。$\dfrac xs\in\mathfrak p'$を任意にとると$x=\dfrac xs\cdot s\in\mathfrak p'\cap R$であり、$\dfrac1s\in S^{-1}R$ゆえ$\mathfrak p'\subseteqq(\mathfrak p'\cap R)S^{-1}R$も分かる。</li>
+        <li>包含関係<br>$S$と交わらない素イデアル$\mathfrak p_1\subseteqq\mathfrak p_2$に対し$\mathfrak p_1\cdot S^{-1}R\subseteqq\mathfrak p_2\cdot S^{-1}R$であること、$S^{-1}R$の素イデアル$\mathfrak p_1'\subseteqq\mathfrak p_2'$に対し$\mathfrak p_1'\cap R\subseteqq\mathfrak p_2'\cap R$であることは明らか。</li>
     </ol>
     </paragraph>
     </div>
 </div>
-<paragraph>この定理から、次のような事実が従います; $\mathfrak p$を$R$の素イデアルとすると、
-<ol>
-    <li>$\mathfrak p$を含む素イデアル全体と$R/\mathfrak p$の素イデアル全体の間には包含関係を保つ全単射がある。</li>
-    <li>$\mathfrak p$に含まれる素イデアル全体と$R_\mathfrak p$の素イデアル全体の間には包含関係を保つ全単射がある。</li>
-</ol>
-ここで、環$R$の素イデアル$\mathfrak p$に対し積閉集合$R\setminus\mathfrak p$による局所化$(R\setminus\mathfrak p)^{-1}R$を$R_\mathfrak p$と書いています。2.は$\mathfrak q\subset\mathfrak p$なら$(R\setminus\mathfrak p)\cap\mathfrak q=\varnothing$であることから従います。1.と2.は綺麗に対応しており、素イデアルの対応定理はこの形でよく使われる印象があります。</paragraph>
-<paragraph>さて、$\mathfrak p$を含む素イデアルが$R/\mathfrak p$の素イデアルに対応するということは、$R/\mathfrak p$は$\mathfrak p$より小さい素イデアルを無視したものと言えます。これに対し、$R_\mathfrak p$は$\mathfrak p$より大きい素イデアルを無視したものです。このイメージから、高度および余高度について以下の関係が言えます。</paragraph>
+<paragraph>この定理から次のような事実が従います。</paragraph>
+<div id="cor-cor" class="box corollary">
+    <div class="title"></div>
+    <div class="content">$\mathfrak p$を環$R$の素イデアルとする。
+    <ol>
+        <li>$\mathfrak p$を包む素イデアル全体と$R/\mathfrak p$の素イデアル全体の間には包含関係を保つ全単射がある。</li>
+        <li>$\mathfrak p$に包まれる素イデアル全体と$R_\mathfrak p$の素イデアル全体の間には包含関係を保つ全単射がある。</li>
+    </ol>
+    ただし$R_\mathfrak p$とは、環$R$の素イデアル$\mathfrak p$に対し積閉集合$R\setminus\mathfrak p$による局所化$(R\setminus\mathfrak p)^{-1}R$のことである。</div>
+</div>
+<div id="height-equal-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>1.は<a href="#correspond">前定理</a>で$I=\mathfrak p$とすればよい。2.は、$\mathfrak q\subseteqq\mathfrak p$なら$(R\setminus\mathfrak p)\cap\mathfrak q=\varnothing$であることから従う。</paragraph>
+    </div>
+</div>
+<paragraph>1.と2.は綺麗に対応しており、素イデアルの対応定理はこの形でよく使われる印象があります。</paragraph>
+<paragraph>さて、$\mathfrak p$を包む素イデアルが$R/\mathfrak p$の素イデアルに対応するということは、$R/\mathfrak p$は$\mathfrak p$より小さい素イデアルを無視したものと言えます。これに対し、$R_\mathfrak p$は$\mathfrak p$より大きい素イデアルを無視したものです。このイメージから、高度および余高度について以下の関係が言えます。</paragraph>
 <div id="height-equal" class="box proposition">
     <div class="title"></div>
     <div class="content">$\mathfrak p$を環$R$の素イデアルとすると、以下の二つの等式が成り立つ。
@@ -115,12 +126,12 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
 <div id="height-equal-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$\ht\mathfrak p,$ $\coht\mathfrak p$が有限でない場合も同様に示せるが、以下では有限であるとする。</paragraph>
-    <paragraph>1. $R$の素イデアル列$\mathfrak p=\mathfrak p_0\supsetneqq\mathfrak p_1\supsetneqq\dots\supsetneqq\mathfrak p_{\ht\mathfrak p}$に対し、各素イデアルに対応する$R_\mathfrak p$の素イデアルをとることで$\mathfrak p_0R_\mathfrak p\supsetneqq\mathfrak p_1R_\mathfrak p\supsetneqq\dots\supsetneqq\mathfrak p_{\ht\mathfrak p}R_\mathfrak p$を構成できるので、$\ht\mathfrak p\leqq\dim R_\mathfrak p$である。逆に、$R_\mathfrak p$の素イデアル列$\mathfrak p_0'\subsetneqq\mathfrak p_1'\subsetneqq\dots\subsetneqq\mathfrak p_{\dim R_\mathfrak p}'$をとって各素イデアル列を$\mathfrak p$に含まれる$R$の素イデアルに対応させると、
-    $$\mathfrak p_0'\cap R\subsetneqq\mathfrak p_1'\cap R\subsetneqq\dots\subsetneqq\mathfrak p_{\dim R_\mathfrak p}'\cap R\subset\mathfrak p$$
+    <paragraph>$\ht\mathfrak p$, $\coht\mathfrak p$が有限でない場合も同様に示せるが、以下では有限であるとする。</paragraph>
+    <paragraph>1. $R$の素イデアル列$\mathfrak p=\mathfrak p_0\supsetneqq\mathfrak p_1\supsetneqq\cdots\supsetneqq\mathfrak p_{\ht\mathfrak p}$に対し、各素イデアルに対応する$R_\mathfrak p$の素イデアルをとることで$\mathfrak p_0R_\mathfrak p\supsetneqq\mathfrak p_1R_\mathfrak p\supsetneqq\cdots\supsetneqq\mathfrak p_{\ht\mathfrak p}R_\mathfrak p$を構成できるので、$\ht\mathfrak p\leqq\dim R_\mathfrak p$である。逆に、$R_\mathfrak p$の素イデアル列$\mathfrak p_0'\subsetneqq\mathfrak p_1'\subsetneqq\cdots\subsetneqq\mathfrak p_{\dim R_\mathfrak p}'$をとって各素イデアル列を$\mathfrak p$に包まれる$R$の素イデアルに対応させると、
+    $$\mathfrak p_0'\cap R\subsetneqq\mathfrak p_1'\cap R\subsetneqq\cdots\subsetneqq\mathfrak p_{\dim R_\mathfrak p}'\cap R\subseteqq\mathfrak p$$
     が構成できるので$\dim R_\mathfrak p\leqq\ht\mathfrak p$である。</paragraph>
-    <paragraph>2. $\pi\colon R\to R/\mathfrak p$を自然な射影とする。$R$の素イデアル列$\mathfrak p=\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\dots\subsetneqq\mathfrak p_{\coht\mathfrak p}$に対し、各素イデアルに対応する$R/\mathfrak p$の素イデアルをとることで$\pi[\mathfrak p_0]\subsetneqq\pi[\mathfrak p_1]\subsetneqq\dots\subsetneqq\pi[\mathfrak p_{\coht\mathfrak p}]$を構成できるので、$\coht\mathfrak p\leqq\dim R/\mathfrak p$である。逆に、$R/\mathfrak p$の素イデアル列$\mathfrak p_0'\subsetneqq\mathfrak p_1'\subsetneqq\dots\subsetneqq\mathfrak p_{\dim R/\mathfrak p}'$をとって各素イデアル列を$\mathfrak p$を含む$R$の素イデアルに対応させると、
-    $$\mathfrak p\subset\pi^{-1}[\mathfrak p_0']\subsetneqq\pi^{-1}[\mathfrak p_1']\subsetneqq\dots\subsetneqq\pi^{-1}[\mathfrak p_{\dim R/\mathfrak p}']$$
+    <paragraph>2. $\pi\colon R\to R/\mathfrak p$を自然な射影とする。$R$の素イデアル列$\mathfrak p=\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\cdots\subsetneqq\mathfrak p_{\coht\mathfrak p}$に対し、各素イデアルに対応する$R/\mathfrak p$の素イデアルをとることで$\pi(\mathfrak p_0)\subsetneqq\pi(\mathfrak p_1)\subsetneqq\cdots\subsetneqq\pi(\mathfrak p_{\coht\mathfrak p})$を構成できるので、$\coht\mathfrak p\leqq\dim R/\mathfrak p$である。逆に、$R/\mathfrak p$の素イデアル列$\mathfrak p_0'\subsetneqq\mathfrak p_1'\subsetneqq\cdots\subsetneqq\mathfrak p_{\dim R/\mathfrak p}'$をとって各素イデアル列を$\mathfrak p$を包む$R$の素イデアルに対応させると、
+    $$\mathfrak p\subseteqq\pi^{-1}(\mathfrak p_0')\subsetneqq\pi^{-1}(\mathfrak p_1')\subsetneqq\cdots\subsetneqq\pi^{-1}(\mathfrak p_{\dim R/\mathfrak p}')$$
     が構成できるので$\dim R/\mathfrak p\leqq\coht\mathfrak p$である。</paragraph>
     </div>
 </div>
@@ -132,11 +143,11 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
 <div id="local-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$\mathfrak m$が$R_\mathfrak p$の極大イデアルであるとする。極大イデアルは素イデアルなので、対応する$R$のイデアル$R\cap \mathfrak m\subset\mathfrak p$をとれる。両辺のそれぞれに対応する$R_\mathfrak p$の素イデアルを考えると$\mathfrak m\subset\mathfrak pR_\mathfrak p$となるから、$\mathfrak pR_\mathfrak p$が$R_\mathfrak p$の唯一の極大イデアルである。</paragraph>
-    <paragraph>別証明として、素イデアルの対応定理を用いない方法も示しておく。$x\notin\mathfrak pR_\mathfrak p$をとると$x$の分子は$\mathfrak p$に属さないから、$x$は可逆である。可逆元が属するイデアルは$R_\mathfrak p$自身以外になく、また$\mathfrak pR_\mathfrak p$は非可逆元を全て含むので、$\mathfrak pR_\mathfrak p$は$R_\mathfrak p$を除いて“最大の”イデアルであり、したがって$R_\mathfrak p$の唯一の極大イデアルであることが分かる。</paragraph>
+    <paragraph>$\mathfrak m$が$R_\mathfrak p$の極大イデアルであるとする。極大イデアルは素イデアルなので、対応する$R$のイデアル$R\cap \mathfrak m\subseteqq\mathfrak p$をとれる。両辺のそれぞれに対応する$R_\mathfrak p$の素イデアルを考えると$\mathfrak m\subseteqq\mathfrak pR_\mathfrak p$となるから、$\mathfrak pR_\mathfrak p$が$R_\mathfrak p$の唯一の極大イデアルである。</paragraph>
+    <paragraph>別証明として、素イデアルの対応定理を用いない方法も示しておく。$x\notin\mathfrak pR_\mathfrak p$をとると$x$の分子は$\mathfrak p$に属さないから、$x$は可逆である。可逆元が属するイデアルは$R_\mathfrak p$自身以外になく、また$\mathfrak pR_\mathfrak p$は非可逆元をすべて含むので、$\mathfrak pR_\mathfrak p$は$R_\mathfrak p$を除いて“最大の”イデアルであり、したがって$R_\mathfrak p$の唯一の極大イデアルであることが分かる。</paragraph>
     </div>
 </div>
-<paragraph>このような性質を持つ環を局所環といいます。これは局所化に由来した名称…というよりは、むしろ局所環から局所化が名付けられたといった方が近そうです。より詳しい話は追々出てきます。</paragraph>
+<paragraph>このような性質を持つ環を局所環といいます。これは局所化に由来した名称……というよりは、むしろ局所環から局所化が名付けられたといった方が近そうです。より詳しい話は追々出てきます。</paragraph>
 <div id="local-ring" class="box definition">
     <div class="title">局所環</div>
     <div class="content">環$R$が極大イデアルを唯一つ持つとき、$R$は<strong>局所環 (local ring)</strong>であるという。特に、唯一の極大イデアル$\mathfrak m$を明示して$(R,\mathfrak m)$と書くこともある。</div>
@@ -150,7 +161,7 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
     <div class="title"></div>
     <div class="content">
     <paragraph>$R\setminus R^\times$がイデアルであるとする。$R$の真イデアルは、$R^\times$と交わらないから$R\setminus R^\times$の部分集合となる。よって$R\setminus R^\times$は$R$の唯一の極大イデアルである。</paragraph>
-    <paragraph>逆に$(R,\mathfrak m)$を局所環とする。$x$を非可逆元とすると$(x)$は$R$の真イデアルなので、$(x)$を包む極大イデアルが存在する。よって$(x)\subset\mathfrak m$なので、$\mathfrak m$は任意の非可逆元を要素に持つ。一方$\mathfrak m$に可逆元は属し得ないから、$\mathfrak m=R\setminus R^\times$であり特に$R\setminus R^\times$はイデアルである。</paragraph>
+    <paragraph>逆に$(R,\mathfrak m)$を局所環とする。$x$を非可逆元とすると$(x)$は$R$の真イデアルなので、$(x)$を包む極大イデアルが存在する。よって$(x)\subseteqq\mathfrak m$なので、$\mathfrak m$は任意の非可逆元を要素に持つ。一方$\mathfrak m$に可逆元は属し得ないから、$\mathfrak m=R\setminus R^\times$であり特に$R\setminus R^\times$はイデアルである。</paragraph>
     </div>
 </div>
 <paragraph>さて、素イデアル$\mathfrak p$による剰余は$\mathfrak p$より小さい素イデアルを無視する操作、$\mathfrak p$による局所化は$\mathfrak p$より大きい素イデアルを無視する操作でした。これらを組み合わせると、$\mathfrak p$より小さい素イデアルと大きい素イデアルを無視した環ができます。つまり、$\mathfrak p$を$\mathfrak p$で局所化してそれを$\mathfrak p$ (に対応する$R_\mathfrak p$の素イデアル)で割った$R_\mathfrak p/\mathfrak pR_\mathfrak p$は、$\mathfrak p$に対応する素イデアル($R_\mathfrak p\mapsto R_\mathfrak p/\mathfrak pR_\mathfrak p$による$\mathfrak pR_\mathfrak p$の像、即ち$(0)$)のみを持つ環になっています。前述の通り体でない環は零でないイデアルを持つのでこれは体になるはずですが、実際<a href="#local">命題4</a>の証明から$\mathfrak pR_\mathfrak p$は$R_\mathfrak p$の極大イデアルです。</paragraph>
@@ -163,7 +174,7 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
     <div class="title"></div>
     <div class="content">
     <paragraph>写像
-    $$f\colon\bar S{}^{-1}(R/I)\to(S^{-1}R)/(S^{-1}I),\dfrac{a+I}{s+I}\mapsto\dfrac as+S^{-1}I$$
+    $$f\colon\bar S{}^{-1}(R/I)\to(S^{-1}R)/(S^{-1}I),\,\dfrac{a+I}{s+I}\mapsto\dfrac as+S^{-1}I$$
     ($a\in R$, $s\in S$)が環同型になっていることを示す。各環の定義から、$f$がwell-definedな全単射であることは容易に確かめられる。また、$f$によって乗法単位元は乗法単位元に写り、
     \begin{align*}
     f\left(\frac{a_1+I}{s_1+I}+\frac{a_2+I}{s_2+I}\right)&=\left(\frac{a_1s_2+a_2s_1+I}{s_1s_2+I}\right)=\frac{a_1s_2+a_2s_1}{s_1s_2}+S^{-1}I\\
@@ -174,41 +185,41 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
     であるので$f$が環準同型であることも分かる。</paragraph>
     </div>
 </div>
-<paragraph>この事実から$R_\mathfrak p/\mathfrak pR_\mathfrak p\cong(R/\mathfrak p)_{\pi[\mathfrak p]}$ ($\pi\colon R\to R/\mathfrak p$は自然な射影)で、$\pi[\mathfrak p]=(0)$なのでこれは$\Frac(R/\mathfrak p)$と同型であることが分かります。</paragraph>
+<paragraph>この事実から$R_\mathfrak p/\mathfrak pR_\mathfrak p\cong(R/\mathfrak p)_{\pi(\mathfrak p)}$ ($\pi\colon R\to R/\mathfrak p$は自然な射影)で、$\pi(\mathfrak p)=(0)$なのでこれは$\Frac(R/\mathfrak p)$と同型であることが分かります。</paragraph>
 <div id="inclusion" class="box proposition">
     <div class="title"></div>
     <div class="content">$R$を環とする。
     <ol>
-        <li>$R$のイデアル$I\subset J$に対し、$(R/I)/J\cong R/J$である。ここで、左辺は自然な射影$\pi\colon R\to R/I$による$J$の像による剰余環である。</li>
-        <li>$R$の積閉集合$S\subset T$に対し、$T^{-1}(S^{-1}R)\cong T^{-1}S$である。ここで、左辺は自然に$R\subset S^{-1}R$と見たときの$T$による局所化である。</li>
+        <li>$R$のイデアル$I\subseteqq J$に対し、$(R/I)/J\cong R/J$である。ここで、左辺は自然な射影$\pi\colon R\to R/I$による$J$の像による剰余環である。</li>
+        <li>$R$の積閉集合$S\subseteqq T$に対し、$T^{-1}(S^{-1}R)\cong T^{-1}S$である。ここで、左辺は自然に$R\subseteqq S^{-1}R$と見たときの$T$による局所化である。</li>
     </ol></div>
 </div>
 <div id="inclusion-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>1. 環準同型$f\colon R\to(R/I)/J,x\mapsto(x+I)+\pi[J]$を考えると、
-    $$\Ker f=\{x\in R\mid x+I\in\pi[J]\}=\{x\in R\mid x+I\subset J\}$$
-    である。$x+I\subset J$は$x\in J$と同値なので、準同型定理から$(R/I)/J\cong R/J$を得る<sup><a id="footnoteref3" href="#footnote3">[脚註3]</a></sup>。</paragraph>
-    <paragraph>2. $t^{-1}s^{-1}x\in T^{-1}(S^{-1}R)$ ($t\in T,$ $s\in S,$ $x\in R$)は$(st)^{-1}x$に等しく、積閉集合の定義から$st\in T$ゆえこれは$T^{-1}R$の元と見ることができる。また$t^{-1}x\in T^{-1}R$について、$t\in T,$ $x\in S^{-1}R$であるから$t^{-1}x\in T^{-1}(S^{-1}R)$と見做せる。</paragraph>
+    <paragraph>1. 環準同型$f\colon R\to(R/I)/J,\,x\mapsto(x+I)+\pi(J)$を考えると、
+    $$\Ker f=\{x\in R\mid x+I\in\pi(J)\}=\{x\in R\mid x+I\subseteqq J\}$$
+    である。$x+I\subseteqq J$は$x\in J$と同値なので、準同型定理から$(R/I)/J\cong R/J$を得る<sup><a id="footnoteref3" href="#footnote3">[脚註3]</a></sup>。</paragraph>
+    <paragraph>2. $t^{-1}s^{-1}x\in T^{-1}(S^{-1}R)$ ($t\in T$, $s\in S$, $x\in R$)は$(st)^{-1}x$に等しく、積閉集合の定義から$st\in T$ゆえこれは$T^{-1}R$の元と見ることができる。また$t^{-1}x\in T^{-1}R$について、$t\in T$, $x\in S^{-1}R$であるから$t^{-1}x\in T^{-1}(S^{-1}R)$と見做せる。</paragraph>
     </div>
 </div>
 <paragraph>つまり、剰余環をより大きいイデアルによって割ったものや局所化をより大きい積閉集合で局所化したものは、一度だけ剰余・局所化をしたものと一致します。</paragraph>
 <h3 id="transcendence">超越次数</h3>
 <div id="independence" class="box definition">
     <div class="title">代数的独立性</div>
-    <div class="content">$L/K$を体拡大とする。$\alpha_1,\dots,\alpha_n\in L$に対し、環準同型
-    $$K[x_1,\dots,x_n]\to L,f\mapsto f(\alpha_1,\dots,\alpha_n)$$
-    が単射であるとき$\alpha_1,\dots,\alpha_n$は$K$上<strong>代数的に独立 (algebraically independent)</strong>であるという。また、$B\subset L$に対してその任意の有限部分集合が代数的に独立であるとき、$B$は$K$上代数的に独立であるという。代数的に独立でない集合は<strong>代数的に従属 (algebraically dependent)</strong>であるという。</div>
+    <div class="content">$L/K$を体拡大とする。$\alpha_1,\cdots,\alpha_n\in L$に対し、環準同型
+    $$K[x_1,\cdots,x_n]\to L,\,f\mapsto f(\alpha_1,\cdots,\alpha_n)$$
+    が単射であるとき$\alpha_1,\cdots,\alpha_n$は$K$上<strong>代数的に独立 (algebraically independent)</strong>であるという。また、$B\subseteqq L$に対してその任意の有限部分集合が代数的に独立であるとき、$B$は$K$上代数的に独立であるという。代数的に独立でない集合は<strong>代数的に従属 (algebraically dependent)</strong>であるという。</div>
 </div>
 <paragraph>$n=1$のとき、$\{\alpha\}$が代数的に独立であるとは$\alpha$が$K$上超越的であることです。即ち代数的独立性は超越性を一般化したものといえます。</paragraph>
 <div id="trans-deg" class="box definition">
     <div class="title">超越次数</div>
-    <div class="content">$L/K$を体拡大とする。$B\subset L$が$K$上代数的に独立であって$L/K(B)$が代数拡大であるとき$B$は$L/K$の<strong>超越基底 (transcendental basis)</strong>であるといい、その濃度$|B|$を$\trdeg_KL$ (または単に$\trdeg L$)と書いて<strong>超越次数 (transcendence degree)</strong>という。</div>
+    <div class="content">$L/K$を体拡大とする。$B\subseteqq L$が$K$上代数的に独立であって$L/K(B)$が代数拡大であるとき$B$は$L/K$の<strong>超越基底 (transcendental basis)</strong>であるといい、その濃度$|B|$を$\trdeg_KL$ (または単に$\trdeg L$)と書いて<strong>超越次数 (transcendence degree)</strong>という。</div>
 </div>
-<paragraph>超越次数は拡大次数と似た概念であり、ある意味で$L$の「大きさ」を示す指標と言えますので超越“次元”と呼ばれることもあります。今$B$の存在性および$|B|$の一意性を前提として超越基底, 超越次数を定義しましたが、明らかではないので証明しましょう。</paragraph>
+<paragraph>超越次数は拡大次数と似た概念であり、ある意味で$L$の「大きさ」を示す指標と言えますので超越“次元”と呼ばれることもあります。今$B$の存在性および$|B|$の一意性を前提として超越次数を定義しましたが、明らかではないので証明しましょう。</paragraph>
 <div id="dependence-lemma" class="box lemma">
     <div class="title"></div>
-    <div class="content">$L/K$を体拡大とする。$B_1\subsetneqq B_2\subset L$について$K(B_2)/K(B_1)$が代数拡大であるとき、$B_2$は$K$上代数的に従属である。</div>
+    <div class="content">$L/K$を体拡大とする。$B_1\subsetneqq B_2\subseteqq L$について$K(B_2)/K(B_1)$が代数拡大であるとき、$B_2$は$K$上代数的に従属である。</div>
 </div>
 <div id="dependence-proof" class="box proof">
     <div class="title"></div>
@@ -223,9 +234,9 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
 <div id="trans-unique-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$K$上代数的に独立な集合$B\subset L$全体の集合を$\Omega$とし、包含関係によって順序集合と見る。$\varnothing\in\Omega$より特に$\Omega$は空でない。$\Omega$の全順序部分集合$\Omega_0$に対して$\dcup_{B\in\Omega_0}B$は$\Omega_0$の上界である。実際有限部分集合$B_0\subset\dcup_{B\in\Omega_0}B$をとると、ある$B\in\Omega_0$が存在して$B_0\subset B$となるので$\dcup_{B\in\Omega_0}B$は代数的に独立。したがって、Zornの補題から極大元$\tilde B\in\Omega$が存在する。$L/K(\tilde B)$が代数拡大でないと仮定すると$K(\tilde B)$上超越的な$\alpha\in L$が存在するが、このとき$\tilde B\cup\{\alpha\}$は代数的に独立なので$\tilde B$の極大性に反する。したがって$\tilde B$は$L/K$の超越基底となる。</paragraph>
-    <paragraph>$B,$ $B'$を$L/K$の超越基底とし、$|B'|\leqq|B|$を示す。まずは$|B|<\infty$の場合について考える。$B=\{\alpha_1,\dots,\alpha_n\}$とおき、任意に$\alpha'_1\in B$をとる。$K(\alpha'_1,\alpha_1,\dots,\alpha_n)/K(\alpha_1,\dots,\alpha_n)$は代数拡大ゆえ、<a href="#dependence-lemma">補題</a>よりある$f\in K[y_1,x_1,\dots,x_n]$が存在して$f(\alpha'_1,\alpha_1,\dots,\alpha_n)=0$となる。$\alpha'_1$は$K$上超越的なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=1$と仮定できる。このとき$\alpha_1$は$K(\alpha'_1,\alpha_2,\dots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha_2,\dots,\alpha_n)$は代数拡大である(<a href="../prerequisite#ref1">参考</a>; 命題 4.3.1)。次に$\alpha'_2\in B'\setminus\{\alpha'_1\}$をとると、$K(\alpha'_1,\alpha'_2,\alpha_2,\dots,\alpha_n)/K(\alpha'_1,\alpha_2,\dots,\alpha_n)$は代数拡大ゆえ補題よりある$f\in K[y_1,y_2,x_2,\dots,x_n]$が存在して$f(\alpha'_1,\alpha'_2,\alpha_2,\dots,\alpha_n)=0$となる。$\alpha'_1,\alpha'_2$は$K$上代数的に独立なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=2$と仮定できる。このとき$\alpha_2$は$K(\alpha'_1,\alpha'_2,\alpha_3,\dots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha'_2,\alpha_3,\dots,\alpha_n)$は代数拡大である。$n\lt|B'|$であるとすると、以上の操作を繰り返すことで$L/(\alpha'_1,\dots,\alpha'_n)$が代数拡大であるように相異なる$\alpha'_1,\dots,\alpha'_n\in B'$をとることができ、かつ$\{\alpha'_1,\dots,\alpha'_n\}\subsetneqq B'$である。このとき補題より$B'$は$K$上代数的に従属であることになり、超越基底であることに矛盾する。したがって背理法により$|B'|\leqq|B|$を得る。</paragraph>
-    <paragraph>次に$B$が無限集合の場合を示す。$\alpha\in B$を任意にとると$\alpha$は$K(B')$上代数的なので、ある有限集合$B'_\alpha\subset B'$が存在して$\alpha$は$K(B'_\alpha)$上代数的である。$\alpha'\in B'\setminus\dcup_{\alpha\in B}B'_\alpha$が存在すると仮定すると任意の$\alpha\in B$は$K(B'_\alpha)$上代数的であり、特に$K(B'\setminus\{\alpha'\})$上代数的である。また、$B$が超越基底であることから$\alpha'$は$K(B)$上代数的である。以上より
+    <paragraph>$K$上代数的に独立な集合$B\subseteqq L$全体の集合を$\Omega$とし、包含関係によって順序集合と見る。$\varnothing\in\Omega$より特に$\Omega$は空でない。$\Omega$の全順序部分集合$\Omega_0$に対して$\dcup_{B\in\Omega_0}B$は$\Omega_0$の上界である。実際有限部分集合$B_0\subseteqq\dcup_{B\in\Omega_0}B$をとると、ある$B\in\Omega_0$が存在して$B_0\subseteqq B$となるので$\dcup_{B\in\Omega_0}B$は代数的に独立。したがって、Zornの補題から極大元$\tilde B\in\Omega$が存在する。$L/K(\tilde B)$が代数拡大でないと仮定すると$K(\tilde B)$上超越的な$\alpha\in L$が存在するが、このとき$\tilde B\cup\{\alpha\}$は代数的に独立なので$\tilde B$の極大性に反する。したがって$\tilde B$は$L/K$の超越基底となる。</paragraph>
+    <paragraph>$B$, $B'$を$L/K$の超越基底とし、$|B'|\leqq|B|$を示す。まずは$|B|<\infty$の場合について考える。$B=\{\alpha_1,\cdots,\alpha_n\}$とおき、任意に$\alpha'_1\in B$をとる。$K(\alpha'_1,\alpha_1,\cdots,\alpha_n)/K(\alpha_1,\cdots,\alpha_n)$は代数拡大ゆえ、<a href="#dependence-lemma">補題</a>よりある$f\in K[y_1,x_1,\cdots,x_n]$が存在して$f(\alpha'_1,\alpha_1,\cdots,\alpha_n)=0$となる。$\alpha'_1$は$K$上超越的なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=1$と仮定できる。このとき$\alpha_1$は$K(\alpha'_1,\alpha_2,\cdots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha_2,\cdots,\alpha_n)$は代数拡大である(<a href="../prerequisite#ref1">参考</a>; 命題 4.3.1)。次に$\alpha'_2\in B'\setminus\{\alpha'_1\}$をとると、$K(\alpha'_1,\alpha'_2,\alpha_2,\cdots,\alpha_n)/K(\alpha'_1,\alpha_2,\cdots,\alpha_n)$は代数拡大ゆえ補題よりある$f\in K[y_1,y_2,x_2,\cdots,x_n]$が存在して$f(\alpha'_1,\alpha'_2,\alpha_2,\cdots,\alpha_n)=0$となる。$\alpha'_1,\alpha'_2$は$K$上代数的に独立なので$f$は$x_i$のうちいずれかについて$1$次以上であり、必要に応じて番号を入れ替えることで$i=2$と仮定できる。このとき$\alpha_2$は$K(\alpha'_1,\alpha'_2,\alpha_3,\cdots,\alpha_n)$上代数的なので、$L/K(\alpha'_1,\alpha'_2,\alpha_3,\cdots,\alpha_n)$は代数拡大である。$n\lt|B'|$であるとすると、以上の操作を繰り返すことで$L/(\alpha'_1,\cdots,\alpha'_n)$が代数拡大であるように相異なる$\alpha'_1,\cdots,\alpha'_n\in B'$をとることができ、かつ$\{\alpha'_1,\cdots,\alpha'_n\}\subsetneqq B'$である。このとき補題より$B'$は$K$上代数的に従属であることになり、超越基底であることに矛盾する。したがって背理法により$|B'|\leqq|B|$を得る。</paragraph>
+    <paragraph>次に$B$が無限集合の場合を示す。$\alpha\in B$を任意にとると$\alpha$は$K(B')$上代数的なので、ある有限集合$B'_\alpha\subseteqq B'$が存在して$\alpha$は$K(B'_\alpha)$上代数的である。$\alpha'\in B'\setminus\dcup_{\alpha\in B}B'_\alpha$が存在すると仮定すると任意の$\alpha\in B$は$K(B'_\alpha)$上代数的であり、特に$K(B'\setminus\{\alpha'\})$上代数的である。また、$B$が超越基底であることから$\alpha'$は$K(B)$上代数的である。以上より
     $$K(B\cup B')/K(B\cup(B'\setminus\{\alpha'\}))/K(B'\setminus\{\alpha'\})$$
     は代数拡大なので、$\alpha'$は$K(B'\setminus\{\alpha'\})$上代数的で即ち$K(B')/K(B'\setminus\{\alpha'\})$は代数拡大である。よって<a href="#dependence-lemma">補題</a>から$B'$は$K$上代数的に従属であることになり、超越基底であることに矛盾する。したがって背理法により$B'\setminus\dcup_{\alpha\in B}B'_\alpha=\varnothing$が分かり、
     $$|B'|=\left|\dcup_{\alpha\in B}B'_\alpha\right|\leqq\left|\dcup_{\alpha\in B}(\mathbb Z\times\{\alpha\})\right|=|\mathbb Z\times B|=|B|$$
@@ -245,15 +256,15 @@ $$\mathfrak p_{-\ht\mathfrak p}\subsetneqq\dots\subsetneqq\mathfrak p_{-2}\subse
 <div id="trdeg-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$R=K[\theta_1,\dots,\theta_n]$とし、自然な準同型$f\colon K[x_1,\dots,x_n]\to R$を考える。このとき$R\cong K[x_1,\dots,x_n]/\Ker f$である。<a href="#correspond">素イデアルの対応定理</a>から$\mathfrak p,\mathfrak q$と対応する$K[x_1,\dots,x_n]$の素イデアル$\mathfrak p',\mathfrak q'$ ($\mathfrak p\subsetneqq\mathfrak q'$)をとることができ、<a href="#inclusion">命題7</a>から$R/\mathfrak p\cong K[x_1,\dots,x_n]/\mathfrak p'$である($\mathfrak q$も同様)。よって、
-    $$\trdeg(K[x_1,\dots,x_n]/\mathfrak q')<\trdeg(K[x_1,\dots,x_n]/\mathfrak p')$$
-    を示せばよい。以下$K[\bm x]\coloneqq K[x_1,\dots,x_n]$と略記する。</paragraph>
-    <paragraph>$r=\trdeg(K[\bm x]/\mathfrak q')$とし、分数体の超越基底$\{b_1,\dots,b_r\}$をとる。自然な射影$\pi\colon K[\bm x]/\mathfrak p'\to K[\bm x]/\mathfrak q'$から導かれる準同型
-    $$\tilde\pi\colon\Frac(K[\bm x]/\mathfrak p')\to\Frac(K[\bm x]/\mathfrak q'),\frac xy\mapsto\frac{\pi(x)}{\pi(y)}$$
-    によって$\tilde\pi(a_i)=b_i$となるよう$a_1,\dots,a_r\in\Frac(K[\bm x]/\mathfrak p')$をとると、これらは$K$上代数的に独立なので$r\leqq\trdeg(K[\bm x]/\mathfrak p')$である。</paragraph>
-    <paragraph>自然な射影$\iota_1\colon K[\bm x]\to K[\bm x]/\mathfrak p'$および$\iota_2\colon K[\bm x]\to K[\bm x]/\mathfrak q'$による$x_i$の像をそれぞれ$\alpha_i,$ $\beta_i$とする(このとき$\pi(\alpha_i)=\beta_i$であることに注意)。$\beta_1,\dots,\beta_n$のうち$K$上超越的な元を選んで$\beta_{i_1}$とし、$\beta_{i_1},\beta_{i_2}$が代数的に独立となるよう$\beta_{i_2}$を選び、…と続けると、超越次数の一意性から$r$個の元を選ぶことができる。必要に応じて番号を付け替え、$r$個の元を$\beta_1,\dots,\beta_r$とする。$\pi(\alpha_1),\dots,\pi(\alpha_r)$の代数的独立性から$\alpha_1,\dots,\alpha_r$の代数的独立性が従うので、$\trdeg(K[\bm x]/\mathfrak q')=\trdeg(K[\bm x]/\mathfrak p')$であると仮定すると$\alpha_1,\dots,\alpha_r$が$K[\bm x]/\mathfrak p'$の超越基底となる。$S\coloneqq K[x_1,\dots,x_r]\setminus\{0\}$とおくと、$\alpha_1,\dots,\alpha_r$の代数的独立性から$f\in S$に対して$\iota_1(f)=f(\alpha_1,\dots,\alpha_r)\neq0$となる。したがって$S\cap\Ker\iota_1=S\cap\mathfrak p'=\varnothing$が分かり、同様にして$S\cap\mathfrak q'=\varnothing$も従う。よって$K[\bm x]/\mathfrak p'$を$S$ (に対応する$K[\bm x]/\mathfrak p'$の積閉集合)で局所化することができ、<a href="#commutative">命題6</a>より
-$$(S^{-1}K[\bm x])/(S^{-1}\mathfrak p')=S^{-1}(K[\bm x]/\mathfrak p')=K(\alpha_1,\dots,\alpha_r)[\alpha_{r+1},\dots,\alpha_n]$$
-となる。ここで、右辺は$K(\alpha_1,\dots,\alpha_r)$上代数的であるから$K(\alpha_1,\dots,\alpha_n)$と書き換えられ<sup><a id="footnoteref5" href="#footnote5">[脚註5]</a></sup>、特に体なので$S^{-1}\mathfrak p'$は極大イデアルである。しかし$S\cap\mathfrak p'=\varnothing$および$\mathfrak p'\subsetneqq\mathfrak q'$から$S^{-1}\mathfrak p'\subsetneqq S^{-1}\mathfrak q'$が得られるので矛盾する。以上より、$\trdeg(K[\bm x]/\mathfrak q')\neq\trdeg(K[\bm x]/\mathfrak p')$である。</paragraph>
+    <paragraph>$R=K[\theta_1,\cdots,\theta_n]$とし、自然な準同型$f\colon K[x_1,\cdots,x_n]\to R$を考える。このとき$R\cong K[x_1,\cdots,x_n]/\Ker f$である。<a href="#correspond">素イデアルの対応定理</a>から$\mathfrak p,\mathfrak q$と対応する$K[x_1,\cdots,x_n]$の素イデアル$\mathfrak p',\mathfrak q'$ ($\mathfrak p\subsetneqq\mathfrak q'$)をとることができ、<a href="#inclusion">命題7</a>から$R/\mathfrak p\cong K[x_1,\cdots,x_n]/\mathfrak p'$である($\mathfrak q$も同様)。よって、
+    $$\trdeg(K[x_1,\cdots,x_n]/\mathfrak q')<\trdeg(K[x_1,\cdots,x_n]/\mathfrak p')$$
+    を示せばよい。以下$K[\bm x]\coloneqq K[x_1,\cdots,x_n]$と略記する。</paragraph>
+    <paragraph>$r=\trdeg(K[\bm x]/\mathfrak q')$とし、分数体の超越基底$\{b_1,\cdots,b_r\}$をとる。自然な射影$\pi\colon K[\bm x]/\mathfrak p'\to K[\bm x]/\mathfrak q'$から導かれる準同型
+    $$\tilde\pi\colon\Frac(K[\bm x]/\mathfrak p')\to\Frac(K[\bm x]/\mathfrak q'),\,\frac xy\mapsto\frac{\pi(x)}{\pi(y)}$$
+    によって$\tilde\pi(a_i)=b_i$となるよう$a_1,\cdots,a_r\in\Frac(K[\bm x]/\mathfrak p')$をとると、これらは$K$上代数的に独立なので$r\leqq\trdeg(K[\bm x]/\mathfrak p')$である。</paragraph>
+    <paragraph>自然な射影$\iota_1\colon K[\bm x]\to K[\bm x]/\mathfrak p'$および$\iota_2\colon K[\bm x]\to K[\bm x]/\mathfrak q'$による$x_i$の像をそれぞれ$\alpha_i$, $\beta_i$とする(このとき$\pi(\alpha_i)=\beta_i$であることに注意)。$\beta_1,\cdots,\beta_n$のうち$K$上超越的な元を選んで$\beta_{i_1}$とし、$\beta_{i_1},\beta_{i_2}$が代数的に独立となるよう$\beta_{i_2}$を選び、……と続けると、超越次数の一意性から$r$個の元を選ぶことができる。必要に応じて番号を付け替え、$r$個の元を$\beta_1,\cdots,\beta_r$とする。$\pi(\alpha_1),\cdots,\pi(\alpha_r)$の代数的独立性から$\alpha_1,\cdots,\alpha_r$の代数的独立性が従うので、$\trdeg(K[\bm x]/\mathfrak q')=\trdeg(K[\bm x]/\mathfrak p')$であると仮定すると$\alpha_1,\cdots,\alpha_r$が$K[\bm x]/\mathfrak p'$の超越基底となる。$S\coloneqq K[x_1,\cdots,x_r]\setminus\{0\}$とおくと、$\alpha_1,\cdots,\alpha_r$の代数的独立性から$f\in S$に対して$\iota_1(f)=f(\alpha_1,\cdots,\alpha_r)\neq0$となる。したがって$S\cap\Ker\iota_1=S\cap\mathfrak p'=\varnothing$が分かり、同様にして$S\cap\mathfrak q'=\varnothing$も従う。よって$K[\bm x]/\mathfrak p'$を$S$ (に対応する$K[\bm x]/\mathfrak p'$の積閉集合)で局所化することができ、<a href="#commutative">命題6</a>より
+$$(S^{-1}K[\bm x])/(S^{-1}\mathfrak p')=S^{-1}(K[\bm x]/\mathfrak p')=K(\alpha_1,\cdots,\alpha_r)[\alpha_{r+1},\cdots,\alpha_n]$$
+となる。ここで、右辺は$K(\alpha_1,\cdots,\alpha_r)$上代数的であるから$K(\alpha_1,\cdots,\alpha_n)$と書き換えられ<sup><a id="footnoteref5" href="#footnote5">[脚註5]</a></sup>、特に体なので$S^{-1}\mathfrak p'$は極大イデアルである。しかし$S\cap\mathfrak p'=\varnothing$および$\mathfrak p'\subsetneqq\mathfrak q'$から$S^{-1}\mathfrak p'\subsetneqq S^{-1}\mathfrak q'$が得られるので矛盾する。以上より、$\trdeg(K[\bm x]/\mathfrak q')\neq\trdeg(K[\bm x]/\mathfrak p')$である。</paragraph>
     </div>
 </div>
 <paragraph>準備が整ったので主定理を証明します。この定理は体上有限生成な整域についてという条件付きですが、代数幾何で扱う環の多く(例えば後々出てくるアフィン多様体の座標環)は体上有限生成な整域なので非常に有用です。</paragraph>
@@ -264,46 +275,46 @@ $$(S^{-1}K[\bm x])/(S^{-1}\mathfrak p')=S^{-1}(K[\bm x]/\mathfrak p')=K(\alpha_1
 <div id="dim-trdeg-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>素イデアル列$(0)\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_{\dim R}$をとると、<a href="#trdegs-lemma">補題</a>から
-    $$0\leqq\trdeg(R/\mathfrak p_{\dim R})<\dots<\trdeg(R/\mathfrak p_2)<\trdeg(R/\mathfrak p_1)<\trdeg(R/(0))=\trdeg R$$
+    <paragraph>素イデアル列$(0)\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\cdots\subsetneqq\mathfrak p_{\dim R}$をとると、<a href="#trdegs-lemma">補題</a>から
+    $$0\leqq\trdeg(R/\mathfrak p_{\dim R})<\cdots<\trdeg(R/\mathfrak p_2)<\trdeg(R/\mathfrak p_1)<\trdeg(R/(0))=\trdeg R$$
     である。上式に“$<$”は$\dim R$個現れるので、$\dim R\leqq\trdeg R$でなければならない。</paragraph>
-    <paragraph>$\trdeg R\leqq\dim R$であることを$\trdeg R$に関する数学的帰納法で示す。$\trdeg R=0$のときは明らか。次に$1\leqq r$をとり、$\trdeg R=r-1$なる$K,R$に対しての成立を仮定する。$R=K[\alpha_1,\dots,\alpha_n]$の超越次数が$r$であるとし、必要に応じて番号を付け替えて$\alpha_1,\dots,\alpha_r$が$K$上の超越基底となるようにする。ここで、$R'\coloneqq K(\alpha_1)[\alpha_2,\dots,\alpha_n],$ $K'\coloneqq K(\alpha_1)$とおくと$\trdeg_{K'}R'=r-1$である。実際、任意に$f\in K'(x_2,\dots,x_r)\setminus\{0\}$をとるとこれは$K(x_1,\dots,x_r)\setminus\{0\}$の元であり、$\alpha_1,\dots,\alpha_r$が$K$上代数的に独立であることから$f(\alpha_2,\dots,\alpha_r)\neq0$であることが分かるので$\alpha_2,\dots,\alpha_r$は$K'$上代数的に独立。また、$\Frac R'/K'(\alpha_2,\dots,\alpha_r)$が代数拡大であることは明らか。以上より$\alpha_2,\dots,\alpha_r$が$\Frac R'$の超越基底となる。</paragraph>
+    <paragraph>$\trdeg R\leqq\dim R$であることを$\trdeg R$に関する数学的帰納法で示す。$\trdeg R=0$のときは明らか。次に$1\leqq r$をとり、$\trdeg R=r-1$なる$K,R$に対しての成立を仮定する。$R=K[\alpha_1,\cdots,\alpha_n]$の超越次数が$r$であるとし、必要に応じて番号を付け替えて$\alpha_1,\cdots,\alpha_r$が$K$上の超越基底となるようにする。ここで、$R'\coloneqq K(\alpha_1)[\alpha_2,\cdots,\alpha_n]$, $K'\coloneqq K(\alpha_1)$とおくと$\trdeg_{K'}R'=r-1$である。実際、任意に$f\in K'(x_2,\cdots,x_r)\setminus\{0\}$をとるとこれは$K(x_1,\cdots,x_r)\setminus\{0\}$の元であり、$\alpha_1,\cdots,\alpha_r$が$K$上代数的に独立であることから$f(\alpha_2,\cdots,\alpha_r)\neq0$であることが分かるので$\alpha_2,\cdots,\alpha_r$は$K'$上代数的に独立。また、$\Frac R'/K'(\alpha_2,\cdots,\alpha_r)$が代数拡大であることは明らか。以上より$\alpha_2,\cdots,\alpha_r$が$\Frac R'$の超越基底となる。</paragraph>
     <paragraph>数学的帰納法の仮定より$n-1\leqq\dim R'$である。ゆえに、$R'$の素イデアル列
-    $$\mathfrak q_0\subsetneqq\mathfrak q_1\subsetneqq\mathfrak q_2\subsetneqq\dots\subsetneqq\mathfrak q_{r-1}$$
+    $$\mathfrak q_0\subsetneqq\mathfrak q_1\subsetneqq\mathfrak q_2\subsetneqq\cdots\subsetneqq\mathfrak q_{r-1}$$
     をとれる。$R'$は$R$を積閉集合$K[\alpha_1]\setminus\{0\}$で局所化したものなので、<a href="#correspond">素イデアルの対応定理</a>より$K[\alpha_1]\setminus\{0\}$と交わらない$R$の素イデアル列
-    $$\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\dots\subsetneqq\mathfrak p_{r-1}$$
-    をとれる。$\mathfrak p_{r-1}$が極大イデアルでなければ$\mathfrak p_{r-1}$を含む極大イデアル$\mathfrak p_r$をとることで長さ$r$の素イデアル列を作れるので、$R/\mathfrak p_{r-1}$が体であると仮定し矛盾を導く。</paragraph>
+    $$\mathfrak p_0\subsetneqq\mathfrak p_1\subsetneqq\mathfrak p_2\subsetneqq\cdots\subsetneqq\mathfrak p_{r-1}$$
+    をとれる。$\mathfrak p_{r-1}$が極大イデアルでなければ$\mathfrak p_{r-1}$を包む極大イデアル$\mathfrak p_r$をとることで長さ$r$の素イデアル列を作れるので、$R/\mathfrak p_{r-1}$が体であると仮定し矛盾を導く。</paragraph>
     <paragraph>$\alpha_1$が属する$R/\mathfrak p_{r-1}$の剰余類を$\bar{\alpha_1}$とおく。$f\in K[x]$が存在して$f(\bar{\alpha_1})=0\in R/\mathfrak p_{r-1}$となると仮定すると、$f(\alpha_1)\in\mathfrak q_{r-1}$だがこれは$\mathfrak p_{r-1}$が$K[\alpha_1]\setminus\{0\}$と交わらないことに反する。よって$\bar{\alpha_1}$は$K$上超越的で、特に$R/\mathfrak p_{r-1}$は$K$上代数的でない。よって、<a href="../integral-extension#Zariski-lemma">Zariskiの補題</a>より$R/\mathfrak p_{r-1}$が体でないことが示された。</paragraph>
     </div>
 </div>
 <paragraph>この定理の簡単な応用例として次の系があります。</paragraph>
 <div id="poly-ring" class="box corollary">
     <div class="title"></div>
-    <div class="content">体$K$上の$n$変数多項式環$K[x_1,\dots,x_n]$の次元は$n$である。特に、$m\neq n$のとき$K[x_1,\dots,x_m]\not\cong K[x_1,\dots,x_n]$である<sup><a id="footnoteref5" href="#footnote5">[脚註5]</a></sup>。</div>
+    <div class="content">体$K$上の$n$変数多項式環$K[x_1,\cdots,x_n]$の次元は$n$である。特に、$m\neq n$のとき$K[x_1,\cdots,x_m]\not\cong K[x_1,\cdots,x_n]$である<sup><a id="footnoteref6" href="#footnote6">[脚註6]</a></sup>。</div>
 </div>
 <paragraph>直観的には明らかでも、ちゃんと示そうとすると大変という例ですね。余談ですが、似た例として「次元の異なるEuclid空間は互いに位相同型でない」という命題があります。パッと見では位相空間論の序盤で示せそうな感じがしますが、一般的に知られている証明は<a href="https://sitmathclub.github.io/research/pdf/2023/shibaura/document_kimura.pdf">ホモロジ群を用いたもの</a>です。</paragraph>
 <h3 id="footnote">脚註</h3>
 <ol>
-<li id="footnote1">「$\pi^{-1}[\mathfrak p']$が$I$を含む素イデアルとなることは非自明だから、まず$\mathfrak p'\mapsto\pi^{-1}[\mathfrak p']$のwell-definednessを調べるべきではないか」という声が聞こえてきそうなので、より厳密な説明を書きます。確かにこの時点ではwell-definedであるかは非自明です。まず$\mathfrak p'=\pi[\pi^{-1}[\mathfrak p']]$から$\mathfrak p\mapsto\pi[\mathfrak p]$の($I$を含む素イデアル全体から$R/I$の素イデアル全体への写像としての)全射性が分かり、そのことと$\mathfrak p=\pi^{-1}[\pi[\mathfrak p]]$から任意の$\mathfrak p'$に対して$\pi^{-1}[\mathfrak p']$が$I$を含む素イデアルとなることが分かります。つまり、$\mathfrak p'=\pi[\pi^{-1}[\mathfrak p']]$と$\mathfrak p=\pi^{-1}[\pi[\mathfrak p]]$を示したときに$\mathfrak p'\mapsto\pi^{-1}[\mathfrak p']$のwell-definednessが分かり、同時に全単射であることも分かるという寸法です。<a href="#footnoteref1">↩</a></li>
-<li id="footnote2">$S^{-1}I$は$R$加群$I$の$S$による局所化ですが、$S^{-1}R$において$I$が生成するイデアルとみてもよいです。また、より一般に$R$加群$M,$ $N$と$R$の積閉集合$S$ ($N\cap S=\varnothing$)に対して$\bar S{}^{-1}(M/N)\cong(S^{-1}M)/(S^{-1}N)$が成り立ちます(証明はほぼ同じ)。<a href="#footnoteref2">↩</a></li>
-<li id="footnote3">$I\subset J$なるイデアル$I,J\subset R$を考えると、$I$は$J$の部分加群なので$x\in R$に対して$x+I\subset J$か$(x+I)\cap J\neq\varnothing$のちょうど一方が成り立ちます。<a href="#footnoteref3">↩</a></li>
+<li id="footnote1">「$\pi^{-1}(\mathfrak p')$が$I$を包む素イデアルとなることは非自明だから、まず$\mathfrak p'\mapsto\pi^{-1}(\mathfrak p')$のwell-definednessを調べるべきではないか」という声が聞こえてきそうなので、より厳密な説明を書きます。確かにこの時点ではwell-definedであるかは非自明です。まず$\mathfrak p'=\pi(\pi^{-1}(\mathfrak p'))$から$\mathfrak p\mapsto\pi(\mathfrak p)$の($I$を包む素イデアル全体から$R/I$の素イデアル全体への写像としての)全射性が分かり、そのことと$\mathfrak p=\pi^{-1}(\pi(\mathfrak p))$から任意の$\mathfrak p'$に対して$\pi^{-1}(\mathfrak p')$が$I$を包む素イデアルとなることが分かります。つまり、$\mathfrak p'=\pi(\pi^{-1}(\mathfrak p'))$と$\mathfrak p=\pi^{-1}(\pi(\mathfrak p))$を示したときに$\mathfrak p'\mapsto\pi^{-1}(\mathfrak p')$のwell-definednessが分かり、同時に全単射であることも分かるという寸法です。<a href="#footnoteref1">↩</a></li>
+<li id="footnote2">$S^{-1}I$は$R$加群$I$の$S$による局所化ですが、$S^{-1}R$において$I$が生成するイデアルとみてもよいです。また、より一般に$R$加群$M$, $N$と$R$の積閉集合$S$ ($N\cap S=\varnothing$)に対して$\bar S{}^{-1}(M/N)\cong(S^{-1}M)/(S^{-1}N)$が成り立ちます(証明はほぼ同じ)。<a href="#footnoteref2">↩</a></li>
+<li id="footnote3">$I\subseteqq J$なるイデアル$I,J\subseteqq R$を考えると、$I$は$J$の部分加群なので$x\in R$に対して$x+I\subseteqq J$か$(x+I)\cap J\neq\varnothing$のちょうど一方が成り立ちます。<a href="#footnoteref3">↩</a></li>
 <li id="footnote4">最後の等式$|\mathbb Z\times S|=|S|$は次のように示すことができます。ただし、最小の無限濃度が可算濃度であること(証明は<a href="https://alg-d.com/math/ac/def_of_finite.html">こちら</a>)を使っています。
 <div id="cardinality-proof" class="box proof">
     <div class="title">無限集合$S$に対して$|\mathbb Z\times S|=|S|$であること(参考: <a href="#ref2">[2]</a>)</div>
     <div class="content">
-    <paragraph>$S$を無限集合とし、$S$の部分集合$X$と全単射$f\colon\mathbb Z\times X\to X$の組$(X,f)$全体からなる集合$F$を考える。$|\mathbb Z|\leqq|S|$より可算部分集合$X_0\subset S$が存在し、また$|\mathbb Z\times\mathbb Z|=|\mathbb Z|$から全単射$\mathbb Z\times\mathbb Z\to\mathbb Z$が存在するので、自然に全単射$\mathbb Z\times X_0\to X_0$があり$F\neq\varnothing$。$F$に
-    $$(X,f)\precapprox(X',f')\defiff X\subset X'\and f=f'|_{\mathbb Z\times X}$$
+    <paragraph>$S$を無限集合とし、$S$の部分集合$X$と全単射$f\colon\mathbb Z\times X\to X$の組$(X,f)$全体からなる集合$F$を考える。$|\mathbb Z|\leqq|S|$より可算部分集合$X_0\subseteqq S$が存在し、また$|\mathbb Z\times\mathbb Z|=|\mathbb Z|$から全単射$\mathbb Z\times\mathbb Z\to\mathbb Z$が存在するので、自然に全単射$\mathbb Z\times X_0\to X_0$があり$F\neq\varnothing$。$F$に
+    $$(X,f)\precapprox(X',f')\defiff X\subseteqq X'\and f=f'|_{\mathbb Z\times X}$$
     で順序を入れると$F$は帰納的順序集合になることを示そう。$F$の全順序部分集合$\{(X_\lambda,f_\lambda)\}_{\lambda\in\Lambda}$に対して$X\coloneqq\dcup_{\lambda}X_\lambda$とし、$(n,x)\in\mathbb Z\times X$に対して$x\in X_\lambda$なる$\lambda\in\Lambda$をとって$f(n,x)=f_\lambda(n,x)$とする($\{(X_\lambda,f_\lambda)\}_{\lambda\in\Lambda}$の全順序性からこれはwell-defined)ことで$f\colon\mathbb Z\times X\to X$を定める。このとき$(X,f)$は$\{(X_\lambda,f_\lambda)\}_{\lambda\in\Lambda}$の上界であるので、$F$が帰納的順序集合であると分かった。</paragraph>
     <paragraph>Zornの補題から極大元$(\tilde X,\tilde f)\in F$が存在する。$\tilde X\neq S$であると仮定し$s\in S\setminus\tilde X$をとって$x_0\in\tilde X$を固定すると、全単射$f\colon\mathbb Z\times(\tilde X\cup\{s\})\to\tilde X\cup\{s\}$が
     $$f(n,x)=\begin{cases}s&(n=0\and x=s)\\f(2n+|n-\frac12|-|n+\frac12|,x_0)&(n\neq0\and x=s)\\\tilde f(2n,x_0)&(x=x_0)\\\tilde f(n,x)&(\text{otherwise})\end{cases}$$
     により定まる。しかしこれは$(\tilde X\cup\{s\},f)\in F$を意味し、$(\tilde X,\tilde f)$の極大性に反するので矛盾。以上より全単射$\mathbb Z\times S\to S$の存在が示された。</paragraph>
     </div>
 </div>
-とはいえ少々複雑な証明なので、「集合$X_1,$ $X_2$について、$X_2$が無限集合であって$|X_1|\leqq|X_2|$であるとき$|X_1\times X_2|=|X_2|$」という事実を覚えてしまってもよいかもしれません。<a href="#footnoteref4">↩</a></li>
-<li id="footnote5">基本的な内容だとは思いますが、少々悩んだので証明を書いておきます。一般に、$K(t_1,\dots,t_n)/K$が代数拡大であるとき$K[t_1,\dots,t_n]=K(t_1,\dots,t_n)$であることを示します。このためには、任意の$a\in K[t_1,\dots,t_n]\setminus\{0\}$に対して$a^{-1}\in K[t_1,\dots,t_n]$であることを示せばよいです。$a$の$K$上の最小多項式を$f=\dsum_ic_ix^i$とおくと、
-$$a^{-1}=\frac1{-c_0a}\cdot-c_0=\frac1{-c_0a}\sum_{0\lt i}c_ia^i=-\sum_{0\lt i}\frac{c_i}{c_0}a^{i-1}\in K[a]\subset K[t_1,\dots,t_n]$$
+とはいえ少々複雑な証明なので、「集合$X_1$, $X_2$について、$X_2$が無限集合であって$|X_1|\leqq|X_2|$であるとき$|X_1\times X_2|=|X_2|$」という事実を覚えてしまってもよいかもしれません。<a href="#footnoteref4">↩</a></li>
+<li id="footnote5">基本的な内容だとは思いますが、少々悩んだので証明を書いておきます。一般に、$K(t_1,\cdots,t_n)/K$が代数拡大であるとき$K[t_1,\cdots,t_n]=K(t_1,\cdots,t_n)$であることを示します。このためには、任意の$a\in K[t_1,\cdots,t_n]\setminus\{0\}$に対して$a^{-1}\in K[t_1,\cdots,t_n]$であることを示せばよいです。$a$の$K$上の最小多項式を$f=\dsum_ic_ix^i$とおくと、
+$$a^{-1}=\frac1{-c_0a}\cdot-c_0=\frac1{-c_0a}\sum_{0\lt i}c_ia^i=-\sum_{0\lt i}\frac{c_i}{c_0}a^{i-1}\in K[a]\subseteqq K[t_1,\cdots,t_n]$$
 となって示されました。<a href="#footnoteref5">↩</a></li>
-<li id="footnote6">$K[x_1,\dots,x_m]$と$K[x_1,\dots,x_n]$が同型でないことは超越次数の一意性から直ちに従うのでは？と思ったりしましたが、これでは$K$代数<sup><a id="footnoteref1" href="#footnote7">[脚註7]</a></sup>として同型でないことしか分からず不十分です。$K$代数としては同型でないが環同型ではある例として、以下があります。
+<li id="footnote6">$K[x_1,\cdots,x_m]$と$K[x_1,\cdots,x_n]$が同型でないことは超越次数の一意性から直ちに従うのでは？と思ったりしましたが、これでは$K$代数<sup><a id="footnoteref7" href="#footnote7">[脚註7]</a></sup>として同型でないことしか分からず不十分です。$K$代数としては同型でないが環同型ではある例として、以下があります。
 <div id="not-isomorphic" class="box proposition">
     <div class="title"></div>
     <div class="content">$R$を$\mathbb Q[x,y]/(x-y^2)$の分数体, $R'$を$\mathbb Q[x,y]/(x^2-y)$の分数体とするとき、$R$と$R'$は$\mathbb Q(x)$代数としては同型でないが環としては同型である。</div>
@@ -311,19 +322,19 @@ $$a^{-1}=\frac1{-c_0a}\cdot-c_0=\frac1{-c_0a}\sum_{0\lt i}c_ia^i=-\sum_{0\lt i}\
 <div id="not-isomorphic-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>まず、$R\to R'$を$x\mapsto y,$ $y\mapsto x$で定めればこれは環同型になる。</paragraph>
-    <paragraph>$R$において$y$は$x$の平方根なので、$R'$において$x$の平方根が存在しないことを示せばよい。$\dfrac fg\in R'$ ($f,g\in\mathbb Q[x,y]/(x^2-y)$)が$x$の平方根であると仮定する。$x^2-y$は$y$の$1$次式なので$f=F\bmod(x^2-y),$ $g=G\bmod(x^2-y)$なる$F,G\in\mathbb Q[x]$をとることができる。$f^2-xg^2=0$より$F^2-xG^2\in(x^2-y)$であり、$F^2-xG^2\in\mathbb Q[x]$ゆえ$F^2-xG^2=0$。ここで、必要に応じて共通因数で割れば$\gcd(F,G)=1$となるようにできる。両辺の定数項を考えると$F$の定数項は$0$であり、更に$1$次の項を考えると$G$の定数項も$0$と分かる。このとき$x\mid F,G$となって互いに素であることに矛盾する。</paragraph>
+    <paragraph>まず、$R\to R'$を$x\mapsto y$, $y\mapsto x$で定めればこれは環同型になる。</paragraph>
+    <paragraph>$R$において$y$は$x$の平方根なので、$R'$において$x$の平方根が存在しないことを示せばよい。$\dfrac fg\in R'$ ($f,g\in\mathbb Q[x,y]/(x^2-y)$)が$x$の平方根であると仮定する。$x^2-y$は$y$の$1$次式なので$f=F\bmod(x^2-y)$, $g=G\bmod(x^2-y)$なる$F,G\in\mathbb Q[x]$をとることができる。$f^2-xg^2=0$より$F^2-xG^2\in(x^2-y)$であり、$F^2-xG^2\in\mathbb Q[x]$ゆえ$F^2-xG^2=0$。ここで、必要に応じて共通因数で割れば$\gcd(F,G)=1$となるようにできる。両辺の定数項を考えると$F$の定数項は$0$であり、更に$1$次の項を考えると$G$の定数項も$0$と分かる。このとき$x\mid F,G$となって互いに素であることに矛盾する。</paragraph>
     </div>
 </div>
 もっと簡単な例もあるかもしれません。<a href="#footnoteref6">↩</a></li>
-<li id="footnote7">$K$代数という用語を導入し忘れていました。具体的な定義は以下に示しますが、ざっくり$K$を部分環に持つ環( or 零環)だと思ってもらえればよいです(環準同型$\iota\colon K\to R',a\mapsto a\cdot1$は$K$が体で$R'\neq0$なら単射であることに注意)。
+<li id="footnote7">$K$代数という用語を導入し忘れていました。具体的な定義は以下に示しますが、ざっくり$K$を部分環に持つ環( or 零環)だと思ってもらえればよいです(環準同型$\iota\colon K\to R',\,a\mapsto a\cdot1$は$K$が体で$R'\neq0$なら単射であることに注意)。
 <div id="algebra-1" class="box definition">
     <div class="title">環上の多元環</div>
     <div class="content">$R$を環とし、$R$加群$R'$に環構造が入っているとする(もちろん加群$R'$の加法と環$R'$の加法は同一)。$R'$の積が$R$双線型性
     $$r\cdot(xy)=(r\cdot x)y=x(r\cdot y)\quad({}^\forall r\in R,{}^\forall x,y\in R')$$
     を満たすとき、$R'$は<strong>$R$上の(結合的)多元環 ((associative) algebra over $R$)</strong>または<strong>$R$代数 ($R$-algebra)</strong>であるという。</div>
 </div>
-$R$代数の準同型は$R$加群準同型であり環準同型でもある写像をいい、全単射な準同型を同型といいます。$R$代数の定義にはこの他にも同値なものがあり、どちらがメジャーかはよく分かりません。定義の解説や例など、書きはじめると長くなるのでので別記事で詳説しましょうか…。<a href="#footnoteref7">↩</a></li>
+$R$代数の準同型は$R$加群準同型であり環準同型でもある写像をいい、全単射な準同型を同型といいます。$R$代数の定義にはこの他にも同値なものがあり、どちらがメジャーかはよく分かりません。定義の解説や例など、書きはじめると長くなるのでので別記事で詳説しましょうか……。<a href="#footnoteref7">↩</a></li>
 </ol>
 <h3 id="reference"><span>参考文献</span></h3>
 <ol id="ref-list">

@@ -41,7 +41,7 @@ onload = function() {
     pageIndex = -1;
     for(let i = 0; i < articles.length; i++) {
         let sectionLength;
-        if(pages.sections == undefined) {
+        if(pages.sections === undefined) {
             sectionLength = pages.pageName.length;
         } else {
             sectionLength = pages.sections[i];
