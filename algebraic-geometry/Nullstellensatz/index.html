@@ -62,13 +62,13 @@ $$(x_1-a_1,\cdots,x_n-a_n)\subseteqq J$$
 <div id="strong" class="box theorem">
     <div class="title">Hilbertの零点定理 (Hilbert's Nullstellensatz)</div>
     <div class="content">$A$のイデアル$I$に対し、$\mathcal I(\mathcal Z(I))=\sqrt I$が成り立つ。ここに、$\sqrt I$は$I$の根基、即ち
-    $$\sqrt I\coloneqq\{f\in A\mid{}^\exists n\in\mathbb Z_{\gt0}\st f^n\in I\}$$
+    $$\sqrt I\coloneqq\{f\in A\mid{}^\exists m\in\mathbb Z_{\gt0}\st f^m\in I\}$$
     である。</div>
 </div>
 <div id="proof-strong" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>$I$の有限生成系$\{f_1,\cdots,f_r\}$をとる。任意の$g\in\mathcal I(\mathcal Z(I))$に対し、$g$のある冪が$f_1,\cdots,f_r$の$A$線型結合で書けることを示せばよい。</paragraph>
+    <paragraph>$I\subseteqq\mathcal I(\mathcal Z(I))$は既知なので、逆の包含を示す。$I$の有限生成系$\{f_1,\cdots,f_r\}$をとる。任意の$g\in\mathcal I(\mathcal Z(I))$に対し、$g$のある冪が$f_1,\cdots,f_r$の$A$線型結合で書けることを示せばよい。</paragraph>
     <paragraph>自然に$A\subseteqq A'\coloneqq k[x_1,\cdots,x_n,x_{n+1}]$と見做し、$A'$のイデアル$J=(f_1,\cdots,f_r,x_{n+1}g-1)$を考える(ここがRabinowitsch trick)。$P\in\mathbb A^{n+1}$が$f_1(P)=\cdots=f_r(P)=0$を満たすとき$g(P)=0$なので、$(x_{n+1}g-1)(P)\neq0$である。よって$\mathcal Z(J)=\varnothing$ゆえ、弱零点定理より$1\in J$である。$1=\dsum_{i=1}^r\alpha_i\cdot f_i+\alpha\cdot(x_{n+1}g-1)$ ($\alpha_i,\alpha\in A'$)とおき、$x_{n+1}=\dfrac1y$を代入して分母を払うと
     \begin{align*}
     1&=\dsum_{i=1}^r\alpha_i\Bigl(x_1,\cdots,x_n,\frac1y\Bigr)\cdot f_i+\alpha\Bigl(x_1,\cdots,x_n,\frac1y\Bigr)\cdot\Bigl(\frac gy-1\Bigr)\\

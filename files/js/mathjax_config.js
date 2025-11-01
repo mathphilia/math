@@ -30,6 +30,7 @@ MathJax = {
             dlim: ['\\displaystyle\\lim'],
             dmax: ['\\displaystyle\\max'],
             dmin: ['\\displaystyle\\min'],
+            doplus: ['\\displaystyle\\bigoplus'],
             dprod: ['\\displaystyle\\prod'],
             dsum: ['\\displaystyle\\sum'],
             dsup: ['\\displaystyle\\sup'],

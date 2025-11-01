@@ -42,16 +42,16 @@
 <paragraph>次に種々の集合や代数系の表記・名称について。空集合は$\varnothing$で表し、整数全体の集合, 有理数全体の集合, 実数全体の集合, 複素数全体の集合はそれぞれ$\mathbb Z,\mathbb Q,\mathbb R,\mathbb C$で表します。「自然数」という用語は$0$を含むか否かに揺れがあるため、記号$\mathbb N$を含め基本的には使わないものとします(どちらで解釈しても全く問題のない場合には使う可能性がある)。単に「環」といった場合、単位的可換環を指すものとし、零環も環に含めます。より妥当だと思われる表記がある場合を除き、加法単位元は$0$で、乗法単位元は$1$で表します。また、自明群, 自明加群, 零イデアル, 零写像も$0$と表記する場合があります。積閉集合の定義としては$x,y\in S\Rightarrow xy\in S$と$1\in S$を課し、$0\notin S$は課さないものとします。環$R$の可逆元全体の集合(がなす群)を$R^\times$と書きます。整域$R$の分数体(即ち$(R^\times)^{-1}R$)を$\Frac(R)$と書きます。筆記体(<code>\mathcal</code>)やドイツ文字(<code>\mathfrak</code>)はできるだけ使いたくないのですが、記号があまりに足りなくなったので多少は使うことにしました。特に、素イデアルや極大イデアルにはドイツ文字を使います。</paragraph>
 <paragraph>『Algebraic Geometry』では$\subset$を$\subsetneqq$の意味で使っていますが、私は$\subseteqq$の意味で使いたいと思っています。しかし記号の意味が教科書と異なるのは読みづらいので、真の包含には$\subsetneqq$を、等号を含む包含には$\subseteqq$を使うことで誤解を回避します(このカテゴリ以外では、等号を含む包含関係を表す場合基本的に$\subset$を使います)。その他、記号にいくつかの流派がある場合は参考文献を参照し、あまりに少数派であろう記号は使わないようにしつつ自分の趣味に合ったものを選びます。</paragraph>
 <h3 id="structure">構成</h3>
-<paragraph>定義や定理, 証明の構成はRobin Hartshorneの『Algebraic Geometry』 (参考文献<a href="#ref3">[3]</a>)を基にしています。当初は第Ⅱ章までの内容(演習問題は一部のみ)を書ききることを目標にしていましたが、なかなか分からない部分が多く、先生に訊いても解決しなかったのでこの目標は諦めました。これを読んでいる方も、分からない部分は一旦飛ばして読むようにしましょう。しばらく経って読み返すと分かることがあったりなかったりします。現時点では第Ⅱ章までのうち代数幾何学の基本的な内容と言える範囲、具体的には代数多様体およびスキームの定義と両者の関係(第Ⅰ章1～4節および第Ⅱ章1～2節)辺りまで書く予定です。とはいえこれもあくまで予定(というより希望？)であり、達成される可能性は非常に低いです。</paragraph>
+<paragraph>定義や定理, 証明の構成はRobin Hartshorneの『Algebraic Geometry』 (参考文献<a href="#ref3">[3]</a>)を基にしています。当初は第Ⅱ章までの内容(演習問題は一部のみ)を書ききることを目標にしていましたが、なかなか分からない部分が多かったのでこの目標は諦めました。これを読んでいる方も、分からない部分は一旦飛ばして読むようにしましょう。しばらく経ってから読み返すと分かることがあったりなかったりします。現時点では第Ⅱ章までのうち代数幾何学の基本的な内容と言える範囲、具体的には代数多様体およびスキームの定義と両者の関係(第Ⅰ章1～4節および第Ⅱ章1～2節)辺りまで書く予定です。とはいえこれもあくまで予定(というより希望？)であり、達成される可能性は非常に低いです。</paragraph>
 <paragraph>さて、『Algebraic Geometry』では可換環論に関するいくつかの定理を証明抜きで提示していますが、ここでは極力証明を与えることにします。また、証明が与えられている定理であっても行間が広い場合が多いので、自分が読んで理解できる程度に埋めます。とはいえこれも主観であり、不十分に感じる人も冗長に感じる人もいると思いますが悪しからず。証明が分からなければ読み飛ばし、定理を認めてよいと思います(『Algebraic Geometry』のintroductionにもそう書いてありました)。なお、この本は大学の図書館にならあると思いますが、買おうと思うとほぼインターネットでしか買えず、また大変な金額(具体的には一万円ほど)になります。一応インターネット上にPDF版がありますのでそれを利用することができますが、私が調べた限りでは海賊版と思われるので非推奨であり、ここでもリンクを貼るようなことはしません。</paragraph>
 <h3 id="reference">参考文献</h3>
-<paragraph>ここに示すのは複数ページにまたがって参考文献としたものであり、単一ページでのみ参考にしたものは当該ページの参考文献欄に記します。また、下記の他に日本語版および英語版のWikipediaを参考資料とすることがあります。</paragraph>
+<paragraph>以下に挙げる文献は複数のページにまたがって参照したものです。各ページ固有の参考文献については、該当ページの参考文献欄に個別に記載します。なお、必要に応じて日本語版および英語版のWikipediaを補助的な参考資料として参照することがあります。</paragraph>
 <ol id="ref-list">
-    <li id="ref1"><a href="http://www.math.u-ryukyu.ac.jp/~suga/algebra/lecturenote.pdf">代数学講義ノート</a> (PDF)</li>
-    <li id="ref2"><a href="https://ryoya9826.github.io/files/note/ring.pdf">可換環論</a> (PDF)</li>
-    <li id="ref3">Robin Hartshorne 『Algebraic Geometry』</li>
-    <li id="ref4"><a href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">William Fulton 『Algebraic Curves: An Introduction to Algebraic Geometry』</a> (PDF)</li>
-    <li id="ref5"><a href="https://alg-d.com/math/kan_extension">圏論 | 壱大整域</a></li>
+    <li id="ref1">菅 修一 <a href="http://www.math.u-ryukyu.ac.jp/~suga/algebra/lecturenote.pdf">代数学講義ノート</a> (PDF) <small>(アクセス日: 2025-11-01)</small></li>
+    <li id="ref2">安藤 遼哉 <a href="https://ryoya9826.github.io/files/note/ring.pdf">可換環論</a> (PDF) <small>(アクセス日: 2025-11-01)</small></li>
+    <li id="ref3">Robin Hartshorne <a href="https://link.springer.com/book/10.1007/978-1-4757-3849-0">『Algebraic Geometry』</a> Graduate Texts in Mathematics Vol. 52, Springer, 1977, ISBN 978-0-387-90244-9</li>
+    <li id="ref4">William Fulton <a href="https://dept.math.lsa.umich.edu/~wfulton/CurveBook.pdf">『Algebraic Curves: An Introduction to Algebraic Geometry』</a> (PDF) <small>(アクセス日: 2025-11-01)</small></li>
+    <li id="ref5">alg-d <a href="https://alg-d.com/math/kan_extension">圏論 | 壱大整域</a> <small>(アクセス日: 2025-11-01)</small></li>
 </ol>
 <div class="adjacent">
     <a class="prev"></a>

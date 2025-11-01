@@ -175,7 +175,7 @@ $$\varphi\colon k[x_1,\cdots,x_n]\to k[a_1,\cdots,a_n],\,f\mapsto f(a_1,\cdots,a
 <div id="is-this-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph><a href="https://ryoya9826.github.io/files/note/ring.pdf">PDF</a>の系5.5.2や<a href="https://en.wikipedia.org/wiki/Krull%27s_principal_ideal_theorem">英語版 Wikipedia</a>に証明がある(が、よく分からなかった)。また、『Algebraic Geometry』によれば『Introduction to Commutative Algebra』(Atiyah･Macdonald, 1969)の112ページにもあるらしい(版や翻訳によってページ位置は異なると思うが)。</paragraph>
+    <paragraph><a href="https://ryoya9826.github.io/files/note/ring.pdf">PDF</a>の系5.5.2や<a href="https://en.wikipedia.org/wiki/Krull%27s_principal_ideal_theorem">英語版 Wikipedia</a>に証明がある(が、よく分からなかった)。また、『Algebraic Geometry』によれば『Introduction to Commutative Algebra』(Atiyah・Macdonald, 1969)の112ページにもあるらしい(版や翻訳によってページ位置は異なると思うが)。</paragraph>
     </div>
 </div>
 <div id="theorem-112A" class="box theorem">
@@ -201,17 +201,17 @@ $$\varphi\colon k[x_1,\cdots,x_n]\to k[a_1,\cdots,a_n],\,f\mapsto f(a_1,\cdots,a
 <div id="dim-hypersurface-proof" class="box proof">
     <div class="title"></div>
     <div class="content">
-    <paragraph>($\Leftarrow$) $f\in A$を定数でない既約多項式とし、アフィン多様体$Y\coloneqq\mathcal Z(f)$を考える。$f$の既約性から$(f)$は素イデアルなので、<a href="#theorem-111A">Krullの単項イデアル定理</a>から$\ht(f)=1$である。よって<a href="../dimension-2#theorem-18Ab">前回示した定理</a>から、
+    <paragraph>($\Leftarrow$) $f\in A$を既約多項式とし、アフィン多様体$Y\coloneqq\mathcal Z(f)$を考える。$f$の既約性から$(f)$は素イデアルなので、<a href="#theorem-111A">Krullの単項イデアル定理</a>から$\ht(f)=1$である。よって<a href="../dimension-2#theorem-18Ab">前回示した定理</a>から、
     $$\dim Y=\dim A/(f)=\coht(f)=\dim A-\ht(f)=n-1$$
     を得る。</paragraph>
     <paragraph>($\Rightarrow$) $Y\subseteqq\mathbb A^n$を$(n-1)$次元アフィン多様体とし、$\mathfrak p\coloneqq\mathcal I(Y)$とする。先程と同様にして、
-    $$\ht\mathfrak p=\dim A-\coht\mathfrak p=n-\dim A/\mathfrak p=n-\dim Y=n-1$$
+    $$\ht\mathfrak p=\dim A-\coht\mathfrak p=n-\dim A/\mathfrak p=n-\dim Y=1$$
     が分かる。体上の多項式環は一意分解整域なので、<a href="#theorem-112A">定理3</a>から$\mathfrak p$は単項イデアルである。$\mathfrak p$の生成元を$f$とすれば$\mathfrak p$が素イデアルであることから$f$は既約多項式であり、$Y=\mathcal Z(f)$である。</paragraph>
     </div>
 </div>
 <h3 id="footnote">脚註</h3>
 <ol>
-<li id="footnote1">わかりやすい例だと、位相空間$X$から離散位相空間$\{0,1\}$への全射連続写像が存在するなら$X$は非連結である、というものがあります。またBanach-Stoneの定理によれば、$X$, $Y$をコンパクトHausdorff空間とし、各空間上の実数(or 複素数)値連続函数がなす集合に$\sup$ノルムを入れたBanach空間を$C(X)$, $C(Y)$とすると、$X$と$Y$が同相となることと全射等長写像$C(X)\to C(Y)$が存在することが同値となるそうです(<a href="https://app.mathsoc.jp/meeting_data/okayama18sept/public/msjmeeting-2018sep-07i003.pdf">参考PDF</a>; 1.3.節)。空間上の函数を調べることとは違いますが、例えば基本群は連続写像$S^1\to X$の振る舞いに着目して$X$の構造を調べるという考え方に基づいています。<a href="#footnoteref1">↩</a></li>
+<li id="footnote1">わかりやすい例だと、位相空間$X$から離散位相空間$\{0,1\}$への全射連続写像が存在するなら$X$は非連結である、というものがあります。またBanach-Stoneの定理によれば、$X$, $Y$をコンパクトHausdorff空間とし、各空間上の実数( or 複素数)値連続函数がなす集合に$\sup$ノルムを入れたBanach空間を$C(X)$, $C(Y)$とすると、$X$と$Y$が同相となることと全射等長写像$C(X)\to C(Y)$が存在することが同値となるそうです(<a href="https://app.mathsoc.jp/meeting_data/okayama18sept/public/msjmeeting-2018sep-07i003.pdf">参考PDF</a>; 1.3.節)。空間上の函数を調べることとは違いますが、例えば基本群は連続写像$S^1\to X$の振る舞いに着目して$X$の構造を調べるという考え方に基づいています。<a href="#footnoteref1">↩</a></li>
 <li id="footnote2">$\bar{Z_0}\subsetneqq\cdots\subsetneqq\bar{Z_d}$が極大列であるとは言っていますが長さが最大であるとは言っていないので、即座に$\dim\bar Y=d$とは言えません。<a href="#footnoteref2">↩</a></li>
 <li id="footnote3">Krull's HauptidealsatzよりKrull's principal ideal theoremということが多いかもしれないというのは置いておくとして、<a href="https://ja.wikipedia.org/wiki/クルルの単項イデアル定理">Wikipedia</a>等ではこの定理のステートメントは以下のようになっています。
 <div id="Hauptidealsatz" class="box theorem">

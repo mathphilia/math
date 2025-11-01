@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>射影空間の諸性質</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="mathphilia" />
+    <meta name="theme-color" content="#5D5" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:description" content="『Algebraic Geometry』第Ⅰ章第2節の演習問題(一部)を解きます。" />
+    <meta property="og:image" content="https://mathphilia.github.io/math/algebraic-geometry/thumbnail/projective-property.png" />
+    <meta property="og:site_name" content="数学雑記帖" />
+    <meta property="og:title" content="射影空間の諸性質" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://mathphilia.github.io/math/algebraic-geometry/projective-property" />
+    <script src="/math/files/js/mathjax_config.js"></script>
+    <script src="../thumbnail/thumbnail.json.js"></script>
+    <script src="/math/files/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <link rel="stylesheet" href="/math/files/css/style.css" />
+    <link rel="stylesheet" href="/math/files/css/theorem.css" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/104004553" />
+</head>
+<body>
+<header>
+<h1><a class="text" href="">数学雑記帖</a></h1>
+<span><a href="../../">TOP</a> / <a href="../">代数幾何学</a> / 射影空間の諸性質</span>
+</header>
+<aside><span>目次</span><ul id="h3-list"></ul></aside>
+<main>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+<h2>射影空間の諸性質</h2>
+<paragraph>『Algebraic Geometry』第Ⅰ章第2節の本文の内容は前回の記事だけで尽くされており、アフィン空間の諸定理の射影空間における類似については演習問題に書かれています。<del>さすがに1記事で1つの節が終わるのは寂しいので、</del>本記事では演習問題 2.1–2.8を解きます。「解答」と書かれた部分をクリック(またはタップ)すると証明が表示されます。また、テキストでは一部の問題にヒントが付されているので、この記事でも書いておきます。</paragraph>
+<h3 id="reduction">アフィン空間への帰着</h3>
+<paragraph>射影空間における$\mathcal Z$や$\mathcal I$はアフィン空間のときより定義が複雑なので、そのまま証明しようとするとやや煩雑になります。そのため、アフィン空間の場合に帰着させることを考えます。</paragraph>
+<paragraph>以下、便宜的に$\mathbb P^n$における$\mathcal Z$, $\mathcal I$をそれぞれ$\mathcal Z_\mathbb P$, $\mathcal I_\mathbb P$と書き、$\mathbb A^{n+1}$における$\mathcal Z$, $\mathcal I$をそれぞれ$\mathcal Z_\mathbb A$, $\mathcal I_\mathbb A$と書きます。また、
+$$\pi\colon\mathbb A^{n+1}\setminus\{\bm0\}\to\mathbb P^n,\,(a_0,\cdots,a_n)\mapsto(a_0:\cdots:a_n)$$
+とおきます。</paragraph>
+<paragraph>前回の記事で述べた<a href="../projective-space#:~:text=一致することを示します。">射影空間における$\mathcal I$の同値な定義</a>から、$W\subseteqq\mathbb P^n$に対して
+$$\mathcal I_\mathbb P(W)=\mathcal I_\mathbb A(\pi^{-1}(W))$$
+となることが分かります。また、$T\subseteqq S$を斉次多項式からなる集合とすると、$\mathcal Z_\mathbb P(T)=\pi(\mathcal Z_\mathbb A(T)\setminus\{\bm0\})$が成り立ちます。実際、$(a_0:\cdots:a_n)\in\mathbb P^n$が$\pi(\mathcal Z_\mathbb A(T)\setminus\{\bm0\})$に属するための必要十分条件は
+$${}^\exists\lambda\in k^\times\st{}^\forall f\in T,\,f(\lambda a_0,\cdots,\lambda a_n)=0$$
+であり、$f$が斉次多項式であることから$f(\lambda a_0,\cdots,\lambda a_n)=0$は$f(a_0,\cdots,a_n)=0$と同値なので、上の条件は$(a_0:\cdots:a_n)\in\mathcal Z_\mathbb P(T)$となるための必要十分条件でもあります。また、$I$を斉次イデアル, $I^\mathrm h$をその中の斉次元全体の集合とすると、上の議論から$\mathcal Z_\mathbb P(I)$は$\pi(\mathcal Z_\mathbb A(I^\mathrm h)\setminus\{\bm0\})$と書けます。ここで、<a href="../affine-space#proof-finite">「アフィン空間の代数的集合」の定理1の証明</a>冒頭の議論から$\mathcal Z_\mathbb A(I^\mathrm h)=\mathcal Z_\mathbb A(I)$であることを使えば、
+$$\mathcal Z_\mathbb P(I)=\pi(\mathcal Z_\mathbb A(I^\mathrm h)\setminus\{\bm0\})=\pi(\mathcal Z_\mathbb A(I)\setminus\{\bm0\})$$
+が成り立つことが分かります。</paragraph>
+<paragraph>演習問題 2.1, 2.3, 2.6の解答では以上の事実および記号を使います。</paragraph>
+<h3 id="Ex21">演習問題 2.1</h3>
+<div id="exercise-1" class="box problem">
+    <div class="title">射影零点定理</div>
+    <div class="content">$I\subseteqq S$を斉次イデアル、$f\in S$を次数$1$以上の斉次多項式とする。任意の$P\in\mathcal Z(I)$について$f(P)=0$であるとき、ある正整数$q$が存在して$f^q\in I$となることを示せ。</div>
+</div>
+<details>
+<summary>ヒント</summary>
+<paragraph>$n$次元射影空間の話を$(n+1)$次元アフィン空間(アフィン座標環$S=k[x_0,\cdots,x_n]$を持つ)の話に落とし込み、<a href="../Nullstellensatz#strong">Hilbertの零点定理</a>を用いて証明を行います。</paragraph>
+</details>
+<details>
+<summary>解答</summary>
+<div id="exercise-1-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$I=S$なら$\mathcal Z_\mathbb P(I)=\varnothing$となって明らかなので、以下$I\neq S$の場合を考える。</paragraph>
+    <paragraph>任意の$P\in\mathcal Z_\mathbb P(I)$について$f(P)=0$であるとし、任意の$Q\in\mathcal Z_\mathbb A(I)$について$f(Q)=0$であることを見る。任意に$Q\in\mathcal Z_\mathbb A(I)$をとって$Q=(a_0,\cdots,a_n)$とおくと、任意の斉次多項式$g\in I$について$g(a_0,\cdots,a_n)=0$である。よって、$Q\neq\bm0$なら$(a_0:\cdots:a_n)\in\mathcal Z_\mathbb P(I)$なので$f(Q)=0$であり、また$f$は$1$次以上の斉次多項式であることから定数項を持たないので$Q=\bm0$のときも$f(Q)=0$である。</paragraph>
+    <paragraph>このとき、任意の$Q\in\mathcal Z_\mathbb A(I)$について$f(Q)=0$であると分かる。よって、<a href="../Nullstellensatz#strong">Hilbertの零点定理</a>より$f\in\sqrt I$となり結論を得る。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="Ex22">演習問題 2.2</h3>
+<div id="exercise-2" class="box problem">
+    <div class="title"></div>
+    <div class="content">斉次イデアル$I\subseteqq S$に関する以下の条件が互いに同値であることを示せ。
+    <ol class="roman">
+        <li>$\mathcal Z(I)=\varnothing$</li>
+        <li>$\sqrt I$は$S$または$S_+\coloneqq\doplus_{d\gt0}S_d$に等しい。</li>
+        <li>ある正整数$d$に対して$S_d\subseteqq I$である。</li>
+    </ol></div>
+</div>
+<details>
+<summary>解答</summary>
+<div id="exercise-2-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>(i)${}\Rightarrow{}$(ii)を示す。$\mathcal Z(I)=\varnothing$とすると<a href="#exercise-1">演習問題 2.1</a>の結果から、次数$1$以上の任意の斉次多項式$f\in S$についてある$q\gt0$が存在して$f^q\in I$となる。よって、次数$1$以上の斉次多項式は全て$\sqrt I$に属するので$\doplus_{d\gt0}S_d\subseteqq\sqrt I$が分かる。ここで、$I\neq S$の場合$I$には$0$以外の定多項式が属さないので、$I$の元を斉次分解したとき$0$次の項は現れず、したがって$I\subseteqq S_+$となる。ゆえに、$I=S$または$I=S_+$である。<paragraph>
+    <paragraph>(ii)${}\Rightarrow{}$(iii)を示す。(ii)を仮定すると、各正整数$d$について$S_d\subseteqq S_+\subseteqq I$なので特に(iii)が従う。</paragraph>
+    <paragraph>(iii)${}\Rightarrow{}$(i)を示す。$S_d\subseteqq I$であるとき特に$x_i^d\in I$であるから、$P=(a_0:\cdots:a_n)\in\mathbb P^n$が$P\in\mathcal Z(I)$を満たすためには$a_0^d=\cdots=a_n^d=0$が必要。即ち$a_0=\cdots=a_n=0$でなければならないが、そのような$P\in\mathbb P^n$は存在しないので$\mathcal Z(I)=\varnothing$である。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="Ex23">演習問題 2.3</h3>
+<div id="exercise-3" class="box problem">
+    <div class="title"></div>
+    <div class="content">以下を示せ。
+    <ol class="alpha">
+        <li>$S$の斉次元からなる集合$T_1$, $T_2$が$T_1\subseteqq T_2$を満たすとき、$\mathcal Z(T_2)\subseteqq\mathcal Z(T_1)$である。</li>
+        <li>$\mathbb P^n$の部分集合$W_1$, $W_2$が$W_1\subseteqq W_2$を満たすとき、$\mathcal I(W_2)\subseteqq\mathcal I(W_1)$である。</li>
+        <li>$W_1,W_2\subseteqq\mathbb P^n$について$\mathcal I(W_1\cup W_2)=\mathcal I(W_1)\cap\mathcal I(W_2)$である。</li>
+        <li>斉次イデアル$I\subseteqq S$が$\mathcal Z(I)\neq\varnothing$を満たすとき、$\mathcal I(\mathcal Z(I))=\sqrt I$である。</li>
+        <li>$Y\subseteqq\mathbb P^n$について、$\mathcal Z(\mathcal I(W))=\bar W$である。</li>
+    </ol></div>
+</div>
+<details>
+<summary>解答</summary>
+<div id="exercise-3-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>(a) $T_1\subseteqq T_2$のとき<a href="../affine-space#ZI-property">$\mathcal Z_\mathbb A(T_2)\subseteqq\mathcal Z_\mathbb A(T_1)$</a>なので、
+    $$\mathcal Z_\mathbb P(T_2)=\pi(\mathcal Z_\mathbb A(T_2)\setminus\{\bm0\})\subseteqq\pi(\mathcal Z_\mathbb A(T_1)\setminus\{\bm0\})=\mathcal Z_\mathbb P(T_1)$$
+    である。</paragraph>
+    <paragraph>(b) $W_1\subseteqq W_2$のとき$\pi^{-1}(W_1)\subseteqq\pi^{-1}(W_2)$なので、<a href="../affine-space#ZI-property">$\mathcal I_\mathbb A(\pi^{-1}(W_2))\subseteqq\mathcal I_\mathbb A(\pi^{-1}(W_1))$</a>となる。よって、
+    $$\mathcal I_\mathbb P(W_2)=\mathcal I_\mathbb A(\pi^{-1}(W_2))\subseteqq\mathcal I_\mathbb A(\pi^{-1}(W_1))=\mathcal I_\mathbb P(W_1)$$
+    である。</paragraph>
+    <paragraph>(c) $\pi^{-1}(W_1\cup W_2)=\pi^{-1}(W_1)\cup\pi^{-1}(W_2)$に注意すれば
+    \begin{align*}
+    \mathcal I_\mathbb P(W_1\cup W_1)&=\mathcal I_\mathbb A(\pi^{-1}(W_1\cup W_2))\\
+    &=\mathcal I_\mathbb A(\pi^{-1}(W_1)\cup\pi^{-1}(W_2))
+    \end{align*}
+    である。ここで、
+    $$\mathcal I_\mathbb A(\pi^{-1}(W_1)\cup\pi^{-1}(W_2))=\mathcal I_\mathbb A(\pi^{-1}(W_1))\cap\mathcal I_\mathbb A(\pi^{-1}(W_2))$$
+    が成り立つことを見る。$f\in S$について、$f\in\mathcal I_\mathbb A(\pi^{-1}(W_1)\cup\pi^{-1}(W_2))$であることは
+    $${}^\forall P\in\pi^{-1}(W_1)\cup\pi^{-1}(W_2),\,f(P)=0$$
+    と同値。更にこれは
+    $${}^\forall P\in\pi^{-1}(W_1),\,f(P)=0\and{}^\forall P\in\pi^{-1}(W_2),\,f(P)=0$$
+    即ち$f\in\mathcal I_\mathbb A(\pi^{-1}(W_1))\cap\mathcal I_\mathbb A(\pi^{-1}(W_2))$と同値である。以上より、
+    \begin{align*}
+    \mathcal I_\mathbb P(W_1\cup W_1)&=\mathcal I_\mathbb A(\pi^{-1}(W_1)\cup\pi^{-1}(W_2))\\
+    &=\mathcal I_\mathbb A(\pi^{-1}(W_1))\cap\mathcal I_\mathbb A(\pi^{-1}(W_2))\\
+    &=\mathcal I_\mathbb P(W_1)\cap\mathcal I_\mathbb P(W_2)
+    \end{align*}
+    を得る。</paragraph>
+    <paragraph>(d) $\mathcal Z_\mathbb P(I)\neq\varnothing$なので、<a href="#exercise-2">零でない定多項式は$I$に属さない</a>。$f\in\mathcal I_\mathbb P(\mathcal Z_\mathbb P(I))$を任意にとる。$\mathcal I_\mathbb P(\mathcal Z_\mathbb P(I))$は斉次イデアルなので、$f=\dsum f_d$と斉次分解すると各$f_d$は任意の$P\in\mathcal Z_\mathbb P(I)$について$f_d(P)=0$を満たす。<a href="#exercise-1">演習問題 2.1</a>の結果から$f_d\in\sqrt I$なので、$f\in\sqrt I$が分かる。一方、<a href="../projective-space#hom-oper-prop">$\sqrt I$が斉次イデアルである</a>ことから、$f\in\sqrt I$を任意にとって$f=\dsum f_d$と斉次分解すると$f_d\in\sqrt I$となる。各$d$に対して$f_d^{q_d}\in I$なる正整数$q_d$をとる。$\mathcal Z_\mathbb P$の定義から任意の$P\in\mathcal Z_\mathbb P(I)$は$f_d^{q_d}(P)=0$即ち$f_d(P)=0$を満たすので、$f_d\in\mathcal I_\mathbb P(\mathcal Z_\mathbb P(I))$である。よって$f\in\mathcal I_\mathbb P(\mathcal Z_\mathbb P(I))$である。</paragraph>
+    <paragraph>(e) $f\in\mathcal I_\mathbb P(W)$を任意にとると、任意の$P\in W$は$f(P)=0$を満たすので$W\subseteqq\mathcal Z_\mathbb P(f)$である。よって
+    $$W\subseteqq\bigcap_{f\in\mathcal I_\mathbb P(W)}\mathcal Z_\mathbb P(f)=\mathcal Z_\mathbb P(\mathcal I_\mathbb P(W))$$
+    であり、また$\mathcal Z_\mathbb P(\mathcal I_\mathbb P(W))$は閉集合である。$C$を$W\subseteqq C$なる閉集合とする。$C=\mathcal Z_\mathbb P(T)$となるように斉次多項式の集合$T\subseteqq S$をとると、$W\subseteqq\mathcal Z_\mathbb P(T)$なので$\mathcal I_\mathbb P(\mathcal Z_\mathbb P(T))\subseteqq\mathcal I_\mathbb P(W)$である。よって、
+    $$T\subseteqq(T)\subseteqq\sqrt{(T)}=\mathcal I_\mathbb P(\mathcal Z_\mathbb P(T))$$
+    と併せて
+    $$\mathcal Z_\mathbb P(\mathcal I_\mathbb P(W))\subseteqq\mathcal Z_\mathbb P(\mathcal I_\mathbb P(\mathcal Z_\mathbb P(T)))\subseteqq\mathcal Z_\mathbb P(T)=C$$
+    を得る。以上より、$\mathcal Z_\mathbb P(\mathcal I_\mathbb P(W))$は$W$を包む最小の閉集合なので$\bar W$に等しい。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="Ex24">演習問題 2.4</h3>
+<div id="exercise-4" class="box problem">
+    <div class="title"></div>
+    <div class="content">以下を示せ。
+    <ol class="alpha">
+        <li>$\mathbb P^n$の代数的集合全体の集合と$S$の根基斉次イデアルであって$S_+$でないもの全体の集合の間には、$Y\mapsto\mathcal I(Y)$, $I\mapsto\mathcal Z(I)$で与えられる、包含関係を逆にする全単射がある。</li>
+        <li>代数的集合$Y\subseteqq\mathbb P^n$が既約集合であるための必要十分条件は、$\mathcal I(Y)$が素イデアルとなることである。</li>
+        <li>$\mathbb P^n$は既約空間である。</li>
+    </ol></div>
+</div>
+<details>
+<summary>解答</summary>
+<div id="exercise-4-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>(a) まず、$Y\mapsto\mathcal I(Y)$および$I\mapsto\mathcal Z(I)$のwell-definednessを示す。$S$の根基斉次イデアルであって$S_+$でないもの$I$が与えられたとき$\mathcal Z(I)$が$\mathbb P^n$の代数的集合であることは定義から明らかなので、$Y$を$\mathbb P^n$の代数的集合として$\mathcal I(Y)$が$S$の根基斉次イデアルであって$S_+$でないことを示す。</paragraph>
+    <paragraph>$\mathcal I(\varnothing)=S_+$なので、以下$Y\neq0$の場合を考える。斉次多項式からなる集合$T$で生成されるイデアル$I$に対して$\mathcal Z(T)=\mathcal Z(I)$であることに注意すれば代数的集合は斉次イデアル$I$を用いて$Y=\mathcal Z(I)$の形に表せて、このとき<a href="#exercise-3">演習問題 2.3</a> (d)より$\mathcal I(Y)=\sqrt I$である。よって$\mathcal I(Y)$は根基斉次イデアルである。また、<a href="#exercise-2">演習問題 2.2</a> (ii)$\Rightarrow$(i)より$\mathcal I(Y)\neq S_+$である。</paragraph>
+    <paragraph>$\mathcal I$, $\mathcal Z$が包含関係を反転させることは<a href="#exercise-3">演習問題 2.3</a> (a), (b)から分かる。最後に、これらの写像は全単射である。実際、<a href="#exercise-3">演習問題 2.3</a> (d)と$I$の斉次性より$\mathcal I(\mathcal Z(I))=\sqrt I=I$であり、<a href="#exercise-3">演習問題 2.3</a> (e)と$Y$が閉集合であることから$\mathcal Z(\mathcal I(Y))=\bar Y=Y$なので、$Y\mapsto\mathcal I(Y)$と$I\mapsto\mathcal Z(I)$は互いに逆写像となる。</paragraph>
+    <paragraph>(b) ($\Rightarrow$) $\mathcal I(Y)$が素イデアルでないとすると、ある斉次多項式$f,g\in S$が存在して$f,g\notin\mathcal I(Y)$かつ$fg\in\mathcal I(Y)$となる(<a href="../projective-space#hom-prime-prop">斉次イデアルが素イデアルかの判定法</a>)。$Y_1\coloneqq\mathcal Z(f)$, $Y_2\coloneqq\mathcal Z(g)$とおくと、$fg\in\mathcal I(Y)$より
+    $$Y=\bar Y=\mathcal Z(\mathcal I(Y))=\mathcal Z(fg)=Y_1\cup Y_2$$
+    である。また、$f\notin\mathcal I(Y)$より$Y\nsubseteqq Y_1$であり、$g\notin\mathcal I(Y)$より$Y\nsubseteqq Y_2$である。したがって$Y$は既約集合ではない。</paragraph>
+    <paragraph>($\Leftarrow$) $Y$が既約集合でないとすると、$Y_1\cup Y_2=Y$だが$Y_1,Y_2\neq Y$であるような閉集合$Y_1,Y_2\subseteqq\mathbb P^n$が存在する。(a)と$Y_1,Y_2\subsetneqq Y$から$\mathcal I(Y)\subsetneqq\mathcal I(Y_1),\mathcal I(Y_2)$なので、$f\in\mathcal I(Y_1)\setminus\mathcal I(Y)$および$g\in\mathcal I(Y_2)\setminus\mathcal I(Y)$をとることができる。このとき$fg$は$Y_1$上の点でも$Y_2$上の点でも$0$になるので、$fg\in\mathcal I(Y)$となる。したがって$\mathcal I(Y)$は素イデアルでない。</paragraph>
+    <paragraph>(c) $\mathcal I(\mathbb P^n)=(0)$なので、(b)から直ちに従う。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="Ex25">演習問題 2.5</h3>
+<div id="exercise-5" class="box problem">
+    <div class="title"></div>
+    <div class="content">以下を示せ。
+    <ol class="alpha">
+        <li>$\mathbb P^n$はNoether的位相空間である。</li>
+        <li>$\mathbb P^n$の代数的集合は、互いに包含関係にない有限個の既約閉集合の和として、順序を除いて一意的に表すことができる。</li>
+    </ol></div>
+</div>
+<details>
+<summary>解答</summary>
+<div id="exercise-5-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>(a) $\mathbb P^n$の閉集合の降下列$Y_1\supseteqq Y_2\supseteqq Y_3\supseteqq\cdots$をとると、<a href="#exercise-4">演習問題 2.4</a> (a), (b)より$S$の素イデアルの上昇列$\mathcal I(Y_1)\subseteqq\mathcal I(Y_2)\subseteqq\mathcal I(Y_3)\subseteqq\cdots$が得られる。<a href="../Noetherian#cor-Hilbert">Hilbertの基底定理</a>より$S$はNoether環なので、この素イデアル列は有限回で停止する。つまりある正整数$N$が存在して$\mathcal I(Y_N)=\mathcal I(Y_{N+1})=\mathcal I(Y_{N+2})=\cdots$となるが、<a href="#exercise-3">$\mathcal Z(\mathcal I(Y_i))=Y_i$</a>なので降下列$Y_1\supseteqq Y_2\supseteqq Y_3\supseteqq\cdots$も有限回で停止する。</paragraph>
+    <paragraph>(b) より一般に、Noether的位相空間の閉集合を既約成分に一意分解できることは<a href="../Nullstellensatz#decomposition">既に示した</a>。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="Ex26">演習問題 2.6</h3>
+<div id="exercise-6" class="box problem">
+    <div class="title"></div>
+    <div class="content">$Y$を射影多様体とすると、斉次座標環$S(Y)$のKrull次元は$\dim Y+1$に等しいことを示せ。</div>
+</div>
+<paragraph>ノーヒントは厳しいので、この問題を解くのに使われる第1節の演習問題を解きます(なお、以下の(a)～(e)の全てを使うわけではない)。</paragraph>
+<div id="exercise-1-10" class="box problem">
+    <div class="title">演習問題 1.10</div>
+    <div class="content">
+    <ol class="alpha">
+        <li>位相空間$X$の部分集合$Y$について、$\dim Y\leqq\dim X$であることを示せ。</li>
+        <li>位相空間$X$が開集合族$\{U_\lambda\}_{\lambda\in\Lambda}$で覆われているとき、$\dim X=\dsup_{\lambda\in\Lambda}\dim U_\lambda$であることを示せ。</li>
+        <li>位相空間$X$およびその稠密開部分集合$U$であって、$\dim U\lt\dim X$である例を挙げよ。</li>
+        <li>既約な有限次元位相空間$X$の閉集合$Y$が$\dim X=\dim Y$を満たすとする。このとき$X=Y$であることを示せ。</li>
+        <li>無限次元Noether的位相空間の例を挙げよ。</li>
+    </ol></div>
+</div>
+<details>
+<summary>解答</summary>
+<div id="exercise-1-10-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>(a) <a href="../dimension-variety#dim-leqq">以前示した</a>。</paragraph>
+    <paragraph>(b) (a)より$\sup\dim U_\lambda\leqq\dim X$なので、逆の不等式を示せばよい。$d\coloneqq\dim X$として$X$の既約閉集合列$Z_0\subsetneqq\cdots\subsetneqq Z_d$をとる。$\{U_\lambda\}$は$X$の被覆ゆえ$Z_0\cap U_\lambda\neq\varnothing$なる$\lambda\in\Lambda$が存在するので、そのような$\lambda$を一つ取って固定する。<a href="../Nullstellensatz#open">既約空間の空でない開集合は既約</a>なので、各$Z_i\cap U_\lambda$は$U_\lambda$における既約閉集合である。また、$Z_{i-1}\cap U_\lambda=Z_i\cap U_\lambda$であると仮定する。このとき、$Z_i\cap U_\lambda\subseteqq Z_{i-1}$であることに注意すれば$(Z_i\setminus U_\lambda)\cup Z_{i-1}=Z_i$が分かる。しかし、$Z_0\cap U_\lambda\neq\varnothing$であることから$Z_i\setminus U_\lambda$と$Z_{i-1}$はいずれも$Z_i$の真部分集合なので、$Z_i$の既約性に反する。以上より$U_\lambda$の既約閉集合列
+    $$Z_0\cap U_\lambda\subsetneqq\cdots\subsetneqq Z_{\dim X}\cap U_\lambda$$
+    が得られたので、$\dim X\leqq\sup\dim U_\lambda$である。</paragraph>
+    <paragraph>(c) $X\coloneqq\{0,1\}$に、$\{\varnothing,\{0\},X\}$を開集合系とする位相を入れる。この空間における空でない閉集合$\{1\}$, $X$はいずれも既約である。よって$X$の既約閉集合の昇鎖列として最も長いのは$\{1\}\subsetneqq X$なので、$\dim X=1$である。一方、$U\coloneqq\{0\}$は$X$の稠密開部分集合だが、$U$の空でない閉部分集合は$U$のみ。よって$\dim U=0$が分かる。</paragraph>
+    <paragraph>(d) $X\neq Y$であると仮定し、$d\coloneqq\dim Y$とおく。$Y$の閉部分集合は$X$の閉部分集合でもあるので、$Y$の既約閉集合列$Z_0\subsetneqq\cdots\subsetneqq Z_d$が与えられると$X$の既約閉集合列
+    $$Z_0\subsetneqq\cdots\subsetneqq Z_d\subsetneqq X$$
+    が得られる。しかし、これは長さ$d+1$の既約閉集合列なので$d+1\leqq\dim X$となって前提に反する。</paragraph>
+    <paragraph>(e) <a href="../dimension-variety#Spec-valuation-ring">以前挙げた</a>。</paragraph>
+    </div>
+</div>
+</details>
+<paragraph>上の演習問題は証明に使いはしますが、ヒントとしてはクリティカルではないと思います。</paragraph>
+<paragraph>以下のヒントおよび証明で「$S_{x_i}$の元のうち次数$0$のものからなる部分環」というような表現が出てきます。$S_{x_i}$は(自然な方法で)非負整数により次数付けされませんが、分子の次数から分母の次数を減じたものを分数の次数と呼んでいます。つまり、$S_{x_i}$の元の次数が$0$であるとは分子と分母の次数が等しいことを言います。</paragraph>
+<details>
+<summary>ヒント</summary>
+<paragraph>前回の記事で定めた<a href="../projective-space#:~:text=を考えると、これは全単射">同相写像$\varphi_i\colon U_i\to\mathbb A^n$</a>を用いてアフィン多様体$Y_i\coloneqq\varphi_i(Y\cap U_i)$を考え、$A(Y_i)$をそのアフィン座標環とします。このとき$A(Y_i)$が$S(Y)_{x_i}$の元のうち次数$0$のものからなる部分環と同型であることを示し、$S(Y)_{x_i}\cong A(Y_i)[x_i,x_i^{-1}]$であることを示します。更に、<a href="../dimension-variety#dim-equal">アフィン代数的集合の次元がアフィン座標環のKrull次元に一致すること</a>、<a href="../dimension-1#dim-trdeg">Krull次元と超越次数の関係</a>、および<a href="#exercise-1-10">演習問題 1.10</a>を使って超越次数に落とし込み、$Y_i$が空でなければ$\dim Y=\dim Y_i$であることを証明します。</paragraph>
+</details>
+<details>
+<summary>解答</summary>
+<div id="exercise-6-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>$S_{x_i}$の元のうち次数$0$のもの、即ち$\dfrac f{x_i^d}$ ($d=\deg f$)の形に表されるもの全体がなす環を$S_{(x_i)}$と書く(素イデアル$(x_i)$による局所化とは別物なので注意)。以下同様に、環$R$の$a\in R$による局所化を$R_{(a)}$と書く。写像
+    \begin{align*}
+    \rho_i&\colon A=k[y_1,\cdots,y_n]\to S_{(x_i)}\\
+    &f(y_1,\cdots,y_n)\mapsto f{\left(\frac{x_0}{x_i},\cdots,\frac{x_{i-1}}{x_i},\frac{x_{i+1}}{x_i},\cdots,\frac{x_n}{x_i}\right)}
+    \end{align*}
+    は環同型である。実際、環準同型となることは明らかであり、逆写像は以下のように構成できる。
+    \begin{align*}
+    \rho_i^{-1}&\colon S_{(x_i)}\to A\\
+    &\dsum_jc_j\frac{x_0^{e_{0,j}}\cdots x_{i-1}^{e_{i-1,j}}x_{i+1}^{e_{i+1,j}}\cdots x_n^{e_{n,j}}}{x_i^{e_{0,j}+\cdots+e_{i-1,j}+e_{i+1,j}+\cdots+e_{n,j}}}\mapsto\dsum_jc_jy_1^{e_{0,j}}\cdots y_i^{e_{i-1},j}y_{i+1}^{e_{i+1,j}}\cdots y_n^{e_{n,j}}
+    \end{align*}
+    例えば、$\dfrac{x_0^2x_2^3}{x_1^5}\mapsto y_1^2y_2^3$といった具合である。</paragraph>
+    <paragraph>$i=0,\cdots,n$に対して
+    $$U_i\coloneqq\{(a_0:\cdots:a_n)\in\mathbb P^n\mid a_i\neq0\}(=\mathbb P^n\setminus\mathcal Z(x_i))$$
+    とおく。<a href="../projective-space#:~:text=を考えると、これは全単射">同相写像$\varphi_i\colon U_i\to\mathbb A^n$</a>により、$Y\cap U_i$はアフィン多様体$Y_i\coloneqq\varphi_i(Y\cap U_i)$と同相になる。このとき、$\rho_i$を通じて$A(Y_i)$と$S(Y)_{(x_i)}$が同型であることを示す($x_i+\mathcal I_\mathbb P(Y)$を単に$x_i$と書いている)。まず、環準同型
+    $$\pi\colon S_{(x_i)}\to S(Y)_{(x_i)},\,\frac f{x_i^{\deg f}}\mapsto\frac{f+\mathcal I_\mathbb P(Y)}{x_i^{\deg f}}$$
+    は全射であり、$\Ker\pi=\mathcal I_\mathbb P(Y)_{(x_i)}$<sup><a id="footnoteref1" href="#footnote1">[脚註1]</a></sup>なので$S(Y)_{(x_i)}\cong S_{(x_i)}/\mathcal I_\mathbb P(Y)_{(x_i)}$である。したがって、$\rho_i$を通じて$\mathcal I_\mathbb A(Y_i)$と$\mathcal I_\mathbb P(Y)_{(x_i)}$が対応することを示せば$A(Y_i)$と$S(Y)_{(x_i)}$の同型が得られる。$f\in\mathcal I_\mathbb A(Y_i)$および$P\in Y\cap U_i$を任意にとる。$P\coloneqq(a_0:\cdots:a_n)$とおくと、<a href="../projective-space#:~:text=を考えると、これは全単射">$\varphi_i$の定義から</a>
+    $$\rho_i(f)(P)=f{\left(\frac{a_0}{a_i},\cdots,\frac{a_{i-1}}{a_i},\frac{a_{i+1}}{a_i},\cdots,\frac{a_n}{a_i}\right)}=f\Bigl(\varphi_i(P)\Bigr)=0$$
+    である。したがって$x^{\deg f}\rho(f)\in\mathcal I_\mathbb P(Y\cap U_i)$だが、<a href="../Nullstellensatz#open">既約集合の空でない開集合は稠密</a>なので、
+    \begin{align*}
+    g\in\mathcal I_\mathbb P(Y\cap U_i)&\iff\mathcal Z_\mathbb P(g)\supseteqq\mathcal Z_\mathbb P(\mathcal I_\mathbb P(Y\cap U_i))=\bar{Y\cap U_i}=Y\\
+    &\iff g\in\mathcal I_\mathbb P(Y)
+    \end{align*}
+    である。よって、$x^{\deg f}\rho(f)\in\mathcal I_\mathbb P(Y)$ゆえ$\rho(f)\in\mathcal I_\mathbb P(Y)_{(x_i)}$を得る。ここまでの議論を逆にたどれば、$\rho(f)\in\mathcal I_\mathbb P(Y)_{(x_i)}$ならば$f\in\mathcal I_\mathbb A(Y_i)$であることも分かる。以上より、$A(Y_i)\cong S(Y)_{(x_i)}$である。</paragraph>
+    <paragraph>ここで、
+    $$S_{(x_i)}[X,X^{-1}]\to S_{x_i},\,\dsum_df_dX^d\mapsto\dsum_df_dx_i^d$$
+    は同型である。全射であることは明らかで、単射であることは$X$の次数ごと($d$ごと)に確認すればよい。また、$x_i\notin\mathcal I_\mathbb P(Y)$であるとき、即ち$S(Y)_{x_i}$が零環でないときは、同型写像
+    \begin{align*}
+    &\Frac S(Y)\to\Frac S(Y)_{x_i},\,\frac fg\mapsto\frac{f/1}{g/1}\\
+    &\Frac S(Y)_{x_i}\to\Frac S(Y),\,\frac{f/x_i^m}{g/x_i^n}\mapsto\frac fgx_i^{n-m}
+    \end{align*}
+    により$\Frac S(Y)\cong\Frac S(Y)_{x_i}$となる<sup><a id="footnoteref2" href="#footnote2">[脚註2]</a></sup>。したがって<a href="../dimension-1#dim-trdeg">Krull次元と超越次数の関係</a>から、$x_i\notin\mathcal I_\mathbb P(Y)$のとき
+    \begin{align*}
+    \dim S(Y)&=\trdeg_k\Frac S(Y)=\trdeg_k\Frac S(Y)_{x_i}\\
+    &=\trdeg_k\Frac(S(Y)_{(x_i)}[X])\\
+    &=\trdeg_k(\Frac A(Y_i))(X)\\
+    &=\trdeg_k\Frac A(Y_i)+1\\
+    &=\dim A(Y_i)+1=\dim Y_i+1
+    \end{align*}
+    となる。ただし、最後の等式は<a href="../dimension-variety#dim-equal">アフィン多様体の次元が座標環の次元に等しいこと</a>を使った。$x_i\in\mathcal I_\mathbb P(Y)$であれば$Y\subseteqq\mathcal Z_\mathbb P(x_i)$であることから$Y\cap U_i=\varnothing$となる。よって$\{Y\cap U_i\mid x_i\notin\mathcal I_\mathbb P(Y)\}$は$Y$の開被覆なので、<a href="#exercise-1-10">演習問題 1.10</a>より
+    \begin{align*}
+    \dim Y&=\sup_{x_i\notin\mathcal I_\mathbb P(Y)}\dim(Y\cap U_i)=\sup_{x_i\notin\mathcal I_\mathbb P(Y)}\dim Y_i\\
+    &=\sup_{x_i\notin\mathcal I_\mathbb P(Y)}(\dim S(Y)-1)=\dim S(Y)-1
+    \end{align*}
+    を得る。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="Ex27">演習問題 2.7</h3>
+<div id="exercise-7" class="box problem">
+    <div class="title"></div>
+    <div class="content">以下を示せ。
+    <ol class="alpha">
+        <li>$\dim\mathbb P^n=n$</li>
+        <li>$Y\subseteqq\mathbb P^n$が準射影多様体であるとき、$\dim Y=\dim\bar Y$である。</li>
+    </ol></div>
+</div>
+<details>
+<summary>ヒント</summary>
+<paragraph><a href="#exercise-6">演習問題 2.6</a>を使い、<a href="../dimension-variety#dim-Ybar">アフィン多様体における同様の命題</a>に帰着させます。</paragraph>
+</details>
+<details>
+<summary>解答</summary>
+<div id="exercise-7-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>(a) $\mathcal I(\mathbb P^n)=(0)$なので、<a href="#exercise-6">演習問題 2.6</a>より
+    $$\dim\mathbb P^n=\dim S(\mathbb P^n)-1=\dim k[x_0,\cdots,x_n]-1=n$$
+    である(<a href="../dimension-1#poly-ring">多項式環の次元</a>)。</paragraph>
+    <paragraph>(b) まず、$i=0,\cdots,n$に対して
+    $$U_i\coloneqq\{(a_0:\cdots:a_n)\in\mathbb P^n\mid a_i\neq0\}(=\mathbb P^n\setminus\mathcal Z(x_i))$$
+    と定めるとこれは$\mathbb P^n$の開被覆である。よって、$Y_i\coloneqq Y\cap U_i$とおけば$\{Y_i\}$は$Y$の開被覆となる。また、$\bar{Y_i}$を$U_i$における$Y_i$の閉包, $\bar Y$を$\mathbb P^n$における$Y$の閉包とすれば、$\bar Y\cap U_i=\bar Y_i$<sup><a id="footnoteref3" href="#footnote3">[脚註3]</a></sup>なので$\{\bar{Y_i}\}$は$\bar Y$の開被覆となる。$U_i\approx\mathbb A^n$により<a href="../projective-space#gluing-cor">$Y_i$が準アフィン多様体と同相</a>であることに注意すると<a href="../dimension-variety#dim-Ybar">$\dim Y_i=\dim\bar Y_i$</a>なので、<a href="#exercise-1-10">演習問題 1.10</a> (b)から
+    $$\dim Y=\sup_i\dim Y_i=\sup_i\dim\bar Y_i=\dim\bar Y$$
+    を得る。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="Ex28">演習問題 2.8</h3>
+<div id="exercise-8" class="box problem">
+    <div class="title"></div>
+    <div class="content">射影多様体$Y\subseteqq\mathbb P^n$の次元が$n-1$であるための必要十分条件は、既約斉次多項式$f$を用いて$Y=\mathcal Z(f)$と書けることである。</div>
+</div>
+<details>
+<summary>解答</summary>
+<div id="exercise-8-proof" class="box proof">
+    <div class="title"></div>
+    <div class="content">
+    <paragraph>($\Rightarrow$) $Y\subseteqq\mathbb P^n$を$(n-1)$次元射影多様体とし、$\mathfrak p\coloneqq\mathcal I(Y)$とする。<a href="../dimension-2#theorem-18Ab">$\ht\mathfrak p+\coht\mathfrak p=\dim S$</a>および<a href="#exercise-6">演習問題 2.6</a>から
+    \begin{align*}
+    \ht\mathfrak p&=\dim S-\dim S/\mathfrak p=(n+1)-\dim S(Y)\\
+    &=(n+1)-(\dim Y+1)=1
+    \end{align*}
+    が分かる。<a href="../dimension-variety#theorem-112A">Noetherな一意分解整域における高さ$1$の素イデアルは単項</a>なので、既約多項式$f$を用いて$\mathcal I(Y)=(f)$と書ける。このとき$Y=\mathcal Z(f)$である。また、<a href="#exercise-4">演習問題 2.4</a> (a)より$\mathcal I(Y)$は斉次イデアルなので、$f$は斉次多項式でなければならない<sup><a id="footnoteref4" href="#footnote4">[脚註4]</a></sup>。</paragraph>
+    <paragraph>($\Leftarrow$) $f\in S$を斉次既約多項式とし、射影多様体$Y\coloneqq\mathcal Z(f)$を考える。$f$の既約性から$(f)$は素イデアルなので、<a href="../dimension-variety#theorem-111A">Krullの単項イデアル定理</a>から$\ht(f)=1$である。よって、
+    \begin{align*}
+    \dim Y&=\dim S(Y)-1=\dim S/(f)-1=\coht(f)-1\\
+    &=\dim S-\ht(f)-1=n-1
+    \end{align*}
+    を得る。</paragraph>
+    </div>
+</div>
+</details>
+<h3 id="footnote">脚註</h3>
+<ol>
+<li id="footnote1">$\Ker\pi=\mathcal I_\mathbb P(Y)_{(x_i)}$を示します。$\dfrac f{x_i^d}\in\mathcal I_\mathbb P(Y)_{(x_i)}$ ($f\in\mathcal I_\mathbb P(Y)$, $d=\deg f$)を任意にとると、$\dfrac{f+\mathcal I_\mathbb P(Y)}{x_i^d}=0$なので$\dfrac f{x_i^d}\in\Ker\pi$です。一方$\dfrac f{x_i^d}\in\Ker\pi$ ($d=\deg f$)を任意にとると、これは
+$$S_{x_i}\to S(Y)_{x_i},\,\frac f{x_i^k}\mapsto\frac{f+\mathcal I_\mathbb P(Y)}{x_i^k}$$
+の核にも属します。よってある$k$が存在して$x_i^kf\in\mathcal I_\mathbb P(Y)$なので、$\dfrac f{x_i^d}\in\mathcal I(Y)_{x_i}$である。分母と分子の次数が等しいことから$\dfrac f{x_i^d}\in\mathcal I(Y)_{(x_i)}$を得ます。<a href="#footnoteref1">↩</a></li>
+<li id="footnote2">$S(Y)$が零環でないとき$\Frac S(Y)\cong\Frac S(Y)_{x_i}$となることは、直感的にも分かりやすいかと思います。$S(Y)$は整域なので、$\dfrac f{x_i^m}=0$は$f=0$と同値であることに注意すればよいです。$S(Y)$が零環であるときはそもそも分数体が定義されません(零環は整域としない定義が主流)。$S(Y)_{x_i}$に分数体の定義を無理やり当てはめると
+$$\left\{\frac{f/x_i^m}{g/x_i^m}\,\middle|\,\frac f{x_i^m}\in S(Y)_{x_i},\frac g{x_i^n}\in S(Y)_{x_i}\setminus\{0\}\right\}$$
+となりますが、$S(Y)_{x_i}=\{0\}$なのでこの集合は空集合になります。<a href="#footnoteref2">↩</a></li>
+<li id="footnote3">$\bar Y\cap U_i=\bar Y_i$の証明は難しくなさそうなので省略しましたが、さほど自明でもない気がしたので書いておきます。$P\in\mathbb P^n$が$\bar Y$に入るための必要十分条件は、$P$の任意の開近傍が$Y$と交わることです。$P\in U_i$なる$i$を一つ取って固定します。$P\in\bar Y$であるとすると、$U_i$に包まれる$P$の任意の開近傍$V$は$Y$と交わり、したがって$Y_i$と交わるので$P\in\bar{Y_i}$が分かります。一方$P\in\bar Y_i$であるとし、$P$の任意の開近傍$V\subseteqq\mathbb P^n$をとります。このとき$V\cap U_i$は$Y$と交わるので、特に$V$も$Y$と交わります。以上より、$P\in U_i$のとき$P\in\bar Y$と$P\in\bar Y_i$が同値であることが示されました。<a href="#footnoteref3">↩</a></li>
+<li id="footnote4">一般に、整域である次数環$R$の単項イデアル$(a)$が斉次イデアルなら$a$は斉次元になります。実際、$a=\dsum a_d$と斉次分解すると$\deg a_d\leqq\deg a$である必要があります。このときある$b\in R$を用いて$a_{\deg a}=ab$と書けますが、両辺の次数を比較すると$\deg b=0$でなければなりません。よって$b$は斉次元なので、$ab$を斉次分解することで$a$は斉次元であることが分かります。$R$が整域でないとこれは必ずしも成り立ちません。具体的には、$K$を体として$R\coloneqq K[x]/(x^2-1)$を$K\oplus Kx$と斉次分解すると、$1+x$は斉次元ではありませんが、$(1+x)\ni1-x^2=1$なので$(1+x)=R$となりこれは斉次イデアルであることが分かります。<a href="#footnoteref4">↩</a></li>
+</ol>
+<h3 id="reference">参考文献</h3>
+<paragraph>ページタイトルが英語ですが、中身は日本語です。</paragraph>
+<ol id="ref-list">
+    <li id="ref1"><a href="https://www.u.tsukuba.ac.jp/~okamoto.eiji.fp">Solutions of Algebraic Geometry by Hartshorne</a> <small>(アクセス日: 2025-11-01)</small></li>
+</ol>
+<div class="adjacent">
+    <a class="prev"></a>
+    <a class="next"></a>
+</div>
+</main>
+<footer>created by mathphilia</footer>
+</body>
+</html>

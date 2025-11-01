@@ -38,7 +38,7 @@
 </div>
 <h2>tikz-3dplotを用いない立体描画</h2>
 <h3 id="outline">概要</h3>
-<paragraph>Ti<em>k</em>Zで平面図形を描くのは比較的シンプルなコマンドで実現でき、日本語での解説も豊富にあります。本記事で使用するコマンドに関しては参考文献<a href="#TikZ-1">[1]</a>,<a href="#TikZ-2">[2]</a>,<a href="#TikZ-3">[3]</a>に載っています。これに対して立体図形は、tikz-3dplotなどの派生パッケージで描けるもののコマンドが複雑であり、日本語での解説も多くありません。ということで、平面図形用のコマンドだけで立体図形を描くことにしました。なお、以下では見栄えの都合上、座標を横ヴェクトルで表示します。</paragraph>
+<paragraph>Ti<em>k</em>Zで平面図形を描くのは比較的シンプルなコマンドで実現でき、日本語での解説も豊富にあります。本記事で使用するコマンドに関しては参考文献<a href="#TikZ-1">[1]</a>, <a href="#TikZ-2">[2]</a>, <a href="#TikZ-3">[3]</a>に載っています。これに対して立体図形は、tikz-3dplotなどの派生パッケージで描けるもののコマンドが複雑であり、日本語での解説も多くありません。ということで、平面図形用のコマンドだけで立体図形を描くことにしました。なお、以下では見栄えの都合上、座標を横ヴェクトルで表示します。</paragraph>
 <h3 id="outline">目標</h3>
 <paragraph>ここでは以下のような図の描画を目的とします。</paragraph>
 <div class="figure"><img alt="描画例" src="examples.png"><span>描画例</span></div>
@@ -250,7 +250,7 @@ f_\varphi(\theta,\varphi)&=(-\cos\theta\sin\varphi,-\sin\theta\sin\varphi,\cos\v
 \end{tikzpicture}</code></pre>
 <div class="figure"><img alt="立方体の切断" src="3cubes.png"><span>立方体の切断</span></div>
 <h4>二変数標準正規分布</h4>
-<paragraph>二変数の標準正規分布の確率密度関数のグラフを描きます。目標はこちら(参考:<a href="#pdf">[4]</a>)。</paragraph>
+<paragraph>二変数の標準正規分布の確率密度関数のグラフを描きます。目標はこちら(参考: <a href="#pdf">[4]</a>)。</paragraph>
 <div class="figure"><img alt="二変数標準正規分布" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Multivariate_Gaussian.png/450px-Multivariate_Gaussian.png"><span>二変数標準正規分布</span></div>
 <paragraph>確率密度函数は$\dfrac1{2\pi}\exp\left(-\dfrac{x^2+y^2}2\right)$で与えられますが、$z$座標が小さくなりすぎないように$16\pi$倍して
 $$f\colon\mathbb R^2\to\mathbb R^3,\,(x,y)\mapsto\left(x,y,4\exp\left(-\dfrac{x^2+y^2}2\right)\right)$$
@@ -277,7 +277,7 @@ $$1+4(2y-x)\exp\left(-\dfrac{x^2+y^2}2\right)=0$$
 \end{tikzpicture}</code></pre>
 <div class="figure"><img alt="二変数標準正規分布" src="normal-distribution.png"><span>二変数標準正規分布</span></div>
 <h4>電磁波</h4>
-<paragraph>電磁波が伝わる様子を図示します。目標はこちら(参考:<a href="#wave">[5]</a>)。</paragraph>
+<paragraph>電磁波が伝わる様子を図示します。目標はこちら(参考: <a href="#wave">[5]</a>)。</paragraph>
 <div class="figure"><img alt="電磁波" src="https://tikz.net/files/electromagnetic_wave-001.png"><span>電磁波</span></div>
 <paragraph>なんとなく電磁波は右上に向かって進んでほしいので、ここだけ目線の向きを変えます。具体的には、点$(0,2,0)$と点$(-1,0,1)$が重なる方向から見ます。ただし、この座標は参考画像の座標軸でなく、右向きを$x$軸正の方向、奥向きを$y$軸正の方向、上向きを$z$軸正の方向とした座標で考えています。このとき座標変換は
 $$\begin{pmatrix}X\\Y\end{pmatrix}=\begin{pmatrix}2/\sqrt5&-1/\sqrt5&0\\1/\sqrt{30}&2/\sqrt{30}&5/\sqrt{30}\end{pmatrix}\begin{pmatrix}x\\y\\z\end{pmatrix}$$
@@ -311,11 +311,11 @@ $$\begin{pmatrix}X\\Y\end{pmatrix}=\begin{pmatrix}2/\sqrt5&-1/\sqrt5&0\\1/\sqrt{
 <div class="figure"><img alt="電磁波" src="wave.png"><span>電磁波</span></div>
 <h3 id="reference">参考文献</h3>
 <ol id="ref-list">
-    <li id="TikZ-1"><a href="https://math-note.xyz/category/latex/tikz/">TikZ – あーるえぬ</a></li>
-    <li id="TikZ-2"><a href="https://qiita.com/yanagi4q/items/86692fce62fdf6bb83ef">Tikz の foreach を使う練習 #TeX - Qiita</a></li>
-    <li id="TikZ-3"><a href="https://code-de-byouga.hatenablog.com/entry/tikz-loop-if">【LaTeX】【tikz】ループと分岐を組みあわせて描画する例5選 - コードDE描画</a></li>
-    <li id="pdf"><a href="https://ja.wikipedia.org/wiki/多変量正規分布">多変量正規分布 - Wikipedia</a></li>
-    <li id="wave"><a href="https://tikz.net/electromagnetic_wave/">Electromagnetic wave – TikZ.net</a></li>
+    <li id="TikZ-1"><a href="https://math-note.xyz/category/latex/tikz/">TikZ – あーるえぬ</a> <small>(アクセス日: 2025-11-01)</small></li>
+    <li id="TikZ-2"><a href="https://qiita.com/yanagi4q/items/86692fce62fdf6bb83ef">Tikz の foreach を使う練習 #TeX - Qiita</a> <small>(アクセス日: 2025-11-01)</small></li>
+    <li id="TikZ-3"><a href="https://code-de-byouga.hatenablog.com/entry/tikz-loop-if">【LaTeX】【tikz】ループと分岐を組みあわせて描画する例5選 - コードDE描画</a> <small>(アクセス日: 2025-11-01)</small></li>
+    <li id="pdf"><a href="https://ja.wikipedia.org/wiki/多変量正規分布">多変量正規分布 - Wikipedia</a> <small>(アクセス日: 2025-11-01)</small></li>
+    <li id="wave"><a href="https://tikz.net/electromagnetic_wave/">Electromagnetic wave – TikZ.net</a> <small>(アクセス日: 2025-11-01)</small></li>
 </ol>
 <div class="adjacent">
     <a class="prev"></a>

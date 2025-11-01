@@ -1,4 +1,4 @@
-onload = function() {
+document.addEventListener('DOMContentLoaded', () => {
     let thisPage = location.pathname.replace(/\/$/, '').split('/').at(-1);
     let pageIndex = pages.pageName.indexOf(thisPage);
     if(pageIndex < 0) {
@@ -102,4 +102,12 @@ onload = function() {
             }, 3000);
         };
     });
-};
+
+    Array.from(document.getElementsByTagName('a')).forEach(elem => {
+        if(!elem.host || elem.host == location.host) {
+            return;
+        }
+        elem.target = '_blank';
+        elem.rel = 'noopener noreferrer';
+    });
+});

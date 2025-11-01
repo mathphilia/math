@@ -99,7 +99,7 @@ h3 {
     border-left: 0.5em solid black;
     background-color: #CCC;
     font-size: 1.5em;
-    margin: 1em 0em 0.3em;
+    margin: 1.5em 0em 0.5em;
     padding-left: 0.5em;
 }
 
@@ -270,7 +270,6 @@ ol, ul {
 
 ol.Alpha {
     counter-reset: Alpha;
-    padding-left: 3em;
 }
 
 ol.Alpha li {
@@ -283,7 +282,6 @@ ol.Alpha li::marker {
 
 ol.alpha {
     counter-reset: alpha;
-    padding-left: 3em;
 }
 
 ol.alpha li {
@@ -296,7 +294,6 @@ ol.alpha li::marker {
 
 ol.arabic {
     counter-reset: arabic;
-    padding-left: 3em;
 }
 
 ol.arabic li {
@@ -357,6 +354,44 @@ del {
     color: gray;
 }
 
+details {
+    background-color: #EED;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+details > div.box {
+    margin-top: 0;
+    opacity: 0;
+    transform: translateY(-1em);
+    transition: 0.5s;
+}
+
+details[open] > div.box {
+    opacity: 1;
+    transform: none;
+}
+
+summary {
+    background-color: #DDB;
+    border: 1px #775 solid;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    z-index: 1;
+}
+
+summary::before {
+    content: "➤";
+    display: inline-block;
+    padding: 2px 0.5em;
+    transition: 0.5s;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+
 mjx-container {
     overflow: auto hidden;
     scrollbar-width: none;
@@ -367,6 +402,6 @@ mjx-container::-webkit-scrollbar {
     display: none;
 }
 
-mjx-container[jax="SVG"][display="true"] {
+body mjx-container[jax="SVG"][display="true"] {
     margin: 0.5em 0;
 }
